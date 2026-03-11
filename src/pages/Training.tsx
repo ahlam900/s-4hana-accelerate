@@ -124,6 +124,8 @@ const Training = () => {
         </div>
       </section>
 
+      <BecomeConsultantSection />
+
       <ContactFormSection />
     </Layout>
   );
