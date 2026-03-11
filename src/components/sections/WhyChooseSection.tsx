@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import { Shield, Users, Award, TrendingUp, CheckCircle2, Clock } from "lucide-react";
+import { Shield, Globe, Award, TrendingUp, CheckCircle2, Users } from "lucide-react";
 
 const reasons = [
-  { icon: Shield, title: "Certified SAP Expertise", desc: "Our consultants hold the highest SAP certifications with deep S/4HANA specialization." },
-  { icon: Users, title: "200+ Senior Consultants", desc: "A global team of experienced SAP professionals with enterprise-grade delivery track records." },
-  { icon: Award, title: "Proven Methodology", desc: "Battle-tested implementation frameworks refined across 500+ SAP projects." },
-  { icon: TrendingUp, title: "Finance Transformation", desc: "Specialized in SAP FICO and digital finance transformation for CFO organizations." },
-  { icon: CheckCircle2, title: "End-to-End Delivery", desc: "From strategy through go-live and support — complete SAP transformation lifecycle coverage." },
-  { icon: Clock, title: "Accelerated Timelines", desc: "Pre-built accelerators and templates that reduce implementation timelines by up to 40%." },
+  { icon: Shield, title: "SAP S/4HANA Transformation Specialists", desc: "Focused exclusively on SAP S/4HANA implementations, ECC migrations, and enterprise ERP modernization." },
+  { icon: TrendingUp, title: "Deep SAP Finance Expertise", desc: "Specialized in SAP FICO and finance transformation for CFO organizations and enterprise finance departments." },
+  { icon: Users, title: "Senior SAP Consultants", desc: "Our team consists of experienced SAP professionals with proven delivery track records across complex enterprise projects." },
+  { icon: Award, title: "Proven SAP Implementation Methodology", desc: "Battle-tested frameworks and accelerators refined across 50+ SAP S/4HANA transformation projects." },
+  { icon: CheckCircle2, title: "End-to-End ERP Transformation Support", desc: "From strategy and architecture through go-live and post-implementation support — complete SAP transformation lifecycle." },
+  { icon: Globe, title: "International SAP Consulting Experience", desc: "Global delivery expertise across industries and geographies, supporting multinational ERP transformation programs." },
 ];
 
 const WhyChooseSection = () => {
@@ -30,7 +30,7 @@ const WhyChooseSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Your Trusted SAP Transformation Partner
+              Why Enterprises Choose CBS Consulting
             </motion.h2>
             <motion.p
               className="text-muted-foreground leading-relaxed mb-8"
@@ -39,7 +39,7 @@ const WhyChooseSection = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              CBS Consulting combines deep SAP technical expertise with strategic business acumen to deliver transformational outcomes for global enterprises. We don't just implement technology — we drive business value.
+              CBS Consulting combines deep SAP S/4HANA expertise with strategic finance transformation experience to deliver measurable outcomes for global enterprises. We are your trusted partner for SAP transformation and SAP consulting talent development.
             </motion.p>
           </div>
 

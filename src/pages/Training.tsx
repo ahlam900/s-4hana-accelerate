@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, BookOpen } from "lucide-react";
 import ContactFormSection from "@/components/sections/ContactFormSection";
+import BecomeConsultantSection from "@/components/sections/BecomeConsultantSection";
 
 const programs = [
   {
@@ -122,6 +123,8 @@ const Training = () => {
           </div>
         </div>
       </section>
+
+      <BecomeConsultantSection />
 
       <ContactFormSection />
     </Layout>
