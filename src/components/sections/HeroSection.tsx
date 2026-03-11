@@ -69,9 +69,9 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.5 }}
           >
             {[
-              { value: "500+", label: "Projects Delivered" },
-              { value: "200+", label: "Certified Consultants" },
-              { value: "15+", label: "Years Experience" },
+              { value: "15+", label: "Years SAP Experience" },
+              { value: "50+", label: "SAP Projects Delivered" },
+              { value: "Global", label: "International SAP Consulting" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="font-heading text-2xl md:text-3xl font-bold text-accent-foreground">{stat.value}</div>
