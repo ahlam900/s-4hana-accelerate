@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-24 md:pt-28 pb-24 md:pb-36 overflow-hidden bg-secondary">
+      <section className="relative pt-24 md:pt-28 pb-20 md:pb-28 overflow-hidden bg-secondary">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
         <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative">
           <div className="lg:col-span-7 relative z-10">
@@ -21,18 +21,18 @@ const Home = () => {
             <h1 className="display-xl text-foreground">
               L'institut de référence de la <em className="not-italic text-champagne font-display">Finance SAP</em>.
             </h1>
-            <p className="lede mt-8 max-w-xl">
-              Un institut premium dédié à la maîtrise de la Finance SAP, à la transformation digitale SAP et à la formation des Key Users — pour les professionnels et les organisations exigeantes.
+            <p className="lede mt-7 max-w-xl leading-relaxed">
+              Institut dédié à l'excellence Finance SAP : transformation digitale SAP, montée en puissance des Key Users, et formations certifiantes pour professionnels exigeants.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
-                <Link to="/formations">Découvrir les formations Finance SAP <ArrowRight /></Link>
+                <Link to="/formations">Découvrir les formations <ArrowRight /></Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="/offres-entreprise">Nos offres entreprise</Link>
+                <Link to="/offres-entreprise">Découvrir nos offres entreprises</Link>
               </Button>
             </div>
-            <div className="mt-14 pt-8 border-t border-border/70 flex flex-wrap items-center gap-x-10 gap-y-4 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+            <div className="mt-12 pt-6 border-t border-border/70 flex flex-wrap items-center gap-x-10 gap-y-4 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
               <span><span className="text-champagne font-semibold">100 %</span> Finance SAP</span>
               <span className="h-3 w-px bg-border" />
               <span>Pédagogie de haut niveau</span>
@@ -45,12 +45,12 @@ const Home = () => {
               <img src={heroVisual} alt="Composition architecturale CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
             </div>
-            <div className="hidden md:block absolute -bottom-8 -left-8 lg:-left-12 bg-ink text-ivory p-6 rounded-sm max-w-[260px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-champagne mb-3">
+            <div className="hidden md:block absolute -bottom-6 -left-6 lg:-left-10 bg-ink text-ivory p-5 rounded-sm max-w-[240px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/30">
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-champagne mb-2.5">
                 <span className="h-px w-4 bg-champagne" /> Programme phare
               </div>
-              <div className="font-display text-[17px] leading-snug">SAP FICO Consultant Program</div>
-              <div className="text-[11px] uppercase tracking-[0.18em] text-ivory/55 mt-3 pt-3 border-t border-ivory/10">70 h · Cursus certifiant</div>
+              <div className="font-display text-base leading-snug">SAP FICO Consultant Program</div>
+              <div className="text-[11px] uppercase tracking-[0.18em] text-ivory/55 mt-2.5 pt-2.5 border-t border-ivory/10">70 h · Cursus certifiant</div>
             </div>
           </div>
         </div>
