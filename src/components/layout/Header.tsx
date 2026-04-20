@@ -40,13 +40,14 @@ const Header = () => {
       )}
     >
       <div className="container-wide flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="h-9 w-9 rounded-sm gradient-ink flex items-center justify-center">
-            <span className="font-display text-ivory text-lg leading-none">C</span>
+        <Link to="/" className="flex items-center gap-3.5 group">
+          <div className="relative h-11 w-11 rounded-sm gradient-ink flex items-center justify-center shadow-[var(--shadow-card)] ring-1 ring-champagne/30">
+            <span className="font-display text-ivory text-xl leading-none tracking-tight">C</span>
+            <span className="absolute -bottom-px left-1/2 -translate-x-1/2 h-px w-5 bg-champagne/70" />
           </div>
-          <div className="hidden sm:flex flex-col leading-tight">
-            <span className="font-display text-[15px] tracking-tight text-foreground">CBS Finance Institute</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Expertise Finance SAP</span>
+          <div className="hidden sm:flex flex-col leading-[1.05]">
+            <span className="font-display text-[17px] tracking-tight text-foreground">CBS Finance Institute</span>
+            <span className="text-[9.5px] uppercase tracking-[0.32em] text-champagne mt-1">Expertise · Finance SAP</span>
           </div>
         </Link>
 
@@ -85,7 +86,7 @@ const Header = () => {
           </Link>
 
           <Button asChild size="sm" variant="ink" className="hidden md:inline-flex">
-            <Link to="/contact">Être contacté</Link>
+            <Link to="/contact">Parler à un expert</Link>
           </Button>
 
           <button
@@ -117,7 +118,7 @@ const Header = () => {
               </NavLink>
             ))}
             <Button asChild size="lg" variant="ink" className="mt-4">
-              <Link to="/contact">Être contacté</Link>
+              <Link to="/contact">Parler à un expert</Link>
             </Button>
           </nav>
         </div>
