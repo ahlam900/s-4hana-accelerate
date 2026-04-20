@@ -86,7 +86,7 @@ const Header = () => {
           </Link>
 
           <Button asChild size="sm" variant="ink" className="hidden md:inline-flex">
-            <Link to="/contact">Être contacté</Link>
+            <Link to="/contact">Parler à un expert</Link>
           </Button>
 
           <button
