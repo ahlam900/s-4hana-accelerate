@@ -289,29 +289,34 @@ const Home = () => {
       </section>
 
       {/* RÉFÉRENCES PROJETS */}
-      <section className="py-16 md:py-20 border-t border-border">
+      <section className="py-20 md:py-24 border-t border-border">
         <div className="container-wide">
-          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-14">
-            <div className="eyebrow mb-5 justify-center">Références projets</div>
-            <p className="text-[15px] text-muted-foreground leading-[1.75]">
+          <div className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
+            <div className="eyebrow mb-6 justify-center">Références projets</div>
+            <h2 className="font-display text-[26px] md:text-[32px] lg:text-[36px] leading-[1.2] tracking-tight text-foreground mb-6">
+              Une expérience construite sur des <em className="not-italic text-champagne">environnements de référence</em>.
+            </h2>
+            <p className="text-[15px] text-muted-foreground leading-[1.75] max-w-xl mx-auto">
               Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.
             </p>
           </div>
 
           <Reveal>
-            <div className="space-y-6 md:space-y-7">
-              {/* Row 1 */}
-              <div className="flex flex-wrap justify-center gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-3">
+            <div className="space-y-5 md:space-y-6 max-w-5xl mx-auto">
+              {/* Row 1 — Énergie & Utilities */}
+              <div className="flex flex-wrap justify-center items-baseline gap-x-6 md:gap-x-10 lg:gap-x-12 gap-y-2">
                 {["Radio France", "Vodafone", "Eramet", "Europ Assistance", "Fareva", "Lafarge", "Suez", "Engie"].map((ref) => (
-                  <span key={ref} className="font-display text-[15px] md:text-[16px] tracking-tight text-foreground/80 hover:text-foreground transition-colors duration-300">
+                  <span key={ref} className="font-display text-[16px] md:text-[17px] tracking-tight text-foreground/90 hover:text-foreground transition-colors duration-300">
                     {ref}
                   </span>
                 ))}
               </div>
-              {/* Row 2 */}
-              <div className="flex flex-wrap justify-center gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-3">
+              {/* Decorative line */}
+              <div className="hidden md:block w-24 h-px bg-gradient-to-r from-transparent via-champagne/40 to-transparent mx-auto my-2" />
+              {/* Row 2 — Retail, Luxe & Services */}
+              <div className="flex flex-wrap justify-center items-baseline gap-x-6 md:gap-x-10 lg:gap-x-12 gap-y-2">
                 {["EDF", "GRDF", "Carrefour", "JCDecaux", "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior"].map((ref) => (
-                  <span key={ref} className="font-display text-[15px] md:text-[16px] tracking-tight text-foreground/80 hover:text-foreground transition-colors duration-300">
+                  <span key={ref} className="font-display text-[16px] md:text-[17px] tracking-tight text-foreground/90 hover:text-foreground transition-colors duration-300">
                     {ref}
                   </span>
                 ))}
@@ -319,7 +324,7 @@ const Home = () => {
             </div>
           </Reveal>
 
-          <p className="text-[11px] text-muted-foreground/60 mt-10 md:mt-12 italic text-center max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[11px] text-muted-foreground/60 mt-12 md:mt-14 italic text-center max-w-2xl mx-auto leading-relaxed">
             Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
           </p>
         </div>
