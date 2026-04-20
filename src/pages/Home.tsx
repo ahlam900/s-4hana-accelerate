@@ -256,26 +256,28 @@ const Home = () => {
       <section className="section-y bg-secondary">
         <div className="container-wide grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5">
-            <div className="aspect-[4/3] rounded-sm overflow-hidden shadow-[var(--shadow-card)]">
-              <img src={productsVisual} alt="Produits digitaux premium" className="h-full w-full object-cover object-top" loading="lazy" width={1280} height={960} style={{ clipPath: "inset(0 0 10% 0)" }} />
+            <div className="aspect-[4/3] rounded-sm overflow-hidden shadow-[var(--shadow-card)] ring-1 ring-ink/5">
+              <img src={productsVisual} alt="Ressources éditoriales premium Finance SAP" className="h-full w-full object-cover" loading="lazy" width={1280} height={960} />
             </div>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
             <div className="eyebrow mb-6">Produits digitaux</div>
             <h2 className="display-md">Des ressources premium pour aller plus loin.</h2>
             <p className="lede mt-6">
-              Playbooks, guides PDF, templates et ressources premium pensés pour outiller les professionnels Finance SAP au quotidien.
+              Playbooks, guides PDF, templates et ressources premium conçus pour prolonger la montée en compétence et outiller les professionnels de la Finance SAP au quotidien.
             </p>
-            <div className="mt-8 grid grid-cols-2 gap-4 max-w-md">
+            <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 max-w-md">
               {[
                 { icon: BookOpen, label: "Playbooks" },
                 { icon: FileText, label: "Guides PDF" },
                 { icon: Layers, label: "Templates" },
                 { icon: Sparkles, label: "Ressources premium" },
               ].map((c) => (
-                <div key={c.label} className="flex items-center gap-3 text-sm">
-                  <c.icon className="h-4 w-4 text-champagne" strokeWidth={1.5} />
-                  {c.label}
+                <div key={c.label} className="flex items-center gap-4 text-[14.5px] text-foreground/85">
+                  <span className="flex items-center justify-center h-8 w-8 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0">
+                    <c.icon className="h-[15px] w-[15px] text-champagne" strokeWidth={1.5} />
+                  </span>
+                  <span className="font-display tracking-tight">{c.label}</span>
                 </div>
               ))}
             </div>
