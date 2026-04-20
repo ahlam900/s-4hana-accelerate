@@ -12,7 +12,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Source Serif 4", "Source Serif Pro", "Georgia", "serif"],
+        display: ["Spectral", "Source Serif 4", "Georgia", "serif"],
         body: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
