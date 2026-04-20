@@ -289,7 +289,7 @@ const Home = () => {
       </section>
 
       {/* RÉFÉRENCES PROJETS */}
-      <section className="relative py-20 md:py-24 bg-ink text-ivory overflow-hidden">
+      <section className="relative py-24 md:py-32 bg-ink text-ivory overflow-hidden">
         {/* Decorative top/bottom champagne lines */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/40 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
@@ -297,51 +297,73 @@ const Home = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--champagne)/0.06),transparent_70%)] pointer-events-none" />
 
         <div className="container-wide relative">
-          {/* Header - tighter spacing */}
-          <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12">
-            <div className="inline-flex items-center gap-3 mb-5">
-              <span className="h-px w-8 bg-champagne" />
-              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">Références projets</span>
-              <span className="h-px w-8 bg-champagne" />
-            </div>
-            <h2 className="font-display text-[26px] md:text-[32px] lg:text-[38px] leading-[1.15] tracking-tight text-ivory mb-5">
-              Une expérience construite sur des <em className="not-italic text-champagne">environnements de référence</em>.
-            </h2>
-            <p className="text-[15px] md:text-[16px] text-ivory/65 leading-[1.75] max-w-2xl mx-auto">
-              Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.
-            </p>
-          </div>
-
-          {/* References wall - curated editorial block */}
+          {/* Header */}
           <Reveal>
+            <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+              <div className="inline-flex items-center gap-3 mb-6">
+                <span className="h-px w-8 bg-champagne" />
+                <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">Références projets</span>
+                <span className="h-px w-8 bg-champagne" />
+              </div>
+              <h2 className="font-display text-[28px] md:text-[36px] lg:text-[42px] leading-[1.1] tracking-tight text-ivory">
+                Une expérience construite sur des <em className="not-italic text-champagne">environnements de référence</em>.
+              </h2>
+            </div>
+          </Reveal>
+
+          {/* Premium Typographic References Wall */}
+          <Reveal delay={100}>
             <div className="max-w-5xl mx-auto">
-              {/* Unified references - two balanced rows */}
-              <div className="border-y border-ivory/10 py-8 md:py-10">
-                {/* Row 1 - 9 references */}
-                <div className="flex flex-wrap justify-center items-baseline gap-x-6 md:gap-x-10 lg:gap-x-12 gap-y-3 mb-6 md:mb-8">
-                  {["SAP", "Radio France", "Vodafone", "Eramet", "Europ Assistance", "Fareva", "Lafarge", "Suez", "Engie"].map((ref) => (
-                    <span key={ref} className="font-display text-[15px] md:text-[17px] lg:text-[18px] tracking-tight text-ivory/85 hover:text-champagne transition-colors duration-300 cursor-default">
+              {/* Editorial wall - three flowing lines with varied weight */}
+              <div className="space-y-8 md:space-y-10">
+                {/* Line 1 - Primary weight, wider spacing */}
+                <div className="flex flex-wrap justify-center items-baseline gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-2">
+                  {["SAP", "Radio France", "Vodafone", "Imerys", "Europ Assistance", "Fareva"].map((ref, i) => (
+                    <span 
+                      key={ref} 
+                      className={`font-display tracking-tight text-ivory transition-colors duration-300 cursor-default ${
+                        i < 2 
+                          ? "text-[18px] md:text-[22px] lg:text-[24px] font-medium text-ivory" 
+                          : "text-[16px] md:text-[18px] lg:text-[19px] text-ivory/80"
+                      } hover:text-champagne`}
+                    >
                       {ref}
                     </span>
                   ))}
                 </div>
 
-                {/* Subtle divider between rows */}
-                <div className="w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-ivory/20 to-transparent mb-6 md:mb-8" />
+                {/* Line 2 - Secondary weight, medium presence */}
+                <div className="flex flex-wrap justify-center items-baseline gap-x-7 md:gap-x-10 lg:gap-x-14 gap-y-2">
+                  {["Lafarge", "Suez", "Engie", "EDF", "GRDF", "Carrefour", "JCDecaux"].map((ref, i) => (
+                    <span 
+                      key={ref} 
+                      className={`font-display tracking-tight transition-colors duration-300 cursor-default ${
+                        i === 3 || i === 4 
+                          ? "text-[17px] md:text-[19px] lg:text-[20px] text-ivory font-normal" 
+                          : "text-[15px] md:text-[17px] lg:text-[18px] text-ivory/70"
+                      } hover:text-champagne`}
+                    >
+                      {ref}
+                    </span>
+                  ))}
+                </div>
 
-                {/* Row 2 - 8 references */}
-                <div className="flex flex-wrap justify-center items-baseline gap-x-6 md:gap-x-10 lg:gap-x-12 gap-y-3">
-                  {["EDF", "GRDF", "Carrefour", "JCDecaux", "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior"].map((ref) => (
-                    <span key={ref} className="font-display text-[15px] md:text-[17px] lg:text-[18px] tracking-tight text-ivory/85 hover:text-champagne transition-colors duration-300 cursor-default">
+                {/* Line 3 - Lighter weight, completing the wall */}
+                <div className="flex flex-wrap justify-center items-baseline gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-2">
+                  {["Qualiconsult", "TotalEnergies", "L'Oréal", "Dior"].map((ref) => (
+                    <span 
+                      key={ref} 
+                      className="font-display text-[16px] md:text-[18px] lg:text-[20px] tracking-tight text-ivory/60 hover:text-champagne transition-colors duration-300 cursor-default"
+                    >
                       {ref}
                     </span>
                   ))}
                 </div>
               </div>
 
-              {/* Disclaimer - integrated into the section */}
-              <div className="mt-8 md:mt-10 pt-6 border-t border-ivory/10">
-                <p className="text-[11px] md:text-[12px] text-ivory/40 leading-relaxed text-center max-w-2xl mx-auto">
+              {/* Disclaimer - elegant integration */}
+              <div className="mt-16 md:mt-20 pt-6 border-t border-ivory/10">
+                <p className="text-[11px] md:text-[12px] text-ivory/40 leading-relaxed text-center max-w-2xl mx-auto font-body">
                   Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
                 </p>
               </div>
