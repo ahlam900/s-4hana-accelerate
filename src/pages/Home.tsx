@@ -225,12 +225,12 @@ const Home = () => {
             <div className="eyebrow mb-6">Offres entreprise</div>
             <h2 className="display-md">Deux packs phares pour vos transformations SAP.</h2>
             <p className="lede mt-6">
-              Le Pack Transformation Digitale SAP et le Pack Formation des Key Users SAP forment notre offre B2B dédiée aux entreprises engagées dans une démarche structurée.
+              Le Pack Transformation Digitale SAP et le Pack Formation des Key Users SAP structurent notre offre B2B dédiée aux entreprises souhaitant renforcer l'alignement, l'adoption et la montée en compétence autour de la Finance SAP.
             </p>
             <div className="mt-8 space-y-4">
               {[
-                { title: "Pack Transformation Digitale SAP", text: "Accompagnement transformation Finance SAP, alignement métier / outil." },
-                { title: "Pack Formation des Key Users SAP", text: "Montée en compétence des relais métier, adoption et autonomie." },
+                { title: "Pack Transformation Digitale", text: "Accompagnement des entreprises dans leurs enjeux de transformation Finance SAP, d'alignement métier / outil et d'appropriation des nouveaux repères." },
+                { title: "Pack Formation des Key Users", text: "Montée en compétence des relais métier, adoption des processus, renforcement de l'autonomie et sécurisation du déploiement." },
               ].map((p) => (
                 <div key={p.title} className="flex gap-4 border-l-2 border-champagne pl-5 py-1">
                   <div>
