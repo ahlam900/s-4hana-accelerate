@@ -97,37 +97,46 @@ const Home = () => {
       {/* OFFRES PHARES */}
       <section className="section-y bg-secondary">
         <div className="container-wide">
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-3xl mb-16 lg:mb-20">
             <div className="eyebrow mb-6">Offres phares</div>
-            <h2 className="display-md">Trois offres pour répondre à toutes les ambitions Finance SAP.</h2>
+            <h2 className="display-md">Trois offres phares pour accompagner vos enjeux <em className="not-italic text-champagne font-display">Finance SAP</em>.</h2>
           </div>
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-7">
             {[
               {
-                tag: "Formations",
-                title: "Formations Finance SAP",
-                text: "Des formations premium pour experts SAP, consultants, professionnels Finance et profils en évolution.",
+                tag: "Offre individuelle",
+                title: "Formations Finance",
+                text: "Des formations premium pensées pour les experts SAP, les consultants, les professionnels Finance et les profils en évolution souhaitant renforcer leur maîtrise opérationnelle.",
                 cta: { label: "Découvrir les formations", to: "/formations" },
                 featured: true,
               },
               {
-                tag: "Entreprise",
-                title: "Pack Transformation Digitale SAP",
-                text: "Accompagnement des entreprises dans leurs enjeux de transformation Finance SAP.",
+                tag: "Offre entreprise",
+                title: "Pack Transformation Digitale",
+                text: "Un accompagnement structuré des entreprises engagées dans leurs enjeux de transformation Finance SAP, avec une approche orientée adoption, alignement et performance.",
                 cta: { label: "Découvrir l'offre", to: "/offres-entreprise" },
               },
               {
-                tag: "Entreprise",
-                title: "Pack Formation des Key Users SAP",
-                text: "Préparation des utilisateurs clés, adoption, autonomie et sécurisation des processus.",
+                tag: "Offre entreprise",
+                title: "Pack Formation des Key Users",
+                text: "Une offre dédiée à la préparation des utilisateurs clés, à l'adoption des processus, au renforcement de l'autonomie et à la sécurisation du déploiement.",
                 cta: { label: "Découvrir l'offre", to: "/offres-entreprise" },
               },
             ].map((o, i) => (
-              <Reveal key={o.title} delay={i * 100} className="card-premium p-8 md:p-10 flex flex-col">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-6">{o.tag}</div>
-                <h3 className="display-sm leading-tight">{o.title}</h3>
-                <p className="text-sm text-muted-foreground mt-5 leading-relaxed flex-1">{o.text}</p>
-                <Button asChild variant={o.featured ? "ink" : "outline"} className="mt-8 self-start">
+              <Reveal
+                key={o.title}
+                delay={i * 100}
+                className="group relative bg-card border border-border rounded-sm p-9 md:p-11 flex flex-col transition-all duration-500 hover:border-champagne/40 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]"
+              >
+                <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-full" />
+                <div className="flex items-center gap-2.5 mb-7">
+                  <span className="h-px w-5 bg-champagne" />
+                  <span className="text-[10px] uppercase tracking-[0.24em] text-champagne font-medium">{o.tag}</span>
+                </div>
+                <h3 className="font-display text-[26px] md:text-[28px] font-medium leading-[1.2] tracking-tight text-foreground">{o.title}</h3>
+                <div className="mt-6 h-px w-10 bg-border transition-all duration-500 group-hover:w-14 group-hover:bg-champagne/60" />
+                <p className="text-[14.5px] text-muted-foreground mt-6 leading-[1.7] flex-1">{o.text}</p>
+                <Button asChild variant={o.featured ? "ink" : "outline"} className="mt-9 self-start">
                   <Link to={o.cta.to}>{o.cta.label} <ArrowRight /></Link>
                 </Button>
               </Reveal>
