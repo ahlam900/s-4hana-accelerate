@@ -53,6 +53,7 @@ const Checkout = () => {
         templateData: { prenom: data.prenom, total: subtotal.toFixed(0) },
       },
     });
+    setCompleted(true);
     clear();
     navigate("/produits-digitaux/confirmation");
   };
