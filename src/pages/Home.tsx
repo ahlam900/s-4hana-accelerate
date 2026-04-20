@@ -59,27 +59,34 @@ const Home = () => {
       {/* CORE POSITIONING — 3 piliers */}
       <section className="section-y border-y border-border">
         <div className="container-wide">
-          <div className="grid lg:grid-cols-12 gap-12 mb-16">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 mb-20 lg:mb-24">
             <div className="lg:col-span-5">
               <div className="eyebrow mb-6">Notre positionnement</div>
-              <h2 className="display-md">Trois domaines d'expertise, un seul focus : la Finance SAP.</h2>
+              <h2 className="display-md">Trois domaines d'expertise, un seul focus : la <em className="not-italic text-champagne font-display">Finance SAP</em>.</h2>
             </div>
-            <div className="lg:col-span-6 lg:col-start-7">
-              <p className="lede">
-                CBS Finance Institute est exclusivement dédié à la Finance SAP. Notre conviction : la performance d'un projet ou d'une équipe se construit à l'intersection des processus métier et de leur traduction dans SAP.
+            <div className="lg:col-span-6 lg:col-start-7 flex items-end">
+              <p className="lede leading-relaxed">
+                CBS Finance Institute est exclusivement dédié à la Finance SAP. Notre conviction : la performance d'un projet, d'une équipe ou d'une transformation se construit à l'intersection des processus métier, de leur traduction dans SAP et de la montée en compétence des acteurs.
               </p>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-border border border-border rounded-sm overflow-hidden">
             {[
-              { icon: Compass, title: "Expertise Finance SAP", text: "Une connaissance approfondie des processus Finance et de leur paramétrage dans SAP, pour des projets sécurisés et performants." },
-              { icon: Sparkles, title: "Transformation Digitale SAP", text: "Un accompagnement structuré des entreprises engagées dans la modernisation de leur Finance dans un environnement SAP." },
-              { icon: GraduationCap, title: "Formations SAP opérationnelles", text: "Des programmes premium, orientés terrain, conçus pour générer un impact immédiat sur les compétences et les missions." },
+              { icon: Compass, title: "Expertise Finance", text: "Une maîtrise approfondie des processus Finance et de leur traduction dans SAP, pour des projets plus cohérents, plus sécurisés et plus performants." },
+              { icon: Sparkles, title: "Transformation Digitale", text: "Un accompagnement structuré des entreprises engagées dans l'évolution de leur Finance SAP, avec une approche orientée adoption, alignement et efficacité opérationnelle." },
+              { icon: GraduationCap, title: "Formations opérationnelles", text: "Des programmes premium, conçus pour accélérer la montée en compétence des professionnels, des experts SAP et des équipes impliquées dans les transformations." },
             ].map((p, i) => (
-              <Reveal key={p.title} delay={i * 80} className="bg-background p-8 md:p-10 hover:bg-secondary transition-colors duration-500">
-                <p.icon className="h-7 w-7 text-champagne" strokeWidth={1.5} />
-                <h3 className="display-sm mt-6">{p.title}</h3>
-                <p className="text-sm text-muted-foreground mt-4 leading-relaxed">{p.text}</p>
+              <Reveal
+                key={p.title}
+                delay={i * 80}
+                className="group relative bg-background p-9 md:p-11 transition-all duration-500 hover:bg-secondary/60"
+              >
+                <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-500 group-hover:w-full" />
+                <div className="flex items-center justify-center h-12 w-12 rounded-sm bg-champagne/8 ring-1 ring-champagne/20 transition-all duration-500 group-hover:bg-champagne/15 group-hover:ring-champagne/40">
+                  <p.icon className="h-5 w-5 text-champagne" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-display text-2xl font-medium leading-snug mt-7 tracking-tight">{p.title}</h3>
+                <p className="text-[15px] text-muted-foreground mt-5 leading-relaxed">{p.text}</p>
               </Reveal>
             ))}
           </div>
