@@ -56,34 +56,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* RÉFÉRENCES PROJETS */}
-      <section className="section-y border-b border-border bg-secondary/30">
-        <div className="container-wide">
-          <div className="max-w-3xl mb-14 md:mb-16">
-            <div className="eyebrow mb-6">Références projets</div>
-            <h2 className="display-md">Une expertise éprouvée au contact des <em className="not-italic text-champagne font-display">grands groupes</em>.</h2>
-            <p className="lede mt-6">
-              Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-px bg-border/70 border border-border rounded-sm overflow-hidden">
-            {[
-              "Radio France", "Vodafone", "Eramet", "Europ Assistance",
-              "Fareva", "Lafarge", "Suez", "Engie",
-              "EDF", "GRDF", "Carrefour", "JCDecaux",
-              "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior"
-            ].map((ref, i) => (
-              <Reveal key={ref} delay={i * 40} className="group bg-background p-6 md:p-7 transition-all duration-500 hover:bg-secondary/60">
-                <div className="font-display text-[15px] md:text-[16px] tracking-tight text-foreground/90 leading-tight">{ref}</div>
-              </Reveal>
-            ))}
-          </div>
-          <p className="text-[12px] text-muted-foreground/70 mt-6 italic">
-            Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
-          </p>
-        </div>
-      </section>
-
       {/* CORE POSITIONING — 3 piliers */}
       <section className="section-y border-y border-border">
         <div className="container-wide">
