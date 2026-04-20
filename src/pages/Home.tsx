@@ -266,7 +266,7 @@ const Home = () => {
             <p className="lede mt-6">
               Playbooks, guides PDF, templates et ressources premium conçus pour prolonger la montée en compétence et outiller les professionnels de la Finance SAP au quotidien.
             </p>
-            <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 max-w-md">
+            <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-md">
               {[
                 { icon: BookOpen, label: "Playbooks" },
                 { icon: FileText, label: "Guides PDF" },
@@ -274,10 +274,10 @@ const Home = () => {
                 { icon: Sparkles, label: "Ressources premium" },
               ].map((c) => (
                 <div key={c.label} className="flex items-center gap-4 text-[14.5px] text-foreground/85">
-                  <span className="flex items-center justify-center h-8 w-8 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0">
-                    <c.icon className="h-[15px] w-[15px] text-champagne" strokeWidth={1.5} />
+                  <span className="flex items-center justify-center h-9 w-9 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0">
+                    <c.icon className="h-4 w-4 text-champagne" strokeWidth={1.5} />
                   </span>
-                  <span className="font-display tracking-tight">{c.label}</span>
+                  <span className="font-display tracking-tight leading-none">{c.label}</span>
                 </div>
               ))}
             </div>
