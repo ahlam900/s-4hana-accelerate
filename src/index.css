@@ -115,7 +115,9 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 500;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.012em;
+    font-feature-settings: 'liga', 'kern', 'calt';
+    text-rendering: optimizeLegibility;
   }
   ::selection {
     background: hsl(var(--champagne) / 0.3);
@@ -138,10 +140,10 @@
     @apply h-px w-8 bg-accent;
   }
 
-  .display-xl { font-family: var(--font-display); @apply text-5xl md:text-6xl lg:text-7xl leading-[1.05] font-medium tracking-tight; }
-  .display-lg { font-family: var(--font-display); @apply text-4xl md:text-5xl lg:text-6xl leading-[1.08] font-medium tracking-tight; }
-  .display-md { font-family: var(--font-display); @apply text-3xl md:text-4xl lg:text-5xl leading-[1.12] font-medium tracking-tight; }
-  .display-sm { font-family: var(--font-display); @apply text-2xl md:text-3xl leading-[1.2] font-medium tracking-tight; }
+  .display-xl { font-family: var(--font-display); @apply text-5xl md:text-6xl lg:text-7xl leading-[1.06] font-semibold; letter-spacing: -0.018em; }
+  .display-lg { font-family: var(--font-display); @apply text-4xl md:text-5xl lg:text-6xl leading-[1.08] font-semibold; letter-spacing: -0.016em; }
+  .display-md { font-family: var(--font-display); @apply text-3xl md:text-4xl lg:text-5xl leading-[1.14] font-semibold; letter-spacing: -0.014em; }
+  .display-sm { font-family: var(--font-display); @apply text-2xl md:text-3xl leading-[1.22] font-semibold; letter-spacing: -0.01em; }
 
   .lede { @apply text-lg md:text-xl text-muted-foreground leading-relaxed; }
 
