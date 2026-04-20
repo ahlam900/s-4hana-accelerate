@@ -289,15 +289,15 @@ const Home = () => {
       </section>
 
       {/* TRUST */}
-      <section className="section-y">
+      <section className="pt-20 md:pt-24 pb-10 md:pb-14">
         <div className="container-wide">
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-border border border-border rounded-sm overflow-hidden">
             {[
-              { k: "Expert", v: "Positionnement spécialisé exclusivement Finance SAP" },
+              { k: "Expert", v: "Spécialisation exclusive en Finance SAP" },
               { k: "Pratique", v: "Pédagogie ancrée dans le terrain et les cas réels" },
-              { k: "Pro", v: "Orientation professionnelle et carrière SAP" },
+              { k: "Pro", v: "Orientation professionnelle et trajectoires SAP" },
               { k: "Business", v: "Pertinence directe pour les enjeux entreprise" },
-              { k: "Premium", v: "Approche qualitative et structurée" },
+              { k: "Premium", v: "Approche structurée et haut de gamme" },
             ].map((t, i) => (
               <Reveal key={t.k} delay={i * 50} className="bg-background p-6 md:p-8">
                 <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-3">{t.k}</div>
@@ -309,13 +309,13 @@ const Home = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="section-y bg-ink text-ivory">
+      <section className="pt-10 md:pt-14 pb-20 md:pb-24 bg-ink text-ivory">
         <div className="container-wide">
           <div className="max-w-3xl">
             <div className="eyebrow mb-6 text-ivory/60">Échangeons</div>
             <h2 className="display-lg text-ivory">Échangeons sur votre besoin en Finance SAP.</h2>
             <p className="lede mt-6 text-ivory/70">
-              Que vous souhaitiez recevoir un programme de formation, demander un devis pour votre entreprise ou simplement être contacté par notre équipe — nous sommes à votre écoute.
+              Que vous souhaitiez recevoir un programme de formation, demander un devis pour votre entreprise ou échanger avec notre équipe, CBS Finance Institute vous accompagne avec une approche claire, structurée et réactive.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="champagne">
@@ -325,7 +325,7 @@ const Home = () => {
                 <Link to="/offres-entreprise">Demander un devis</Link>
               </Button>
               <Button asChild size="lg" variant="outlineLight">
-                <Link to="/contact"><Mail className="h-4 w-4" /> Être contacté</Link>
+                <Link to="/contact"><Mail className="h-4 w-4" /> Être recontacté</Link>
               </Button>
             </div>
           </div>
