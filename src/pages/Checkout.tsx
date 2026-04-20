@@ -54,8 +54,8 @@ const Checkout = () => {
       },
     });
     setCompleted(true);
-    clear();
-    navigate("/produits-digitaux/confirmation");
+    navigate("/produits-digitaux/confirmation", { replace: true });
+    setTimeout(() => clear(), 0);
   };
 
   return (
