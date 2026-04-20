@@ -147,29 +147,36 @@ const Home = () => {
 
       {/* WHY CBS */}
       <section className="section-y">
-        <div className="container-wide grid lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-5">
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
             <div className="eyebrow mb-6">Pourquoi CBS</div>
-            <h2 className="display-md">Une signature unique sur le marché de la Finance SAP.</h2>
-            <p className="text-muted-foreground mt-6 leading-relaxed">
-              Nous avons construit CBS Finance Institute autour d'une conviction simple : seules les pédagogies ancrées dans le terrain produisent une véritable montée en compétence et de vrais résultats projet.
+            <h2 className="display-md">Une signature unique sur le marché de la <em className="not-italic text-champagne font-display">Finance SAP</em>.</h2>
+            <p className="text-[15.5px] text-muted-foreground mt-7 leading-[1.75] max-w-md">
+              CBS Finance Institute repose sur une conviction simple : seules les pédagogies ancrées dans le terrain, les processus et les réalités projet produisent une véritable montée en compétence.
             </p>
-            <Button asChild variant="outline" className="mt-8">
-              <Link to="/a-propos">En savoir plus sur l'institut <ArrowRight /></Link>
+            <Button asChild variant="outline" className="mt-9">
+              <Link to="/a-propos">Découvrir l'institut <ArrowRight /></Link>
             </Button>
           </div>
-          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-px bg-border border border-border rounded-sm overflow-hidden">
+          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-px bg-border/80 border border-border rounded-sm overflow-hidden shadow-[var(--shadow-soft)]">
             {[
               { icon: Layers, title: "Spécialisation 100 % Finance SAP" },
               { icon: Briefcase, title: "Approche terrain et opérationnelle" },
               { icon: Compass, title: "Maîtrise des processus et de SAP" },
               { icon: Sparkles, title: "Pédagogie premium et structurée" },
               { icon: Building2, title: "Vision entreprise et transformation" },
-              { icon: ShieldCheck, title: "Engagement de qualité et de rigueur" },
+              { icon: ShieldCheck, title: "Exigence de qualité et de rigueur" },
             ].map((d, i) => (
-              <Reveal key={d.title} delay={i * 50} className="bg-background p-6 md:p-7 flex items-start gap-4">
-                <d.icon className="h-5 w-5 text-champagne mt-1 shrink-0" strokeWidth={1.5} />
-                <div className="font-display text-base leading-snug">{d.title}</div>
+              <Reveal
+                key={d.title}
+                delay={i * 50}
+                className="group relative bg-background p-7 md:p-8 flex items-start gap-5 transition-all duration-500 hover:bg-secondary/50"
+              >
+                <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-full" />
+                <div className="flex items-center justify-center h-10 w-10 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0 transition-all duration-500 group-hover:bg-champagne/15 group-hover:ring-champagne/50">
+                  <d.icon className="h-[18px] w-[18px] text-champagne" strokeWidth={1.4} />
+                </div>
+                <div className="font-display text-[17px] leading-[1.35] tracking-tight pt-1.5">{d.title}</div>
               </Reveal>
             ))}
           </div>
