@@ -190,18 +190,28 @@ const Home = () => {
             <div className="eyebrow mb-6 text-ivory/60">À qui s'adresse l'institut</div>
             <h2 className="display-md text-ivory">Conçu pour les professionnels et les organisations exigeantes.</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              "Professionnels SAP Finance",
-              "Consultants SAP",
-              "Key users SAP",
-              "Directions financières",
-              "Équipes projet SAP",
-              "Entreprises en transformation",
+              { label: "Professionnels Finance SAP", desc: "Experts souhaitant renforcer leur maîtrise opérationnelle" },
+              { label: "Consultants SAP", desc: "Profils en évolution et consultants en renforcement" },
+              { label: "Key Users SAP", desc: "Utilisateurs clés préparant leur montée en compétence" },
+              { label: "Directions financières", desc: "Décideurs engagés dans la transformation Finance" },
+              { label: "Équipes projet SAP", desc: "Acteurs projet en quête d'alignement et d'efficacité" },
+              { label: "Entreprises en transformation", desc: "Organisations restructurant leur système et leurs processus" },
             ].map((a, i) => (
-              <Reveal key={a} delay={i * 60} className="border-t border-ivory/15 pt-6">
-                <Users className="h-5 w-5 text-champagne" strokeWidth={1.5} />
-                <div className="mt-4 font-display text-xl">{a}</div>
+              <Reveal key={a.label} delay={i * 60}>
+                <div className="group relative border-t border-ivory/15 pt-7 pb-2 pr-4 transition-all duration-500 hover:pl-3">
+                  <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-8" />
+                  <div className="flex items-start gap-4">
+                    <div className="flex items-center justify-center h-9 w-9 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0 transition-all duration-500 group-hover:bg-champagne/15 group-hover:ring-champagne/40">
+                      <Users className="h-4 w-4 text-champagne" strokeWidth={1.5} />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-display text-lg md:text-[19px] leading-[1.35] tracking-tight text-ivory">{a.label}</div>
+                      <div className="text-[13px] text-ivory/50 leading-[1.55] mt-2">{a.desc}</div>
+                    </div>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
