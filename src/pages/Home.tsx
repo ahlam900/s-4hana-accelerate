@@ -297,7 +297,7 @@ const Home = () => {
               { k: "Pratique", v: "Pédagogie ancrée dans le terrain et les cas réels" },
               { k: "Pro", v: "Orientation professionnelle et trajectoires SAP" },
               { k: "Business", v: "Pertinence directe pour les enjeux entreprise" },
-              { k: "Premium", v: "Approche structurée et haut de gamme" },
+              { k: "Premium", v: "Approche premium et structurée" },
             ].map((t, i) => (
               <Reveal key={t.k} delay={i * 50} className="bg-background p-6 md:p-8">
                 <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-3">{t.k}</div>
@@ -317,7 +317,7 @@ const Home = () => {
             <p className="lede mt-6 text-ivory/70">
               Que vous souhaitiez recevoir un programme de formation, demander un devis pour votre entreprise ou échanger avec notre équipe, CBS Finance Institute vous accompagne avec une approche claire, structurée et réactive.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="champagne">
                 <Link to="/formations">Recevoir le programme <ArrowRight /></Link>
               </Button>
