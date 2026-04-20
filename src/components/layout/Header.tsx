@@ -118,7 +118,7 @@ const Header = () => {
               </NavLink>
             ))}
             <Button asChild size="lg" variant="ink" className="mt-4">
-              <Link to="/contact">Être contacté</Link>
+              <Link to="/contact">Parler à un expert</Link>
             </Button>
           </nav>
         </div>
