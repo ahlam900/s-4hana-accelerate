@@ -72,8 +72,8 @@ const Home = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-border/80 border border-border rounded-sm overflow-hidden shadow-[var(--shadow-soft)]">
             {[
-              { icon: Compass, title: "Expertise Finance", text: "Une maîtrise approfondie des processus Finance et de leur traduction dans SAP, pour des projets cohérents, sécurisés et performants." },
-              { icon: Sparkles, title: "Transformation Digitale", text: "Un accompagnement structuré des entreprises engagées dans l'évolution de leur Finance SAP, orienté adoption, alignement et efficacité." },
+              { icon: Compass, title: "Expertise Finance", text: "Une maîtrise approfondie des processus Finance et de leur traduction dans SAP, pour des projets plus cohérents, plus sécurisés et plus performants." },
+              { icon: Sparkles, title: "Transformation Digitale", text: "Un accompagnement structuré des entreprises engagées dans l'évolution de leur Finance SAP, avec une approche orientée adoption, alignement et efficacité opérationnelle." },
               { icon: GraduationCap, title: "Formations opérationnelles", text: "Des programmes premium conçus pour accélérer la montée en compétence des professionnels, des experts et des équipes engagées dans les transformations." },
             ].map((p, i) => (
               <Reveal
