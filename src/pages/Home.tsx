@@ -289,45 +289,37 @@ const Home = () => {
       </section>
 
       {/* RÉFÉRENCES PROJETS */}
-      <section className="pt-20 md:pt-28 pb-16 md:pb-20 border-t border-border">
+      <section className="py-16 md:py-20 border-t border-border">
         <div className="container-wide">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-14 md:mb-16">
-            <div className="lg:col-span-5">
-              <div className="eyebrow mb-6">Références projets</div>
-              <h2 className="display-md">Une expertise éprouvée auprès de <em className="not-italic text-champagne font-display">grands groupes</em>.</h2>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7">
-              <p className="text-[15.5px] text-muted-foreground leading-[1.8] max-w-xl">
-                Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.
-              </p>
-            </div>
+          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-14">
+            <div className="eyebrow mb-5 justify-center">Références projets</div>
+            <p className="text-[15px] text-muted-foreground leading-[1.75]">
+              Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.
+            </p>
           </div>
 
           <Reveal>
-            <div className="relative">
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-              <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 md:gap-y-8 py-10 md:py-14">
-                {[
-                  "Radio France", "Vodafone", "Eramet", "Europ Assistance",
-                  "Fareva", "Lafarge", "Suez", "Engie",
-                  "EDF", "GRDF", "Carrefour", "JCDecaux",
-                  "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior",
-                ].map((ref, i, arr) => (
-                  <li key={ref} className="flex items-center gap-x-10 md:gap-x-14">
-                    <span className="font-display text-[17px] md:text-[19px] tracking-tight text-foreground/85 hover:text-foreground transition-colors duration-300">
-                      {ref}
-                    </span>
-                    {i < arr.length - 1 && (
-                      <span className="hidden sm:inline-block h-1 w-1 rounded-full bg-champagne/50" aria-hidden />
-                    )}
-                  </li>
+            <div className="space-y-6 md:space-y-7">
+              {/* Row 1 */}
+              <div className="flex flex-wrap justify-center gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-3">
+                {["Radio France", "Vodafone", "Eramet", "Europ Assistance", "Fareva", "Lafarge", "Suez", "Engie"].map((ref) => (
+                  <span key={ref} className="font-display text-[15px] md:text-[16px] tracking-tight text-foreground/80 hover:text-foreground transition-colors duration-300">
+                    {ref}
+                  </span>
                 ))}
-              </ul>
+              </div>
+              {/* Row 2 */}
+              <div className="flex flex-wrap justify-center gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-3">
+                {["EDF", "GRDF", "Carrefour", "JCDecaux", "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior"].map((ref) => (
+                  <span key={ref} className="font-display text-[15px] md:text-[16px] tracking-tight text-foreground/80 hover:text-foreground transition-colors duration-300">
+                    {ref}
+                  </span>
+                ))}
+              </div>
             </div>
           </Reveal>
 
-          <p className="text-[12px] text-muted-foreground/70 mt-8 italic text-center max-w-3xl mx-auto">
+          <p className="text-[11px] text-muted-foreground/60 mt-10 md:mt-12 italic text-center max-w-2xl mx-auto leading-relaxed">
             Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
           </p>
         </div>
