@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-24 md:pt-28 pb-20 md:pb-28 overflow-hidden bg-secondary">
+      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
         <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative">
           <div className="lg:col-span-7 relative z-10">
@@ -21,8 +21,8 @@ const Home = () => {
             <h1 className="display-xl text-foreground">
               L'institut de référence de la <em className="not-italic text-champagne font-display">Finance SAP</em>.
             </h1>
-            <p className="lede mt-7 max-w-xl leading-relaxed">
-              Institut dédié à l'excellence Finance SAP : transformation digitale SAP, montée en puissance des Key Users, et formations certifiantes pour professionnels exigeants.
+            <p className="lede mt-7 max-w-lg leading-relaxed">
+              Excellence Finance SAP : transformation digitale, formation des Key Users et programmes certifiants pour les professionnels exigeants.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
@@ -45,7 +45,7 @@ const Home = () => {
               <img src={heroVisual} alt="Composition architecturale CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
             </div>
-            <div className="hidden md:block absolute -bottom-6 -left-6 lg:-left-10 bg-ink text-ivory p-5 rounded-sm max-w-[240px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/30">
+            <div className="hidden md:block absolute bottom-6 -left-6 lg:-left-10 bg-ink text-ivory p-5 rounded-sm max-w-[240px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/30">
               <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-champagne mb-2.5">
                 <span className="h-px w-4 bg-champagne" /> Programme phare
               </div>
