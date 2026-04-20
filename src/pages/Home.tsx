@@ -311,59 +311,57 @@ const Home = () => {
             </div>
           </Reveal>
 
-          {/* Premium Typographic References Wall */}
+          {/* Freeform Editorial References Wall */}
           <Reveal delay={100}>
-            <div className="max-w-5xl mx-auto">
-              {/* Editorial wall - three flowing lines with varied weight */}
-              <div className="space-y-8 md:space-y-10">
-                {/* Line 1 - Primary weight, wider spacing */}
-                <div className="flex flex-wrap justify-center items-baseline gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-2">
-                  {["SAP", "Radio France", "Vodafone", "Imerys", "Europ Assistance", "Fareva"].map((ref, i) => (
-                    <span 
-                      key={ref} 
-                      className={`font-display tracking-tight text-ivory transition-colors duration-300 cursor-default ${
-                        i < 2 
-                          ? "text-[18px] md:text-[22px] lg:text-[24px] font-medium text-ivory" 
-                          : "text-[16px] md:text-[18px] lg:text-[19px] text-ivory/80"
-                      } hover:text-champagne`}
-                    >
-                      {ref}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Line 2 - Secondary weight, medium presence */}
-                <div className="flex flex-wrap justify-center items-baseline gap-x-7 md:gap-x-10 lg:gap-x-14 gap-y-2">
-                  {["Lafarge", "Suez", "Engie", "EDF", "GRDF", "Carrefour", "JCDecaux"].map((ref, i) => (
-                    <span 
-                      key={ref} 
-                      className={`font-display tracking-tight transition-colors duration-300 cursor-default ${
-                        i === 3 || i === 4 
-                          ? "text-[17px] md:text-[19px] lg:text-[20px] text-ivory font-normal" 
-                          : "text-[15px] md:text-[17px] lg:text-[18px] text-ivory/70"
-                      } hover:text-champagne`}
-                    >
-                      {ref}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Line 3 - Lighter weight, completing the wall */}
-                <div className="flex flex-wrap justify-center items-baseline gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-2">
-                  {["Qualiconsult", "TotalEnergies", "L'Oréal", "Dior"].map((ref) => (
-                    <span 
-                      key={ref} 
-                      className="font-display text-[16px] md:text-[18px] lg:text-[20px] tracking-tight text-ivory/60 hover:text-champagne transition-colors duration-300 cursor-default"
-                    >
-                      {ref}
-                    </span>
-                  ))}
-                </div>
+            <div className="max-w-6xl mx-auto relative">
+              {/* Soft champagne accents — anchor without dividing */}
+              <div className="pointer-events-none absolute -left-4 top-6 hidden md:block">
+                <span className="block h-px w-16 bg-champagne/40" />
+              </div>
+              <div className="pointer-events-none absolute -right-4 bottom-10 hidden md:block">
+                <span className="block h-px w-16 bg-champagne/40" />
               </div>
 
-              {/* Disclaimer - elegant integration */}
-              <div className="mt-16 md:mt-20 pt-6 border-t border-ivory/10">
-                <p className="text-[11px] md:text-[12px] text-ivory/40 leading-relaxed text-center max-w-2xl mx-auto font-body">
+              {/* Staggered freeform composition */}
+              {(() => {
+                const refs = [
+                  { name: "SAP", size: "text-[26px] md:text-[34px] lg:text-[40px]", weight: "font-medium", tone: "text-ivory", offset: "md:pl-[6%]" },
+                  { name: "TotalEnergies", size: "text-[22px] md:text-[28px] lg:text-[32px]", weight: "font-normal", tone: "text-ivory/95", offset: "md:pl-[28%]" },
+                  { name: "L'Oréal", size: "text-[20px] md:text-[26px] lg:text-[30px]", weight: "font-normal", tone: "text-ivory/90", offset: "md:pl-[52%]" },
+                  { name: "Engie", size: "text-[18px] md:text-[22px] lg:text-[26px]", weight: "font-light", tone: "text-ivory/75", offset: "md:pl-[14%]" },
+                  { name: "Carrefour", size: "text-[20px] md:text-[26px] lg:text-[30px]", weight: "font-normal", tone: "text-ivory/90", offset: "md:pl-[40%]" },
+                  { name: "Radio France", size: "text-[22px] md:text-[28px] lg:text-[32px]", weight: "font-normal", tone: "text-ivory/95", offset: "md:pl-[62%]" },
+                  { name: "EDF", size: "text-[18px] md:text-[22px] lg:text-[26px]", weight: "font-light", tone: "text-ivory/75", offset: "md:pl-[4%]" },
+                  { name: "Dior", size: "text-[22px] md:text-[30px] lg:text-[34px]", weight: "font-medium", tone: "text-champagne/90", offset: "md:pl-[24%]" },
+                  { name: "Suez", size: "text-[18px] md:text-[22px] lg:text-[26px]", weight: "font-light", tone: "text-ivory/75", offset: "md:pl-[48%]" },
+                  { name: "Vodafone", size: "text-[20px] md:text-[26px] lg:text-[30px]", weight: "font-normal", tone: "text-ivory/90", offset: "md:pl-[68%]" },
+                  { name: "Lafarge", size: "text-[18px] md:text-[22px] lg:text-[26px]", weight: "font-light", tone: "text-ivory/70", offset: "md:pl-[10%]" },
+                  { name: "JCDecaux", size: "text-[20px] md:text-[26px] lg:text-[30px]", weight: "font-normal", tone: "text-ivory/85", offset: "md:pl-[34%]" },
+                  { name: "Europ Assistance", size: "text-[20px] md:text-[26px] lg:text-[30px]", weight: "font-normal", tone: "text-ivory/85", offset: "md:pl-[58%]" },
+                  { name: "Imerys", size: "text-[18px] md:text-[22px] lg:text-[26px]", weight: "font-light", tone: "text-ivory/70", offset: "md:pl-[18%]" },
+                  { name: "GRDF", size: "text-[18px] md:text-[22px] lg:text-[26px]", weight: "font-light", tone: "text-ivory/70", offset: "md:pl-[44%]" },
+                  { name: "Fareva", size: "text-[18px] md:text-[22px] lg:text-[26px]", weight: "font-light", tone: "text-ivory/65", offset: "md:pl-[64%]" },
+                  { name: "Qualiconsult", size: "text-[18px] md:text-[22px] lg:text-[26px]", weight: "font-light", tone: "text-ivory/65", offset: "md:pl-[30%]" },
+                ];
+                return (
+                  <div className="space-y-3 md:space-y-4 lg:space-y-5 text-center md:text-left">
+                    {refs.map((r) => (
+                      <div key={r.name} className={r.offset}>
+                        <span
+                          className={`font-display tracking-tight leading-[1.05] ${r.size} ${r.weight} ${r.tone} hover:text-champagne transition-colors duration-500 cursor-default`}
+                        >
+                          {r.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
+
+              {/* Disclaimer — discreetly anchored */}
+              <div className="mt-16 md:mt-20 flex items-center gap-4 max-w-2xl mx-auto md:mx-0 md:ml-[6%]">
+                <span className="hidden md:block h-px w-10 bg-ivory/20 shrink-0" />
+                <p className="text-[11px] md:text-[12px] text-ivory/40 leading-relaxed font-body text-center md:text-left">
                   Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
                 </p>
               </div>
