@@ -229,8 +229,8 @@ const Home = () => {
             </p>
             <div className="mt-8 space-y-4">
               {[
-                { title: "Pack Transformation Digitale", text: "Accompagnement des entreprises dans leurs enjeux de transformation Finance SAP, d'alignement métier / outil et d'appropriation des nouveaux repères." },
-                { title: "Pack Formation des Key Users", text: "Montée en compétence des relais métier, adoption des processus, renforcement de l'autonomie et sécurisation du déploiement." },
+                { title: "Pack Transformation Digitale SAP", text: "Accompagnement des entreprises dans leurs enjeux de transformation Finance SAP, d'alignement métier / outil et d'appropriation de nouveaux repères." },
+                { title: "Pack Formation des Key Users SAP", text: "Montée en compétence des relais métier, adoption des processus, renforcement de l'autonomie et sécurisation du déploiement." },
               ].map((p) => (
                 <div key={p.title} className="flex gap-4 border-l-2 border-champagne pl-5 py-1">
                   <div>
