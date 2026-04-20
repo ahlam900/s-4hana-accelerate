@@ -23,10 +23,11 @@ const Checkout = () => {
   const { items, total, clear } = useCart();
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
+  const [completed, setCompleted] = useState(false);
   const subtotal = total();
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  if (items.length === 0) return <Navigate to="/produits-digitaux/panier" replace />;
+  if (items.length === 0 && !completed) return <Navigate to="/produits-digitaux/panier" replace />;
 
   const onSubmit = async (data: FormData) => {
     setSubmitting(true);
@@ -52,8 +53,9 @@ const Checkout = () => {
         templateData: { prenom: data.prenom, total: subtotal.toFixed(0) },
       },
     });
-    clear();
-    navigate("/produits-digitaux/confirmation");
+    setCompleted(true);
+    navigate("/produits-digitaux/confirmation", { replace: true });
+    setTimeout(() => clear(), 0);
   };
 
   return (
