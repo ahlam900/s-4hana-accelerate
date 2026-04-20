@@ -10,39 +10,47 @@ const Home = () => {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-24 md:pt-28 pb-20 md:pb-32 overflow-hidden bg-secondary">
-        <div className="container-wide grid lg:grid-cols-12 gap-12 items-center relative">
+      <section className="relative pt-24 md:pt-28 pb-24 md:pb-36 overflow-hidden bg-secondary">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative">
           <div className="lg:col-span-7 relative z-10">
-            <div className="eyebrow mb-8">CBS Finance Institute</div>
+            <div className="inline-flex items-center gap-3 mb-8">
+              <span className="h-px w-8 bg-champagne" />
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">Institut Finance SAP · Depuis 2019</span>
+            </div>
             <h1 className="display-xl text-foreground">
-              La référence de la <em className="not-italic text-champagne font-display">formation Finance SAP</em> pour les professionnels et les entreprises.
+              L'institut de référence de la <em className="not-italic text-champagne font-display">Finance SAP</em>.
             </h1>
             <p className="lede mt-8 max-w-xl">
-              CBS Finance Institute accompagne la montée en compétence en Finance SAP, la transformation digitale SAP et la formation des Key Users SAP.
+              Un institut premium dédié à la maîtrise de la Finance SAP, à la transformation digitale SAP et à la formation des Key Users — pour les professionnels et les organisations exigeantes.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
                 <Link to="/formations">Découvrir les formations Finance SAP <ArrowRight /></Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="/offres-entreprise">Découvrir nos offres entreprise</Link>
+                <Link to="/offres-entreprise">Nos offres entreprise</Link>
               </Button>
             </div>
-            <div className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-              <span>100 % Finance SAP</span>
+            <div className="mt-14 pt-8 border-t border-border/70 flex flex-wrap items-center gap-x-10 gap-y-4 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              <span><span className="text-champagne font-semibold">100 %</span> Finance SAP</span>
               <span className="h-3 w-px bg-border" />
-              <span>Pédagogie premium</span>
+              <span>Pédagogie de haut niveau</span>
               <span className="h-3 w-px bg-border" />
-              <span>Vision entreprise</span>
+              <span>Réseau d'experts SAP</span>
             </div>
           </div>
           <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)]">
-              <img src={heroVisual} alt="Composition éditoriale CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1600} height={1200} />
+            <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)] ring-1 ring-ink/5">
+              <img src={heroVisual} alt="Composition architecturale CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
             </div>
-            <div className="absolute -bottom-6 -left-6 hidden md:block bg-ink text-ivory p-6 rounded-sm max-w-[240px] shadow-[var(--shadow-lift)]">
-              <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-2">Programme phare</div>
-              <div className="font-display text-lg leading-tight">SAP FICO Consultant Program — 70 h</div>
+            <div className="hidden md:block absolute -bottom-8 -left-8 lg:-left-12 bg-ink text-ivory p-6 rounded-sm max-w-[260px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-champagne mb-3">
+                <span className="h-px w-4 bg-champagne" /> Programme phare
+              </div>
+              <div className="font-display text-[17px] leading-snug">SAP FICO Consultant Program</div>
+              <div className="text-[11px] uppercase tracking-[0.18em] text-ivory/55 mt-3 pt-3 border-t border-ivory/10">70 h · Cursus certifiant</div>
             </div>
           </div>
         </div>
