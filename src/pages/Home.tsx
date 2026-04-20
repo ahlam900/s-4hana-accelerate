@@ -70,23 +70,24 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-px bg-border border border-border rounded-sm overflow-hidden">
+          <div className="grid md:grid-cols-3 gap-px bg-border/80 border border-border rounded-sm overflow-hidden shadow-[var(--shadow-soft)]">
             {[
-              { icon: Compass, title: "Expertise Finance", text: "Une maîtrise approfondie des processus Finance et de leur traduction dans SAP, pour des projets plus cohérents, plus sécurisés et plus performants." },
-              { icon: Sparkles, title: "Transformation Digitale", text: "Un accompagnement structuré des entreprises engagées dans l'évolution de leur Finance SAP, avec une approche orientée adoption, alignement et efficacité opérationnelle." },
-              { icon: GraduationCap, title: "Formations opérationnelles", text: "Des programmes premium, conçus pour accélérer la montée en compétence des professionnels, des experts SAP et des équipes impliquées dans les transformations." },
+              { icon: Compass, title: "Expertise Finance", text: "Une maîtrise approfondie des processus Finance et de leur traduction dans SAP, pour des projets cohérents, sécurisés et performants." },
+              { icon: Sparkles, title: "Transformation Digitale", text: "Un accompagnement structuré des entreprises engagées dans l'évolution de leur Finance SAP, orienté adoption, alignement et efficacité." },
+              { icon: GraduationCap, title: "Formations opérationnelles", text: "Des programmes premium conçus pour accélérer la montée en compétence des professionnels, des experts et des équipes engagées dans les transformations." },
             ].map((p, i) => (
               <Reveal
                 key={p.title}
                 delay={i * 80}
-                className="group relative bg-background p-9 md:p-11 transition-all duration-500 hover:bg-secondary/60"
+                className="group relative bg-background p-10 md:p-12 transition-all duration-500 hover:bg-secondary/50"
               >
-                <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-500 group-hover:w-full" />
-                <div className="flex items-center justify-center h-12 w-12 rounded-sm bg-champagne/8 ring-1 ring-champagne/20 transition-all duration-500 group-hover:bg-champagne/15 group-hover:ring-champagne/40">
-                  <p.icon className="h-5 w-5 text-champagne" strokeWidth={1.5} />
+                <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-full" />
+                <div className="flex items-center justify-center h-12 w-12 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 transition-all duration-500 group-hover:bg-champagne/15 group-hover:ring-champagne/50 group-hover:-translate-y-0.5">
+                  <p.icon className="h-[22px] w-[22px] text-champagne" strokeWidth={1.4} />
                 </div>
-                <h3 className="font-display text-2xl font-medium leading-snug mt-7 tracking-tight">{p.title}</h3>
-                <p className="text-[15px] text-muted-foreground mt-5 leading-relaxed">{p.text}</p>
+                <h3 className="font-display text-[22px] md:text-[23px] font-medium leading-[1.25] mt-8 tracking-tight text-foreground">{p.title}</h3>
+                <div className="mt-5 h-px w-8 bg-border transition-all duration-500 group-hover:w-12 group-hover:bg-champagne/60" />
+                <p className="text-[14.5px] text-muted-foreground mt-5 leading-[1.7]">{p.text}</p>
               </Reveal>
             ))}
           </div>
