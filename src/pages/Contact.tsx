@@ -1,147 +1,72 @@
-import Layout from "@/components/layout/Layout";
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
-import { Send, Mail, Phone, Linkedin, MapPin } from "lucide-react";
+import { Mail, Phone, Linkedin, GraduationCap, Building2 } from "lucide-react";
+import PageHero from "@/components/PageHero";
+import ContactForm from "@/components/forms/ContactForm";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", company: "", type: "consultation", message: "" });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      toast.error("Please fill in all required fields.");
-      return;
-    }
-    toast.success("Thank you! We'll be in touch within 24 hours.");
-    setForm({ name: "", email: "", company: "", type: "consultation", message: "" });
-  };
-
   return (
-    <Layout>
-      <section className="gradient-hero section-padding pt-32">
-        <div className="container-wide mx-auto">
-          <motion.h1
-            className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            Get in Touch
-          </motion.h1>
-          <motion.p
-            className="text-primary-foreground/80 text-lg max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
-            Ready to start your SAP transformation journey? Contact us for a consultation, training inquiry, or partnership discussion.
-          </motion.p>
-        </div>
-      </section>
+    <>
+      <PageHero
+        eyebrow="Contact"
+        title="Parlons de votre besoin en Finance SAP, formation ou transformation."
+        subtitle="Notre équipe vous répond sous 48 h ouvrées. Pour orienter votre demande, choisissez le canal qui correspond le mieux à votre projet."
+      />
 
-      <section className="section-padding bg-background">
-        <div className="container-wide mx-auto">
-          <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2">
-              <motion.form
-                className="bg-card rounded-xl p-8 card-shadow border border-border"
-                onSubmit={handleSubmit}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Send Us a Message</h2>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Full Name *</label>
-                      <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="John Doe" maxLength={100} />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Work Email *</label>
-                      <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="john@company.com" maxLength={255} />
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Company</label>
-                      <Input value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} placeholder="Company Name" maxLength={100} />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Inquiry Type</label>
-                      <select
-                        value={form.type}
-                        onChange={(e) => setForm({ ...form, type: e.target.value })}
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      >
-                        <option value="consultation">Consultation Request</option>
-                        <option value="training">Training Inquiry</option>
-                        <option value="partnership">Corporate Partnership</option>
-                      </select>
-                    </div>
-                  </div>
+      {/* CONTACT OPTIONS */}
+      <section className="section-y">
+        <div className="container-wide grid lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-5 space-y-10">
+            <div>
+              <div className="eyebrow mb-6">Coordonnées</div>
+              <ul className="space-y-4 text-sm">
+                <li className="flex items-start gap-4 pb-4 border-b border-border">
+                  <Mail className="h-5 w-5 text-champagne mt-0.5 shrink-0" strokeWidth={1.5} />
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">Message *</label>
-                    <Textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us about your needs..." rows={5} maxLength={1000} />
+                    <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Email</div>
+                    <a href="mailto:contact@cbs-finance-institute.fr" className="hover:text-champagne transition-colors">contact@cbs-finance-institute.fr</a>
                   </div>
-                  <Button type="submit" variant="hero" className="w-full" size="lg">
-                    <Send size={16} className="mr-2" /> Send Message
-                  </Button>
-                </div>
-              </motion.form>
+                </li>
+                <li className="flex items-start gap-4 pb-4 border-b border-border">
+                  <Phone className="h-5 w-5 text-champagne mt-0.5 shrink-0" strokeWidth={1.5} />
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Téléphone</div>
+                    <a href="tel:+33000000000" className="hover:text-champagne transition-colors">+33 (0)X XX XX XX XX</a>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4 pb-4 border-b border-border">
+                  <Linkedin className="h-5 w-5 text-champagne mt-0.5 shrink-0" strokeWidth={1.5} />
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Réseau</div>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">LinkedIn CBS Finance Institute</a>
+                  </div>
+                </li>
+              </ul>
             </div>
 
-            <motion.div
-              className="space-y-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <div>
-                <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Contact Information</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Mail className="text-accent mt-0.5" size={18} />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">Email</p>
-                      <p className="text-sm text-muted-foreground">info@cbsconsulting.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="text-accent mt-0.5" size={18} />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">Phone</p>
-                      <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Linkedin className="text-accent mt-0.5" size={18} />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">LinkedIn</p>
-                      <p className="text-sm text-muted-foreground">CBS Consulting</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <MapPin className="text-accent mt-0.5" size={18} />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">Address</p>
-                      <p className="text-sm text-muted-foreground">Global offices — Contact us for local details</p>
-                    </div>
-                  </div>
+            <div className="space-y-4">
+              <div className="eyebrow mb-2">Orientations</div>
+              <Link to="/formations" className="card-premium p-5 flex items-start gap-4 group">
+                <GraduationCap className="h-5 w-5 text-champagne shrink-0 mt-0.5" strokeWidth={1.5} />
+                <div>
+                  <div className="font-display text-base group-hover:text-champagne transition-colors">Demande de formation</div>
+                  <div className="text-xs text-muted-foreground mt-1">Recevez le programme et inscrivez-vous à une session.</div>
                 </div>
-              </div>
-
-              <div className="bg-muted rounded-xl p-6">
-                <h4 className="font-heading font-semibold text-foreground mb-2">Response Time</h4>
-                <p className="text-muted-foreground text-sm">We typically respond within 24 business hours. For urgent matters, please call us directly.</p>
-              </div>
-            </motion.div>
+              </Link>
+              <Link to="/offres-entreprise" className="card-premium p-5 flex items-start gap-4 group">
+                <Building2 className="h-5 w-5 text-champagne shrink-0 mt-0.5" strokeWidth={1.5} />
+                <div>
+                  <div className="font-display text-base group-hover:text-champagne transition-colors">Demande entreprise</div>
+                  <div className="text-xs text-muted-foreground mt-1">Échangez avec nous sur un Pack Transformation ou Key Users.</div>
+                </div>
+              </Link>
+            </div>
+          </div>
+          <div className="lg:col-span-7">
+            <ContactForm />
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
