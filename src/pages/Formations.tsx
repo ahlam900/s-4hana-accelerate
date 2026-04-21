@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Clock, Users, Target, Sparkles, GraduationCap, Briefcase } from "lucide-react";
+import { ArrowRight, Clock, Users, Target, Sparkles, GraduationCap, Briefcase, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import TrainingInquiryForm from "@/components/forms/TrainingInquiryForm";
 import { trainings } from "@/data/trainings";
@@ -14,13 +13,80 @@ const Formations = () => {
 
   return (
     <>
-      <PageHero
-        eyebrow="Formations Finance SAP"
-        title="Des formations Finance SAP pensées pour générer un impact concret."
-        subtitle="Programmes premium pour développer une expertise opérationnelle, immédiatement utile sur des projets et missions Finance SAP."
-        primaryCta={{ label: "Recevoir le programme", to: "#demande" }}
-        secondaryCta={{ label: "Voir les formations", to: "#catalogue" }}
-      />
+      {/* HERO — aligné avec la direction homepage */}
+      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary border-b border-border">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
+          <div className="lg:col-span-7 relative z-10">
+            <div className="inline-flex items-center gap-3 mb-8">
+              <span className="h-px w-8 bg-champagne" />
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">FORMATIONS FINANCE SAP</span>
+            </div>
+            <h1 className="display-xl text-foreground">
+              Des formations <em className="not-italic text-champagne font-display">Finance SAP</em> conçues pour un impact concret.
+            </h1>
+            <p className="lede mt-7 max-w-lg leading-relaxed">
+              Programmes premium pour développer une expertise opérationnelle, immédiatement utile sur des projets et missions Finance SAP.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Button asChild size="lg" variant="ink">
+                <Link to="#demande">Recevoir le programme <ArrowRight /></Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link to="#catalogue">Découvrir les programmes</Link>
+              </Button>
+            </div>
+            <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center gap-x-6 md:gap-x-8 text-[10.5px] md:text-[11px] uppercase tracking-[0.2em] text-muted-foreground whitespace-nowrap">
+              <span><span className="text-champagne font-semibold">100 %</span> Finance SAP</span>
+              <span className="h-3 w-px bg-border shrink-0" />
+              <span>Programmes certifiants</span>
+              <span className="h-3 w-px bg-border shrink-0" />
+              <span>Experts SAP actifs</span>
+            </div>
+          </div>
+
+          {/* Bloc résumé premium — équilibre la composition */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative bg-background rounded-sm shadow-[var(--shadow-lift)] ring-1 ring-border overflow-hidden">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/40 to-transparent" />
+              <div className="p-8 md:p-10">
+                <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-champagne mb-6">
+                  <span className="h-px w-5 bg-champagne" /> Programmes phares
+                </div>
+                <ul className="divide-y divide-border/70">
+                  {[
+                    { icon: Award, title: "SAP FICO Consultant Program", meta: "70 h · Cursus certifiant" },
+                    { icon: GraduationCap, title: "Parcours Finance SAP", meta: "Formats intensifs · Niveau avancé" },
+                    { icon: Briefcase, title: "Formations pour experts SAP", meta: "Sessions ciblées · Cas projet" },
+                  ].map((item) => (
+                    <li key={item.title} className="py-4 first:pt-0 last:pb-0 flex items-start gap-4">
+                      <div className="flex items-center justify-center h-9 w-9 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0">
+                        <item.icon className="h-[18px] w-[18px] text-champagne" strokeWidth={1.4} />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="font-display text-[16px] leading-snug text-foreground">{item.title}</div>
+                        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mt-1.5">{item.meta}</div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="border-t border-border bg-secondary/60 px-8 md:px-10 py-4 flex items-center justify-between">
+                <span className="text-[10.5px] uppercase tracking-[0.2em] text-muted-foreground">Catalogue complet</span>
+                <Link to="#catalogue" className="text-[12px] font-medium text-champagne inline-flex items-center gap-1.5 hover:gap-2 transition-all">
+                  Explorer <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+            {/* Petite carte flottante — écho au hero homepage */}
+            <div className="hidden md:block absolute -bottom-6 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory px-5 py-3.5 rounded-sm shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
+              <div className="text-[9.5px] uppercase tracking-[0.28em] text-champagne mb-1">Sur-mesure</div>
+              <div className="font-display text-[13px] leading-snug">Sessions intra-entreprise</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* INTRO */}
       <section className="section-y">
