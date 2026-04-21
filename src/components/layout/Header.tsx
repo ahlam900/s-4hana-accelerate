@@ -40,14 +40,26 @@ const Header = () => {
       )}
     >
       <div className="container-wide flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-3.5 group">
-          <div className="relative h-12 w-12 rounded-sm gradient-ink flex items-center justify-center shadow-[var(--shadow-card)] ring-1 ring-champagne/30 group-hover:ring-champagne/50 transition-all">
-            <span className="font-display text-ivory text-[15px] leading-none tracking-[0.08em] font-medium">CBS</span>
-            <span className="absolute -bottom-px left-1/2 -translate-x-1/2 h-px w-6 bg-champagne/70" />
+        <Link to="/" className="flex items-center gap-4 group">
+          {/* Monogram */}
+          <div className="relative h-12 w-12 rounded-[3px] gradient-ink flex items-center justify-center shadow-[var(--shadow-card)] ring-1 ring-champagne/40 group-hover:ring-champagne/70 transition-all overflow-hidden">
+            {/* corner serifs */}
+            <span className="absolute top-1 left-1 h-1.5 w-px bg-champagne/60" />
+            <span className="absolute top-1 left-1 h-px w-1.5 bg-champagne/60" />
+            <span className="absolute bottom-1 right-1 h-1.5 w-px bg-champagne/60" />
+            <span className="absolute bottom-1 right-1 h-px w-1.5 bg-champagne/60" />
+            <span className="font-display italic text-ivory text-[18px] leading-none tracking-[0.04em] font-light">
+              C<span className="text-champagne">b</span>s
+            </span>
+            <span className="absolute -bottom-px left-1/2 -translate-x-1/2 h-px w-7 bg-champagne/80" />
           </div>
-          <div className="hidden sm:flex flex-col leading-[1.08]">
-            <span className="font-display text-lg tracking-tight text-foreground">Finance Institute</span>
-            <span className="text-[9px] uppercase tracking-[0.34em] text-champagne mt-1.5">Expertise · Finance SAP</span>
+          {/* Wordmark */}
+          <div className="hidden sm:flex items-stretch gap-3">
+            <span aria-hidden className="w-px bg-border self-stretch" />
+            <div className="flex flex-col leading-[1.05] justify-center">
+              <span className="font-display text-[19px] tracking-tight text-foreground">Finance Institute</span>
+              <span className="text-[9px] uppercase tracking-[0.36em] text-champagne mt-1.5">Expertise · Finance SAP</span>
+            </div>
           </div>
         </Link>
 
