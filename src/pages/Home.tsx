@@ -321,7 +321,7 @@ const Home = () => {
                   ["Europ Assistance", "Lafarge", "Imerys", "GRDF", "Fareva", "Qualiconsult"],
                 ];
                 return (
-                  <div className="divide-y divide-ivory/[0.06]">
+                  <div className="divide-y divide-ivory/[0.035]">
                     {lines.map((line, i) => (
                       <div
                         key={i}
@@ -342,12 +342,11 @@ const Home = () => {
               })()}
 
               {/* Disclaimer — discreetly anchored, centered */}
-              <div className="mt-12 md:mt-14 pt-6 border-t border-ivory/[0.06] max-w-2xl mx-auto">
-                <p className="text-[12px] md:text-[13px] text-ivory/55 leading-[1.7] font-body text-center tracking-wide">
+              <div className="mt-10 md:mt-12 max-w-xl mx-auto">
+                <p className="text-[12px] md:text-[12.5px] text-ivory/60 leading-[1.7] font-body text-center tracking-wide">
                   Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
                 </p>
               </div>
-            </div>
           </Reveal>
         </div>
       </section>
