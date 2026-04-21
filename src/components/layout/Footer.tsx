@@ -11,13 +11,24 @@ const Footer = () => {
         {/* Brand block */}
         <div className="lg:col-span-4 space-y-6">
           <Link to="/" className="flex items-center gap-4 group w-fit">
-            <div className="relative h-[52px] w-[52px] rounded-sm gradient-ink flex items-center justify-center shadow-[var(--shadow-card)] ring-1 ring-champagne/30 group-hover:ring-champagne/60 transition-all">
-              <span className="font-display text-ivory text-[16px] leading-none tracking-[0.08em] font-medium">CBS</span>
-              <span className="absolute -bottom-px left-1/2 -translate-x-1/2 h-px w-7 bg-champagne/70" />
+            {/* Monogram */}
+            <div className="relative h-[52px] w-[52px] rounded-[3px] gradient-ink flex items-center justify-center shadow-[var(--shadow-card)] ring-1 ring-champagne/40 group-hover:ring-champagne/70 transition-all overflow-hidden">
+              <span className="absolute top-1 left-1 h-1.5 w-px bg-champagne/60" />
+              <span className="absolute top-1 left-1 h-px w-1.5 bg-champagne/60" />
+              <span className="absolute bottom-1 right-1 h-1.5 w-px bg-champagne/60" />
+              <span className="absolute bottom-1 right-1 h-px w-1.5 bg-champagne/60" />
+              <span className="font-display italic text-ivory text-[19px] leading-none tracking-[0.04em] font-light">
+                C<span className="text-champagne">b</span>s
+              </span>
+              <span className="absolute -bottom-px left-1/2 -translate-x-1/2 h-px w-7 bg-champagne/80" />
             </div>
-            <div className="flex flex-col leading-[1.1]">
-              <span className="font-display text-[19px] tracking-tight text-foreground">Finance Institute</span>
-              <span className="text-[9px] uppercase tracking-[0.34em] text-champagne mt-2">Expertise · Finance SAP</span>
+            {/* Wordmark */}
+            <div className="flex items-stretch gap-3">
+              <span aria-hidden className="w-px bg-border self-stretch" />
+              <div className="flex flex-col leading-[1.05] justify-center">
+                <span className="font-display text-[20px] tracking-tight text-foreground">Finance Institute</span>
+                <span className="text-[9px] uppercase tracking-[0.36em] text-champagne mt-1.5">Expertise · Finance SAP</span>
+              </div>
             </div>
           </Link>
           <p className="text-[14px] text-muted-foreground leading-[1.65] max-w-sm">
