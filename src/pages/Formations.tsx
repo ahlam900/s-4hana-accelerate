@@ -206,7 +206,7 @@ const Formations = () => {
             </div>
             <div className="lg:col-span-5">
               <p className="text-[15px] text-muted-foreground leading-relaxed max-w-md lg:ml-auto">
-                Trois niveaux de progression, du fondamental à l'expertise, complétés par une spécialisation sectorielle ciblée.
+                Trois niveaux de progression cohérents, du fondamental à l'expertise, complétés par une spécialisation sectorielle ciblée.
               </p>
             </div>
           </div>
@@ -216,63 +216,66 @@ const Formations = () => {
             {/* Ligne de progression */}
             <div className="hidden lg:block absolute top-[42px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
 
-            <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 relative">
+            <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 relative items-stretch">
               {[
                 {
                   step: "01",
                   level: "Niveau Débutant",
                   programme: "Processus Finance dans SAP",
-                  duration: "3 jours",
-                  description: "Acquérir les fondamentaux des processus Finance et leur traduction dans SAP.",
+                  duration: "10 jours",
+                  description: "Structurer une compréhension complète des processus Finance et de leur traduction dans SAP.",
                   outcomes: [
                     "Comprendre Record-to-Report, OTC, P2P",
                     "Visualiser la traduction métier dans SAP",
                     "Identifier les points clés de paramétrage",
                   ],
+                  cta: "Découvrir le parcours",
                 },
                 {
                   step: "02",
                   level: "Niveau Confirmé",
                   programme: "SAP FICO Consultant Program",
-                  duration: "70 heures",
-                  description: "Devenir consultant SAP Finance opérationnel sur des projets S/4HANA.",
+                  duration: "10 jours intensifs",
+                  description: "Développer une posture opérationnelle de consultant SAP Finance sur des projets S/4HANA.",
                   outcomes: [
                     "Maîtriser Financial Accounting & Controlling",
                     "Naviguer l'architecture S/4HANA Finance",
                     "Acquérir une méthodologie projet SAP",
                   ],
+                  cta: "Recevoir le programme",
                   highlight: true,
                 },
                 {
                   step: "03",
                   level: "Niveau Expert",
                   programme: "SAP S/4HANA Finance avancé",
-                  duration: "4 jours",
-                  description: "Approfondir l'expertise SAP Finance sur les sujets avancés et critiques.",
+                  duration: "10 jours",
+                  description: "Approfondir l'expertise SAP Finance sur les sujets critiques et structurants des projets S/4HANA.",
                   outcomes: [
                     "Maîtriser l'Universal Journal",
                     "Appréhender Central Finance",
                     "Optimiser la clôture financière",
                   ],
+                  cta: "Approfondir le programme",
                 },
               ].map((lvl) => (
-                <Reveal key={lvl.step} className="relative">
-                  <div className={`relative h-full flex flex-col rounded-sm bg-background ring-1 ${lvl.highlight ? "ring-champagne/40 shadow-[var(--shadow-lift)]" : "ring-border"} transition-all hover:ring-champagne/40`}>
+                <Reveal key={lvl.step} className={`relative h-full ${lvl.highlight ? "lg:-my-3" : ""}`}>
+                  <div className={`group relative h-full flex flex-col rounded-sm bg-background ring-1 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-champagne/50 ${lvl.highlight ? "ring-champagne/40 shadow-[var(--shadow-lift)]" : "ring-border"}`}>
                     {lvl.highlight && (
                       <div className="absolute -top-3 left-8 bg-ink text-champagne text-[10px] uppercase tracking-[0.28em] px-3 py-1 rounded-sm">
                         Programme phare
                       </div>
                     )}
                     {/* Pastille étape */}
-                    <div className="flex items-center gap-4 px-8 pt-9">
-                      <div className={`flex items-center justify-center h-[52px] w-[52px] rounded-full ${lvl.highlight ? "bg-champagne text-ink" : "bg-secondary text-foreground ring-1 ring-border"} font-display text-[15px] tracking-[0.05em]`}>
+                    <div className={`flex items-center gap-4 ${lvl.highlight ? "px-9 pt-11" : "px-8 pt-9"}`}>
+                      <div className={`flex items-center justify-center rounded-full font-display tracking-[0.05em] ${lvl.highlight ? "h-[56px] w-[56px] text-[16px] bg-champagne text-ink" : "h-[52px] w-[52px] text-[15px] bg-secondary text-foreground ring-1 ring-border"}`}>
                         {lvl.step}
                       </div>
                       <div className="text-[10.5px] uppercase tracking-[0.28em] text-champagne">{lvl.level}</div>
                     </div>
 
-                    <div className="px-8 pt-7 pb-8 flex flex-col flex-1">
-                      <h3 className="font-display text-[20px] leading-snug text-foreground">{lvl.programme}</h3>
+                    <div className={`flex flex-col flex-1 ${lvl.highlight ? "px-9 pt-7 pb-9" : "px-8 pt-7 pb-8"}`}>
+                      <h3 className={`font-display leading-snug text-foreground ${lvl.highlight ? "text-[22px]" : "text-[20px]"}`}>{lvl.programme}</h3>
                       <div className="mt-3 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                         <Clock className="h-3.5 w-3.5 text-champagne" /> {lvl.duration}
                       </div>
@@ -291,7 +294,7 @@ const Formations = () => {
 
                       <div className="mt-7">
                         <Button asChild size="sm" variant={lvl.highlight ? "ink" : "outline"} className="w-full">
-                          <Link to="#demande">Recevoir le programme <ArrowRight /></Link>
+                          <Link to="#demande">{lvl.cta} <ArrowRight /></Link>
                         </Button>
                       </div>
                     </div>
@@ -309,25 +312,25 @@ const Formations = () => {
             </div>
 
             <Reveal>
-              <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-secondary rounded-sm ring-1 ring-border p-8 md:p-12">
+              <div className="group grid lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-secondary rounded-sm ring-1 ring-border p-8 md:p-12 transition-all duration-500 ease-out hover:ring-champagne/40 hover:shadow-[var(--shadow-lift)]">
                 <div className="lg:col-span-5">
                   <div className="inline-flex items-center justify-center h-12 w-12 rounded-sm bg-champagne/[0.08] ring-1 ring-champagne/30 mb-6">
                     <Sparkles className="h-5 w-5 text-champagne" strokeWidth={1.5} />
                   </div>
-                  <div className="text-[10.5px] uppercase tracking-[0.28em] text-muted-foreground mb-3">Module sectoriel</div>
+                  <div className="text-[10.5px] uppercase tracking-[0.28em] text-muted-foreground mb-3">Spécialisation sectorielle</div>
                   <h3 className="display-sm leading-[1.15]">
                     Spécialisation <em className="not-italic text-champagne font-display">SAP RE-FX</em>
                   </h3>
                   <p className="mt-5 text-[14.5px] text-muted-foreground leading-relaxed max-w-md">
-                    Module avancé dédié à la gestion immobilière dans SAP. Une expertise sectorielle ciblée pour les profils Finance évoluant dans des environnements à forte composante immobilière.
+                    Une spécialisation recherchée sur les projets SAP à forte composante immobilière.
                   </p>
                 </div>
 
                 <div className="lg:col-span-7 lg:border-l lg:border-border/70 lg:pl-12">
                   <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
                     {[
-                      { label: "Format", value: "3 jours intensifs" },
-                      { label: "Niveau", value: "Confirmé / Expert" },
+                      { label: "Format", value: "5 jours intensifs" },
+                      { label: "Positionnement", value: "Spécialisation complémentaire" },
                       { label: "Prérequis", value: "Bases SAP Finance" },
                       { label: "Modalité", value: "Distanciel encadré" },
                     ].map((m) => (
@@ -338,7 +341,7 @@ const Formations = () => {
                     ))}
                   </div>
                   <div className="mt-8 flex flex-wrap gap-3">
-                    <Button asChild size="sm" variant="ink"><Link to="#demande">Recevoir le programme RE-FX <ArrowRight /></Link></Button>
+                    <Button asChild size="sm" variant="ink"><Link to="#demande">Se spécialiser en RE-FX <ArrowRight /></Link></Button>
                     <Button asChild size="sm" variant="outline"><Link to="#demande">Échanger avec un expert</Link></Button>
                   </div>
                 </div>
