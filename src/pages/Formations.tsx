@@ -22,8 +22,8 @@ const Formations = () => {
               <span className="h-px w-8 bg-champagne" />
               <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">FORMATIONS FINANCE SAP</span>
             </div>
-            <h1 className="display-xl text-foreground">
-              Des formations <em className="not-italic text-champagne font-display">Finance SAP</em> conçues pour un impact concret.
+            <h1 className="display-xl text-foreground max-w-[18ch] leading-[1.05]">
+              Formations <em className="not-italic text-champagne font-display">Finance SAP</em> à impact concret.
             </h1>
             <p className="lede mt-7 max-w-lg leading-relaxed">
               Programmes premium pour développer une expertise opérationnelle, immédiatement utile sur des projets et missions Finance SAP.
