@@ -40,18 +40,18 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center group" aria-label="CBS Finance Institute — Accueil">
+      <div className="container-wide grid grid-cols-[auto_1fr_auto] items-center gap-6 lg:gap-10 h-20 md:h-24">
+        <Link to="/" className="flex items-center group shrink-0" aria-label="CBS Finance Institute — Accueil">
           <img
             src={logo}
             alt="CBS Finance Institute — Expertise Finance SAP"
-            className="h-10 sm:h-11 md:h-12 w-auto object-contain transition-opacity group-hover:opacity-90"
+            className="h-14 sm:h-16 md:h-[68px] lg:h-[72px] w-auto object-contain transition-opacity group-hover:opacity-90"
             loading="eager"
             decoding="async"
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center justify-center gap-x-8 xl:gap-x-10">
           {NAV.map((item) => (
             <NavLink
               key={item.to}
@@ -59,7 +59,7 @@ const Header = () => {
               end={item.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "text-[13px] font-medium transition-colors relative py-1",
+                  "text-[13px] font-medium tracking-wide transition-colors relative py-1 whitespace-nowrap",
                   isActive
                     ? "text-foreground after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-px after:bg-accent"
                     : "text-muted-foreground hover:text-foreground",
@@ -71,7 +71,7 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 md:gap-3 justify-self-end">
           <Link
             to="/produits-digitaux/panier"
             aria-label="Panier"
