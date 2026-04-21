@@ -146,35 +146,57 @@ const OffresEntreprise = () => {
   );
 };
 
-const OfferBlock = ({ index, tag, title, description, points, ctaLabel, reverse }: {
-  index: string; tag: string; title: string; description: string; points: string[]; ctaLabel: string; reverse?: boolean;
+const DetailedOffer = ({ index, tag, title, problem, approach, impact, ctaLabel }: {
+  index: string;
+  tag: string;
+  title: string;
+  problem: string;
+  approach: string[];
+  impact: string[];
+  ctaLabel: string;
 }) => (
-  <section className={`section-y ${reverse ? "bg-secondary" : ""}`}>
-    <div className="container-wide grid lg:grid-cols-12 gap-12 items-start">
-      <div className={`lg:col-span-5 ${reverse ? "lg:order-2" : ""}`}>
-        <div className="font-display text-7xl text-champagne/30 leading-none mb-6">{index}</div>
-        <div className="eyebrow mb-4">{tag}</div>
-        <h2 className="display-md">{title}</h2>
-        <p className="lede mt-6">{description}</p>
-        <Button asChild size="lg" variant="ink" className="mt-10">
-          <Link to="#devis">{ctaLabel} <ArrowRight /></Link>
-        </Button>
-      </div>
-      <div className={`lg:col-span-6 ${reverse ? "lg:col-start-1 lg:order-1" : "lg:col-start-7"}`}>
-        <div className="card-premium p-8 md:p-10">
-          <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-6">Ce que comprend le pack</div>
-          <ul className="space-y-4">
-            {points.map((p) => (
-              <li key={p} className="flex gap-4 pb-4 border-b border-border last:border-0 last:pb-0">
-                <Layers className="h-4 w-4 text-champagne mt-1 shrink-0" strokeWidth={1.5} />
-                <span className="text-sm leading-relaxed">{p}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+  <Reveal className="bg-background p-10 md:p-12 flex flex-col h-full">
+    <div className="flex items-baseline justify-between mb-6">
+      <div className="font-display text-6xl text-champagne/30 leading-none">{index}</div>
+      <div className="eyebrow text-muted-foreground">{tag}</div>
     </div>
-  </section>
+    <h3 className="font-display text-2xl md:text-[28px] leading-tight text-foreground">{title}</h3>
+
+    <div className="mt-8">
+      <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">The challenge</div>
+      <p className="text-[14.5px] text-muted-foreground leading-relaxed">{problem}</p>
+    </div>
+
+    <div className="mt-7">
+      <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">Our approach</div>
+      <ul className="space-y-2.5">
+        {approach.map((p) => (
+          <li key={p} className="flex gap-3 text-[14px] leading-relaxed text-foreground/85">
+            <Layers className="h-3.5 w-3.5 text-champagne mt-1.5 shrink-0" strokeWidth={1.5} />
+            <span>{p}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div className="mt-7 pt-6 border-t border-border">
+      <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">Measurable impact</div>
+      <ul className="space-y-2">
+        {impact.map((p) => (
+          <li key={p} className="flex gap-3 text-[14px] leading-relaxed text-foreground">
+            <span className="text-champagne mt-0.5">→</span>
+            <span>{p}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div className="mt-10 pt-2 mt-auto">
+      <Button asChild size="lg" variant="ink">
+        <Link to="#devis">{ctaLabel} <ArrowRight /></Link>
+      </Button>
+    </div>
+  </Reveal>
 );
 
 export default OffresEntreprise;
