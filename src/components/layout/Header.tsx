@@ -40,18 +40,22 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide grid grid-cols-[auto_1fr_auto] items-center gap-8 lg:gap-12 xl:gap-16 h-20 md:h-24 lg:h-28">
-        <Link to="/" className="flex items-center group shrink-0" aria-label="CBS Finance Institute — Accueil">
+      <div className="container-wide grid grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[30rem_minmax(0,1fr)_auto] xl:grid-cols-[32rem_minmax(0,1fr)_auto] items-center gap-4 md:gap-6 lg:gap-8 h-20 md:h-24 lg:h-28">
+        <Link
+          to="/"
+          className="flex items-center min-w-0 lg:w-[30rem] xl:w-[32rem]"
+          aria-label="CBS Finance Institute — Accueil"
+        >
           <img
             src={logo}
             alt="CBS Finance Institute — Expertise Finance SAP"
-            className="h-11 sm:h-12 md:h-14 lg:h-[60px] xl:h-16 w-auto object-contain transition-opacity group-hover:opacity-90"
+            className="block w-[13.5rem] sm:w-[16.5rem] md:w-[21rem] lg:w-[27rem] xl:w-[29rem] h-auto object-contain object-left"
             loading="eager"
             decoding="async"
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center justify-center gap-x-8 xl:gap-x-10">
+        <nav className="hidden lg:flex items-center justify-self-center gap-4 xl:gap-5 whitespace-nowrap">
           {NAV.map((item) => (
             <NavLink
               key={item.to}
@@ -59,7 +63,7 @@ const Header = () => {
               end={item.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "text-[13px] font-medium tracking-wide transition-colors relative py-1 whitespace-nowrap",
+                  "text-[11px] xl:text-[12px] font-medium tracking-[0.015em] transition-colors relative py-1.5",
                   isActive
                     ? "text-foreground after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-px after:bg-accent"
                     : "text-muted-foreground hover:text-foreground",
@@ -71,7 +75,7 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 md:gap-3 justify-self-end">
+        <div className="flex items-center gap-2 md:gap-3 justify-self-end shrink-0">
           <Link
             to="/produits-digitaux/panier"
             aria-label="Panier"
@@ -85,7 +89,7 @@ const Header = () => {
             )}
           </Link>
 
-          <Button asChild size="sm" variant="ink" className="hidden md:inline-flex">
+          <Button asChild size="sm" variant="ink" className="hidden md:inline-flex shrink-0">
             <Link to="/contact">Parler à un expert</Link>
           </Button>
 
