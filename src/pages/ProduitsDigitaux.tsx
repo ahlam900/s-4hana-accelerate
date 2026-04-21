@@ -1,17 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ShoppingBag } from "lucide-react";
+import { ArrowRight, BellRing, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import Reveal from "@/components/Reveal";
 import { products, productCategories } from "@/data/products";
-import { useCart } from "@/store/cart";
-import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
 const ProduitsDigitaux = () => {
   const [active, setActive] = useState<string>("Toutes");
-  const add = useCart((s) => s.add);
   const filtered = active === "Toutes" ? products : products.filter((p) => p.category === active);
 
   return (
