@@ -106,16 +106,16 @@ const OffresEntreprise = () => {
         <div className="container-wide">
           <div className="max-w-2xl mb-14">
             <div className="eyebrow mb-6 text-ivory/60">Pourquoi CBS Finance Institute</div>
-            <h2 className="display-md text-ivory">Un partenaire spécialisé, à la hauteur de vos enjeux.</h2>
+            <h2 className="display-md text-ivory">A specialized partner for high-stakes SAP Finance transformations.</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ivory/10 border border-ivory/10 rounded-sm overflow-hidden">
             {[
-              { icon: Compass, title: "Expertise 100 % SAP Finance", text: "Une spécialisation exclusive qui fait toute la différence." },
-              { icon: Building2, title: "Compréhension des enjeux entreprise", text: "Une lecture business des projets de transformation Finance." },
-              { icon: Sparkles, title: "Approche premium", text: "Un niveau d'exigence aligné avec vos standards." },
-              { icon: Target, title: "Adoption et performance", text: "Des dispositifs structurés pour des résultats mesurables." },
-              { icon: Briefcase, title: "Vision opérationnelle", text: "Du cadrage au go-live, ancrage terrain permanent." },
-              { icon: ShieldCheck, title: "Engagement de qualité", text: "Une exigence de rigueur sur l'ensemble des livrables." },
+              { icon: Compass, title: "100% Dedicated SAP Finance Expertise", text: "Deep specialization focused exclusively on SAP Finance transformation." },
+              { icon: Building2, title: "Business-Critical Understanding", text: "A finance-first perspective aligned with your strategic and operational priorities." },
+              { icon: Sparkles, title: "High-Standard Consulting Approach", text: "A level of rigor and execution aligned with top-tier transformation programs." },
+              { icon: Target, title: "Adoption & Measurable Performance", text: "Structured frameworks ensuring real adoption and sustainable performance." },
+              { icon: Briefcase, title: "Execution-Driven Mindset", text: "From design to go-live, with strong operational anchoring." },
+              { icon: ShieldCheck, title: "Commitment to Delivery Excellence", text: "High standards applied across all deliverables and project phases." },
             ].map((b, i) => (
               <Reveal key={b.title} delay={i * 50} className="bg-ink p-7">
                 <b.icon className="h-6 w-6 text-champagne" strokeWidth={1.5} />
