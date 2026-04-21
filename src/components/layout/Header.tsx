@@ -40,12 +40,12 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide grid grid-cols-[auto_1fr_auto] items-center gap-6 lg:gap-10 h-20 md:h-24">
+      <div className="container-wide grid grid-cols-[auto_1fr_auto] items-center gap-8 lg:gap-12 xl:gap-16 h-24 md:h-28 lg:h-32">
         <Link to="/" className="flex items-center group shrink-0" aria-label="CBS Finance Institute — Accueil">
           <img
             src={logo}
             alt="CBS Finance Institute — Expertise Finance SAP"
-            className="h-14 sm:h-16 md:h-[68px] lg:h-[72px] w-auto object-contain transition-opacity group-hover:opacity-90"
+            className="h-20 sm:h-24 md:h-[104px] lg:h-[120px] xl:h-[132px] w-auto object-contain transition-opacity group-hover:opacity-90"
             loading="eager"
             decoding="async"
           />
