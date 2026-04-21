@@ -305,46 +305,39 @@ const Home = () => {
           </div>
 
           <Reveal>
-            <div className="border-t border-ivory/15 pt-12 md:pt-16">
+            <div className="border-t border-ivory/15 pt-14 md:pt-20">
               {(() => {
-                const refs = [
-                  "SAP", "Radio France", "Vodafone", "Imerys", "Europ Assistance", "Fareva",
-                  "Lafarge", "Suez", "Engie", "EDF", "GRDF", "Carrefour",
-                  "JCDecaux", "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior",
-                ];
-                const perLine = Math.ceil(refs.length / 3);
                 const lines = [
-                  refs.slice(0, perLine),
-                  refs.slice(perLine, perLine * 2),
-                  refs.slice(perLine * 2),
+                  ["SAP", "Radio France", "Vodafone", "Imerys", "Europ Assistance", "Fareva"],
+                  ["Lafarge", "Suez", "Engie", "EDF", "GRDF", "Carrefour"],
+                  ["JCDecaux", "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior"],
                 ];
                 return (
-                  <ul className="space-y-7 md:space-y-9">
+                  <div className="space-y-9 md:space-y-12 text-center">
                     {lines.map((line, li) => (
-                      <li
+                      <p
                         key={li}
-                        className="flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 gap-y-4 text-center"
+                        className="font-display text-[20px] md:text-[26px] tracking-tight text-ivory/90 leading-[1.55]"
                       >
                         {line.map((ref, i) => (
-                          <span key={ref} className="flex items-center gap-x-8 md:gap-x-12">
-                            <span className="font-display text-[19px] md:text-[22px] tracking-tight text-ivory/90 hover:text-champagne transition-colors duration-500">
+                          <span key={ref}>
+                            <span className="hover:text-champagne transition-colors duration-500">
                               {ref}
                             </span>
                             {i < line.length - 1 && (
-                              <span className="h-1 w-1 rounded-full bg-champagne/40" aria-hidden />
+                              <span className="inline-block w-10 md:w-14" aria-hidden />
                             )}
                           </span>
                         ))}
-                      </li>
+                      </p>
                     ))}
-                  </ul>
+                  </div>
                 );
               })()}
             </div>
-            <div className="mt-12 md:mt-16 border-t border-ivory/10" />
           </Reveal>
 
-          <p className="text-[11.5px] text-ivory/45 mt-8 italic text-center max-w-3xl mx-auto leading-relaxed">
+          <p className="text-[11.5px] text-ivory/45 mt-8 md:mt-10 italic text-center max-w-3xl mx-auto leading-relaxed">
             Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
           </p>
         </div>
