@@ -91,25 +91,39 @@ const Formations = () => {
       </section>
 
 
-      {/* INTRO */}
+      {/* INTRO — À qui s'adressent nos formations */}
       <section className="section-y">
-        <div className="container-narrow">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+            <div className="lg:col-span-5">
               <div className="eyebrow mb-6">À qui s'adressent nos formations</div>
-              <h2 className="display-md">Conçues pour les professionnels qui exigent un haut niveau de pertinence.</h2>
+              <h2 className="display-sm leading-[1.15] max-w-md">
+                Conçues pour les professionnels qui exigent un haut niveau de <em className="not-italic text-champagne font-display">pertinence</em>.
+              </h2>
+              <div className="mt-8 h-px w-12 bg-champagne/60" />
+              <p className="mt-8 text-[15px] text-muted-foreground leading-relaxed max-w-md">
+                Nos formations Finance SAP couvrent les besoins de montée en compétence avancée, sur SAP comme sur les processus Finance qui les sous-tendent.
+              </p>
             </div>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>Nos formations Finance SAP couvrent les besoins de montée en compétence avancée, sur SAP comme sur les processus Finance qui les sous-tendent.</p>
-              <ul className="space-y-2 text-sm">
+
+            <div className="lg:col-span-6 lg:col-start-7">
+              <div className="text-[10px] uppercase tracking-[0.28em] text-champagne mb-8 flex items-center gap-3">
+                <span className="h-px w-6 bg-champagne" /> Profils ciblés
+              </div>
+              <ul className="divide-y divide-border/70 border-y border-border/70">
                 {[
-                  "Consultants SAP en activité ou en évolution",
-                  "Professionnels Finance souhaitant renforcer leur expertise SAP",
-                  "Chefs de projet et responsables de domaine Finance",
-                  "Profils en reconversion vers le métier de consultant SAP Finance",
+                  { num: "01", title: "Consultants SAP", detail: "En activité ou en évolution vers de nouveaux modules" },
+                  { num: "02", title: "Professionnels Finance", detail: "Souhaitant renforcer leur expertise SAP S/4HANA" },
+                  { num: "03", title: "Chefs de projet & responsables", detail: "Pilotant un domaine Finance ou une transformation" },
+                  { num: "04", title: "Profils en reconversion", detail: "Vers le métier de consultant SAP Finance" },
                 ].map((a) => (
-                  <li key={a} className="flex items-start gap-3 border-l-2 border-champagne pl-4 py-1">
-                    {a}
+                  <li key={a.num} className="group flex items-start gap-6 py-5 transition-colors hover:bg-secondary/40 -mx-4 px-4 rounded-sm">
+                    <span className="font-display text-[13px] text-champagne tracking-[0.18em] mt-1 shrink-0">{a.num}</span>
+                    <div className="min-w-0 flex-1">
+                      <div className="font-display text-[17px] text-foreground leading-snug">{a.title}</div>
+                      <div className="text-[13.5px] text-muted-foreground mt-1.5 leading-relaxed">{a.detail}</div>
+                    </div>
+                    <span className="h-px w-6 bg-border mt-3.5 shrink-0 transition-all duration-500 group-hover:w-10 group-hover:bg-champagne/60" />
                   </li>
                 ))}
               </ul>
