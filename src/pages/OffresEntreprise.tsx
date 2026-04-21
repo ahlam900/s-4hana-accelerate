@@ -50,7 +50,7 @@ const OffresEntreprise = () => {
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <div className="eyebrow mb-6">Our offerings</div>
-            <h2 className="display-md">Our Offerings in Detail.</h2>
+            <h2 className="display-md">Two Strategic Engagements to Deliver SAP Finance Transformation.</h2>
             <p className="lede mt-6 text-muted-foreground">
               Two consulting engagements designed for finance departments leading SAP S/4HANA transformations — built around measurable outcomes, not generic training.
             </p>
@@ -90,7 +90,7 @@ const OffresEntreprise = () => {
                 "Higher adoption rates across business units",
                 "Sustained operational performance after deployment",
               ]}
-              ctaLabel="Empower my key users"
+              ctaLabel="Build internal SAP Finance capability"
             />
           </div>
 
