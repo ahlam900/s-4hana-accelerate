@@ -206,7 +206,7 @@ const Formations = () => {
             </div>
             <div className="lg:col-span-5">
               <p className="text-[15px] text-muted-foreground leading-relaxed max-w-md lg:ml-auto">
-                Trois niveaux de progression, du fondamental à l'expertise, complétés par une spécialisation sectorielle ciblée.
+                Trois niveaux de progression cohérents, du fondamental à l'expertise, complétés par une spécialisation sectorielle ciblée.
               </p>
             </div>
           </div>
