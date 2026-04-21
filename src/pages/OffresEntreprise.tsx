@@ -49,10 +49,10 @@ const OffresEntreprise = () => {
       <section className="section-y">
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
-            <div className="eyebrow mb-6">Our offerings</div>
-            <h2 className="display-md">Two Strategic SAP Finance Engagements.</h2>
+            <div className="eyebrow mb-6">Nos offres</div>
+            <h2 className="display-md">Deux offres stratégiques pour vos transformations SAP Finance.</h2>
             <p className="lede mt-6 text-muted-foreground">
-              Two consulting engagements designed for finance departments leading SAP S/4HANA transformations — built around measurable business outcomes — not generic training.
+              Deux offres conçues pour accompagner les directions financières dans leurs transformations SAP S/4HANA, avec une approche orientée résultats et non formation générique.
             </p>
           </div>
 
@@ -60,43 +60,45 @@ const OffresEntreprise = () => {
             <DetailedOffer
               index="01"
               tag="Engagement n°1"
-              title="SAP Digital Transformation Package"
-              subtitle="Designed for finance organizations leading critical SAP Finance transformation initiatives."
-              approachLabel="Key Deliverables & Impact"
-              approachIntro="We intervene at critical stages of SAP Finance transformation programs:"
+              title="Pack Transformation Digitale SAP"
+              subtitle="Conçu pour les directions financières pilotant des programmes de transformation SAP Finance critiques."
+              approachLabel="Livrables clés & impact"
+              approachIntro="Nous intervenons sur les étapes clés des programmes de transformation SAP Finance :"
               approach={[
-                "End-to-end structuring of SAP Finance processes (Record-to-Report, P2P, OTC)",
-                "Identification and mitigation of transformation risks",
-                "Alignment between Finance, IT and project stakeholders",
-                "Definition of target operating model and governance",
-                "Acceleration of S/4HANA project readiness and execution",
-                "Support for user adoption and change management",
+                "Structuration de bout en bout des processus Finance SAP (Record-to-Report, P2P, OTC)",
+                "Identification et sécurisation des risques de transformation",
+                "Alignement entre Finance, IT et équipes projet",
+                "Définition du modèle opérationnel cible et de la gouvernance",
+                "Accélération de la préparation et de l'exécution des projets S/4HANA",
+                "Accompagnement de l'adoption et de la conduite du changement",
               ]}
-              closingLine="Our approach ensures reliable execution, reduced project risk and faster time-to-value."
-              ctaLabel="Request a proposal"
+              closingLine="Notre approche garantit une exécution fiable, une réduction des risques et un time-to-value accéléré."
+              ctaLabel="Demander un devis"
             />
             <DetailedOffer
               index="02"
               tag="Engagement n°2"
-              title="SAP Key User Training Package"
-              problem="Key users are often left to absorb SAP complexity alone, weakening adoption and post-go-live performance."
+              title="Pack Formation Key Users SAP"
+              problem="Les key users sont souvent laissés seuls face à la complexité SAP, ce qui freine l'adoption et la performance post go-live."
+              approachLabel="Notre approche"
               approach={[
-                "Tailored upskilling paths for each key user profile",
-                "Hands-on scenarios anchored in your real Finance processes",
-                "Train-the-trainer sessions to build internal autonomy",
-                "Operational support before, during and after go-live",
+                "Parcours de montée en compétence adaptés à chaque profil key user",
+                "Cas pratiques ancrés dans vos processus Finance réels",
+                "Sessions de type train-the-trainer pour renforcer l'autonomie interne",
+                "Accompagnement opérationnel avant, pendant et après le go-live",
               ]}
+              impactLabel="Impact mesurable"
               impact={[
-                "Key users fully autonomous on core SAP Finance processes",
-                "Higher adoption rates across business units",
-                "Sustained operational performance after deployment",
+                "Key users autonomes sur les processus Finance SAP clés",
+                "Taux d'adoption renforcé dans les équipes",
+                "Performance opérationnelle durable après déploiement",
               ]}
-              ctaLabel="Build internal SAP Finance capability"
+              ctaLabel="Former mes key users"
             />
           </div>
 
           <p className="mt-12 text-center text-[13.5px] text-muted-foreground">
-            Each engagement is shaped with your leadership team — scope, intensity and deliverables are tailored to your transformation roadmap.
+            Chaque engagement est défini avec votre comité de direction — périmètre, intensité et livrables sont adaptés à votre feuille de route de transformation.
           </p>
         </div>
       </section>
@@ -185,7 +187,7 @@ const DetailedOffer = ({
 
     {problem && (
       <div className="mt-8">
-        <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">The challenge</div>
+        <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">L'enjeu</div>
         <p className="text-[14.5px] text-muted-foreground leading-relaxed">{problem}</p>
       </div>
     )}
