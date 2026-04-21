@@ -379,15 +379,15 @@ const Formations = () => {
             <div className="eyebrow mb-6">Pourquoi nos formations</div>
             <h2 className="display-md">Une exigence pédagogique pensée pour l'opérationnel.</h2>
             <p className="mt-6 text-[15px] text-muted-foreground leading-relaxed max-w-2xl">
-              Une approche construite à partir de l'expérience projet et des exigences des environnements SAP les plus structurants.
+              Une approche issue du terrain, conçue pour répondre aux exigences réelles des projets SAP Finance les plus structurants.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Target, title: "Spécialisation métier + système", text: "Une lecture complète des processus Finance et de leur traduction dans SAP, pour une compréhension réellement exploitable en environnement projet." },
-              { icon: Briefcase, title: "Pédagogie orientée terrain", text: "Des cas réels, des mises en situation et une approche directement inspirée des environnements projet SAP." },
-              { icon: Sparkles, title: "Vision transformation", text: "Une compréhension des enjeux de transformation SAP Finance, au-delà de la simple utilisation de l'outil." },
-              { icon: GraduationCap, title: "Contenu structuré et premium", text: "Des parcours structurés, des contenus exigeants et un accompagnement conçu pour des profils à forte ambition." },
+              { icon: Target, title: "Spécialisation métier + système", text: "Une lecture complète des processus Finance et de leur traduction dans SAP, directement exploitable en projet." },
+              { icon: Briefcase, title: "Pédagogie ancrée projet", text: "Des cas réels, des mises en situation et une approche inspirée des environnements SAP." },
+              { icon: Sparkles, title: "Vision des enjeux SAP Finance", text: "Une compréhension des enjeux de transformation, au-delà de la simple utilisation de l'outil." },
+              { icon: GraduationCap, title: "Exigence pédagogique élevée", text: "Des parcours structurés, des contenus exigeants et un accompagnement pour profils ambitieux." },
             ].map((b, i) => (
               <Reveal key={b.title} delay={i * 60}>
                 <div className="card-premium p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] group h-full">
@@ -397,6 +397,11 @@ const Formations = () => {
                 </div>
               </Reveal>
             ))}
+          </div>
+          <div className="mt-16 pt-8 border-t border-border/60 text-center">
+            <p className="text-[13.5px] text-muted-foreground font-medium">
+              Une formation pensée pour être utilisée, pas seulement comprise.
+            </p>
           </div>
         </div>
       </section>
