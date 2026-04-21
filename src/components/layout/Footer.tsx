@@ -1,30 +1,27 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Linkedin } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 import logo from "@/assets/cbs-finance-institute-logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-secondary text-foreground border-t border-border">
       <div className="container-wide py-16 md:py-20 grid gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-4 space-y-5">
+        <div className="lg:col-span-4 space-y-6">
           <Link to="/" className="inline-flex items-center group" aria-label="CBS Finance Institute — Accueil">
             <img
               src={logo}
               alt="CBS Finance Institute — Expertise Finance SAP"
-              className="h-12 md:h-14 w-auto object-contain transition-opacity group-hover:opacity-90"
+              className="h-16 md:h-20 w-auto object-contain transition-opacity group-hover:opacity-90"
               loading="lazy"
               decoding="async"
             />
           </Link>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-            Institut premium dédié à la formation Finance SAP, à la transformation digitale SAP et à la formation des Key Users SAP, pour les professionnels et les entreprises.
+            Institut premium dédié à la formation Finance SAP et à la transformation digitale SAP, pour les professionnels et les entreprises.
           </p>
-          <div className="flex flex-col gap-2 text-sm text-foreground/80 pt-2">
+          <div className="flex flex-col gap-2.5 text-sm text-foreground/80 pt-1">
             <a href="mailto:contact@cbs-finance-institute.fr" className="inline-flex items-center gap-2 hover:text-champagne transition-colors">
               <Mail className="h-4 w-4" /> contact@cbs-finance-institute.fr
-            </a>
-            <a href="tel:+33000000000" className="inline-flex items-center gap-2 hover:text-champagne transition-colors">
-              <Phone className="h-4 w-4" /> +33 (0)X XX XX XX XX
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-champagne transition-colors">
               <Linkedin className="h-4 w-4" /> LinkedIn
