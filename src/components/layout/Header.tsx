@@ -40,16 +40,16 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide grid grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[28rem_minmax(0,1fr)_auto] xl:grid-cols-[30rem_minmax(0,1fr)_auto] items-center gap-4 md:gap-6 lg:gap-8 h-24 md:h-28 lg:h-32 xl:h-36 py-3 md:py-4">
+      <div className="container-wide grid grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 lg:gap-10 xl:gap-14 h-20 md:h-24 lg:h-24 xl:h-28">
         <Link
           to="/"
-          className="flex items-center min-w-0 lg:w-[28rem] xl:w-[30rem] h-full"
+          className="flex items-center min-w-0 h-full"
           aria-label="CBS Finance Institute — Accueil"
         >
           <img
             src={logo}
             alt="CBS Finance Institute — Expertise Finance SAP"
-            className="block w-auto object-contain object-left max-h-full h-12 sm:h-14 md:h-16 lg:h-[76px] xl:h-[84px]"
+            className="block w-auto object-contain object-left max-h-full h-10 sm:h-11 md:h-12 lg:h-14 xl:h-16"
             loading="eager"
             decoding="async"
           />
