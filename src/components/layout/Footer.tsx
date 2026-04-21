@@ -11,7 +11,7 @@ const Footer = () => {
             <img
               src={logo}
               alt="CBS Finance Institute — Expertise Finance SAP"
-              className="h-16 md:h-20 w-auto object-contain transition-opacity group-hover:opacity-90"
+              className="h-14 md:h-[72px] w-auto object-contain transition-opacity group-hover:opacity-90"
               loading="lazy"
               decoding="async"
             />
