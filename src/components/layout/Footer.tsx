@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Linkedin } from "lucide-react";
+import logo from "@/assets/cbs-finance-institute-logo.png";
 
 const Footer = () => {
   return (
@@ -10,15 +11,14 @@ const Footer = () => {
       <div className="container-wide pt-20 md:pt-24 pb-10 grid gap-14 lg:grid-cols-12">
         {/* Brand block */}
         <div className="lg:col-span-4 space-y-6">
-          <Link to="/" className="flex items-center gap-4 group w-fit">
-            <div className="relative h-[52px] w-[52px] rounded-sm gradient-ink flex items-center justify-center shadow-[var(--shadow-card)] ring-1 ring-champagne/30 group-hover:ring-champagne/60 transition-all">
-              <span className="font-display text-ivory text-[16px] leading-none tracking-[0.08em] font-medium">CBS</span>
-              <span className="absolute -bottom-px left-1/2 -translate-x-1/2 h-px w-7 bg-champagne/70" />
-            </div>
-            <div className="flex flex-col leading-[1.1]">
-              <span className="font-display text-[19px] tracking-tight text-foreground">Finance Institute</span>
-              <span className="text-[9px] uppercase tracking-[0.34em] text-champagne mt-2">Expertise · Finance SAP</span>
-            </div>
+          <Link to="/" className="flex items-center group w-fit" aria-label="CBS Finance Institute — Accueil">
+            <img
+              src={logo}
+              alt="CBS Finance Institute"
+              className="h-14 md:h-16 w-auto object-contain transition-opacity group-hover:opacity-90"
+              loading="lazy"
+              decoding="async"
+            />
           </Link>
           <p className="text-[14px] text-muted-foreground leading-[1.65] max-w-sm">
             Institut premium dédié à la formation Finance SAP, à la transformation digitale et à l'accompagnement des Key Users — pour les professionnels et les entreprises.
