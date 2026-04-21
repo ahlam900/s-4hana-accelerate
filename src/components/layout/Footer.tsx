@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, Linkedin } from "lucide-react";
+import logo from "@/assets/cbs-finance-institute-logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-ink text-ivory mt-24">
       <div className="container-wide py-16 md:py-20 grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4 space-y-5">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-sm bg-champagne flex items-center justify-center">
-              <span className="font-display text-ink text-lg leading-none">C</span>
-            </div>
-            <div className="leading-tight">
-              <div className="font-display text-base">CBS Finance Institute</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-ivory/60">Expertise Finance SAP</div>
-            </div>
+          <Link to="/" className="inline-flex items-center group" aria-label="CBS Finance Institute — Accueil">
+            <span className="inline-block bg-ivory rounded-sm px-4 py-3 ring-1 ring-ivory/10 shadow-sm transition-opacity group-hover:opacity-95">
+              <img
+                src={logo}
+                alt="CBS Finance Institute — Expertise Finance SAP"
+                className="h-11 md:h-12 w-auto object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
           </Link>
           <p className="text-sm text-ivory/70 leading-relaxed max-w-sm">
             Institut premium dédié à la formation Finance SAP, à la transformation digitale SAP et à la formation des Key Users SAP, pour les professionnels et les entreprises.
