@@ -85,20 +85,26 @@ const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
         <Field label="Email *" error={errors.email?.message}><Input type="email" {...register("email")} /></Field>
         <Field label="Téléphone"><Input type="tel" {...register("telephone")} /></Field>
       </div>
-      <Field label="Offre souhaitée *" error={errors.offre_souhaitee?.message}>
+      <Field label="Type d'accompagnement *" error={errors.offre_souhaitee?.message}>
         <select {...register("offre_souhaitee")} className="flex h-10 w-full rounded-sm border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
           <option value="">— Sélectionner —</option>
           <option>Pack Transformation Digitale SAP</option>
-          <option>Pack Formation des Key Users SAP</option>
-          <option>Les deux</option>
+          <option>Pack Formation Key Users SAP</option>
+          <option>Accompagnement projet S/4HANA</option>
+          <option>Audit / cadrage SAP Finance</option>
           <option>Autre besoin</option>
         </select>
       </Field>
-      <Field label="Besoin"><Input {...register("besoin")} placeholder="Ex. Cadrage d'un projet S/4HANA Finance" /></Field>
-      <Field label="Message"><Textarea rows={5} {...register("message")} /></Field>
-      <Button type="submit" size="lg" variant="ink" disabled={isSubmitting} className="w-full sm:w-auto">
-        {isSubmitting ? "Envoi en cours…" : "Envoyer ma demande"}
-      </Button>
+      <Field label="Besoin"><Input {...register("besoin")} placeholder="Ex. Cadrage d'un projet S/4HANA, montée en compétence des équipes, optimisation des processus Finance…" /></Field>
+      <Field label="Message"><Textarea rows={5} {...register("message")} placeholder="Décrivez brièvement votre contexte, vos enjeux et vos objectifs." /></Field>
+      <div className="pt-2">
+        <Button type="submit" size="lg" variant="ink" disabled={isSubmitting} className="w-full sm:w-auto">
+          {isSubmitting ? "Envoi en cours…" : "Être recontacté par un expert"}
+        </Button>
+        <p className="mt-3 text-[12.5px] text-muted-foreground">
+          Réponse sous 24–48h — échange confidentiel — sans engagement
+        </p>
+      </div>
       <p className="text-xs text-muted-foreground">Vos données sont traitées conformément à notre politique de confidentialité.</p>
     </form>
   );
