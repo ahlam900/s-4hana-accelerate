@@ -134,44 +134,62 @@ const Formations = () => {
 
       {/* FEATURED — SAP FICO 70h */}
       {featured && (
-        <section className="section-y bg-ink text-ivory">
-          <div className="container-wide grid lg:grid-cols-12 gap-12">
+        <section className="pt-20 md:pt-24 pb-16 md:pb-20 bg-ink text-ivory">
+          <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-5">
               <div className="eyebrow mb-6 text-ivory/60">Programme phare</div>
-              <h2 className="display-md text-ivory">{featured.title}</h2>
-              <p className="lede mt-6 text-ivory/75">
+              <h2 className="display-md text-ivory leading-[1.1]">{featured.title}</h2>
+              <div className="mt-5 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-champagne/90">
+                <span className="h-px w-6 bg-champagne/60" />
+                {featured.duration}
+              </div>
+              <p className="lede mt-7 text-ivory/75">
                 Programme professionnel conçu pour préparer de futurs consultants SAP Finance et professionnels Finance à intervenir dans des environnements SAP S/4HANA.
               </p>
-              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-ivory/80">
-                <span className="inline-flex items-center gap-2"><Clock className="h-4 w-4 text-champagne" />{featured.duration}</span>
+              <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3 text-sm text-ivory/80">
                 <span className="inline-flex items-center gap-2"><Users className="h-4 w-4 text-champagne" />{featured.audience.split(',')[0]}</span>
                 <span className="inline-flex items-center gap-2"><GraduationCap className="h-4 w-4 text-champagne" />{featured.format}</span>
               </div>
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="mt-9 flex flex-wrap gap-3">
                 <Button asChild size="lg" variant="champagne"><Link to="#demande">S'inscrire à la formation <ArrowRight /></Link></Button>
                 <Button asChild size="lg" variant="outlineLight"><Link to="#demande">Recevoir le programme</Link></Button>
               </div>
             </div>
-            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-10 sm:gap-8">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-4">Au programme</div>
+                <div className="text-[10px] uppercase tracking-[0.28em] text-champagne mb-5 flex items-center gap-3">
+                  <span className="h-px w-5 bg-champagne" /> Au programme
+                </div>
                 <ul className="space-y-3 text-sm">
                   {featured.objectives.map((o) => (
-                    <li key={o} className="flex gap-3 text-ivory/85">
-                      <span className="text-champagne">—</span> {o}
+                    <li key={o} className="flex gap-3 text-ivory/85 leading-relaxed">
+                      <span className="text-champagne shrink-0">—</span> {o}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-4">Débouchés</div>
+              <div className="flex flex-col">
+                <div className="text-[10px] uppercase tracking-[0.28em] text-champagne mb-5 flex items-center gap-3">
+                  <span className="h-px w-5 bg-champagne" /> Débouchés
+                </div>
                 <ul className="space-y-3 text-sm">
-                  {["SAP Functional Consultant", "SAP Finance Consultant", "ERP Transformation Specialist"].map((o) => (
-                    <li key={o} className="flex gap-3 text-ivory/85">
-                      <Briefcase className="h-4 w-4 text-champagne mt-0.5 shrink-0" /> {o}
+                  {[
+                    { title: "SAP Functional Consultant", meta: "Projets S/4HANA · TMA" },
+                    { title: "SAP Finance Consultant", meta: "Cadrage & paramétrage FI/CO" },
+                    { title: "ERP Transformation Specialist", meta: "Conduite du changement" },
+                  ].map((o) => (
+                    <li key={o.title} className="flex gap-3 text-ivory/85">
+                      <Briefcase className="h-4 w-4 text-champagne mt-0.5 shrink-0" />
+                      <div className="min-w-0">
+                        <div className="leading-snug">{o.title}</div>
+                        <div className="text-[11.5px] text-ivory/50 mt-0.5">{o.meta}</div>
+                      </div>
                     </li>
                   ))}
                 </ul>
+                <div className="mt-auto pt-6 border-t border-ivory/10 text-[11px] uppercase tracking-[0.2em] text-ivory/55">
+                  Certification incluse · Réseau SAP
+                </div>
               </div>
             </div>
           </div>
