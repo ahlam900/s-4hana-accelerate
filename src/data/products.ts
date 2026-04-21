@@ -1,3 +1,5 @@
+export type ProductBadge = "Best-seller" | "Indispensable" | "Recommandé";
+
 export interface DigitalProduct {
   id: string;
   slug: string;
@@ -9,6 +11,8 @@ export interface DigitalProduct {
   format: string;
   price: number;
   pages?: string;
+  badge?: ProductBadge;
+  valueBullets: string[];
   highlights: string[];
   benefits: string[];
 }
@@ -19,14 +23,20 @@ export const products: DigitalProduct[] = [
     slug: "playbook-sap-finance-transformation",
     title: "Playbook Transformation Finance SAP",
     category: "Playbooks",
+    badge: "Best-seller",
     shortDescription:
-      "Cadre méthodologique premium pour piloter une transformation Finance SAP de bout en bout.",
+      "Le framework opérationnel utilisé pour structurer et piloter une transformation SAP Finance de bout en bout.",
     longDescription:
-      "Un playbook structuré qui couvre l’ensemble des étapes clés d’une transformation Finance SAP : cadrage, cartographie des processus, design de la cible, gouvernance, conduite du changement et déploiement.",
+      "Un playbook structuré qui couvre l'ensemble des étapes clés d'une transformation Finance SAP : cadrage, cartographie des processus, design de la cible, gouvernance, conduite du changement et déploiement.",
     audience: "Directions financières, chefs de projet SAP, consultants Finance",
     format: "PDF interactif",
     pages: "78 pages",
     price: 149,
+    valueBullets: [
+      "Méthodologie issue de projets S/4HANA réels",
+      "Structuration des phases, livrables et gouvernance",
+      "Accélère la prise de décision et la maîtrise projet",
+    ],
     highlights: [
       "Cadre méthodologique structuré",
       "Cartographie des processus Finance SAP",
@@ -34,7 +44,7 @@ export const products: DigitalProduct[] = [
       "Roadmap type sur 12 mois",
     ],
     benefits: [
-      "Sécuriser le cadrage d’un projet Finance SAP",
+      "Sécuriser le cadrage d'un projet Finance SAP",
       "Aligner directions métier et équipes projet",
       "Anticiper les points de vigilance majeurs",
     ],
@@ -44,14 +54,20 @@ export const products: DigitalProduct[] = [
     slug: "guide-s4hana-finance-essentiel",
     title: "Guide essentiel S/4HANA Finance",
     category: "Guides PDF",
+    badge: "Indispensable",
     shortDescription:
-      "Le guide de référence pour comprendre les fondamentaux fonctionnels de S/4HANA Finance.",
+      "Le socle indispensable pour comprendre rapidement l'architecture et les fondamentaux S/4HANA Finance.",
     longDescription:
       "Un guide pédagogique qui expose, de façon claire et opérationnelle, les concepts clés de S/4HANA Finance : Universal Journal, modèle de données, architecture, périmètre fonctionnel et incidences sur les processus.",
     audience: "Professionnels Finance, key users, consultants en évolution",
     format: "PDF haute qualité",
     pages: "62 pages",
     price: 89,
+    valueBullets: [
+      "Vision claire des concepts clés (FI / CO / Universal Journal)",
+      "Accélère la montée en compétence",
+      "Idéal pour consultants et key users",
+    ],
     highlights: [
       "Universal Journal expliqué",
       "Architecture S/4HANA Finance",
@@ -69,23 +85,29 @@ export const products: DigitalProduct[] = [
     slug: "template-cartographie-processus-finance-sap",
     title: "Template Cartographie des processus Finance SAP",
     category: "Templates",
+    badge: "Recommandé",
     shortDescription:
-      "Modèle prêt à l’emploi pour cartographier les processus Finance dans un environnement SAP.",
+      "Le template utilisé en projet pour cartographier efficacement les processus Finance SAP.",
     longDescription:
       "Un template structuré pour cartographier vos processus Finance SAP — Record-to-Report, Order-to-Cash, Procure-to-Pay — avec les niveaux de détail attendus dans un projet de transformation.",
     audience: "Chefs de projet, key users, consultants",
     format: "Excel + PDF guide",
     price: 49,
+    valueBullets: [
+      "Prêt à l'emploi (missions / projets)",
+      "Structure standard des processus R2R, P2P, OTC",
+      "Gain de temps immédiat en phase de cadrage",
+    ],
     highlights: [
       "3 macro-processus modélisés",
       "Niveaux L1 → L4",
       "Champs prêts à compléter",
-      "Guide d’utilisation",
+      "Guide d'utilisation",
     ],
     benefits: [
-      "Gagner du temps sur la phase d’analyse",
+      "Gagner du temps sur la phase d'analyse",
       "Structurer un atelier de cartographie",
-      "Disposer d’un livrable professionnel",
+      "Disposer d'un livrable professionnel",
     ],
   },
   {
@@ -94,22 +116,27 @@ export const products: DigitalProduct[] = [
     title: "Checklist Go-Live Finance SAP",
     category: "Templates",
     shortDescription:
-      "Checklist exhaustive pour sécuriser un démarrage Finance SAP, du cutover à l’hypercare.",
+      "La checklist complète pour sécuriser un go-live SAP Finance sans risque.",
     longDescription:
-      "Une checklist opérationnelle couvrant l’ensemble des points de contrôle d’un go-live Finance SAP : reprise des données, balance d’ouverture, paramétrage final, hypercare et stabilisation.",
+      "Une checklist opérationnelle couvrant l'ensemble des points de contrôle d'un go-live Finance SAP : reprise des données, balance d'ouverture, paramétrage final, hypercare et stabilisation.",
     audience: "Chefs de projet, équipes Finance, key users",
     format: "PDF + Excel",
     price: 39,
+    valueBullets: [
+      "Points de contrôle critiques",
+      "Sécurisation du cutover",
+      "Support hypercare structuré",
+    ],
     highlights: [
       "Cutover détaillé",
-      "Balance d’ouverture",
+      "Balance d'ouverture",
       "Hypercare structuré",
       "Suivi des incidents",
     ],
     benefits: [
       "Réduire les risques de démarrage",
       "Aligner toutes les équipes",
-      "Disposer d’un référentiel partagé",
+      "Disposer d'un référentiel partagé",
     ],
   },
   {
@@ -117,23 +144,29 @@ export const products: DigitalProduct[] = [
     slug: "kit-cle-key-user-sap",
     title: "Kit clé du Key User SAP",
     category: "Ressources premium",
+    badge: "Best-seller",
     shortDescription:
-      "Ressource premium pour outiller le Key User SAP : posture, missions, livrables et bonnes pratiques.",
+      "Le kit opérationnel pour rendre un key user SAP autonome et performant.",
     longDescription:
       "Un kit complet conçu pour les Key Users SAP : compréhension du rôle, missions clés, posture pédagogique, supports types et bonnes pratiques pour devenir un véritable relais métier.",
     audience: "Key users SAP, équipes projet, responsables formation interne",
     format: "PDF + supports",
     pages: "54 pages",
     price: 79,
+    valueBullets: [
+      "Missions et responsabilités clés",
+      "Outils et livrables essentiels",
+      "Bonnes pratiques terrain",
+    ],
     highlights: [
       "Rôle et missions du Key User",
       "Posture et soft skills",
       "Modèles de supports utilisateurs",
-      "Bonnes pratiques d’adoption",
+      "Bonnes pratiques d'adoption",
     ],
     benefits: [
-      "Renforcer l’autonomie des relais métier",
-      "Sécuriser l’adoption SAP",
+      "Renforcer l'autonomie des relais métier",
+      "Sécuriser l'adoption SAP",
       "Préparer un déploiement sereinement",
     ],
   },
@@ -143,13 +176,18 @@ export const products: DigitalProduct[] = [
     title: "Guide Controlling SAP CO",
     category: "Guides PDF",
     shortDescription:
-      "Comprendre les concepts fondamentaux du Controlling dans SAP, du contrôle de gestion à l’analyse.",
+      "Le guide complet pour maîtriser les fondamentaux et les logiques du Controlling SAP.",
     longDescription:
       "Un guide pédagogique pour appréhender les fondamentaux du Controlling dans SAP : centres de coûts, ordres internes, comptabilité analytique, profitability analysis et reporting.",
     audience: "Contrôleurs de gestion, professionnels Finance, consultants",
     format: "PDF haute qualité",
     pages: "70 pages",
     price: 99,
+    valueBullets: [
+      "Vision métier + SAP",
+      "Compréhension des flux analytiques",
+      "Support idéal pour consultants et contrôleurs",
+    ],
     highlights: [
       "Centres de coûts & ordres internes",
       "Profitability Analysis",

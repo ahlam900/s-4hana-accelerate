@@ -84,12 +84,25 @@ const ProduitsDigitaux = () => {
                     <div className="font-display text-5xl text-ink/15 leading-none">{p.title.split(" ").slice(0, 2).join(" ")}</div>
                   </div>
                   <div className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] bg-background/90 backdrop-blur px-3 py-1.5 rounded-sm">{p.category}</div>
+                  {p.badge && (
+                    <div className="absolute top-4 right-4 text-[10px] uppercase tracking-[0.18em] font-semibold bg-champagne text-ink px-3 py-1.5 rounded-sm shadow-sm">
+                      {p.badge}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-display text-lg leading-snug">
                     <Link to={`/produits-digitaux/${p.slug}`} className="hover:text-champagne transition-colors">{p.title}</Link>
                   </h3>
-                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed flex-1">{p.shortDescription}</p>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{p.shortDescription}</p>
+                  <ul className="mt-4 space-y-1.5 flex-1">
+                    {p.valueBullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-[13px] text-foreground/80 leading-relaxed">
+                        <span className="text-champagne shrink-0 mt-0.5">✔</span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
                   <div className="text-xs text-muted-foreground mt-4">{p.audience}</div>
                   <div className="text-xs text-muted-foreground">{p.format}{p.pages && ` · ${p.pages}`}</div>
                   <div className="mt-5 pt-5 border-t border-border flex items-center justify-between gap-3">
@@ -98,7 +111,12 @@ const ProduitsDigitaux = () => {
                       <Button asChild size="sm" variant="outline">
                         <Link to={`/produits-digitaux/${p.slug}`}>Voir</Link>
                       </Button>
-                      <Button size="sm" variant="ink" onClick={() => { add({ id: p.id, title: p.title, price: p.price, format: p.format }); toast.success("Ajouté au panier"); }}>
+                      <Button
+                        size="sm"
+                        variant="ink"
+                        title="Ajouter au panier → Accéder immédiatement"
+                        onClick={() => { add({ id: p.id, title: p.title, price: p.price, format: p.format }); toast.success("Ajouté au panier"); }}
+                      >
                         <ShoppingBag className="h-4 w-4" /> Ajouter
                       </Button>
                     </div>
