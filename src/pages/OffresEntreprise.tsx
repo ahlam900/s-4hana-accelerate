@@ -187,7 +187,7 @@ const DetailedOffer = ({
 
     {problem && (
       <div className="mt-8">
-        <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">The challenge</div>
+        <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">L'enjeu</div>
         <p className="text-[14.5px] text-muted-foreground leading-relaxed">{problem}</p>
       </div>
     )}
