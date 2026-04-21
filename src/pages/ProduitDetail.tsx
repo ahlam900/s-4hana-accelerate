@@ -1,14 +1,11 @@
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowLeft, ShoppingBag, Download, ShieldCheck, Mail } from "lucide-react";
+import { ArrowLeft, BellRing, Clock, ShieldCheck, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
-import { useCart } from "@/store/cart";
-import { toast } from "sonner";
 
 const ProduitDetail = () => {
   const { slug } = useParams();
   const product = products.find((p) => p.slug === slug);
-  const add = useCart((s) => s.add);
 
   if (!product) return <Navigate to="/produits-digitaux" replace />;
 
@@ -50,20 +47,24 @@ const ProduitDetail = () => {
               </div>
             </div>
 
-            <div className="mt-8 p-6 bg-secondary rounded-sm flex items-center justify-between">
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Prix TTC</div>
-                <div className="font-display text-4xl mt-1">{product.price}€</div>
+            <div className="mt-8 p-6 bg-secondary rounded-sm">
+              <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-champagne font-semibold">
+                <Clock className="h-3.5 w-3.5" strokeWidth={2} />
+                Disponible prochainement
               </div>
-              <Button size="lg" variant="ink" onClick={() => { add({ id: product.id, title: product.title, price: product.price, format: product.format }); toast.success("Ajouté au panier"); }}>
-                <ShoppingBag /> Ajouter au panier
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                Cette ressource est en cours de finalisation. Inscrivez-vous pour être informé du lancement et bénéficier d'un accès anticipé.
+              </p>
+              <Button asChild size="lg" variant="ink" className="mt-5">
+                <Link to="/contact">
+                  <BellRing /> Être informé du lancement
+                </Link>
               </Button>
             </div>
 
-            <div className="mt-8 grid sm:grid-cols-3 gap-4 text-xs text-muted-foreground">
-              <div className="flex items-center gap-2"><Download className="h-4 w-4 text-champagne" />Téléchargement immédiat</div>
-              <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-champagne" />Paiement sécurisé</div>
-              <div className="flex items-center gap-2"><Mail className="h-4 w-4 text-champagne" />Support inclus</div>
+            <div className="mt-8 grid sm:grid-cols-2 gap-4 text-xs text-muted-foreground">
+              <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-champagne" />Conçu par des experts SAP Finance en activité</div>
+              <div className="flex items-center gap-2"><Mail className="h-4 w-4 text-champagne" />Notification dès la mise en ligne</div>
             </div>
           </div>
         </div>
