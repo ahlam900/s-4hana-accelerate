@@ -373,7 +373,7 @@ const Home = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="pt-10 md:pt-14 pb-20 md:pb-24 bg-ink text-ivory">
+      <section className="relative pt-10 md:pt-14 pb-20 md:pb-24 bg-ink text-ivory">
         <div className="container-wide">
           <div className="max-w-3xl">
             <div className="eyebrow mb-6 text-ivory/60">Échangeons</div>
@@ -394,6 +394,8 @@ const Home = () => {
             </div>
           </div>
         </div>
+        {/* Elegant champagne hairline closing the dark area */}
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-champagne/40 to-transparent" />
       </section>
     </>
   );
