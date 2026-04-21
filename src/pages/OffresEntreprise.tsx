@@ -61,19 +61,18 @@ const OffresEntreprise = () => {
               index="01"
               tag="Engagement n°1"
               title="SAP Digital Transformation Package"
-              problem="Many SAP Finance transformations stall on unclear processes, misaligned stakeholders and underestimated change impacts."
+              subtitle="Designed for finance organizations leading critical SAP Finance transformation initiatives."
+              approachLabel="Key Deliverables & Impact"
               approach={[
-                "Diagnostic of Finance processes and S/4HANA target model",
-                "Structuring of project governance and key milestones",
-                "Alignment of business, IT and finance stakeholders",
-                "Change management framework tailored to your context",
+                "End-to-end structuring of SAP Finance processes (Record-to-Report, P2P, OTC)",
+                "Identification and mitigation of transformation risks",
+                "Alignment between Finance, IT and project stakeholders",
+                "Definition of target operating model and governance",
+                "Acceleration of S/4HANA project readiness and execution",
+                "Support for user adoption and change management",
               ]}
-              impact={[
-                "A reliable, documented Finance target architecture",
-                "Faster decision-making across the program",
-                "Reduced execution risk on critical S/4HANA milestones",
-              ]}
-              ctaLabel="Frame my transformation"
+              closingLine="Our approach ensures reliable execution, reduced project risk and faster time-to-value."
+              ctaLabel="Request a proposal"
             />
             <DetailedOffer
               index="02"
@@ -146,13 +145,29 @@ const OffresEntreprise = () => {
   );
 };
 
-const DetailedOffer = ({ index, tag, title, problem, approach, impact, ctaLabel }: {
+const DetailedOffer = ({
+  index,
+  tag,
+  title,
+  subtitle,
+  problem,
+  approach,
+  approachLabel = "Our approach",
+  impact,
+  impactLabel = "Measurable impact",
+  closingLine,
+  ctaLabel,
+}: {
   index: string;
   tag: string;
   title: string;
-  problem: string;
+  subtitle?: string;
+  problem?: string;
   approach: string[];
-  impact: string[];
+  approachLabel?: string;
+  impact?: string[];
+  impactLabel?: string;
+  closingLine?: string;
   ctaLabel: string;
 }) => (
   <Reveal className="bg-background p-10 md:p-12 flex flex-col h-full">
@@ -161,14 +176,19 @@ const DetailedOffer = ({ index, tag, title, problem, approach, impact, ctaLabel 
       <div className="eyebrow text-muted-foreground">{tag}</div>
     </div>
     <h3 className="font-display text-2xl md:text-[28px] leading-tight text-foreground">{title}</h3>
+    {subtitle && (
+      <p className="mt-4 text-[14.5px] text-muted-foreground leading-relaxed italic">{subtitle}</p>
+    )}
 
-    <div className="mt-8">
-      <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">The challenge</div>
-      <p className="text-[14.5px] text-muted-foreground leading-relaxed">{problem}</p>
-    </div>
+    {problem && (
+      <div className="mt-8">
+        <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">The challenge</div>
+        <p className="text-[14.5px] text-muted-foreground leading-relaxed">{problem}</p>
+      </div>
+    )}
 
     <div className="mt-7">
-      <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">Our approach</div>
+      <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">{approachLabel}</div>
       <ul className="space-y-2.5">
         {approach.map((p) => (
           <li key={p} className="flex gap-3 text-[14px] leading-relaxed text-foreground/85">
@@ -179,17 +199,25 @@ const DetailedOffer = ({ index, tag, title, problem, approach, impact, ctaLabel 
       </ul>
     </div>
 
-    <div className="mt-7 pt-6 border-t border-border">
-      <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">Measurable impact</div>
-      <ul className="space-y-2">
-        {impact.map((p) => (
-          <li key={p} className="flex gap-3 text-[14px] leading-relaxed text-foreground">
-            <span className="text-champagne mt-0.5">→</span>
-            <span>{p}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    {impact && impact.length > 0 && (
+      <div className="mt-7 pt-6 border-t border-border">
+        <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">{impactLabel}</div>
+        <ul className="space-y-2">
+          {impact.map((p) => (
+            <li key={p} className="flex gap-3 text-[14px] leading-relaxed text-foreground">
+              <span className="text-champagne mt-0.5">→</span>
+              <span>{p}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    {closingLine && (
+      <p className="mt-6 pt-6 border-t border-border text-[14px] leading-relaxed text-foreground/90">
+        {closingLine}
+      </p>
+    )}
 
     <div className="mt-10 pt-2 mt-auto">
       <Button asChild size="lg" variant="ink">
