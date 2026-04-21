@@ -289,9 +289,9 @@ const Home = () => {
       </section>
 
       {/* RÉFÉRENCES PROJETS — éditorial premium, fond navy */}
-      <section className="bg-ink text-ivory py-20 md:py-24">
+      <section className="bg-ink text-ivory py-16 md:py-20">
         <div className="container-wide">
-          <div className="max-w-2xl mx-auto text-center mb-9 md:mb-11">
+          <div className="max-w-2xl mx-auto text-center mb-7 md:mb-9">
             <div className="inline-flex items-center gap-3 mb-7">
               <span className="h-px w-8 bg-champagne" />
               <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">Références projets</span>
@@ -306,7 +306,7 @@ const Home = () => {
           </div>
 
           <Reveal>
-            <div className="max-w-4xl mx-auto border-t border-ivory/[0.05] pt-9 md:pt-12">
+            <div className="max-w-4xl mx-auto border-t border-ivory/[0.05] pt-7 md:pt-10">
               {(() => {
                 // Rebalanced into 3 evenly-weighted lines (6 / 6 / 5)
                 const lines = [
@@ -315,7 +315,7 @@ const Home = () => {
                   ["Carrefour", "JCDecaux", "Qualiconsult", "L'Oréal", "Dior"],
                 ];
                 return (
-                  <div className="space-y-7 md:space-y-9 text-center">
+                  <div className="space-y-5 md:space-y-7 text-center">
                     {lines.map((line, li) => (
                       <p
                         key={li}
@@ -339,7 +339,7 @@ const Home = () => {
             </div>
           </Reveal>
 
-          <p className="text-[11px] md:text-[11.5px] text-ivory/55 mt-6 md:mt-7 text-center max-w-xl mx-auto leading-[1.7] tracking-[0.01em]">
+          <p className="text-[11px] md:text-[11.5px] text-ivory/55 mt-5 md:mt-6 text-center max-w-xl mx-auto leading-[1.7] tracking-[0.01em]">
             Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
           </p>
         </div>
