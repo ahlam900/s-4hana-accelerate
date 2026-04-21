@@ -49,7 +49,7 @@ const Header = () => {
           <img
             src={logo}
             alt="CBS Finance Institute — Expertise Finance SAP"
-            className="block w-auto object-contain object-left max-h-full h-9 sm:h-10 md:h-11 lg:h-12 xl:h-[54px]"
+            className="block w-auto object-contain object-left max-h-full h-8 sm:h-9 md:h-10 lg:h-11 xl:h-[48px]"
             loading="eager"
             decoding="async"
           />
