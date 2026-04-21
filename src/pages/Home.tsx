@@ -32,12 +32,12 @@ const Home = () => {
                 <Link to="/offres-entreprise">Découvrir nos offres entreprises</Link>
               </Button>
             </div>
-            <div className="mt-12 pt-6 border-t border-border/70 flex flex-wrap items-center gap-x-10 gap-y-4 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-              <span><span className="text-champagne font-semibold">100 %</span> Finance SAP</span>
-              <span className="h-3 w-px bg-border" />
-              <span>Pédagogie de haut niveau</span>
-              <span className="h-3 w-px bg-border" />
-              <span>Réseau d'experts SAP</span>
+            <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center justify-start gap-x-6 md:gap-x-8 text-[10.5px] md:text-[11px] uppercase tracking-[0.22em] text-muted-foreground whitespace-nowrap overflow-x-auto">
+              <span className="shrink-0"><span className="text-champagne font-semibold">100 %</span> Finance SAP</span>
+              <span className="h-3 w-px bg-border shrink-0" />
+              <span className="shrink-0">Pédagogie premium</span>
+              <span className="h-3 w-px bg-border shrink-0" />
+              <span className="shrink-0">Réseau expert SAP</span>
             </div>
           </div>
           <div className="lg:col-span-5 relative">
