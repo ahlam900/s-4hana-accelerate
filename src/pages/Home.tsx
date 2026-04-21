@@ -305,19 +305,20 @@ const Home = () => {
           </div>
 
           <Reveal>
-            <div className="border-t border-ivory/15 pt-14 md:pt-20">
+            <div className="border-t border-ivory/10 pt-14 md:pt-20">
               {(() => {
+                // Rebalanced into 3 evenly-weighted lines (6 / 6 / 5)
                 const lines = [
                   ["SAP", "Radio France", "Vodafone", "Imerys", "Europ Assistance", "Fareva"],
-                  ["Lafarge", "Suez", "Engie", "EDF", "GRDF", "Carrefour"],
-                  ["JCDecaux", "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior"],
+                  ["Lafarge", "Suez", "Engie", "EDF", "GRDF", "TotalEnergies"],
+                  ["Carrefour", "JCDecaux", "Qualiconsult", "L'Oréal", "Dior"],
                 ];
                 return (
-                  <div className="space-y-9 md:space-y-12 text-center">
+                  <div className="space-y-10 md:space-y-14 text-center">
                     {lines.map((line, li) => (
                       <p
                         key={li}
-                        className="font-display text-[20px] md:text-[26px] tracking-tight text-ivory/90 leading-[1.55]"
+                        className="font-display text-[18px] md:text-[22px] tracking-tight text-ivory/90 leading-[1.6]"
                       >
                         {line.map((ref, i) => (
                           <span key={ref}>
@@ -325,7 +326,7 @@ const Home = () => {
                               {ref}
                             </span>
                             {i < line.length - 1 && (
-                              <span className="inline-block w-10 md:w-14" aria-hidden />
+                              <span className="inline-block w-12 md:w-20" aria-hidden />
                             )}
                           </span>
                         ))}
@@ -337,7 +338,7 @@ const Home = () => {
             </div>
           </Reveal>
 
-          <p className="text-[11.5px] text-ivory/45 mt-8 md:mt-10 italic text-center max-w-3xl mx-auto leading-relaxed">
+          <p className="text-[11.5px] text-ivory/45 mt-6 md:mt-8 italic text-center max-w-3xl mx-auto leading-relaxed">
             Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
           </p>
         </div>
