@@ -375,21 +375,26 @@ const Formations = () => {
       {/* WHY CHOOSE */}
       <section className="section-y bg-secondary">
         <div className="container-wide">
-          <div className="max-w-2xl mb-14">
+          <div className="max-w-3xl mb-16">
             <div className="eyebrow mb-6">Pourquoi nos formations</div>
-            <h2 className="display-md">Une exigence pédagogique qui se ressent à chaque session.</h2>
+            <h2 className="display-md">Une exigence pédagogique pensée pour l'opérationnel.</h2>
+            <p className="mt-6 text-[15px] text-muted-foreground leading-relaxed max-w-2xl">
+              Une approche construite à partir de l'expérience projet et des exigences des environnements SAP les plus structurants.
+            </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Target, title: "Spécialisation métier + système", text: "Une approche qui relie le processus Finance à sa traduction SAP." },
-              { icon: Briefcase, title: "Pédagogie orientée terrain", text: "Cas concrets, exercices guidés, mise en situation projet." },
-              { icon: Sparkles, title: "Vision transformation", text: "Une lecture stratégique des projets SAP, au-delà de la technique." },
-              { icon: GraduationCap, title: "Contenu structuré et premium", text: "Des supports clairs, des parcours cohérents, un accompagnement haut de gamme." },
+              { icon: Target, title: "Spécialisation métier + système", text: "Une lecture complète des processus Finance et de leur traduction dans SAP, pour une compréhension réellement exploitable en environnement projet." },
+              { icon: Briefcase, title: "Pédagogie orientée terrain", text: "Des cas réels, des mises en situation et une approche directement inspirée des environnements projet SAP." },
+              { icon: Sparkles, title: "Vision transformation", text: "Une compréhension des enjeux de transformation SAP Finance, au-delà de la simple utilisation de l'outil." },
+              { icon: GraduationCap, title: "Contenu structuré et premium", text: "Des parcours structurés, des contenus exigeants et un accompagnement conçu pour des profils à forte ambition." },
             ].map((b, i) => (
-              <Reveal key={b.title} delay={i * 60} className="card-premium p-7">
-                <b.icon className="h-6 w-6 text-champagne" strokeWidth={1.5} />
-                <div className="font-display text-lg mt-5">{b.title}</div>
-                <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{b.text}</p>
+              <Reveal key={b.title} delay={i * 60}>
+                <div className="card-premium p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] group h-full">
+                  <b.icon className="h-7 w-7 text-champagne" strokeWidth={1.4} />
+                  <div className="font-display text-lg mt-6">{b.title}</div>
+                  <p className="text-[14px] text-muted-foreground mt-3.5 leading-relaxed">{b.text}</p>
+                </div>
               </Reveal>
             ))}
           </div>
