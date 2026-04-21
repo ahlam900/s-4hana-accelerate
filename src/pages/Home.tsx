@@ -291,21 +291,22 @@ const Home = () => {
       {/* RÉFÉRENCES PROJETS — éditorial premium, fond navy */}
       <section className="bg-ink text-ivory py-24 md:py-32">
         <div className="container-wide">
-          <div className="max-w-3xl mb-16 md:mb-20">
+          <div className="max-w-2xl mx-auto text-center mb-12 md:mb-14">
             <div className="inline-flex items-center gap-3 mb-7">
               <span className="h-px w-8 bg-champagne" />
               <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">Références projets</span>
+              <span className="h-px w-8 bg-champagne" />
             </div>
             <h2 className="display-md text-ivory">
               Une expérience construite sur des <em className="not-italic text-champagne font-display">environnements de référence</em>.
             </h2>
-            <p className="lede mt-7 text-ivory/70 max-w-2xl">
+            <p className="lede mt-7 text-ivory/70 mx-auto">
               Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.
             </p>
           </div>
 
           <Reveal>
-            <div className="border-t border-ivory/[0.06] pt-14 md:pt-20">
+            <div className="max-w-4xl mx-auto border-t border-ivory/[0.05] pt-12 md:pt-16">
               {(() => {
                 // Rebalanced into 3 evenly-weighted lines (6 / 6 / 5)
                 const lines = [
@@ -314,7 +315,7 @@ const Home = () => {
                   ["Carrefour", "JCDecaux", "Qualiconsult", "L'Oréal", "Dior"],
                 ];
                 return (
-                  <div className="space-y-10 md:space-y-14 text-center">
+                  <div className="space-y-9 md:space-y-12 text-center">
                     {lines.map((line, li) => (
                       <p
                         key={li}
@@ -326,7 +327,7 @@ const Home = () => {
                               {ref}
                             </span>
                             {i < line.length - 1 && (
-                              <span className="inline-block w-12 md:w-20" aria-hidden />
+                              <span className="inline-block w-10 md:w-16" aria-hidden />
                             )}
                           </span>
                         ))}
@@ -338,7 +339,7 @@ const Home = () => {
             </div>
           </Reveal>
 
-          <p className="text-[11px] md:text-[11.5px] text-ivory/55 mt-8 md:mt-10 text-center max-w-2xl mx-auto leading-[1.7] tracking-[0.01em]">
+          <p className="text-[11px] md:text-[11.5px] text-ivory/55 mt-7 md:mt-9 text-center max-w-xl mx-auto leading-[1.7] tracking-[0.01em]">
             Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
           </p>
         </div>
