@@ -37,10 +37,10 @@ const ProduitsDigitaux = () => {
             </ul>
             <div className="mt-10">
               <Button asChild size="lg" variant="ink">
-                <Link to="#catalogue">Accéder aux ressources <ArrowRight /></Link>
+                <Link to="/contact">Être informé du lancement <ArrowRight /></Link>
               </Button>
               <p className="mt-4 text-[12.5px] text-muted-foreground inline-flex items-center gap-2">
-                <span className="text-champagne">✦</span> Contenus conçus par des experts SAP Finance en activité
+                <span className="text-champagne">✦</span> Ressources expertes en cours de finalisation — accès anticipé sur demande
               </p>
             </div>
           </div>
