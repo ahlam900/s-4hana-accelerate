@@ -108,16 +108,16 @@ const OffresEntreprise = () => {
         <div className="container-wide">
           <div className="max-w-2xl mb-14">
             <div className="eyebrow mb-6 text-ivory/60">Pourquoi CBS Finance Institute</div>
-            <h2 className="display-md text-ivory">A specialized partner for high-stakes SAP Finance transformations.</h2>
+            <h2 className="display-md text-ivory">Un partenaire spécialisé pour vos transformations SAP Finance critiques.</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ivory/10 border border-ivory/10 rounded-sm overflow-hidden">
             {[
-              { icon: Compass, title: "100% Dedicated SAP Finance Expertise", text: "Deep specialization focused exclusively on SAP Finance transformation." },
-              { icon: Building2, title: "Business-Critical Understanding", text: "A finance-first perspective aligned with your strategic and operational priorities." },
-              { icon: Sparkles, title: "High-Standard Consulting Approach", text: "A level of rigor and execution aligned with top-tier transformation programs." },
-              { icon: Target, title: "Adoption & Measurable Performance", text: "Structured frameworks ensuring real adoption and sustainable performance." },
-              { icon: Briefcase, title: "Execution-Driven Mindset", text: "From design to go-live, with strong operational anchoring." },
-              { icon: ShieldCheck, title: "Commitment to Delivery Excellence", text: "High standards applied across all deliverables and project phases." },
+              { icon: Compass, title: "Expertise 100 % dédiée SAP Finance", text: "Une spécialisation pointue exclusivement dédiée aux transformations SAP Finance." },
+              { icon: Building2, title: "Compréhension des enjeux métier", text: "Une lecture Finance alignée avec vos priorités stratégiques et opérationnelles." },
+              { icon: Sparkles, title: "Approche de conseil haut de gamme", text: "Un niveau d'exigence et d'exécution aligné avec les standards des grands programmes de transformation." },
+              { icon: Target, title: "Adoption et performance mesurable", text: "Des dispositifs structurés garantissant une adoption réelle et une performance durable." },
+              { icon: Briefcase, title: "Culture orientée exécution", text: "Du cadrage au go-live, avec un ancrage opérationnel fort." },
+              { icon: ShieldCheck, title: "Exigence de qualité des livrables", text: "Un haut niveau d'exigence appliqué à l'ensemble des livrables et des phases projet." },
             ].map((b, i) => (
               <Reveal key={b.title} delay={i * 50} className="bg-ink p-7">
                 <b.icon className="h-6 w-6 text-champagne" strokeWidth={1.5} />
