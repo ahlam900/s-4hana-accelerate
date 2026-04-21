@@ -312,25 +312,25 @@ const Formations = () => {
             </div>
 
             <Reveal>
-              <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-secondary rounded-sm ring-1 ring-border p-8 md:p-12">
+              <div className="group grid lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-secondary rounded-sm ring-1 ring-border p-8 md:p-12 transition-all duration-500 ease-out hover:ring-champagne/40 hover:shadow-[var(--shadow-lift)]">
                 <div className="lg:col-span-5">
                   <div className="inline-flex items-center justify-center h-12 w-12 rounded-sm bg-champagne/[0.08] ring-1 ring-champagne/30 mb-6">
                     <Sparkles className="h-5 w-5 text-champagne" strokeWidth={1.5} />
                   </div>
-                  <div className="text-[10.5px] uppercase tracking-[0.28em] text-muted-foreground mb-3">Module sectoriel</div>
+                  <div className="text-[10.5px] uppercase tracking-[0.28em] text-muted-foreground mb-3">Spécialisation sectorielle</div>
                   <h3 className="display-sm leading-[1.15]">
                     Spécialisation <em className="not-italic text-champagne font-display">SAP RE-FX</em>
                   </h3>
                   <p className="mt-5 text-[14.5px] text-muted-foreground leading-relaxed max-w-md">
-                    Module avancé dédié à la gestion immobilière dans SAP. Une expertise sectorielle ciblée pour les profils Finance évoluant dans des environnements à forte composante immobilière.
+                    Une spécialisation recherchée sur les projets SAP à forte composante immobilière.
                   </p>
                 </div>
 
                 <div className="lg:col-span-7 lg:border-l lg:border-border/70 lg:pl-12">
                   <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
                     {[
-                      { label: "Format", value: "3 jours intensifs" },
-                      { label: "Niveau", value: "Confirmé / Expert" },
+                      { label: "Format", value: "5 jours intensifs" },
+                      { label: "Positionnement", value: "Spécialisation complémentaire" },
                       { label: "Prérequis", value: "Bases SAP Finance" },
                       { label: "Modalité", value: "Distanciel encadré" },
                     ].map((m) => (
@@ -341,7 +341,7 @@ const Formations = () => {
                     ))}
                   </div>
                   <div className="mt-8 flex flex-wrap gap-3">
-                    <Button asChild size="sm" variant="ink"><Link to="#demande">Recevoir le programme RE-FX <ArrowRight /></Link></Button>
+                    <Button asChild size="sm" variant="ink"><Link to="#demande">Se spécialiser en RE-FX <ArrowRight /></Link></Button>
                     <Button asChild size="sm" variant="outline"><Link to="#demande">Échanger avec un expert</Link></Button>
                   </div>
                 </div>
