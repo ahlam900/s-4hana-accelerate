@@ -8,13 +8,36 @@ import CorporateInquiryForm from "@/components/forms/CorporateInquiryForm";
 const OffresEntreprise = () => {
   return (
     <>
-      <PageHero
-        eyebrow="Offres entreprise"
-        title="Deux offres phares pour accompagner vos transformations Finance SAP."
-        subtitle="CBS Finance Institute accompagne les entreprises à travers le Pack Transformation Digitale SAP et le Pack Formation des Key Users SAP."
-        primaryCta={{ label: "Demander un devis", to: "#devis" }}
-        variant="ink"
-      />
+      <section className="section-y border-b border-border bg-ink text-ivory">
+        <div className="container-wide">
+          <div className="max-w-4xl">
+            <div className="eyebrow mb-6 text-ivory/60">Offres entreprise</div>
+            <h1 className="display-lg text-ivory leading-[1.05]">
+              Structurez et sécurisez vos <em className="not-italic text-champagne font-display">transformations Finance SAP</em>.
+            </h1>
+            <p className="lede mt-6 max-w-2xl text-ivory/75">
+              CBS Finance Institute intervient aux côtés des entreprises pour structurer, sécuriser et accélérer leurs transformations SAP Finance. Nos offres combinent expertise projet, montée en compétence des équipes et alignement des pratiques.
+            </p>
+            <ul className="mt-9 space-y-3 max-w-xl border-t border-ivory/15 pt-7">
+              {[
+                "Structuration des processus Finance SAP",
+                "Formation des équipes clés (Key Users & experts)",
+                "Accompagnement des projets S/4HANA",
+              ].map((b) => (
+                <li key={b} className="flex items-start gap-3 text-[14.5px] text-ivory/85 leading-relaxed">
+                  <span className="text-champagne shrink-0 mt-0.5">✔</span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Button asChild size="lg" variant="champagne">
+                <Link to="#devis">Échanger avec un expert <ArrowRight /></Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* INTRO */}
       <section className="section-y">
