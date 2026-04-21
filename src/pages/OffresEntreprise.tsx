@@ -134,10 +134,25 @@ const OffresEntreprise = () => {
         <div className="container-narrow grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <div className="eyebrow mb-6">Demande entreprise</div>
-            <h2 className="display-md">Construisons ensemble votre programme SAP.</h2>
+            <h2 className="display-md">Parlons de votre transformation SAP Finance.</h2>
             <p className="lede mt-6">
-              Décrivez votre besoin et l'offre qui vous intéresse. Nous revenons vers vous sous 48 h ouvrées avec une première analyse et un cadrage adapté.
+              Décrivez votre contexte et vos enjeux.
             </p>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Nous vous recontactons sous 24 à 48h avec une première analyse et des recommandations adaptées à votre projet.
+            </p>
+            <ul className="mt-8 space-y-3 border-t border-border pt-6">
+              {[
+                "Échange avec un expert SAP Finance",
+                "Analyse rapide de votre situation",
+                "Recommandations concrètes et actionnables",
+              ].map((b) => (
+                <li key={b} className="flex items-start gap-3 text-[14.5px] text-foreground/85 leading-relaxed">
+                  <span className="text-champagne shrink-0 mt-0.5">✔</span>
+                  {b}
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="lg:col-span-7">
             <CorporateInquiryForm />
