@@ -288,46 +288,63 @@ const Home = () => {
         </div>
       </section>
 
-      {/* RÉFÉRENCES PROJETS */}
-      <section className="pt-20 md:pt-28 pb-16 md:pb-20 border-t border-border">
+      {/* RÉFÉRENCES PROJETS — éditorial premium, fond navy */}
+      <section className="bg-ink text-ivory py-24 md:py-32">
         <div className="container-wide">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-14 md:mb-16">
-            <div className="lg:col-span-5">
-              <div className="eyebrow mb-6">Références projets</div>
-              <h2 className="display-md">Une expertise éprouvée auprès de <em className="not-italic text-champagne font-display">grands groupes</em>.</h2>
+          <div className="max-w-3xl mb-16 md:mb-20">
+            <div className="inline-flex items-center gap-3 mb-7">
+              <span className="h-px w-8 bg-champagne" />
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">Références projets</span>
             </div>
-            <div className="lg:col-span-6 lg:col-start-7">
-              <p className="text-[15.5px] text-muted-foreground leading-[1.8] max-w-xl">
-                Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.
-              </p>
-            </div>
+            <h2 className="display-md text-ivory">
+              Une expérience construite sur des <em className="not-italic text-champagne font-display">environnements de référence</em>.
+            </h2>
+            <p className="lede mt-7 text-ivory/70 max-w-2xl">
+              Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.
+            </p>
           </div>
 
           <Reveal>
-            <div className="relative">
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-              <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 md:gap-y-8 py-10 md:py-14">
-                {[
-                  "Radio France", "Vodafone", "Eramet", "Europ Assistance",
-                  "Fareva", "Lafarge", "Suez", "Engie",
-                  "EDF", "GRDF", "Carrefour", "JCDecaux",
-                  "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior",
-                ].map((ref, i, arr) => (
-                  <li key={ref} className="flex items-center gap-x-10 md:gap-x-14">
-                    <span className="font-display text-[17px] md:text-[19px] tracking-tight text-foreground/85 hover:text-foreground transition-colors duration-300">
-                      {ref}
-                    </span>
-                    {i < arr.length - 1 && (
-                      <span className="hidden sm:inline-block h-1 w-1 rounded-full bg-champagne/50" aria-hidden />
-                    )}
-                  </li>
-                ))}
-              </ul>
+            <div className="border-t border-ivory/15 pt-12 md:pt-16">
+              {(() => {
+                const refs = [
+                  "SAP", "Radio France", "Vodafone", "Imerys", "Europ Assistance", "Fareva",
+                  "Lafarge", "Suez", "Engie", "EDF", "GRDF", "Carrefour",
+                  "JCDecaux", "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior",
+                ];
+                const perLine = Math.ceil(refs.length / 3);
+                const lines = [
+                  refs.slice(0, perLine),
+                  refs.slice(perLine, perLine * 2),
+                  refs.slice(perLine * 2),
+                ];
+                return (
+                  <ul className="space-y-7 md:space-y-9">
+                    {lines.map((line, li) => (
+                      <li
+                        key={li}
+                        className="flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 gap-y-4 text-center"
+                      >
+                        {line.map((ref, i) => (
+                          <span key={ref} className="flex items-center gap-x-8 md:gap-x-12">
+                            <span className="font-display text-[19px] md:text-[22px] tracking-tight text-ivory/90 hover:text-champagne transition-colors duration-500">
+                              {ref}
+                            </span>
+                            {i < line.length - 1 && (
+                              <span className="h-1 w-1 rounded-full bg-champagne/40" aria-hidden />
+                            )}
+                          </span>
+                        ))}
+                      </li>
+                    ))}
+                  </ul>
+                );
+              })()}
             </div>
+            <div className="mt-12 md:mt-16 border-t border-ivory/10" />
           </Reveal>
 
-          <p className="text-[12px] text-muted-foreground/70 mt-8 italic text-center max-w-3xl mx-auto">
+          <p className="text-[11.5px] text-ivory/45 mt-8 italic text-center max-w-3xl mx-auto leading-relaxed">
             Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
           </p>
         </div>
