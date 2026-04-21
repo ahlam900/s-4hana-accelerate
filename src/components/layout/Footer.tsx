@@ -12,11 +12,11 @@ const Footer = () => {
         <div className="lg:col-span-4 space-y-6">
           <Link to="/" className="flex items-center gap-4 group w-fit">
             <div className="relative h-[52px] w-[52px] rounded-sm gradient-ink flex items-center justify-center shadow-[var(--shadow-card)] ring-1 ring-champagne/30 group-hover:ring-champagne/60 transition-all">
-              <span className="font-display text-ivory text-[24px] leading-none tracking-tight">C</span>
+              <span className="font-display text-ivory text-[16px] leading-none tracking-[0.08em] font-medium">CBS</span>
               <span className="absolute -bottom-px left-1/2 -translate-x-1/2 h-px w-7 bg-champagne/70" />
             </div>
             <div className="flex flex-col leading-[1.1]">
-              <span className="font-display text-[19px] tracking-tight text-foreground">CBS Finance Institute</span>
+              <span className="font-display text-[19px] tracking-tight text-foreground">Finance Institute</span>
               <span className="text-[9px] uppercase tracking-[0.34em] text-champagne mt-2">Expertise · Finance SAP</span>
             </div>
           </Link>
