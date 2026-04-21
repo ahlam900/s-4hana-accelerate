@@ -40,22 +40,22 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide grid grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[22rem_minmax(0,1fr)_auto] xl:grid-cols-[24rem_minmax(0,1fr)_auto] items-center gap-4 md:gap-6 lg:gap-8 h-20 md:h-24 lg:h-28">
+      <div className="container-wide grid grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[26rem_minmax(0,1fr)_auto] xl:grid-cols-[28rem_minmax(0,1fr)_auto] items-center gap-4 md:gap-6 lg:gap-8 h-20 md:h-24 lg:h-28">
         <Link
           to="/"
-          className="flex items-center group min-w-0 lg:w-[22rem] xl:w-[24rem]"
+          className="flex items-center min-w-0 lg:w-[26rem] xl:w-[28rem]"
           aria-label="CBS Finance Institute — Accueil"
         >
           <img
             src={logo}
             alt="CBS Finance Institute — Expertise Finance SAP"
-            className="w-[10.5rem] sm:w-[13.5rem] md:w-[16.5rem] lg:w-[21rem] xl:w-[23rem] h-auto object-contain object-left transition-opacity group-hover:opacity-90"
+            className="block w-[12.5rem] sm:w-[15rem] md:w-[19rem] lg:w-[24rem] xl:w-[26rem] h-auto object-contain object-left"
             loading="eager"
             decoding="async"
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center justify-self-center w-full max-w-[46rem] xl:max-w-[50rem] justify-between px-2">
+        <nav className="hidden lg:flex items-center justify-center gap-5 xl:gap-7 justify-self-center whitespace-nowrap">
           {NAV.map((item) => (
             <NavLink
               key={item.to}
@@ -63,7 +63,7 @@ const Header = () => {
               end={item.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "text-[13px] font-medium tracking-[0.02em] transition-colors relative py-1 whitespace-nowrap text-center",
+                  "text-[12px] xl:text-[13px] font-medium tracking-[0.02em] transition-colors relative py-1.5",
                   isActive
                     ? "text-foreground after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-px after:bg-accent"
                     : "text-muted-foreground hover:text-foreground",
