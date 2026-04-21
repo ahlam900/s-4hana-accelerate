@@ -33,10 +33,13 @@ const OffresEntreprise = () => {
                 </li>
               ))}
             </ul>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10">
               <Button asChild size="lg" variant="champagne">
-                <Link to="#devis">Échanger avec un expert <ArrowRight /></Link>
+                <Link to="#devis">Discuss your transformation <ArrowRight /></Link>
               </Button>
+              <p className="mt-4 text-[12.5px] text-ivory/65 inline-flex items-center gap-2">
+                <span className="text-champagne">✔</span> Response within 24h — confidential exchange
+              </p>
             </div>
           </div>
         </div>
