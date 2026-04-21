@@ -154,6 +154,7 @@ const DetailedOffer = ({
   problem,
   approach,
   approachLabel = "Our approach",
+  approachIntro,
   impact,
   impactLabel = "Measurable impact",
   closingLine,
@@ -166,6 +167,7 @@ const DetailedOffer = ({
   problem?: string;
   approach: string[];
   approachLabel?: string;
+  approachIntro?: string;
   impact?: string[];
   impactLabel?: string;
   closingLine?: string;
@@ -190,6 +192,9 @@ const DetailedOffer = ({
 
     <div className="mt-7">
       <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">{approachLabel}</div>
+      {approachIntro && (
+        <p className="text-[14px] text-muted-foreground leading-relaxed mb-4">{approachIntro}</p>
+      )}
       <ul className="space-y-2.5">
         {approach.map((p) => (
           <li key={p} className="flex gap-3 text-[14px] leading-relaxed text-foreground/85">
