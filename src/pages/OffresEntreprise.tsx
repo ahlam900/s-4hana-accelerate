@@ -50,9 +50,9 @@ const OffresEntreprise = () => {
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <div className="eyebrow mb-6">Our offerings</div>
-            <h2 className="display-md">Two Strategic Engagements to Deliver SAP Finance Transformation.</h2>
+            <h2 className="display-md">Two Strategic SAP Finance Engagements.</h2>
             <p className="lede mt-6 text-muted-foreground">
-              Two consulting engagements designed for finance departments leading SAP S/4HANA transformations — built around measurable outcomes, not generic training.
+              Two consulting engagements designed for finance departments leading SAP S/4HANA transformations — built around measurable business outcomes — not generic training.
             </p>
           </div>
 
@@ -63,6 +63,7 @@ const OffresEntreprise = () => {
               title="SAP Digital Transformation Package"
               subtitle="Designed for finance organizations leading critical SAP Finance transformation initiatives."
               approachLabel="Key Deliverables & Impact"
+              approachIntro="We intervene at critical stages of SAP Finance transformation programs:"
               approach={[
                 "End-to-end structuring of SAP Finance processes (Record-to-Report, P2P, OTC)",
                 "Identification and mitigation of transformation risks",
