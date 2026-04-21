@@ -8,6 +8,7 @@ import Layout from "./components/layout/Layout";
 
 import Home from "./pages/Home";
 import Formations from "./pages/Formations";
+import SapFicoConsultantProgram from "./pages/SapFicoConsultantProgram";
 import OffresEntreprise from "./pages/OffresEntreprise";
 import ProduitsDigitaux from "./pages/ProduitsDigitaux";
 import ProduitDetail from "./pages/ProduitDetail";
@@ -37,6 +38,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/formations" element={<Formations />} />
+            <Route path="/formations/sap-fico-consultant-program" element={<SapFicoConsultantProgram />} />
             <Route path="/offres-entreprise" element={<OffresEntreprise />} />
             <Route path="/produits-digitaux" element={<ProduitsDigitaux />} />
             <Route path="/produits-digitaux/panier" element={<Panier />} />
