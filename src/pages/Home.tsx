@@ -347,6 +347,7 @@ const Home = () => {
                   Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
                 </p>
               </div>
+            </div>
           </Reveal>
         </div>
       </section>
