@@ -89,15 +89,43 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
       </div>
       <Field label="Société"><Input {...register("societe")} /></Field>
       <Field label="Formation souhaitée *" error={errors.formation_souhaitee?.message}>
-        <Input {...register("formation_souhaitee")} placeholder="Ex. SAP FICO Consultant Program — 70 h" />
+        <select
+          {...register("formation_souhaitee")}
+          className="flex h-11 w-full rounded-sm border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          defaultValue={defaultFormation}
+        >
+          <option value="">Sélectionnez une formation…</option>
+          <option value="SAP FICO Consultant Program (confirmé)">SAP FICO Consultant Program (confirmé)</option>
+          <option value="Processus Finance dans SAP (débutant)">Processus Finance dans SAP (débutant)</option>
+          <option value="SAP S/4HANA Finance avancé (expert)">SAP S/4HANA Finance avancé (expert)</option>
+          <option value="Spécialisation SAP RE-FX">Spécialisation SAP RE-FX</option>
+          <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+        </select>
       </Field>
-      <Field label="Niveau / profil"><Input {...register("niveau")} placeholder="Ex. Consultant junior, Key user, Contrôleur de gestion…" /></Field>
+      <Field label="Niveau / profil">
+        <select
+          {...register("niveau")}
+          className="flex h-11 w-full rounded-sm border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
+          <option value="">Sélectionnez votre niveau…</option>
+          <option value="Débutant">Débutant</option>
+          <option value="Confirmé">Confirmé</option>
+          <option value="Expert">Expert</option>
+          <option value="En reconversion">En reconversion</option>
+        </select>
+      </Field>
       <Field label="Objectif"><Input {...register("objectif")} placeholder="Ex. Devenir consultant SAP Finance" /></Field>
       <Field label="Message"><Textarea rows={4} {...register("message")} /></Field>
-      <Button type="submit" size="lg" variant="ink" disabled={isSubmitting} className="w-full sm:w-auto">
-        {isSubmitting ? "Envoi en cours…" : "Envoyer ma demande"}
-      </Button>
-      <p className="text-xs text-muted-foreground">
+      <div className="pt-2">
+        <Button type="submit" size="lg" variant="ink" disabled={isSubmitting} className="w-full sm:w-auto">
+          {isSubmitting ? "Envoi en cours…" : "Recevoir mon programme personnalisé →"}
+        </Button>
+        <p className="mt-3 text-[12px] text-muted-foreground inline-flex items-center gap-2">
+          <span className="h-1 w-1 rounded-full bg-champagne" />
+          Réponse sous 24h — sans engagement
+        </p>
+      </div>
+      <p className="text-xs text-muted-foreground border-t border-border/60 pt-4">
         Vos données sont traitées conformément à notre politique de confidentialité.
       </p>
     </form>
