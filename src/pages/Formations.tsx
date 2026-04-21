@@ -391,34 +391,4 @@ const Formations = () => {
   );
 };
 
-const Category = ({ title, trainings }: { title: string; trainings: typeof import("@/data/trainings").trainings }) => (
-  <div className="mb-16 last:mb-0">
-    <div className="flex items-end justify-between gap-6 mb-8 pb-6 border-b border-border">
-      <h3 className="display-sm">{title}</h3>
-      <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground hidden md:block">{trainings.length} formations</span>
-    </div>
-    <div className="grid md:grid-cols-2 gap-6">
-      {trainings.map((t, i) => (
-        <Reveal key={t.id} delay={i * 60} className="card-premium p-7 flex flex-col">
-          <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground mb-4">
-            <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-champagne" />{t.duration}</span>
-            <span className="inline-flex items-center gap-1.5"><GraduationCap className="h-3.5 w-3.5 text-champagne" />{t.format}</span>
-          </div>
-          <h4 className="font-display text-xl leading-snug">{t.title}</h4>
-          <p className="text-sm text-muted-foreground mt-3">{t.audience}</p>
-          <ul className="mt-5 space-y-2 text-sm flex-1">
-            {t.highlights.slice(0, 3).map((h) => (
-              <li key={h} className="flex gap-2"><span className="text-champagne">—</span>{h}</li>
-            ))}
-          </ul>
-          <div className="mt-6 flex flex-wrap gap-2">
-            <Button asChild size="sm" variant="ink"><Link to="#demande">Demander à s'inscrire</Link></Button>
-            <Button asChild size="sm" variant="outline"><Link to="#demande">Recevoir le programme</Link></Button>
-          </div>
-        </Reveal>
-      ))}
-    </div>
-  </div>
-);
-
 export default Formations;
