@@ -325,12 +325,12 @@ const Home = () => {
                     {lines.map((line, i) => (
                       <div
                         key={i}
-                        className="flex flex-wrap items-baseline justify-center gap-x-8 md:gap-x-12 lg:gap-x-14 gap-y-3 py-6 md:py-8"
+                        className="flex flex-wrap items-baseline justify-center gap-x-10 md:gap-x-14 lg:gap-x-16 gap-y-3 py-6 md:py-8"
                       >
                         {line.map((name) => (
                           <span
                             key={name}
-                            className="font-display tracking-tight leading-none text-[20px] md:text-[26px] lg:text-[30px] text-ivory/90 hover:text-champagne transition-colors duration-500 cursor-default"
+                            className="font-display tracking-tight leading-none text-[18px] md:text-[23px] lg:text-[27px] text-ivory/90 hover:text-champagne transition-colors duration-500 cursor-default"
                           >
                             {name}
                           </span>
