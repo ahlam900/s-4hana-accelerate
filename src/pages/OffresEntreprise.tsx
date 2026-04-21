@@ -16,7 +16,10 @@ const OffresEntreprise = () => {
               Structurez et sécurisez vos <em className="not-italic text-champagne font-display">transformations Finance SAP</em>.
             </h1>
             <p className="lede mt-6 max-w-2xl text-ivory/75">
-              CBS Finance Institute intervient aux côtés des entreprises pour structurer, sécuriser et accélérer leurs transformations SAP Finance. Nos offres combinent expertise projet, montée en compétence des équipes et alignement des pratiques.
+              CBS Finance Institute supports finance departments in structuring, securing, and accelerating their SAP Finance transformations.
+            </p>
+            <p className="mt-4 max-w-2xl text-ivory/70 leading-relaxed text-[15px]">
+              Our approach ensures process reliability, team alignment, and successful execution of S/4HANA projects in demanding environments.
             </p>
             <ul className="mt-9 space-y-3 max-w-xl border-t border-ivory/15 pt-7">
               {[
