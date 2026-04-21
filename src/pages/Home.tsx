@@ -305,7 +305,7 @@ const Home = () => {
           </div>
 
           <Reveal>
-            <div className="border-t border-ivory/10 pt-14 md:pt-20">
+            <div className="border-t border-ivory/[0.06] pt-14 md:pt-20">
               {(() => {
                 // Rebalanced into 3 evenly-weighted lines (6 / 6 / 5)
                 const lines = [
@@ -338,7 +338,7 @@ const Home = () => {
             </div>
           </Reveal>
 
-          <p className="text-[11.5px] text-ivory/45 mt-6 md:mt-8 italic text-center max-w-3xl mx-auto leading-relaxed">
+          <p className="text-[11px] md:text-[11.5px] text-ivory/55 mt-8 md:mt-10 text-center max-w-2xl mx-auto leading-[1.7] tracking-[0.01em]">
             Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
           </p>
         </div>
