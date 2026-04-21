@@ -7,9 +7,6 @@ import { trainings } from "@/data/trainings";
 
 const Formations = () => {
   const featured = trainings.find((t) => t.featured);
-  const others = trainings.filter((t) => !t.featured);
-  const experts = others.filter((t) => t.category === "Formations pour experts SAP");
-  const parcours = others.filter((t) => t.category === "Parcours Finance SAP");
 
   return (
     <>
