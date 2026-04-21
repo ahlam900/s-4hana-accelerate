@@ -114,16 +114,27 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
           <option value="En reconversion">En reconversion</option>
         </select>
       </Field>
-      <Field label="Objectif"><Input {...register("objectif")} placeholder="Ex. Devenir consultant SAP Finance" /></Field>
+      <Field label="Objectif">
+        <Input {...register("objectif")} placeholder="Ex. Devenir consultant SAP Finance, évoluer vers S/4HANA, renforcer mon expertise FI/CO…" />
+      </Field>
       <Field label="Message"><Textarea rows={4} {...register("message")} /></Field>
       <div className="pt-2">
+        <p className="text-[12.5px] text-muted-foreground leading-relaxed mb-4">
+          Cette demande vous permet d'accéder au programme détaillé et d'être recontacté par un expert.
+        </p>
         <Button type="submit" size="lg" variant="ink" disabled={isSubmitting} className="w-full sm:w-auto">
           {isSubmitting ? "Envoi en cours…" : "Recevoir mon programme personnalisé →"}
         </Button>
-        <p className="mt-3 text-[12px] text-muted-foreground inline-flex items-center gap-2">
-          <span className="h-1 w-1 rounded-full bg-champagne" />
-          Réponse sous 24h — sans engagement
-        </p>
+        <div className="mt-3 flex flex-col gap-1.5 text-[12px] text-muted-foreground">
+          <span className="inline-flex items-center gap-2">
+            <span className="h-1 w-1 rounded-full bg-champagne" />
+            Réponse sous 24h — sans engagement
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <span className="text-champagne">✔</span>
+            Aucun spam — uniquement un échange utile
+          </span>
+        </div>
       </div>
       <p className="text-xs text-muted-foreground border-t border-border/60 pt-4">
         Vos données sont traitées conformément à notre politique de confidentialité.
