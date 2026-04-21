@@ -16,7 +16,10 @@ const OffresEntreprise = () => {
               Structurez et sécurisez vos <em className="not-italic text-champagne font-display">transformations Finance SAP</em>.
             </h1>
             <p className="lede mt-6 max-w-2xl text-ivory/75">
-              CBS Finance Institute intervient aux côtés des entreprises pour structurer, sécuriser et accélérer leurs transformations SAP Finance. Nos offres combinent expertise projet, montée en compétence des équipes et alignement des pratiques.
+              CBS Finance Institute supports finance departments in structuring, securing, and accelerating their SAP Finance transformations.
+            </p>
+            <p className="mt-4 max-w-2xl text-ivory/70 leading-relaxed text-[15px]">
+              Our approach ensures process reliability, team alignment, and successful execution of S/4HANA projects in demanding environments.
             </p>
             <ul className="mt-9 space-y-3 max-w-xl border-t border-ivory/15 pt-7">
               {[
@@ -30,69 +33,73 @@ const OffresEntreprise = () => {
                 </li>
               ))}
             </ul>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10">
               <Button asChild size="lg" variant="champagne">
-                <Link to="#devis">Échanger avec un expert <ArrowRight /></Link>
+                <Link to="#devis">Discuss your transformation <ArrowRight /></Link>
               </Button>
+              <p className="mt-4 text-[12.5px] text-ivory/65 inline-flex items-center gap-2">
+                <span className="text-champagne">✔</span> Response within 24h — confidential exchange
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* INTRO */}
+      {/* OUR OFFERINGS IN DETAIL */}
       <section className="section-y">
-        <div className="container-narrow">
-          <div className="grid md:grid-cols-12 gap-12">
-            <div className="md:col-span-5">
-              <div className="eyebrow mb-6">Notre approche entreprise</div>
-              <h2 className="display-md">Deux leviers majeurs pour structurer votre transformation.</h2>
-            </div>
-            <div className="md:col-span-7 space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Nos offres entreprise s'articulent autour de deux leviers majeurs : la transformation digitale SAP et la formation des Key Users SAP.
-              </p>
-              <p>
-                Cette structuration permet aux directions financières et aux équipes projet d'avancer en confiance, avec un partenaire spécialisé qui partage leurs enjeux et leur vocabulaire.
-              </p>
-            </div>
+        <div className="container-wide">
+          <div className="max-w-3xl mb-16">
+            <div className="eyebrow mb-6">Our offerings</div>
+            <h2 className="display-md">Our Offerings in Detail.</h2>
+            <p className="lede mt-6 text-muted-foreground">
+              Two consulting engagements designed for finance departments leading SAP S/4HANA transformations — built around measurable outcomes, not generic training.
+            </p>
           </div>
+
+          <div className="grid lg:grid-cols-2 gap-px bg-border border border-border rounded-sm overflow-hidden">
+            <DetailedOffer
+              index="01"
+              tag="Engagement n°1"
+              title="SAP Digital Transformation Package"
+              problem="Many SAP Finance transformations stall on unclear processes, misaligned stakeholders and underestimated change impacts."
+              approach={[
+                "Diagnostic of Finance processes and S/4HANA target model",
+                "Structuring of project governance and key milestones",
+                "Alignment of business, IT and finance stakeholders",
+                "Change management framework tailored to your context",
+              ]}
+              impact={[
+                "A reliable, documented Finance target architecture",
+                "Faster decision-making across the program",
+                "Reduced execution risk on critical S/4HANA milestones",
+              ]}
+              ctaLabel="Frame my transformation"
+            />
+            <DetailedOffer
+              index="02"
+              tag="Engagement n°2"
+              title="SAP Key User Training Package"
+              problem="Key users are often left to absorb SAP complexity alone, weakening adoption and post-go-live performance."
+              approach={[
+                "Tailored upskilling paths for each key user profile",
+                "Hands-on scenarios anchored in your real Finance processes",
+                "Train-the-trainer sessions to build internal autonomy",
+                "Operational support before, during and after go-live",
+              ]}
+              impact={[
+                "Key users fully autonomous on core SAP Finance processes",
+                "Higher adoption rates across business units",
+                "Sustained operational performance after deployment",
+              ]}
+              ctaLabel="Empower my key users"
+            />
+          </div>
+
+          <p className="mt-12 text-center text-[13.5px] text-muted-foreground">
+            Each engagement is shaped with your leadership team — scope, intensity and deliverables are tailored to your transformation roadmap.
+          </p>
         </div>
       </section>
-
-      {/* OFFER 1 — Transformation Digitale */}
-      <OfferBlock
-        index="01"
-        tag="Pack n°1"
-        title="Pack Transformation Digitale SAP"
-        description="Pour accompagner les entreprises dans leurs enjeux de transformation Finance SAP."
-        points={[
-          "Compréhension fine des processus Finance SAP",
-          "Accompagnement des équipes dans la transformation",
-          "Préparation projet structurée",
-          "Acculturation métier / outil",
-          "Alignement des utilisateurs avec les enjeux SAP",
-          "Soutien à l'adoption du changement",
-        ]}
-        ctaLabel="Demander un devis"
-      />
-
-      {/* OFFER 2 — Key Users */}
-      <OfferBlock
-        index="02"
-        tag="Pack n°2"
-        title="Pack Formation des Key Users SAP"
-        description="Pour former les utilisateurs clés, sécuriser l'adoption, renforcer l'autonomie des relais métiers et soutenir le déploiement SAP."
-        points={[
-          "Préparation des key users",
-          "Montée en compétence métier / outil",
-          "Appropriation des processus",
-          "Relais support et transmission interne",
-          "Accompagnement avant / pendant / après déploiement",
-          "Renforcement de l'autonomie opérationnelle",
-        ]}
-        ctaLabel="Échanger sur mon besoin"
-        reverse
-      />
 
       {/* WHY WORK WITH CBS */}
       <section className="section-y bg-ink text-ivory">
@@ -139,35 +146,57 @@ const OffresEntreprise = () => {
   );
 };
 
-const OfferBlock = ({ index, tag, title, description, points, ctaLabel, reverse }: {
-  index: string; tag: string; title: string; description: string; points: string[]; ctaLabel: string; reverse?: boolean;
+const DetailedOffer = ({ index, tag, title, problem, approach, impact, ctaLabel }: {
+  index: string;
+  tag: string;
+  title: string;
+  problem: string;
+  approach: string[];
+  impact: string[];
+  ctaLabel: string;
 }) => (
-  <section className={`section-y ${reverse ? "bg-secondary" : ""}`}>
-    <div className="container-wide grid lg:grid-cols-12 gap-12 items-start">
-      <div className={`lg:col-span-5 ${reverse ? "lg:order-2" : ""}`}>
-        <div className="font-display text-7xl text-champagne/30 leading-none mb-6">{index}</div>
-        <div className="eyebrow mb-4">{tag}</div>
-        <h2 className="display-md">{title}</h2>
-        <p className="lede mt-6">{description}</p>
-        <Button asChild size="lg" variant="ink" className="mt-10">
-          <Link to="#devis">{ctaLabel} <ArrowRight /></Link>
-        </Button>
-      </div>
-      <div className={`lg:col-span-6 ${reverse ? "lg:col-start-1 lg:order-1" : "lg:col-start-7"}`}>
-        <div className="card-premium p-8 md:p-10">
-          <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-6">Ce que comprend le pack</div>
-          <ul className="space-y-4">
-            {points.map((p) => (
-              <li key={p} className="flex gap-4 pb-4 border-b border-border last:border-0 last:pb-0">
-                <Layers className="h-4 w-4 text-champagne mt-1 shrink-0" strokeWidth={1.5} />
-                <span className="text-sm leading-relaxed">{p}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+  <Reveal className="bg-background p-10 md:p-12 flex flex-col h-full">
+    <div className="flex items-baseline justify-between mb-6">
+      <div className="font-display text-6xl text-champagne/30 leading-none">{index}</div>
+      <div className="eyebrow text-muted-foreground">{tag}</div>
     </div>
-  </section>
+    <h3 className="font-display text-2xl md:text-[28px] leading-tight text-foreground">{title}</h3>
+
+    <div className="mt-8">
+      <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">The challenge</div>
+      <p className="text-[14.5px] text-muted-foreground leading-relaxed">{problem}</p>
+    </div>
+
+    <div className="mt-7">
+      <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">Our approach</div>
+      <ul className="space-y-2.5">
+        {approach.map((p) => (
+          <li key={p} className="flex gap-3 text-[14px] leading-relaxed text-foreground/85">
+            <Layers className="h-3.5 w-3.5 text-champagne mt-1.5 shrink-0" strokeWidth={1.5} />
+            <span>{p}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div className="mt-7 pt-6 border-t border-border">
+      <div className="text-[10px] uppercase tracking-[0.22em] text-champagne mb-3">Measurable impact</div>
+      <ul className="space-y-2">
+        {impact.map((p) => (
+          <li key={p} className="flex gap-3 text-[14px] leading-relaxed text-foreground">
+            <span className="text-champagne mt-0.5">→</span>
+            <span>{p}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div className="mt-10 pt-2 mt-auto">
+      <Button asChild size="lg" variant="ink">
+        <Link to="#devis">{ctaLabel} <ArrowRight /></Link>
+      </Button>
+    </div>
+  </Reveal>
 );
 
 export default OffresEntreprise;
