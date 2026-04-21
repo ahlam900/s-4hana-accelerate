@@ -45,60 +45,61 @@ const OffresEntreprise = () => {
         </div>
       </section>
 
-      {/* INTRO */}
+      {/* OUR OFFERINGS IN DETAIL */}
       <section className="section-y">
-        <div className="container-narrow">
-          <div className="grid md:grid-cols-12 gap-12">
-            <div className="md:col-span-5">
-              <div className="eyebrow mb-6">Notre approche entreprise</div>
-              <h2 className="display-md">Deux leviers majeurs pour structurer votre transformation.</h2>
-            </div>
-            <div className="md:col-span-7 space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Nos offres entreprise s'articulent autour de deux leviers majeurs : la transformation digitale SAP et la formation des Key Users SAP.
-              </p>
-              <p>
-                Cette structuration permet aux directions financières et aux équipes projet d'avancer en confiance, avec un partenaire spécialisé qui partage leurs enjeux et leur vocabulaire.
-              </p>
-            </div>
+        <div className="container-wide">
+          <div className="max-w-3xl mb-16">
+            <div className="eyebrow mb-6">Our offerings</div>
+            <h2 className="display-md">Our Offerings in Detail.</h2>
+            <p className="lede mt-6 text-muted-foreground">
+              Two consulting engagements designed for finance departments leading SAP S/4HANA transformations — built around measurable outcomes, not generic training.
+            </p>
           </div>
+
+          <div className="grid lg:grid-cols-2 gap-px bg-border border border-border rounded-sm overflow-hidden">
+            <DetailedOffer
+              index="01"
+              tag="Engagement n°1"
+              title="SAP Digital Transformation Package"
+              problem="Many SAP Finance transformations stall on unclear processes, misaligned stakeholders and underestimated change impacts."
+              approach={[
+                "Diagnostic of Finance processes and S/4HANA target model",
+                "Structuring of project governance and key milestones",
+                "Alignment of business, IT and finance stakeholders",
+                "Change management framework tailored to your context",
+              ]}
+              impact={[
+                "A reliable, documented Finance target architecture",
+                "Faster decision-making across the program",
+                "Reduced execution risk on critical S/4HANA milestones",
+              ]}
+              ctaLabel="Frame my transformation"
+            />
+            <DetailedOffer
+              index="02"
+              tag="Engagement n°2"
+              title="SAP Key User Training Package"
+              problem="Key users are often left to absorb SAP complexity alone, weakening adoption and post-go-live performance."
+              approach={[
+                "Tailored upskilling paths for each key user profile",
+                "Hands-on scenarios anchored in your real Finance processes",
+                "Train-the-trainer sessions to build internal autonomy",
+                "Operational support before, during and after go-live",
+              ]}
+              impact={[
+                "Key users fully autonomous on core SAP Finance processes",
+                "Higher adoption rates across business units",
+                "Sustained operational performance after deployment",
+              ]}
+              ctaLabel="Empower my key users"
+            />
+          </div>
+
+          <p className="mt-12 text-center text-[13.5px] text-muted-foreground">
+            Each engagement is shaped with your leadership team — scope, intensity and deliverables are tailored to your transformation roadmap.
+          </p>
         </div>
       </section>
-
-      {/* OFFER 1 — Transformation Digitale */}
-      <OfferBlock
-        index="01"
-        tag="Pack n°1"
-        title="Pack Transformation Digitale SAP"
-        description="Pour accompagner les entreprises dans leurs enjeux de transformation Finance SAP."
-        points={[
-          "Compréhension fine des processus Finance SAP",
-          "Accompagnement des équipes dans la transformation",
-          "Préparation projet structurée",
-          "Acculturation métier / outil",
-          "Alignement des utilisateurs avec les enjeux SAP",
-          "Soutien à l'adoption du changement",
-        ]}
-        ctaLabel="Demander un devis"
-      />
-
-      {/* OFFER 2 — Key Users */}
-      <OfferBlock
-        index="02"
-        tag="Pack n°2"
-        title="Pack Formation des Key Users SAP"
-        description="Pour former les utilisateurs clés, sécuriser l'adoption, renforcer l'autonomie des relais métiers et soutenir le déploiement SAP."
-        points={[
-          "Préparation des key users",
-          "Montée en compétence métier / outil",
-          "Appropriation des processus",
-          "Relais support et transmission interne",
-          "Accompagnement avant / pendant / après déploiement",
-          "Renforcement de l'autonomie opérationnelle",
-        ]}
-        ctaLabel="Échanger sur mon besoin"
-        reverse
-      />
 
       {/* WHY WORK WITH CBS */}
       <section className="section-y bg-ink text-ivory">
