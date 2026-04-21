@@ -32,12 +32,12 @@ const Home = () => {
                 <Link to="/offres-entreprise">Découvrir nos offres entreprises</Link>
               </Button>
             </div>
-            <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center justify-start gap-x-6 md:gap-x-8 text-[10.5px] md:text-[11px] uppercase tracking-[0.22em] text-muted-foreground whitespace-nowrap overflow-x-auto">
-              <span className="shrink-0"><span className="text-champagne font-semibold">100 %</span> Finance SAP</span>
-              <span className="h-3 w-px bg-border shrink-0" />
-              <span className="shrink-0">Pédagogie premium</span>
-              <span className="h-3 w-px bg-border shrink-0" />
-              <span className="shrink-0">Réseau expert SAP</span>
+            <div className="mt-12 pt-6 border-t border-border/70 flex flex-wrap items-center gap-x-10 gap-y-4 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              <span><span className="text-champagne font-semibold">100 %</span> Finance SAP</span>
+              <span className="h-3 w-px bg-border" />
+              <span>Pédagogie de haut niveau</span>
+              <span className="h-3 w-px bg-border" />
+              <span>Réseau d'experts SAP</span>
             </div>
           </div>
           <div className="lg:col-span-5 relative">
@@ -289,66 +289,47 @@ const Home = () => {
       </section>
 
       {/* RÉFÉRENCES PROJETS */}
-      <section className="relative py-24 md:py-32 bg-ink text-ivory overflow-hidden">
-        {/* Decorative top/bottom champagne lines */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/40 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
-        {/* Subtle radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--champagne)/0.06),transparent_70%)] pointer-events-none" />
+      <section className="pt-20 md:pt-28 pb-16 md:pb-20 border-t border-border">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-14 md:mb-16">
+            <div className="lg:col-span-5">
+              <div className="eyebrow mb-6">Références projets</div>
+              <h2 className="display-md">Une expertise éprouvée auprès de <em className="not-italic text-champagne font-display">grands groupes</em>.</h2>
+            </div>
+            <div className="lg:col-span-6 lg:col-start-7">
+              <p className="text-[15.5px] text-muted-foreground leading-[1.8] max-w-xl">
+                Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.
+              </p>
+            </div>
+          </div>
 
-        <div className="container-wide relative">
-          {/* Header */}
           <Reveal>
-            <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
-              <div className="inline-flex items-center gap-3 mb-6">
-                <span className="h-px w-8 bg-champagne" />
-                <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">Références projets</span>
-                <span className="h-px w-8 bg-champagne" />
-              </div>
-              <h2 className="font-display text-[28px] md:text-[36px] lg:text-[42px] leading-[1.1] tracking-tight text-ivory">
-                Une expérience construite sur des <em className="not-italic text-champagne">environnements de référence</em>.
-              </h2>
+            <div className="relative">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+              <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 md:gap-y-8 py-10 md:py-14">
+                {[
+                  "Radio France", "Vodafone", "Eramet", "Europ Assistance",
+                  "Fareva", "Lafarge", "Suez", "Engie",
+                  "EDF", "GRDF", "Carrefour", "JCDecaux",
+                  "Qualiconsult", "TotalEnergies", "L'Oréal", "Dior",
+                ].map((ref, i, arr) => (
+                  <li key={ref} className="flex items-center gap-x-10 md:gap-x-14">
+                    <span className="font-display text-[17px] md:text-[19px] tracking-tight text-foreground/85 hover:text-foreground transition-colors duration-300">
+                      {ref}
+                    </span>
+                    {i < arr.length - 1 && (
+                      <span className="hidden sm:inline-block h-1 w-1 rounded-full bg-champagne/50" aria-hidden />
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
 
-          {/* Curated Typographic References Wall — 3 balanced lines */}
-          <Reveal delay={100}>
-            <div className="max-w-5xl mx-auto relative">
-              {(() => {
-                const lines = [
-                  ["SAP", "TotalEnergies", "L'Oréal", "Dior", "Radio France"],
-                  ["Vodafone", "Engie", "EDF", "Carrefour", "JCDecaux", "Suez"],
-                  ["Europ Assistance", "Lafarge", "Imerys", "GRDF", "Fareva", "Qualiconsult"],
-                ];
-                return (
-                  <div className="divide-y divide-ivory/[0.035]">
-                    {lines.map((line, i) => (
-                      <div
-                        key={i}
-                        className="flex flex-wrap items-baseline justify-center gap-x-10 md:gap-x-14 lg:gap-x-16 gap-y-3 py-6 md:py-8"
-                      >
-                        {line.map((name) => (
-                          <span
-                            key={name}
-                            className="font-display tracking-tight leading-none text-[18px] md:text-[23px] lg:text-[27px] text-ivory/90 hover:text-champagne transition-colors duration-500 cursor-default"
-                          >
-                            {name}
-                          </span>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                );
-              })()}
-
-              {/* Disclaimer — discreetly anchored, centered */}
-              <div className="mt-10 md:mt-12 max-w-xl mx-auto">
-                <p className="text-[12px] md:text-[12.5px] text-ivory/60 leading-[1.7] font-body text-center tracking-wide">
-                  Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
-                </p>
-              </div>
-            </div>
-          </Reveal>
+          <p className="text-[12px] text-muted-foreground/70 mt-8 italic text-center max-w-3xl mx-auto">
+            Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
+          </p>
         </div>
       </section>
 
@@ -373,7 +354,7 @@ const Home = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="relative pt-10 md:pt-14 pb-20 md:pb-24 bg-ink text-ivory">
+      <section className="pt-10 md:pt-14 pb-20 md:pb-24 bg-ink text-ivory">
         <div className="container-wide">
           <div className="max-w-3xl">
             <div className="eyebrow mb-6 text-ivory/60">Échangeons</div>
@@ -394,8 +375,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* Elegant champagne hairline closing the dark area */}
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-champagne/40 to-transparent" />
       </section>
     </>
   );
