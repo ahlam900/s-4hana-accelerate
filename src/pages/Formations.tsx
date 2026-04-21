@@ -22,8 +22,8 @@ const Formations = () => {
               <span className="h-px w-8 bg-champagne" />
               <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">FORMATIONS FINANCE SAP</span>
             </div>
-            <h1 className="display-xl text-foreground">
-              Des formations <em className="not-italic text-champagne font-display">Finance SAP</em> conçues pour un impact concret.
+            <h1 className="display-xl text-foreground max-w-[18ch] leading-[1.05]">
+              Formations <em className="not-italic text-champagne font-display">Finance SAP</em> à impact concret.
             </h1>
             <p className="lede mt-7 max-w-lg leading-relaxed">
               Programmes premium pour développer une expertise opérationnelle, immédiatement utile sur des projets et missions Finance SAP.
@@ -79,9 +79,12 @@ const Formations = () => {
               </div>
             </div>
             {/* Petite carte flottante — écho au hero homepage */}
-            <div className="hidden md:block absolute -bottom-6 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory px-5 py-3.5 rounded-sm shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
-              <div className="text-[9.5px] uppercase tracking-[0.28em] text-champagne mb-1">Sur-mesure</div>
-              <div className="font-display text-[13px] leading-snug">Sessions intra-entreprise</div>
+            <div className="hidden md:flex items-center gap-3 absolute -bottom-5 -left-4 lg:-left-6 bg-ink/90 backdrop-blur-md text-ivory pl-3 pr-5 py-2.5 rounded-sm shadow-[var(--shadow-lift)] ring-1 ring-champagne/15">
+              <span className="h-8 w-px bg-champagne/40" />
+              <div>
+                <div className="text-[9px] uppercase tracking-[0.28em] text-champagne/90 mb-0.5">Sur-mesure</div>
+                <div className="font-display text-[12.5px] leading-tight">Sessions intra-entreprise</div>
+              </div>
             </div>
           </div>
         </div>
