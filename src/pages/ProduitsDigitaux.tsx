@@ -102,21 +102,16 @@ const ProduitsDigitaux = () => {
                   </ul>
                   <div className="text-xs text-muted-foreground mt-4">{p.audience}</div>
                   <div className="text-xs text-muted-foreground">{p.format}{p.pages && ` · ${p.pages}`}</div>
-                  <div className="mt-5 pt-5 border-t border-border flex items-center justify-between gap-3">
-                    <div className="font-display text-2xl">{p.price}€</div>
-                    <div className="flex gap-2">
-                      <Button asChild size="sm" variant="outline">
-                        <Link to={`/produits-digitaux/${p.slug}`}>Voir</Link>
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="ink"
-                        title="Ajouter au panier → Accéder immédiatement"
-                        onClick={() => { add({ id: p.id, title: p.title, price: p.price, format: p.format }); toast.success("Ajouté au panier"); }}
-                      >
-                        <ShoppingBag className="h-4 w-4" /> Ajouter
-                      </Button>
+                  <div className="mt-5 pt-5 border-t border-border space-y-4">
+                    <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-champagne font-semibold">
+                      <Clock className="h-3.5 w-3.5" strokeWidth={2} />
+                      Disponible prochainement
                     </div>
+                    <Button asChild size="sm" variant="outline" className="w-full">
+                      <Link to="/contact">
+                        <BellRing className="h-4 w-4" /> Être informé du lancement
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </Reveal>
