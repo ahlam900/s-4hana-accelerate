@@ -412,16 +412,16 @@ const Formations = () => {
           <div className="lg:col-span-5">
             <div className="eyebrow mb-6">Demande de formation</div>
             <h2 className="display-md leading-[1.1]">
-              Accédez au programme détaillé et échangez avec un <em className="not-italic text-champagne font-display">expert SAP Finance</em>.
+              Accédez au programme détaillé et bénéficiez d'un échange avec un <em className="not-italic text-champagne font-display">expert SAP Finance</em>.
             </h2>
             <p className="lede mt-6">
-              Décrivez votre profil et votre objectif. Nous vous adressons le programme détaillé ainsi qu'un retour personnalisé sur votre parcours.
+              Décrivez votre profil et votre objectif. Nous vous adressons le programme détaillé ainsi qu'une recommandation personnalisée basée sur votre parcours.
             </p>
             <ul className="mt-10 space-y-4 border-t border-border/70 pt-8">
               {[
                 "Échange avec un expert SAP Finance",
-                "Recommandation personnalisée",
-                "Accès au programme détaillé",
+                "Recommandation personnalisée et orientée projet",
+                "Accès au programme détaillé et aux modalités d'accompagnement",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[14.5px] text-foreground/85">
                   <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-champagne shrink-0" />
