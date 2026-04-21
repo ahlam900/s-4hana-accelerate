@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import PageHero from "@/components/PageHero";
+
 import Reveal from "@/components/Reveal";
 import { products, productCategories } from "@/data/products";
 import { useCart } from "@/store/cart";
