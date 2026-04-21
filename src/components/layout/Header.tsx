@@ -39,8 +39,8 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-3.5 group">
+      <div className="container-wide flex items-center justify-between gap-10 xl:gap-14 h-16 md:h-20">
+        <Link to="/" className="flex items-center gap-3.5 group lg:pr-4 xl:pr-6">
           <div className="relative h-12 w-12 rounded-sm gradient-ink flex items-center justify-center shadow-[var(--shadow-card)] ring-1 ring-champagne/30 group-hover:ring-champagne/50 transition-all">
             <span className="font-display text-ivory text-[15px] leading-none tracking-[0.08em] font-medium">CBS</span>
             <span className="absolute -bottom-px left-1/2 -translate-x-1/2 h-px w-6 bg-champagne/70" />
