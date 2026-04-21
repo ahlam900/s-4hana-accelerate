@@ -16,7 +16,7 @@ const Home = () => {
           <div className="lg:col-span-7 relative z-10">
             <div className="inline-flex items-center gap-3 mb-8">
               <span className="h-px w-8 bg-champagne" />
-              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">Institut Finance SAP · Depuis 2019</span>
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">INSTITUT FINANCE SAP</span>
             </div>
             <h1 className="display-xl text-foreground">
               L'institut de référence de la <em className="not-italic text-champagne font-display">Finance SAP</em>.
