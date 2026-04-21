@@ -16,12 +16,39 @@ const ProduitsDigitaux = () => {
 
   return (
     <>
-      <PageHero
-        eyebrow="Produits digitaux"
-        title="Des ressources premium pour renforcer votre maîtrise de la Finance SAP."
-        subtitle="Playbooks, guides PDF, templates et ressources premium conçus pour les professionnels exigeants."
-        primaryCta={{ label: "Découvrir les produits", to: "#catalogue" }}
-      />
+      <section className="section-y border-b border-border bg-secondary">
+        <div className="container-wide">
+          <div className="max-w-4xl">
+            <div className="eyebrow mb-6">Ressources expertes</div>
+            <h1 className="display-lg text-foreground">
+              Des ressources expertes pour <em className="not-italic text-champagne font-display">accélérer votre maîtrise</em> de la Finance SAP.
+            </h1>
+            <p className="lede mt-6 max-w-2xl text-muted-foreground">
+              Playbooks, frameworks, templates et guides opérationnels conçus pour les professionnels SAP Finance qui veulent passer au niveau supérieur.
+            </p>
+            <ul className="mt-9 space-y-3 max-w-xl border-t border-border pt-7">
+              {[
+                "Méthodologies issues de projets S/4HANA réels",
+                "Outils directement applicables en mission",
+                "Accélération de la montée en compétence SAP Finance",
+              ].map((b) => (
+                <li key={b} className="flex items-start gap-3 text-[14.5px] text-foreground/85 leading-relaxed">
+                  <span className="text-champagne shrink-0 mt-0.5">✔</span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10">
+              <Button asChild size="lg" variant="ink">
+                <Link to="#catalogue">Accéder aux ressources <ArrowRight /></Link>
+              </Button>
+              <p className="mt-4 text-[12.5px] text-muted-foreground inline-flex items-center gap-2">
+                <span className="text-champagne">✦</span> Contenus conçus par des experts SAP Finance en activité
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CATEGORIES */}
       <section id="catalogue" className="pt-16">
