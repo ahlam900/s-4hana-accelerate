@@ -316,12 +316,12 @@ const Home = () => {
             <div className="max-w-5xl mx-auto relative">
               {(() => {
                 const lines = [
-                  ["SAP", "TotalEnergies", "L'Oréal", "Dior", "Radio France", "Vodafone"],
-                  ["Engie", "EDF", "GRDF", "Suez", "Carrefour", "JCDecaux"],
-                  ["Europ Assistance", "Lafarge", "Imerys", "Fareva", "Qualiconsult"],
+                  ["SAP", "TotalEnergies", "L'Oréal", "Dior", "Radio France"],
+                  ["Vodafone", "Engie", "EDF", "Carrefour", "JCDecaux", "Suez"],
+                  ["Europ Assistance", "Lafarge", "Imerys", "GRDF", "Fareva", "Qualiconsult"],
                 ];
                 return (
-                  <div className="divide-y divide-ivory/10">
+                  <div className="divide-y divide-ivory/[0.06]">
                     {lines.map((line, i) => (
                       <div
                         key={i}
@@ -342,8 +342,8 @@ const Home = () => {
               })()}
 
               {/* Disclaimer — discreetly anchored, centered */}
-              <div className="mt-12 md:mt-14 pt-6 border-t border-ivory/10 max-w-2xl mx-auto">
-                <p className="text-[11px] md:text-[12px] text-ivory/45 leading-relaxed font-body text-center">
+              <div className="mt-12 md:mt-14 pt-6 border-t border-ivory/[0.06] max-w-2xl mx-auto">
+                <p className="text-[12px] md:text-[13px] text-ivory/55 leading-[1.7] font-body text-center tracking-wide">
                   Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
                 </p>
               </div>
