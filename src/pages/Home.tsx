@@ -12,7 +12,7 @@ const Home = () => {
       {/* HERO */}
       <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
-        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative">
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
           <div className="lg:col-span-7 relative z-10">
             <div className="inline-flex items-center gap-3 mb-8">
               <span className="h-px w-8 bg-champagne" />
@@ -45,12 +45,12 @@ const Home = () => {
               <img src={heroVisual} alt="Composition architecturale CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
             </div>
-            <div className="hidden md:block absolute bottom-6 -left-6 lg:-left-10 bg-ink text-ivory p-5 rounded-sm max-w-[240px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/30">
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-champagne mb-2.5">
+            <div className="hidden md:block absolute bottom-8 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory p-4 rounded-sm max-w-[220px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
+              <div className="flex items-center gap-2 text-[9.5px] uppercase tracking-[0.28em] text-champagne mb-2">
                 <span className="h-px w-4 bg-champagne" /> Programme phare
               </div>
-              <div className="font-display text-base leading-snug">SAP FICO Consultant Program</div>
-              <div className="text-[11px] uppercase tracking-[0.18em] text-ivory/55 mt-2.5 pt-2.5 border-t border-ivory/10">70 h · Cursus certifiant</div>
+              <div className="font-display text-[15px] leading-snug">SAP FICO Consultant Program</div>
+              <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">70 h · Cursus certifiant</div>
             </div>
           </div>
         </div>
