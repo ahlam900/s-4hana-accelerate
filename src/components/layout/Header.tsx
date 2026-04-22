@@ -44,7 +44,7 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide grid grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 lg:gap-12 xl:gap-16 h-20 md:h-24 lg:h-24 xl:h-28">
+      <div className="container-wide grid grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 lg:gap-20 xl:gap-28 2xl:gap-32 h-20 md:h-24 lg:h-24 xl:h-28">
         <LLink
           to="/"
           className="flex items-center min-w-0 h-full"
