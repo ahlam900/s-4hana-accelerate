@@ -79,7 +79,7 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 md:gap-3 justify-self-end shrink-0">
+        <div className="flex items-center gap-2 md:gap-3 shrink-0">
           <LanguageSwitcher className="hidden md:inline-flex" />
 
           <LLink
