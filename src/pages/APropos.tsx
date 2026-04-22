@@ -8,11 +8,24 @@ import aboutVisual from "@/assets/about-visual.jpg";
 const APropos = () => {
   return (
     <>
-      <PageHero
-        eyebrow="À propos"
-        title="L'institut premium dédié à la Finance SAP."
-        subtitle="CBS Finance Institute est exclusivement consacré à la formation Finance SAP, à la transformation digitale SAP et à la formation des Key Users SAP."
-      />
+      <section className="section-y border-b border-border bg-secondary">
+        <div className="container-wide">
+          <div className="max-w-4xl">
+            <div className="eyebrow mb-6">À propos</div>
+            <h1 className="display-lg text-foreground">
+              Le partenaire de référence pour la <em className="not-italic text-champagne font-display">montée en compétence</em> et la transformation SAP Finance.
+            </h1>
+            <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
+              <p className="lede">
+                CBS Finance Institute est un institut spécialisé dédié à la Finance SAP et aux environnements S/4HANA. Nous accompagnons les professionnels et les entreprises dans la maîtrise des processus Finance, leur traduction dans SAP, et la réussite de leurs transformations digitales.
+              </p>
+              <p className="text-[15px] leading-relaxed">
+                Notre approche combine expertise projet, pédagogie opérationnelle et exigence de qualité, afin de former des profils immédiatement performants en environnement réel.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* MISSION */}
       <section className="section-y">
