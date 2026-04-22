@@ -81,11 +81,6 @@ const ProduitsDigitaux = () => {
                     <div className="font-display text-5xl text-ink/15 leading-none">{p.title.split(" ").slice(0, 2).join(" ")}</div>
                   </div>
                   <div className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] bg-background/90 backdrop-blur px-3 py-1.5 rounded-sm">{p.category}</div>
-                  {p.badge && (
-                    <div className="absolute top-4 right-4 text-[10px] uppercase tracking-[0.18em] font-semibold bg-champagne text-ink px-3 py-1.5 rounded-sm shadow-sm">
-                      {p.badge}
-                    </div>
-                  )}
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-display text-lg leading-snug">

@@ -1,5 +1,3 @@
-export type ProductBadge = "Best-seller" | "Indispensable" | "Recommandé";
-
 export interface DigitalProduct {
   id: string;
   slug: string;
@@ -11,7 +9,6 @@ export interface DigitalProduct {
   format: string;
   price: number;
   pages?: string;
-  badge?: ProductBadge;
   valueBullets: string[];
   highlights: string[];
   benefits: string[];
@@ -23,7 +20,6 @@ export const products: DigitalProduct[] = [
     slug: "playbook-sap-finance-transformation",
     title: "Playbook Transformation Finance SAP",
     category: "Playbooks",
-    badge: "Best-seller",
     shortDescription:
       "Le framework opérationnel utilisé pour structurer et piloter une transformation SAP Finance de bout en bout.",
     longDescription:
@@ -54,7 +50,6 @@ export const products: DigitalProduct[] = [
     slug: "guide-s4hana-finance-essentiel",
     title: "Guide essentiel S/4HANA Finance",
     category: "Guides PDF",
-    badge: "Indispensable",
     shortDescription:
       "Le socle indispensable pour comprendre rapidement l'architecture et les fondamentaux S/4HANA Finance.",
     longDescription:
@@ -85,7 +80,6 @@ export const products: DigitalProduct[] = [
     slug: "template-cartographie-processus-finance-sap",
     title: "Template Cartographie des processus Finance SAP",
     category: "Templates",
-    badge: "Recommandé",
     shortDescription:
       "Le template utilisé en projet pour cartographier efficacement les processus Finance SAP.",
     longDescription:
@@ -144,7 +138,6 @@ export const products: DigitalProduct[] = [
     slug: "kit-cle-key-user-sap",
     title: "Kit clé du Key User SAP",
     category: "Ressources premium",
-    badge: "Best-seller",
     shortDescription:
       "Le kit opérationnel pour rendre un key user SAP autonome et performant.",
     longDescription:
