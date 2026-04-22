@@ -272,10 +272,15 @@ const APropos = () => {
       {/* CTA */}
       <section className="section-y bg-secondary">
         <div className="container-narrow text-center">
-          <h2 className="display-md">Échangeons sur votre besoin.</h2>
-          <div className="mt-8 flex flex-wrap gap-3 justify-center">
-            <Button asChild size="lg" variant="ink"><Link to="/contact">Être contacté <ArrowRight /></Link></Button>
-            <Button asChild size="lg" variant="outline"><Link to="/formations">Découvrir les formations</Link></Button>
+          <h2 className="display-md">Prenons de la hauteur sur votre transformation SAP Finance.</h2>
+          <p className="lede text-muted-foreground mt-6 max-w-2xl mx-auto">
+            Un échange structuré pour analyser votre contexte, sécuriser vos décisions et aligner vos équipes sur les enjeux clés de votre programme.
+          </p>
+          <div className="mt-10 flex justify-center">
+            <Button asChild size="lg" variant="ink"><Link to="/contact">Échanger avec un expert <ArrowRight /></Link></Button>
+          </div>
+          <div className="mt-5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            Réponse sous 24h — échange confidentiel
           </div>
         </div>
       </section>
