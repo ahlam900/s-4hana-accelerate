@@ -47,7 +47,7 @@ const Header = () => {
       <div className="container-wide flex items-center justify-between gap-6 h-20 md:h-24 lg:h-24 xl:h-28">
         <LLink
           to="/"
-          className="flex items-center shrink-0 h-full lg:pr-16 xl:pr-24"
+          className="flex items-center shrink-0 h-full lg:pr-10 xl:pr-16"
           aria-label="CBS Finance Institute"
         >
           <img
