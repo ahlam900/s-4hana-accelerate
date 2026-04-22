@@ -133,7 +133,7 @@
   .section-y-sm { @apply py-14 md:py-20; }
   /* Hero rhythm — uniform height across all internal pages (Layout adds pt-20 md:pt-24) */
   .hero-y { @apply pt-4 md:pt-6 pb-16 md:pb-20; }
-  .hero-uniform { @apply hero-y border-b border-border flex items-center min-h-[560px] md:min-h-[620px] lg:min-h-[680px]; }
+  .hero-uniform { @apply hero-y border-b border-border flex flex-col justify-center min-h-[560px] md:min-h-[620px] lg:min-h-[680px]; }
 
   .eyebrow {
     @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground;
