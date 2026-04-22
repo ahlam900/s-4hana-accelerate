@@ -67,7 +67,7 @@ const Header = () => {
               end={item.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "text-[11px] xl:text-[12px] font-medium tracking-[0.015em] transition-colors relative py-1.5",
+                  "text-[12px] xl:text-[13px] font-medium tracking-[0.02em] transition-colors relative py-1.5",
                   isActive
                     ? "text-foreground after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-px after:bg-accent"
                     : "text-muted-foreground hover:text-foreground",
