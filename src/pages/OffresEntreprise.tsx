@@ -10,7 +10,7 @@ const OffresEntreprise = () => {
   return (
     <>
       <Seo titleKey="seo.corporate_title" descriptionKey="seo.corporate_desc" />
-      <section className="section-y border-b border-border bg-ink text-ivory">
+      <section className="section-hero border-b border-border bg-ink text-ivory">
         <div className="container-wide">
           <div className="max-w-4xl">
             <div className="eyebrow mb-6 text-ivory/60">Offres entreprise</div>
