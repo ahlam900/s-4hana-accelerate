@@ -61,7 +61,7 @@ export default async function handler(req: any, res: any) {
     `;
 
     await resend.emails.send({
-      from: "CBS Institute <noreply@notify.cbs-institute.com>",
+      from: "CBS Institute <contact@cbs-institute.com>",
       to: process.env.LEAD_NOTIFICATION_TO!,
       subject: `Nouveau lead (${insertedLead.formulaire})`,
       html,
