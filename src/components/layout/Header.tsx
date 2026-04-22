@@ -1,26 +1,30 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Menu, X, ShoppingBag } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/store/cart";
 import { cn } from "@/lib/utils";
+import { LLink, LNavLink } from "@/i18n/LLink";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import logo from "@/assets/cbs-finance-institute-logo.png";
 
-const NAV = [
-  { to: "/", label: "Accueil" },
-  { to: "/formations", label: "Formations Finance SAP" },
-  { to: "/offres-entreprise", label: "Offres entreprise" },
-  { to: "/produits-digitaux", label: "Produits digitaux" },
-  { to: "/a-propos", label: "À propos" },
-  { to: "/ressources", label: "Ressources" },
-  { to: "/contact", label: "Contact" },
-];
-
 const Header = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const itemCount = useCart((s) => s.items.reduce((n, i) => n + i.quantity, 0));
+
+  const NAV = [
+    { to: "/", label: t("nav.home") },
+    { to: "/formations", label: t("nav.trainings") },
+    { to: "/offres-entreprise", label: t("nav.corporate") },
+    { to: "/produits-digitaux", label: t("nav.digital") },
+    { to: "/a-propos", label: t("nav.about") },
+    { to: "/ressources", label: t("nav.resources") },
+    { to: "/contact", label: t("nav.contact") },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -40,24 +44,24 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide grid grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 lg:gap-14 xl:gap-20 h-20 md:h-24 lg:h-24 xl:h-28">
-        <Link
+      <div className="container-wide grid grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 lg:gap-12 xl:gap-16 h-20 md:h-24 lg:h-24 xl:h-28">
+        <LLink
           to="/"
           className="flex items-center min-w-0 h-full"
-          aria-label="CBS Finance Institute — Accueil"
+          aria-label="CBS Finance Institute"
         >
           <img
             src={logo}
-            alt="CBS Finance Institute — Expertise Finance SAP"
+            alt="CBS Finance Institute — SAP Finance Expertise"
             className="block w-auto object-contain object-left max-h-full h-8 sm:h-9 md:h-10 lg:h-11 xl:h-[48px]"
             loading="eager"
             decoding="async"
           />
-        </Link>
+        </LLink>
 
         <nav className="hidden lg:flex items-center justify-self-center gap-4 xl:gap-5 whitespace-nowrap">
           {NAV.map((item) => (
-            <NavLink
+            <LNavLink
               key={item.to}
               to={item.to}
               end={item.to === "/"}
@@ -71,14 +75,16 @@ const Header = () => {
               }
             >
               {item.label}
-            </NavLink>
+            </LNavLink>
           ))}
         </nav>
 
         <div className="flex items-center gap-2 md:gap-3 justify-self-end shrink-0">
-          <Link
+          <LanguageSwitcher className="hidden md:inline-flex" />
+
+          <LLink
             to="/produits-digitaux/panier"
-            aria-label="Panier"
+            aria-label={t("nav.cart")}
             className="relative h-10 w-10 inline-flex items-center justify-center text-foreground hover:bg-secondary rounded-sm transition-colors"
           >
             <ShoppingBag className="h-5 w-5" />
@@ -87,16 +93,16 @@ const Header = () => {
                 {itemCount}
               </span>
             )}
-          </Link>
+          </LLink>
 
           <Button asChild size="sm" variant="ink" className="hidden md:inline-flex shrink-0">
-            <Link to="/contact">Parler à un expert</Link>
+            <LLink to="/contact">{t("nav.cta")}</LLink>
           </Button>
 
           <button
             className="lg:hidden h-10 w-10 inline-flex items-center justify-center text-foreground"
             onClick={() => setOpen((o) => !o)}
-            aria-label="Menu"
+            aria-label={t("nav.menu")}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -107,7 +113,7 @@ const Header = () => {
         <div className="lg:hidden border-t border-border bg-background animate-fade-in">
           <nav className="container-wide py-6 flex flex-col gap-1">
             {NAV.map((item) => (
-              <NavLink
+              <LNavLink
                 key={item.to}
                 to={item.to}
                 end={item.to === "/"}
@@ -119,10 +125,13 @@ const Header = () => {
                 }
               >
                 {item.label}
-              </NavLink>
+              </LNavLink>
             ))}
-            <Button asChild size="lg" variant="ink" className="mt-4">
-              <Link to="/contact">Parler à un expert</Link>
+            <div className="pt-4 flex items-center justify-between">
+              <LanguageSwitcher variant="mobile" />
+            </div>
+            <Button asChild size="lg" variant="ink" className="mt-3">
+              <LLink to="/contact">{t("nav.cta")}</LLink>
             </Button>
           </nav>
         </div>
