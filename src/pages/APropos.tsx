@@ -256,9 +256,9 @@ const APropos = () => {
         <div className="container-wide">
           <div className="grid md:grid-cols-3 gap-px bg-border border border-border rounded-sm overflow-hidden">
             {[
-              { k: "Spécialisation", v: "100 % Finance SAP" },
-              { k: "Pédagogie", v: "Approche terrain et opérationnelle" },
-              { k: "Standard", v: "Premium, exigeant et structuré" },
+              { k: "Spécialisation", v: "100 % spécialisé Finance SAP" },
+              { k: "Pédagogie", v: "Approche projet, terrain et exécution" },
+              { k: "Standard", v: "Standards premium, exigeants et structurés" },
             ].map((c) => (
               <div key={c.k} className="bg-background p-8">
                 <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-3">{c.k}</div>
