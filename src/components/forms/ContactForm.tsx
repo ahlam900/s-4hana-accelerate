@@ -59,7 +59,7 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
 
   const sujetValue = watch("sujet");
 
-  const onSubmit = async (data: FormData) => {
+ const onSubmit = async (data: FormData) => {
   const leadPayload = {
     prenom: data.prenom,
     nom: data.nom,
@@ -73,18 +73,31 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
     formulaire: "contact",
   };
 
-  const { error } = await insertLead(leadPayload);
-  if (error) { toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer."); return; }
-  toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
-  void supabase.functions.invoke("send-transactional-email", {
-    body: {
-      templateName: "lead-notification",
-      idempotencyKey: `lead-contact-${leadPayload.email}-${Date.now()}`,
-      templateData: leadPayload,
-    },
-  });
-  setSubmitted(true);
-  reset();
+  try {
+    const response = await fetch("/api/lead", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(leadPayload),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      console.error("API /api/lead error:", result);
+      toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
+      return;
+    }
+
+    toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
+    setSubmitted(true);
+    reset();
+  } catch (error) {
+    console.error("Submit error:", error);
+    toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
+  }
+};
   };
 
   if (submitted) {
