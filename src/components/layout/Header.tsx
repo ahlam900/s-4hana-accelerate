@@ -44,22 +44,22 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide grid grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 lg:gap-20 xl:gap-28 2xl:gap-32 h-20 md:h-24 lg:h-24 xl:h-28">
+      <div className="container-wide flex items-center justify-between gap-6 h-20 md:h-24 lg:h-24 xl:h-28">
         <LLink
           to="/"
-          className="flex items-center min-w-0 h-full"
+          className="flex items-center shrink-0 h-full"
           aria-label="CBS Finance Institute"
         >
           <img
             src={logo}
             alt="CBS Finance Institute — SAP Finance Expertise"
-            className="block w-auto object-contain object-left max-h-full h-8 sm:h-9 md:h-10 lg:h-11 xl:h-[48px]"
+            className="block w-auto object-contain object-left h-9 sm:h-10 md:h-11 lg:h-12 xl:h-[52px]"
             loading="eager"
             decoding="async"
           />
         </LLink>
 
-        <nav className="hidden lg:flex items-center justify-self-center gap-4 xl:gap-5 whitespace-nowrap">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 whitespace-nowrap mx-auto">
           {NAV.map((item) => (
             <LNavLink
               key={item.to}
@@ -79,7 +79,7 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 md:gap-3 justify-self-end shrink-0">
+        <div className="flex items-center gap-2 md:gap-3 shrink-0">
           <LanguageSwitcher className="hidden md:inline-flex" />
 
           <LLink
