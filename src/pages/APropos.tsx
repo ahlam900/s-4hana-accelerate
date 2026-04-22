@@ -10,7 +10,7 @@ const APropos = () => {
     <>
       <Seo titleKey="seo.about_title" descriptionKey="seo.about_desc" />
       {/* HERO — Positioning */}
-      <section className="hero-y border-b border-border bg-secondary flex items-center min-h-[420px] md:min-h-[480px] lg:min-h-[520px]">
+      <section className="hero-uniform bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
             <div className="eyebrow mb-6">CBS Finance Institute</div>
