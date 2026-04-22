@@ -29,7 +29,7 @@ const schema = z.object({
   email: z.string().trim().email("Email invalide").max(255),
   telephone: z.string().trim().min(1, "Téléphone requis").max(40),
   societe: z.string().trim().min(1, "Société requise").max(120),
-  sujet: z.enum([...TYPES] as [string, ...string[]], { errorMap: () => ({ message: "Sélectionnez un type de demande" }) }),
+  sujet: z.string().refine((v): v is (typeof TYPES)[number] => (TYPES as readonly string[]).includes(v), { message: "Sélectionnez un type de demande" }),
   message: z.string().trim().min(10, "Message trop court").max(2000),
 });
 
