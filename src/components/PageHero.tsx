@@ -26,7 +26,7 @@ const PageHero = ({
   return (
     <section
       className={cn(
-        "section-y border-b border-border",
+        "section-hero border-b border-border",
         isInk ? "bg-ink text-ivory" : "bg-secondary",
         className,
       )}
