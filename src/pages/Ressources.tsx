@@ -104,7 +104,7 @@ const Ressources = () => {
     <>
       <Seo titleKey="seo.resources_title" descriptionKey="seo.resources_desc" />
       {/* HERO */}
-      <section className="section-hero border-b border-border bg-secondary">
+      <section className="section-y border-b border-border bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
             <div className="eyebrow mb-6">Ressources</div>

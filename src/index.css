@@ -131,8 +131,6 @@
   .container-wide { @apply mx-auto max-w-7xl px-6 md:px-8; }
   .section-y { @apply py-20 md:py-28 lg:py-32; }
   .section-y-sm { @apply py-14 md:py-20; }
-  /* Harmonized page hero — consistent rhythm across all interior pages */
-  .section-hero { @apply relative pt-12 md:pt-16 pb-20 md:pb-24 overflow-hidden min-h-[55vh] md:min-h-[60vh] flex items-center; }
 
   .eyebrow {
     @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground;

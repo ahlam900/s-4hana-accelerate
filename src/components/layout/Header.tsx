@@ -44,10 +44,10 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide flex items-center justify-between gap-4 h-20 md:h-24 lg:h-28 xl:h-32">
+      <div className="container-wide flex items-center justify-between gap-6 h-20 md:h-24 lg:h-24 xl:h-28">
         <LLink
           to="/"
-          className="flex items-center shrink-0 h-full lg:pr-4 xl:pr-8"
+          className="flex items-center shrink-0 h-full"
           aria-label="CBS Finance Institute"
         >
           <img
@@ -59,7 +59,7 @@ const Header = () => {
           />
         </LLink>
 
-        <nav className="hidden lg:flex items-center gap-3 xl:gap-6 whitespace-nowrap mx-auto min-w-0">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 whitespace-nowrap mx-auto">
           {NAV.map((item) => (
             <LNavLink
               key={item.to}
@@ -67,7 +67,7 @@ const Header = () => {
               end={item.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "text-[12px] xl:text-[13px] font-medium tracking-[0.02em] transition-colors relative py-1.5",
+                  "text-[11px] xl:text-[12px] font-medium tracking-[0.015em] transition-colors relative py-1.5",
                   isActive
                     ? "text-foreground after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-px after:bg-accent"
                     : "text-muted-foreground hover:text-foreground",
@@ -79,8 +79,8 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1.5 md:gap-2 xl:gap-3 shrink-0">
-          <LanguageSwitcher className="hidden xl:inline-flex" />
+        <div className="flex items-center gap-2 md:gap-3 shrink-0">
+          <LanguageSwitcher className="hidden md:inline-flex" />
 
           <LLink
             to="/produits-digitaux/panier"
@@ -95,7 +95,7 @@ const Header = () => {
             )}
           </LLink>
 
-          <Button asChild size="sm" variant="ink" className="hidden md:inline-flex shrink-0 whitespace-nowrap">
+          <Button asChild size="sm" variant="ink" className="hidden md:inline-flex shrink-0">
             <LLink to="/contact">{t("nav.cta")}</LLink>
           </Button>
 
