@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
+import { insertLead } from "@/integrations/leads/client";
 import { toast } from "sonner";
 
 const schema = z.object({
@@ -34,18 +35,22 @@ const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
   });
 
   const onSubmit = async (data: FormData) => {
-    const { error } = await supabase.from("corporate_inquiries").insert({
+    const { error } = await insertLead({
       prenom: data.prenom,
       nom: data.nom,
       societe: data.societe,
       fonction: data.fonction || null,
       email: data.email,
       telephone: data.telephone || null,
-      offre_souhaitee: data.offre_souhaitee,
+      type_demande: data.offre_souhaitee,
       besoin: data.besoin || null,
       message: data.message || null,
+      source: "website",
+      statut: "new",
+      formulaire: "entreprise",
     });
-    if (error) { toast.error("Une erreur est survenue. Veuillez réessayer."); return; }
+    if (error) { toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer."); return; }
+    toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
     void supabase.functions.invoke("send-transactional-email", {
       body: {
         templateName: "corporate-inquiry-confirmation",
