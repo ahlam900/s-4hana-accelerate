@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ScrollToTop from "./components/ScrollToTop";
 import Layout from "./components/layout/Layout";
+import SeoHreflang from "./i18n/SeoHreflang";
 
 import Home from "./pages/Home";
 import Formations from "./pages/Formations";
@@ -26,6 +27,27 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const AppRoutes = () => (
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/formations" element={<Formations />} />
+    <Route path="/formations/sap-fico-consultant-program" element={<SapFicoConsultantProgram />} />
+    <Route path="/offres-entreprise" element={<OffresEntreprise />} />
+    <Route path="/produits-digitaux" element={<ProduitsDigitaux />} />
+    <Route path="/produits-digitaux/panier" element={<Panier />} />
+    <Route path="/produits-digitaux/checkout" element={<Checkout />} />
+    <Route path="/produits-digitaux/confirmation" element={<Confirmation />} />
+    <Route path="/produits-digitaux/:slug" element={<ProduitDetail />} />
+    <Route path="/a-propos" element={<APropos />} />
+    <Route path="/ressources" element={<Ressources />} />
+    <Route path="/contact" element={<Contact />} />
+    <Route path="/mentions-legales" element={<MentionsLegales />} />
+    <Route path="/confidentialite" element={<Confidentialite />} />
+    <Route path="/cgv" element={<CGV />} />
+    <Route path="/cookies" element={<Cookies />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -34,25 +56,11 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <SeoHreflang />
         <Layout>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/formations" element={<Formations />} />
-            <Route path="/formations/sap-fico-consultant-program" element={<SapFicoConsultantProgram />} />
-            <Route path="/offres-entreprise" element={<OffresEntreprise />} />
-            <Route path="/produits-digitaux" element={<ProduitsDigitaux />} />
-            <Route path="/produits-digitaux/panier" element={<Panier />} />
-            <Route path="/produits-digitaux/checkout" element={<Checkout />} />
-            <Route path="/produits-digitaux/confirmation" element={<Confirmation />} />
-            <Route path="/produits-digitaux/:slug" element={<ProduitDetail />} />
-            <Route path="/a-propos" element={<APropos />} />
-            <Route path="/ressources" element={<Ressources />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/mentions-legales" element={<MentionsLegales />} />
-            <Route path="/confidentialite" element={<Confidentialite />} />
-            <Route path="/cgv" element={<CGV />} />
-            <Route path="/cookies" element={<Cookies />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/en/*" element={<AppRoutes />} />
+            <Route path="/*" element={<AppRoutes />} />
           </Routes>
         </Layout>
       </BrowserRouter>

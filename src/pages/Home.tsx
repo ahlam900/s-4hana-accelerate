@@ -1,12 +1,53 @@
-import { Link } from "react-router-dom";
 import { ArrowRight, Compass, GraduationCap, Building2, ShieldCheck, Sparkles, Layers, Users, Briefcase, BookOpen, FileText, Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
+import { LLink } from "@/i18n/LLink";
 import heroVisual from "@/assets/hero-visual.jpg";
 import productsVisual from "@/assets/products-visual.jpg";
 import corporateVisual from "@/assets/corporate-visual.jpg";
 
 const Home = () => {
+  const { t } = useTranslation();
+
+  const pillars = [
+    { icon: Compass, title: t("home.pillar_1_title"), text: t("home.pillar_1_text") },
+    { icon: Sparkles, title: t("home.pillar_2_title"), text: t("home.pillar_2_text") },
+    { icon: GraduationCap, title: t("home.pillar_3_title"), text: t("home.pillar_3_text") },
+  ];
+
+  const offers = [
+    { tag: t("home.offer_1_tag"), title: t("home.offer_1_title"), text: t("home.offer_1_text"), cta: { label: t("home.offer_1_cta"), to: "/formations" }, featured: true },
+    { tag: t("home.offer_2_tag"), title: t("home.offer_2_title"), text: t("home.offer_2_text"), cta: { label: t("home.offer_2_cta"), to: "/offres-entreprise" } },
+    { tag: t("home.offer_3_tag"), title: t("home.offer_3_title"), text: t("home.offer_3_text"), cta: { label: t("home.offer_3_cta"), to: "/offres-entreprise" } },
+  ];
+
+  const whyItems = [
+    { icon: Layers, title: t("home.why_1") },
+    { icon: Briefcase, title: t("home.why_2") },
+    { icon: Compass, title: t("home.why_3") },
+    { icon: Sparkles, title: t("home.why_4") },
+    { icon: Building2, title: t("home.why_5") },
+    { icon: ShieldCheck, title: t("home.why_6") },
+  ];
+
+  const audiences = [
+    { label: t("home.aud_1"), desc: t("home.aud_1_desc") },
+    { label: t("home.aud_2"), desc: t("home.aud_2_desc") },
+    { label: t("home.aud_3"), desc: t("home.aud_3_desc") },
+    { label: t("home.aud_4"), desc: t("home.aud_4_desc") },
+    { label: t("home.aud_5"), desc: t("home.aud_5_desc") },
+    { label: t("home.aud_6"), desc: t("home.aud_6_desc") },
+  ];
+
+  const trust = [
+    { k: t("home.trust_k_1"), v: t("home.trust_v_1") },
+    { k: t("home.trust_k_2"), v: t("home.trust_v_2") },
+    { k: t("home.trust_k_3"), v: t("home.trust_v_3") },
+    { k: t("home.trust_k_4"), v: t("home.trust_v_4") },
+    { k: t("home.trust_k_5"), v: t("home.trust_v_5") },
+  ];
+
   return (
     <>
       {/* HERO */}
@@ -16,71 +57,59 @@ const Home = () => {
           <div className="lg:col-span-7 relative z-10">
             <div className="inline-flex items-center gap-3 mb-8">
               <span className="h-px w-8 bg-champagne" />
-              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">INSTITUT FINANCE SAP</span>
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{t("home.eyebrow")}</span>
             </div>
             <h1 className="display-xl text-foreground">
-              L'institut de référence de la <em className="not-italic text-champagne font-display">Finance SAP</em>.
+              {t("home.title_a")}<em className="not-italic text-champagne font-display">{t("home.title_em")}</em>{t("home.title_b")}
             </h1>
-            <p className="lede mt-7 max-w-lg leading-relaxed">
-              Excellence Finance SAP : transformation digitale, formation des Key Users et programmes certifiants pour les professionnels exigeants.
-            </p>
+            <p className="lede mt-7 max-w-lg leading-relaxed">{t("home.lede")}</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
-                <Link to="/formations">Découvrir les formations <ArrowRight /></Link>
+                <LLink to="/formations">{t("home.cta_trainings")} <ArrowRight /></LLink>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="/offres-entreprise">Découvrir nos offres entreprises</Link>
+                <LLink to="/offres-entreprise">{t("home.cta_corporate")}</LLink>
               </Button>
             </div>
             <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center gap-x-6 md:gap-x-8 text-[10.5px] md:text-[11px] uppercase tracking-[0.2em] text-muted-foreground whitespace-nowrap">
-              <span><span className="text-champagne font-semibold">100 %</span> Finance SAP</span>
+              <span>{t("home.trust_1")}</span>
               <span className="h-3 w-px bg-border shrink-0" />
-              <span>Pédagogie premium</span>
+              <span>{t("home.trust_2")}</span>
               <span className="h-3 w-px bg-border shrink-0" />
-              <span>Réseau expert SAP</span>
+              <span>{t("home.trust_3")}</span>
             </div>
           </div>
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)] ring-1 ring-ink/5">
-              <img src={heroVisual} alt="Composition architecturale CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
+              <img src={heroVisual} alt="CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
             </div>
             <div className="hidden md:block absolute bottom-8 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory p-4 rounded-sm max-w-[220px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
               <div className="flex items-center gap-2 text-[9.5px] uppercase tracking-[0.28em] text-champagne mb-2">
-                <span className="h-px w-4 bg-champagne" /> Programme phare
+                <span className="h-px w-4 bg-champagne" /> {t("home.flagship")}
               </div>
-              <div className="font-display text-[15px] leading-snug">SAP FICO Consultant Program</div>
-              <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">70 h · Cursus certifiant</div>
+              <div className="font-display text-[15px] leading-snug">{t("home.flagship_program")}</div>
+              <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">{t("home.flagship_meta")}</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CORE POSITIONING — 3 piliers */}
+      {/* CORE POSITIONING */}
       <section className="section-y border-y border-border">
         <div className="container-wide">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 mb-20 lg:mb-24">
             <div className="lg:col-span-5">
-              <div className="eyebrow mb-6">Notre positionnement</div>
-              <h2 className="display-md">Trois domaines d'expertise, un seul focus : la <em className="not-italic text-champagne font-display">Finance SAP</em>.</h2>
+              <div className="eyebrow mb-6">{t("home.positioning_eyebrow")}</div>
+              <h2 className="display-md">{t("home.positioning_title_a")}<em className="not-italic text-champagne font-display">{t("home.positioning_title_em")}</em>{t("home.positioning_title_b")}</h2>
             </div>
             <div className="lg:col-span-6 lg:col-start-7 flex items-end">
-              <p className="lede leading-relaxed">
-                CBS Finance Institute est exclusivement dédié à la Finance SAP. Notre conviction : la performance d'un projet, d'une équipe ou d'une transformation se construit à l'intersection des processus métier, de leur traduction dans SAP et de la montée en compétence des acteurs.
-              </p>
+              <p className="lede leading-relaxed">{t("home.positioning_lede")}</p>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-border/80 border border-border rounded-sm overflow-hidden shadow-[var(--shadow-soft)]">
-            {[
-              { icon: Compass, title: "Expertise Finance", text: "Une maîtrise approfondie des processus Finance et de leur traduction dans SAP, pour des projets plus cohérents, plus sécurisés et plus performants." },
-              { icon: Sparkles, title: "Transformation Digitale", text: "Un accompagnement structuré des entreprises engagées dans l'évolution de leur Finance SAP, avec une approche orientée adoption, alignement et efficacité opérationnelle." },
-              { icon: GraduationCap, title: "Formations opérationnelles", text: "Des programmes premium conçus pour accélérer la montée en compétence des professionnels, des experts et des équipes engagées dans les transformations." },
-            ].map((p, i) => (
-              <Reveal
-                key={p.title}
-                delay={i * 80}
-                className="group relative bg-background p-10 md:p-12 transition-all duration-500 hover:bg-secondary/50"
-              >
+            {pillars.map((p, i) => (
+              <Reveal key={p.title} delay={i * 80} className="group relative bg-background p-10 md:p-12 transition-all duration-500 hover:bg-secondary/50">
                 <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-full" />
                 <div className="flex items-center justify-center h-12 w-12 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 transition-all duration-500 group-hover:bg-champagne/15 group-hover:ring-champagne/50 group-hover:-translate-y-0.5">
                   <p.icon className="h-[22px] w-[22px] text-champagne" strokeWidth={1.4} />
@@ -98,36 +127,12 @@ const Home = () => {
       <section className="section-y bg-secondary">
         <div className="container-wide">
           <div className="max-w-3xl mb-16 lg:mb-20">
-            <div className="eyebrow mb-6">Offres phares</div>
-            <h2 className="display-md">Trois offres phares pour accompagner vos enjeux <em className="not-italic text-champagne font-display">Finance SAP</em>.</h2>
+            <div className="eyebrow mb-6">{t("home.offers_eyebrow")}</div>
+            <h2 className="display-md">{t("home.offers_title_a")}<em className="not-italic text-champagne font-display">{t("home.offers_title_em")}</em>{t("home.offers_title_b")}</h2>
           </div>
           <div className="grid lg:grid-cols-3 gap-6 lg:gap-7">
-            {[
-              {
-                tag: "Offre individuelle",
-                title: "Formations Finance",
-                text: "Des formations premium pensées pour les experts SAP, les consultants, les professionnels Finance et les profils en évolution souhaitant renforcer leur maîtrise opérationnelle.",
-                cta: { label: "Découvrir les formations", to: "/formations" },
-                featured: true,
-              },
-              {
-                tag: "Offre entreprise",
-                title: "Pack Transformation Digitale",
-                text: "Un accompagnement structuré des entreprises engagées dans leurs enjeux de transformation Finance SAP, avec une approche orientée adoption, alignement et performance.",
-                cta: { label: "Découvrir l'offre", to: "/offres-entreprise" },
-              },
-              {
-                tag: "Offre entreprise",
-                title: "Pack Formation des Key Users",
-                text: "Une offre dédiée à la préparation des utilisateurs clés, à l'adoption des processus, au renforcement de l'autonomie et à la sécurisation du déploiement.",
-                cta: { label: "Découvrir l'offre", to: "/offres-entreprise" },
-              },
-            ].map((o, i) => (
-              <Reveal
-                key={o.title}
-                delay={i * 100}
-                className="group relative bg-card border border-border rounded-sm p-9 md:p-11 flex flex-col transition-all duration-500 hover:border-champagne/40 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]"
-              >
+            {offers.map((o, i) => (
+              <Reveal key={o.title} delay={i * 100} className="group relative bg-card border border-border rounded-sm p-9 md:p-11 flex flex-col transition-all duration-500 hover:border-champagne/40 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
                 <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-full" />
                 <div className="flex items-center gap-2.5 mb-7">
                   <span className="h-px w-5 bg-champagne" />
@@ -137,7 +142,7 @@ const Home = () => {
                 <div className="mt-6 h-px w-10 bg-border transition-all duration-500 group-hover:w-14 group-hover:bg-champagne/60" />
                 <p className="text-[14.5px] text-muted-foreground mt-6 leading-[1.7] flex-1">{o.text}</p>
                 <Button asChild variant={o.featured ? "ink" : "outline"} className="mt-9 self-start">
-                  <Link to={o.cta.to}>{o.cta.label} <ArrowRight /></Link>
+                  <LLink to={o.cta.to}>{o.cta.label} <ArrowRight /></LLink>
                 </Button>
               </Reveal>
             ))}
@@ -149,29 +154,16 @@ const Home = () => {
       <section className="section-y">
         <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-5 lg:sticky lg:top-28">
-            <div className="eyebrow mb-6">Pourquoi CBS</div>
-            <h2 className="display-md">Une signature unique sur le marché de la <em className="not-italic text-champagne font-display">Finance SAP</em>.</h2>
-            <p className="text-[15.5px] text-muted-foreground mt-7 leading-[1.75] max-w-md">
-              CBS Finance Institute repose sur une conviction simple : seules les pédagogies ancrées dans le terrain, les processus et les réalités projet produisent une véritable montée en compétence.
-            </p>
+            <div className="eyebrow mb-6">{t("home.why_eyebrow")}</div>
+            <h2 className="display-md">{t("home.why_title_a")}<em className="not-italic text-champagne font-display">{t("home.why_title_em")}</em>{t("home.why_title_b")}</h2>
+            <p className="text-[15.5px] text-muted-foreground mt-7 leading-[1.75] max-w-md">{t("home.why_text")}</p>
             <Button asChild variant="outline" className="mt-9">
-              <Link to="/a-propos">Découvrir l'institut <ArrowRight /></Link>
+              <LLink to="/a-propos">{t("home.why_cta")} <ArrowRight /></LLink>
             </Button>
           </div>
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-px bg-border/80 border border-border rounded-sm overflow-hidden shadow-[var(--shadow-soft)]">
-            {[
-              { icon: Layers, title: "Spécialisation 100 % Finance SAP" },
-              { icon: Briefcase, title: "Approche terrain et opérationnelle" },
-              { icon: Compass, title: "Maîtrise des processus et de SAP" },
-              { icon: Sparkles, title: "Pédagogie premium et structurée" },
-              { icon: Building2, title: "Vision entreprise et transformation" },
-              { icon: ShieldCheck, title: "Exigence de qualité et de rigueur" },
-            ].map((d, i) => (
-              <Reveal
-                key={d.title}
-                delay={i * 50}
-                className="group relative bg-background p-7 md:p-8 flex items-start gap-5 transition-all duration-500 hover:bg-secondary/50"
-              >
+            {whyItems.map((d, i) => (
+              <Reveal key={d.title} delay={i * 50} className="group relative bg-background p-7 md:p-8 flex items-start gap-5 transition-all duration-500 hover:bg-secondary/50">
                 <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-full" />
                 <div className="flex items-center justify-center h-10 w-10 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0 transition-all duration-500 group-hover:bg-champagne/15 group-hover:ring-champagne/50">
                   <d.icon className="h-[18px] w-[18px] text-champagne" strokeWidth={1.4} />
@@ -187,18 +179,11 @@ const Home = () => {
       <section className="section-y bg-ink text-ivory">
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
-            <div className="eyebrow mb-6 text-ivory/60">À qui s'adresse l'institut</div>
-            <h2 className="display-md text-ivory">Conçu pour les professionnels et les organisations exigeantes.</h2>
+            <div className="eyebrow mb-6 text-ivory/60">{t("home.audience_eyebrow")}</div>
+            <h2 className="display-md text-ivory">{t("home.audience_title")}</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              { label: "Professionnels Finance SAP", desc: "Experts souhaitant renforcer leur maîtrise opérationnelle" },
-              { label: "Consultants SAP", desc: "Profils en évolution et consultants en renforcement" },
-              { label: "Key Users SAP", desc: "Utilisateurs clés préparant leur montée en compétence" },
-              { label: "Directions financières", desc: "Décideurs engagés dans la transformation Finance" },
-              { label: "Équipes projet SAP", desc: "Acteurs projet en quête d'alignement et d'efficacité" },
-              { label: "Entreprises en transformation", desc: "Organisations restructurant leur système et leurs processus" },
-            ].map((a, i) => (
+            {audiences.map((a, i) => (
               <Reveal key={a.label} delay={i * 60}>
                 <div className="group relative border-t border-ivory/15 pt-7 pb-2 pr-4 transition-all duration-500 hover:pl-3">
                   <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-8" />
@@ -222,15 +207,13 @@ const Home = () => {
       <section className="section-y">
         <div className="container-wide grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <div className="eyebrow mb-6">Offres entreprise</div>
-            <h2 className="display-md">Deux packs phares pour vos transformations SAP.</h2>
-            <p className="lede mt-6">
-              Le Pack Transformation Digitale SAP et le Pack Formation des Key Users SAP structurent notre offre B2B dédiée aux entreprises souhaitant renforcer l'alignement, l'adoption et la montée en compétence autour de la Finance SAP.
-            </p>
+            <div className="eyebrow mb-6">{t("home.corp_eyebrow")}</div>
+            <h2 className="display-md">{t("home.corp_title")}</h2>
+            <p className="lede mt-6">{t("home.corp_lede")}</p>
             <div className="mt-8 space-y-4">
               {[
-                { title: "Pack Transformation Digitale SAP", text: "Accompagnement des entreprises dans leurs enjeux de transformation Finance SAP, d'alignement métier / outil et d'appropriation de nouveaux repères." },
-                { title: "Pack Formation des Key Users SAP", text: "Montée en compétence des relais métier, adoption des processus, renforcement de l'autonomie et sécurisation du déploiement." },
+                { title: t("home.corp_p1_title"), text: t("home.corp_p1_text") },
+                { title: t("home.corp_p2_title"), text: t("home.corp_p2_text") },
               ].map((p) => (
                 <div key={p.title} className="flex gap-4 border-l-2 border-champagne pl-5 py-1">
                   <div>
@@ -241,12 +224,12 @@ const Home = () => {
               ))}
             </div>
             <Button asChild size="lg" variant="ink" className="mt-10">
-              <Link to="/offres-entreprise">Découvrir nos offres entreprise <ArrowRight /></Link>
+              <LLink to="/offres-entreprise">{t("home.corp_cta")} <ArrowRight /></LLink>
             </Button>
           </div>
           <div className="lg:col-span-6 order-1 lg:order-2">
             <div className="aspect-[16/10] rounded-sm overflow-hidden shadow-[var(--shadow-card)]">
-              <img src={corporateVisual} alt="Salle de conseil corporate" className="h-full w-full object-cover" loading="lazy" width={1600} height={1000} />
+              <img src={corporateVisual} alt="Corporate boardroom" className="h-full w-full object-cover" loading="lazy" width={1600} height={1000} />
             </div>
           </div>
         </div>
@@ -257,21 +240,19 @@ const Home = () => {
         <div className="container-wide grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5">
             <div className="aspect-[4/3] rounded-sm overflow-hidden shadow-[var(--shadow-card)] ring-1 ring-ink/5">
-              <img src={productsVisual} alt="Ressources éditoriales premium Finance SAP" className="h-full w-full object-cover" loading="lazy" width={1280} height={960} />
+              <img src={productsVisual} alt="Premium SAP Finance editorial resources" className="h-full w-full object-cover" loading="lazy" width={1280} height={960} />
             </div>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
-            <div className="eyebrow mb-6">Produits digitaux</div>
-            <h2 className="display-md">Des ressources premium pour aller plus loin.</h2>
-            <p className="lede mt-6">
-              Playbooks, guides PDF, templates et ressources premium conçus pour prolonger la montée en compétence et outiller les professionnels de la Finance SAP au quotidien.
-            </p>
+            <div className="eyebrow mb-6">{t("home.digital_eyebrow")}</div>
+            <h2 className="display-md">{t("home.digital_title")}</h2>
+            <p className="lede mt-6">{t("home.digital_lede")}</p>
             <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-md">
               {[
-                { icon: BookOpen, label: "Playbooks" },
-                { icon: FileText, label: "Guides PDF" },
-                { icon: Layers, label: "Templates" },
-                { icon: Sparkles, label: "Ressources premium" },
+                { icon: BookOpen, label: t("home.digital_c1") },
+                { icon: FileText, label: t("home.digital_c2") },
+                { icon: Layers, label: t("home.digital_c3") },
+                { icon: Sparkles, label: t("home.digital_c4") },
               ].map((c) => (
                 <div key={c.label} className="flex items-center gap-4 text-[14.5px] text-foreground/85">
                   <span className="flex items-center justify-center h-9 w-9 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0">
@@ -282,33 +263,30 @@ const Home = () => {
               ))}
             </div>
             <Button asChild size="lg" variant="ink" className="mt-10">
-              <Link to="/produits-digitaux">Découvrir les produits digitaux <ArrowRight /></Link>
+              <LLink to="/produits-digitaux">{t("home.digital_cta")} <ArrowRight /></LLink>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* RÉFÉRENCES PROJETS — éditorial premium, fond navy */}
+      {/* RÉFÉRENCES PROJETS */}
       <section className="bg-ink text-ivory py-16 md:py-20">
         <div className="container-wide">
           <div className="max-w-2xl mx-auto text-center mb-7 md:mb-9">
             <div className="inline-flex items-center gap-3 mb-7">
               <span className="h-px w-8 bg-champagne" />
-              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">Références projets</span>
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{t("home.refs_eyebrow")}</span>
               <span className="h-px w-8 bg-champagne" />
             </div>
             <h2 className="display-md text-ivory">
-              Une expérience construite sur des <em className="not-italic text-champagne font-display">environnements de référence</em>.
+              {t("home.refs_title_a")}<em className="not-italic text-champagne font-display">{t("home.refs_title_em")}</em>{t("home.refs_title_b")}
             </h2>
-            <p className="lede mt-7 text-ivory/70 mx-auto">
-              Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.
-            </p>
+            <p className="lede mt-7 text-ivory/70 mx-auto">{t("home.refs_lede")}</p>
           </div>
 
           <Reveal>
             <div className="max-w-4xl mx-auto border-t border-ivory/[0.05] pt-7 md:pt-10">
               {(() => {
-                // Rebalanced into 3 evenly-weighted lines (6 / 6 / 5)
                 const lines = [
                   ["SAP", "Radio France", "Vodafone", "Imerys", "Europ Assistance", "Fareva"],
                   ["Lafarge", "Suez", "Engie", "EDF", "GRDF", "TotalEnergies"],
@@ -317,18 +295,11 @@ const Home = () => {
                 return (
                   <div className="space-y-5 md:space-y-7 text-center">
                     {lines.map((line, li) => (
-                      <p
-                        key={li}
-                        className="font-display text-[18px] md:text-[22px] tracking-tight text-ivory/90 leading-[1.6]"
-                      >
+                      <p key={li} className="font-display text-[18px] md:text-[22px] tracking-tight text-ivory/90 leading-[1.6]">
                         {line.map((ref, i) => (
                           <span key={ref}>
-                            <span className="hover:text-champagne transition-colors duration-500">
-                              {ref}
-                            </span>
-                            {i < line.length - 1 && (
-                              <span className="inline-block w-10 md:w-16" aria-hidden />
-                            )}
+                            <span className="hover:text-champagne transition-colors duration-500">{ref}</span>
+                            {i < line.length - 1 && <span className="inline-block w-10 md:w-16" aria-hidden />}
                           </span>
                         ))}
                       </p>
@@ -340,7 +311,7 @@ const Home = () => {
           </Reveal>
 
           <p className="text-[11px] md:text-[11.5px] text-ivory/55 mt-5 md:mt-6 text-center max-w-xl mx-auto leading-[1.7] tracking-[0.01em]">
-            Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.
+            {t("home.refs_disclaimer")}
           </p>
         </div>
       </section>
@@ -349,16 +320,10 @@ const Home = () => {
       <section className="pt-20 md:pt-24 pb-10 md:pb-14">
         <div className="container-wide">
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-border border border-border rounded-sm overflow-hidden">
-            {[
-              { k: "Expert", v: "Spécialisation exclusive en Finance SAP" },
-              { k: "Pratique", v: "Pédagogie ancrée dans le terrain et les cas réels" },
-              { k: "Pro", v: "Orientation professionnelle et trajectoires SAP" },
-              { k: "Business", v: "Pertinence directe pour les enjeux entreprise" },
-              { k: "Premium", v: "Approche premium et structurée" },
-            ].map((t, i) => (
-              <Reveal key={t.k} delay={i * 50} className="bg-background p-6 md:p-8">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-3">{t.k}</div>
-                <div className="text-sm text-muted-foreground leading-relaxed">{t.v}</div>
+            {trust.map((tr, i) => (
+              <Reveal key={tr.k} delay={i * 50} className="bg-background p-6 md:p-8">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-3">{tr.k}</div>
+                <div className="text-sm text-muted-foreground leading-relaxed">{tr.v}</div>
               </Reveal>
             ))}
           </div>
@@ -369,20 +334,18 @@ const Home = () => {
       <section className="pt-10 md:pt-14 pb-20 md:pb-24 bg-ink text-ivory">
         <div className="container-wide">
           <div className="max-w-3xl">
-            <div className="eyebrow mb-6 text-ivory/60">Échangeons</div>
-            <h2 className="display-lg text-ivory">Échangeons sur votre besoin en Finance SAP.</h2>
-            <p className="lede mt-6 text-ivory/70">
-              Que vous souhaitiez recevoir un programme de formation, demander un devis pour votre entreprise ou échanger avec notre équipe, CBS Finance Institute vous accompagne avec une approche claire, structurée et réactive.
-            </p>
+            <div className="eyebrow mb-6 text-ivory/60">{t("home.final_eyebrow")}</div>
+            <h2 className="display-lg text-ivory">{t("home.final_title")}</h2>
+            <p className="lede mt-6 text-ivory/70">{t("home.final_lede")}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="champagne">
-                <Link to="/formations">Recevoir le programme <ArrowRight /></Link>
+                <LLink to="/formations">{t("home.final_cta_program")} <ArrowRight /></LLink>
               </Button>
               <Button asChild size="lg" variant="outlineLight">
-                <Link to="/offres-entreprise">Demander un devis</Link>
+                <LLink to="/offres-entreprise">{t("home.final_cta_quote")}</LLink>
               </Button>
               <Button asChild size="lg" variant="outlineLight">
-                <Link to="/contact"><Mail className="h-4 w-4" /> Être recontacté</Link>
+                <LLink to="/contact"><Mail className="h-4 w-4" /> {t("home.final_cta_contact")}</LLink>
               </Button>
             </div>
           </div>
