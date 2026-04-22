@@ -102,6 +102,7 @@ const Ressources = () => {
 
   return (
     <>
+      <Seo titleKey="seo.resources_title" descriptionKey="seo.resources_desc" />
       {/* HERO */}
       <section className="section-y border-b border-border bg-secondary">
         <div className="container-wide">
