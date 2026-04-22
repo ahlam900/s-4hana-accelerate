@@ -52,8 +52,66 @@ const APropos = () => {
         </div>
       </section>
 
+      {/* DIFFERENCE */}
+      <section className="section-y bg-secondary border-y border-border">
+        <div className="container-wide">
+          <div className="max-w-3xl mb-14">
+            <div className="eyebrow mb-6">Notre différence</div>
+            <h2 className="display-md">
+              Une approche ancrée dans la <em className="not-italic text-champagne font-display">réalité des projets SAP</em>.
+            </h2>
+            <div className="mt-6 space-y-2 text-muted-foreground lede">
+              <p>Nous ne formons pas sur SAP Finance.</p>
+              <p>Nous formons à performer dans des environnements réels, complexes et exigeants.</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Approche orientée projet",
+                text: "Chaque formation est construite autour des réalités des projets S/4HANA : cadrage, conception, paramétrage et déploiement.",
+              },
+              {
+                title: "Expertise Finance & SAP",
+                text: "Nous combinons une compréhension fine des processus Finance avec une maîtrise avancée de leur implémentation dans SAP.",
+              },
+              {
+                title: "Pédagogie opérationnelle",
+                text: "Cas réels, scénarios concrets et logique terrain : nos formations préparent à intervenir, pas seulement à comprendre.",
+              },
+              {
+                title: "Exigence et standards élevés",
+                text: "Nos contenus et nos parcours sont conçus avec un niveau d'exigence aligné sur les environnements les plus structurants.",
+              },
+            ].map((c, i) => (
+              <Reveal key={c.title} delay={i * 70} className="card-premium p-8 group">
+                <div className="flex items-start gap-5">
+                  <div className="font-display text-champagne text-sm tracking-[0.2em] pt-1">
+                    0{i + 1}
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-display text-xl leading-tight">{c.title}</div>
+                    <p className="text-[15px] text-muted-foreground mt-3 leading-relaxed">{c.text}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-14 pt-10 border-t border-border flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <p className="font-display text-xl md:text-2xl leading-snug max-w-2xl">
+              Notre objectif : former des profils capables d'avoir un <em className="not-italic text-champagne">impact immédiat</em> sur des projets SAP Finance.
+            </p>
+            <Button asChild size="lg" variant="ink" className="shrink-0">
+              <Link to="/formations">Découvrir nos formations <ArrowRight /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* EXPERTISE */}
-      <section className="section-y bg-secondary">
+      <section className="section-y">
         <div className="container-wide">
           <div className="max-w-2xl mb-14">
             <div className="eyebrow mb-6">Notre expertise</div>
