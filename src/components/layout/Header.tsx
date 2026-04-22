@@ -44,10 +44,10 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide flex items-center justify-between gap-6 h-20 md:h-24 lg:h-24 xl:h-28">
+      <div className="container-wide flex items-center justify-between gap-6 h-20 md:h-24 lg:h-28 xl:h-32">
         <LLink
           to="/"
-          className="flex items-center shrink-0 h-full"
+          className="flex items-center shrink-0 h-full lg:pr-8 xl:pr-12"
           aria-label="CBS Finance Institute"
         >
           <img
@@ -59,7 +59,7 @@ const Header = () => {
           />
         </LLink>
 
-        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 whitespace-nowrap mx-auto">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 whitespace-nowrap mx-auto">
           {NAV.map((item) => (
             <LNavLink
               key={item.to}
@@ -67,7 +67,7 @@ const Header = () => {
               end={item.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "text-[11px] xl:text-[12px] font-medium tracking-[0.015em] transition-colors relative py-1.5",
+                  "text-[12px] xl:text-[13px] font-medium tracking-[0.02em] transition-colors relative py-1.5",
                   isActive
                     ? "text-foreground after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-px after:bg-accent"
                     : "text-muted-foreground hover:text-foreground",
