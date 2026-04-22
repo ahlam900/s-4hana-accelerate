@@ -26,12 +26,12 @@ const PageHero = ({
   return (
     <section
       className={cn(
-        "section-y border-b border-border",
+        "hero-y border-b border-border flex items-center min-h-[420px] md:min-h-[480px] lg:min-h-[520px]",
         isInk ? "bg-ink text-ivory" : "bg-secondary",
         className,
       )}
     >
-      <div className="container-wide">
+      <div className="container-wide w-full">
         <div className="max-w-4xl">
           {eyebrow && (
             <div className={cn("eyebrow mb-6", isInk && "text-ivory/60")}>{eyebrow}</div>
