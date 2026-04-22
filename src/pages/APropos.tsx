@@ -32,10 +32,17 @@ const APropos = () => {
         <div className="container-wide grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6">
             <div className="eyebrow mb-6">Notre mission</div>
-            <h2 className="display-md">Élever durablement le niveau d'expertise Finance SAP.</h2>
-            <p className="lede mt-6">
-              CBS Finance Institute a été fondé pour offrir aux professionnels et aux entreprises un standard de formation Finance SAP à la hauteur de leurs ambitions : exigeant, structuré, ancré dans le terrain.
-            </p>
+            <h2 className="display-md">
+              Élever le niveau d'exigence et de <em className="not-italic text-champagne font-display">performance</em> en Finance SAP.
+            </h2>
+            <div className="mt-6 space-y-5">
+              <p className="lede">
+                CBS Finance Institute a été créé pour répondre à un constat simple : la maîtrise de SAP Finance ne peut plus être théorique. Nous formons des professionnels capables de comprendre, structurer et piloter des environnements S/4HANA complexes.
+              </p>
+              <p className="text-[15px] leading-relaxed text-muted-foreground">
+                Notre mission est de développer des profils immédiatement opérationnels, capables d'intervenir avec rigueur sur des projets à fort enjeu, en combinant expertise métier, maîtrise de l'outil et vision projet.
+              </p>
+            </div>
           </div>
           <div className="lg:col-span-6">
             <div className="aspect-[4/5] rounded-sm overflow-hidden">
