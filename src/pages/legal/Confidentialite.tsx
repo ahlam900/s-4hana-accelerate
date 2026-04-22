@@ -15,7 +15,7 @@ const Confidentialite = () => (
     <h2>Conservation</h2>
     <p>Vos données sont conservées pendant la durée nécessaire à la finalité du traitement, puis archivées conformément aux obligations légales.</p>
     <h2>Vos droits</h2>
-    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'opposition, d'effacement et de portabilité. Pour exercer vos droits : contact@cbs-finance-institute.fr.</p>
+    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'opposition, d'effacement et de portabilité. Pour exercer vos droits : contact@cbs-institute.com.</p>
   </LegalShell>
 );
 export default Confidentialite;

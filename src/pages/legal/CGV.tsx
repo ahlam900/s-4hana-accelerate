@@ -14,7 +14,7 @@ const CGV = () => (
     <h2>Droit de rétractation</h2>
     <p>Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation ne peut être exercé pour les contenus numériques fournis sur un support immatériel dont l'exécution a commencé avec l'accord exprès du consommateur.</p>
     <h2>Service client</h2>
-    <p>Pour toute question : contact@cbs-finance-institute.fr.</p>
+    <p>Pour toute question : contact@cbs-institute.com.</p>
   </LegalShell>
 );
 export default CGV;
