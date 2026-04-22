@@ -107,9 +107,22 @@
     "digital_c3": "Templates",
     "digital_c4": "Ressources premium",
     "digital_cta": "Découvrir les produits digitaux",
+    "refs_eyebrow": "Références projets",
+    "refs_title_a": "Une expérience construite sur des ",
+    "refs_title_em": "environnements de référence",
+    "refs_title_b": ".",
+    "refs_lede": "Une expérience construite au contact de groupes de référence, d'environnements exigeants et de transformations à forts enjeux en Finance SAP.",
+    "refs_disclaimer": "Ces références illustrent l'expérience de l'institut auprès de groupes de référence, sans implication de relation commerciale directe ou d'endossement formel.",
+    "trust_k_1": "Expert", "trust_v_1": "Spécialisation exclusive en Finance SAP",
+    "trust_k_2": "Pratique", "trust_v_2": "Pédagogie ancrée dans le terrain et les cas réels",
+    "trust_k_3": "Pro", "trust_v_3": "Orientation professionnelle et trajectoires SAP",
+    "trust_k_4": "Business", "trust_v_4": "Pertinence directe pour les enjeux entreprise",
+    "trust_k_5": "Premium", "trust_v_5": "Approche premium et structurée",
     "final_eyebrow": "Échangeons",
-    "final_title": "Parlons de votre projet Finance SAP.",
-    "final_lede": "Que vous soyez un professionnel souhaitant renforcer votre expertise ou une entreprise engagée dans une transformation, échangeons sur vos enjeux et construisons une réponse adaptée.",
-    "final_cta": "Contacter l'institut"
+    "final_title": "Échangeons sur votre besoin en Finance SAP.",
+    "final_lede": "Que vous souhaitiez recevoir un programme de formation, demander un devis pour votre entreprise ou échanger avec notre équipe, CBS Finance Institute vous accompagne avec une approche claire, structurée et réactive.",
+    "final_cta_program": "Recevoir le programme",
+    "final_cta_quote": "Demander un devis",
+    "final_cta_contact": "Être recontacté"
   }
 }

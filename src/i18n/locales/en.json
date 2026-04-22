@@ -107,9 +107,22 @@
     "digital_c3": "Templates",
     "digital_c4": "Premium resources",
     "digital_cta": "Explore digital products",
+    "refs_eyebrow": "Project references",
+    "refs_title_a": "An experience built across ",
+    "refs_title_em": "reference environments",
+    "refs_title_b": ".",
+    "refs_lede": "An experience shaped alongside reference groups, demanding environments and high-stakes SAP Finance transformations.",
+    "refs_disclaimer": "These references illustrate the institute's experience with reference groups; they do not imply a direct commercial relationship or formal endorsement.",
+    "trust_k_1": "Expert", "trust_v_1": "Exclusive specialization in SAP Finance",
+    "trust_k_2": "Practical", "trust_v_2": "Pedagogy anchored in the field and real-life cases",
+    "trust_k_3": "Pro", "trust_v_3": "Professional orientation and SAP career paths",
+    "trust_k_4": "Business", "trust_v_4": "Direct relevance to enterprise challenges",
+    "trust_k_5": "Premium", "trust_v_5": "Premium and structured approach",
     "final_eyebrow": "Let's talk",
-    "final_title": "Let's discuss your SAP Finance project.",
-    "final_lede": "Whether you are a professional looking to deepen your expertise or a company engaged in a transformation, let's discuss your challenges and shape a tailored answer.",
-    "final_cta": "Contact the institute"
+    "final_title": "Let's discuss your SAP Finance needs.",
+    "final_lede": "Whether you want to receive a training program, request a quote for your company, or simply talk to our team, CBS Finance Institute brings a clear, structured and responsive approach.",
+    "final_cta_program": "Receive the program",
+    "final_cta_quote": "Request a quote",
+    "final_cta_contact": "Get a callback"
   }
 }
