@@ -33,7 +33,7 @@ const schema = z.object({
   message: z.string().trim().min(10, "Message trop court").max(2000),
 });
 
-type FormData = z.infer<typeof schema>;
+type FormData = z.input<typeof schema>;
 
 interface ContactFormProps {
   defaultSujet?: (typeof TYPES)[number];
