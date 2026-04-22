@@ -41,7 +41,10 @@ export default async function handler(req: any, res: any) {
 
     if (error) {
       console.error("Supabase insert error:", error);
-      return res.status(500).json({ error: "Supabase insert failed" });
+      return res.status(500).json({
+        error: "Supabase insert failed",
+        details: error,
+      });
     }
 
     const html = `
@@ -58,18 +61,46 @@ export default async function handler(req: any, res: any) {
       <p><strong>Besoin :</strong> ${insertedLead.besoin || "-"}</p>
       <p><strong>Message :</strong></p>
       <p>${insertedLead.message || "-"}</p>
+      <hr />
+      <p><strong>Source :</strong> ${insertedLead.source || "-"}</p>
+      <p><strong>Statut :</strong> ${insertedLead.statut || "-"}</p>
     `;
 
-    await resend.emails.send({
+    console.log("EMAIL DEBUG:", {
+      to: process.env.LEAD_NOTIFICATION_TO,
+      from: "CBS Institute <contact@cbs-institute.com>",
+      formulaire: insertedLead.formulaire,
+      leadEmail: insertedLead.email,
+    });
+
+    const emailResult = await resend.emails.send({
       from: "CBS Institute <contact@cbs-institute.com>",
       to: process.env.LEAD_NOTIFICATION_TO!,
       subject: `Nouveau lead (${insertedLead.formulaire})`,
       html,
+      replyTo: insertedLead.email || undefined,
     });
 
-    return res.status(200).json({ success: true, lead: insertedLead });
+    console.log("RESEND RESULT:", emailResult);
+
+    if (emailResult.error) {
+      console.error("Resend send error:", emailResult.error);
+      return res.status(500).json({
+        error: "Email send failed",
+        details: emailResult.error,
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      lead: insertedLead,
+      email: emailResult,
+    });
   } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: "Server error" });
+    console.error("API /api/lead fatal error:", err);
+    return res.status(500).json({
+      error: "Server error",
+      details: err,
+    });
   }
 }
