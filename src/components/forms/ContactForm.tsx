@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
+import { insertLead } from "@/integrations/leads/client";
 import { toast } from "sonner";
 
 const TYPES = [
@@ -60,16 +61,20 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
   const sujetValue = watch("sujet");
 
   const onSubmit = async (data: FormData) => {
-    const { error } = await supabase.from("contact_submissions").insert({
+    const { error } = await insertLead({
       prenom: data.prenom,
       nom: data.nom,
       email: data.email,
       telephone: data.telephone,
       societe: data.societe,
-      sujet: data.sujet,
+      type_demande: data.sujet,
       message: data.message,
+      source: "website",
+      statut: "new",
+      formulaire: "contact",
     });
-    if (error) { toast.error("Une erreur est survenue. Veuillez réessayer."); return; }
+    if (error) { toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer."); return; }
+    toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
     void supabase.functions.invoke("send-transactional-email", {
       body: {
         templateName: "contact-confirmation",

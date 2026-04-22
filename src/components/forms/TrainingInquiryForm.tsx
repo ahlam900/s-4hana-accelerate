@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
+import { insertLead } from "@/integrations/leads/client";
 import { toast } from "sonner";
 
 const schema = z.object({
@@ -36,21 +37,25 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
   });
 
   const onSubmit = async (data: FormData) => {
-    const { error } = await supabase.from("training_inquiries").insert({
+    const { error } = await insertLead({
       prenom: data.prenom,
       nom: data.nom,
       email: data.email,
       telephone: data.telephone || null,
       societe: data.societe || null,
-      formation_souhaitee: data.formation_souhaitee,
+      type_demande: data.formation_souhaitee,
       niveau: data.niveau || null,
       objectif: data.objectif || null,
       message: data.message || null,
+      source: "website",
+      statut: "new",
+      formulaire: "formation",
     });
     if (error) {
-      toast.error("Une erreur est survenue. Veuillez réessayer.");
+      toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
       return;
     }
+    toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
     // Confirmation email (non-blocking)
     void supabase.functions.invoke("send-transactional-email", {
       body: {
