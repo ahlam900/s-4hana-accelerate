@@ -37,10 +37,10 @@ const APropos = () => {
             </h2>
             <div className="mt-6 space-y-5">
               <p className="lede">
-                CBS Finance Institute a été créé pour répondre à un constat simple : la maîtrise de SAP Finance ne peut plus être théorique. Nous formons des professionnels capables de comprendre, structurer et piloter des environnements S/4HANA complexes.
+                Maîtriser SAP Finance ne peut plus être théorique. Nous formons des professionnels capables de comprendre, structurer et piloter des environnements S/4HANA complexes, avec une approche directement ancrée dans la réalité des projets.
               </p>
               <p className="text-[15px] leading-relaxed text-muted-foreground">
-                Notre mission est de développer des profils immédiatement opérationnels, capables d'intervenir avec rigueur sur des projets à fort enjeu, en combinant expertise métier, maîtrise de l'outil et vision projet.
+                Notre ambition est de développer des profils immédiatement performants, capables d'intervenir avec rigueur sur des transformations à fort enjeu, en combinant expertise métier, maîtrise de l'outil et vision projet.
               </p>
             </div>
           </div>
