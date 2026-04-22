@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Reveal from "@/components/Reveal";
 import { toast } from "@/hooks/use-toast";
+import Seo from "@/components/Seo";
 
 const challenges = [
   {
@@ -101,6 +102,7 @@ const Ressources = () => {
 
   return (
     <>
+      <Seo titleKey="seo.resources_title" descriptionKey="seo.resources_desc" />
       {/* HERO */}
       <section className="section-y border-b border-border bg-secondary">
         <div className="container-wide">

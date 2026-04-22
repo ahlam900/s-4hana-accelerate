@@ -4,12 +4,14 @@ import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import TrainingInquiryForm from "@/components/forms/TrainingInquiryForm";
 import { trainings } from "@/data/trainings";
+import Seo from "@/components/Seo";
 
 const Formations = () => {
   const featured = trainings.find((t) => t.featured);
 
   return (
     <>
+      <Seo titleKey="seo.trainings_title" descriptionKey="seo.trainings_desc" />
       {/* HERO — aligné avec la direction homepage */}
       <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary border-b border-border">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />

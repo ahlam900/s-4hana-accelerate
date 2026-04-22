@@ -124,5 +124,26 @@
     "final_cta_program": "Recevoir le programme",
     "final_cta_quote": "Demander un devis",
     "final_cta_contact": "Être recontacté"
+  },
+  "seo": {
+    "home_title": "Institut Finance SAP | Formations & Transformation S/4HANA",
+    "home_desc": "Institut premium spécialisé Finance SAP : formations expertes, transformation S/4HANA, accompagnement Key Users pour professionnels et entreprises.",
+    "trainings_title": "Formations Finance SAP : FICO, S/4HANA, Key Users",
+    "trainings_desc": "Programmes de formation Finance SAP structurés par niveau : Découverte, Consultant, Expert. SAP FICO, S/4HANA, RE-FX, Key Users.",
+    "corporate_title": "Offres Entreprise — Transformation Finance SAP",
+    "corporate_desc": "Accompagnement sur-mesure pour les directions Finance et IT : transformation S/4HANA, formation Key Users, structuration de projets SAP Finance.",
+    "digital_title": "Produits Digitaux — Playbooks & Guides SAP Finance",
+    "digital_desc": "Playbooks, guides PDF et templates premium pour structurer vos projets SAP Finance et accélérer la montée en compétence de vos équipes.",
+    "resources_title": "Ressources — Insights et décryptages SAP Finance",
+    "resources_desc": "Articles experts, décryptages, retours d'expérience et bonnes pratiques pour éclairer vos enjeux SAP Finance et S/4HANA.",
+    "about_title": "À propos — CBS Finance Institute",
+    "about_desc": "L'institut français de référence pour la formation Finance SAP et la transformation S/4HANA des entreprises.",
+    "contact_title": "Contact — Parlons de votre projet SAP Finance",
+    "contact_desc": "Échangeons sur vos enjeux Finance SAP, S/4HANA ou formation. Réponse sous 24 à 48h, échange confidentiel, sans démarchage.",
+    "legal_title": "Mentions légales",
+    "privacy_title": "Politique de confidentialité",
+    "cgv_title": "Conditions générales de vente",
+    "cookies_title": "Politique de cookies",
+    "legal_desc": "Informations légales et règles applicables à l'utilisation du site CBS Finance Institute."
   }
 }

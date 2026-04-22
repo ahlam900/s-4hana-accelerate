@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import ContactForm from "@/components/forms/ContactForm";
 import Reveal from "@/components/Reveal";
 import { cn } from "@/lib/utils";
+import Seo from "@/components/Seo";
 
 type Need = "Formation SAP Finance" | "Projet / Transformation SAP" | "Autre demande";
 
@@ -39,6 +40,7 @@ const Contact = () => {
 
   return (
     <>
+      <Seo titleKey="seo.contact_title" descriptionKey="seo.contact_desc" />
       {/* HERO */}
       <section className="section-y border-b border-border bg-secondary">
         <div className="container-wide">

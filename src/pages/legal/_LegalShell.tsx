@@ -1,7 +1,9 @@
 import PageHero from "@/components/PageHero";
+import Seo from "@/components/Seo";
 
 const LegalShell = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <>
+    <Seo title={title} descriptionKey="seo.legal_desc" />
     <PageHero eyebrow="Informations légales" title={title} />
     <section className="section-y">
       <div className="container-prose prose prose-sm max-w-none [&_h2]:font-display [&_h2]:text-2xl [&_h2]:mt-10 [&_h2]:mb-4 [&_p]:text-muted-foreground [&_p]:leading-relaxed [&_p]:mb-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:text-muted-foreground [&_li]:mb-1">

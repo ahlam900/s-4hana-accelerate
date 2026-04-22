@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import { LLink } from "@/i18n/LLink";
+import Seo from "@/components/Seo";
 import heroVisual from "@/assets/hero-visual.jpg";
 import productsVisual from "@/assets/products-visual.jpg";
 import corporateVisual from "@/assets/corporate-visual.jpg";
@@ -50,6 +51,7 @@ const Home = () => {
 
   return (
     <>
+      <Seo titleKey="seo.home_title" descriptionKey="seo.home_desc" />
       {/* HERO */}
       <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />

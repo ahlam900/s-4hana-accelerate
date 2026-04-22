@@ -124,5 +124,26 @@
     "final_cta_program": "Receive the program",
     "final_cta_quote": "Request a quote",
     "final_cta_contact": "Get a callback"
+  },
+  "seo": {
+    "home_title": "SAP Finance Institute | Training & S/4HANA Transformation",
+    "home_desc": "Premium institute specialized in SAP Finance: expert training, S/4HANA transformation and Key User enablement for professionals and enterprises.",
+    "trainings_title": "SAP Finance Training: FICO, S/4HANA, Key Users",
+    "trainings_desc": "Structured SAP Finance training programs by level: Discovery, Consultant, Expert. SAP FICO, S/4HANA, RE-FX, Key Users.",
+    "corporate_title": "Enterprise Offerings — SAP Finance Transformation",
+    "corporate_desc": "Tailored support for Finance and IT leaders: S/4HANA transformation, Key User training, SAP Finance project structuring.",
+    "digital_title": "Digital Products — SAP Finance Playbooks & Guides",
+    "digital_desc": "Premium playbooks, PDF guides and templates to structure your SAP Finance projects and accelerate team upskilling.",
+    "resources_title": "Resources — SAP Finance Insights & Analysis",
+    "resources_desc": "Expert articles, analyses, lessons learned and best practices to inform your SAP Finance and S/4HANA decisions.",
+    "about_title": "About — CBS Finance Institute",
+    "about_desc": "The leading institute for SAP Finance training and S/4HANA transformation for enterprises.",
+    "contact_title": "Contact — Let's talk about your SAP Finance project",
+    "contact_desc": "Let's discuss your SAP Finance, S/4HANA or training needs. Reply within 24-48h, confidential exchange, no cold outreach.",
+    "legal_title": "Legal notice",
+    "privacy_title": "Privacy policy",
+    "cgv_title": "Terms and conditions of sale",
+    "cookies_title": "Cookie policy",
+    "legal_desc": "Legal information and rules applicable to the use of the CBS Finance Institute website."
   }
 }
