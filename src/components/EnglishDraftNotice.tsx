@@ -10,7 +10,7 @@ const EnglishDraftNotice = () => {
         <span className="inline-block h-1.5 w-1.5 rounded-full bg-champagne" aria-hidden />
         <span>
           This page is being translated. Some sections may still appear in French —{" "}
-          <a href="mailto:contact@cbs-finance-institute.fr" className="underline hover:text-foreground">
+          <a href="mailto:contact@cbs-institute.com" className="underline hover:text-foreground">
             contact us in English
           </a>{" "}
           for any question.

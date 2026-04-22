@@ -12,7 +12,7 @@ const Cookies = () => (
     <h2>Gestion</h2>
     <p>Vous pouvez à tout moment paramétrer votre navigateur pour refuser les cookies. Le refus de certains cookies peut limiter le fonctionnement de certaines fonctionnalités.</p>
     <h2>Contact</h2>
-    <p>Pour toute question : contact@cbs-finance-institute.fr.</p>
+    <p>Pour toute question : contact@cbs-institute.com.</p>
   </LegalShell>
 );
 export default Cookies;

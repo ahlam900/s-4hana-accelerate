@@ -18,7 +18,7 @@ export const Identite = () => (
     <ul>
       <li>SIRET : 884 903 121 00017</li>
       <li>Déclaration d'activité : 11931243893</li>
-      <li>Email : contact@cbs-finance-institute.fr</li>
+      <li>Email : contact@cbs-institute.com</li>
     </ul>
     <p className="text-xs">L'enregistrement de la déclaration d'activité ne vaut pas agrément de l'État.</p>
   </>

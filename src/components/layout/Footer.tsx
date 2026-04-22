@@ -22,8 +22,8 @@ const Footer = () => {
             {t("footer.tagline")}
           </p>
           <div className="flex flex-col gap-2.5 text-sm text-foreground/80 pt-1">
-            <a href="mailto:contact@cbs-finance-institute.fr" className="inline-flex items-center gap-2 hover:text-champagne transition-colors">
-              <Mail className="h-4 w-4" /> contact@cbs-finance-institute.fr
+            <a href="mailto:contact@cbs-institute.com" className="inline-flex items-center gap-2 hover:text-champagne transition-colors">
+              <Mail className="h-4 w-4" /> contact@cbs-institute.com
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-champagne transition-colors">
               <Linkedin className="h-4 w-4" /> LinkedIn
