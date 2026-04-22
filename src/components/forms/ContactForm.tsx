@@ -14,8 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { supabase } from "@/integrations/supabase/client";
-import { insertLead } from "@/integrations/leads/client";
+
 import { toast } from "sonner";
 
 const TYPES = [
@@ -61,31 +60,31 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
   const sujetValue = watch("sujet");
 
   const onSubmit = async (data: FormData) => {
-    const leadPayload = {
-      prenom: data.prenom,
-      nom: data.nom,
-      email: data.email,
-      telephone: data.telephone,
-      societe: data.societe,
-      type_demande: data.sujet,
-      message: data.message,
-      source: "website",
-      statut: "new",
-      formulaire: "contact",
-    };
+  const leadPayload = {
+    prenom: data.prenom,
+    nom: data.nom,
+    email: data.email,
+    telephone: data.telephone,
+    societe: data.societe,
+    type_demande: data.sujet,
+    message: data.message,
+    source: "website",
+    statut: "new",
+    formulaire: "contact",
+  };
 
-    const { error } = await insertLead(leadPayload);
-    if (error) { toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer."); return; }
-    toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
-    void supabase.functions.invoke("send-transactional-email", {
-      body: {
-        templateName: "lead-notification",
-        idempotencyKey: `lead-contact-${leadPayload.email}-${Date.now()}`,
-        templateData: leadPayload,
-      },
-    });
-    setSubmitted(true);
-    reset();
+  const { error } = await insertLead(leadPayload);
+  if (error) { toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer."); return; }
+  toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
+  void supabase.functions.invoke("send-transactional-email", {
+    body: {
+      templateName: "lead-notification",
+      idempotencyKey: `lead-contact-${leadPayload.email}-${Date.now()}`,
+      templateData: leadPayload,
+    },
+  });
+  setSubmitted(true);
+  reset();
   };
 
   if (submitted) {
