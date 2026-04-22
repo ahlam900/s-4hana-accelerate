@@ -44,10 +44,10 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide flex items-center justify-between gap-6 h-20 md:h-24 lg:h-28 xl:h-32">
+      <div className="container-wide flex items-center justify-between gap-4 h-20 md:h-24 lg:h-28 xl:h-32">
         <LLink
           to="/"
-          className="flex items-center shrink-0 h-full lg:pr-8 xl:pr-12"
+          className="flex items-center shrink-0 h-full lg:pr-4 xl:pr-8"
           aria-label="CBS Finance Institute"
         >
           <img
@@ -59,7 +59,7 @@ const Header = () => {
           />
         </LLink>
 
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 whitespace-nowrap mx-auto">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-6 whitespace-nowrap mx-auto min-w-0">
           {NAV.map((item) => (
             <LNavLink
               key={item.to}
@@ -79,8 +79,8 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 md:gap-3 shrink-0">
-          <LanguageSwitcher className="hidden md:inline-flex" />
+        <div className="flex items-center gap-1.5 md:gap-2 xl:gap-3 shrink-0">
+          <LanguageSwitcher className="hidden xl:inline-flex" />
 
           <LLink
             to="/produits-digitaux/panier"
@@ -95,7 +95,7 @@ const Header = () => {
             )}
           </LLink>
 
-          <Button asChild size="sm" variant="ink" className="hidden md:inline-flex shrink-0">
+          <Button asChild size="sm" variant="ink" className="hidden md:inline-flex shrink-0 whitespace-nowrap">
             <LLink to="/contact">{t("nav.cta")}</LLink>
           </Button>
 
