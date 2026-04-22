@@ -110,26 +110,129 @@ const APropos = () => {
         </div>
       </section>
 
-      {/* EXPERTISE */}
+      {/* EXPERTISE & EXÉCUTION */}
       <section className="section-y">
         <div className="container-wide">
-          <div className="max-w-2xl mb-14">
-            <div className="eyebrow mb-6">Notre expertise</div>
-            <h2 className="display-md">Quatre piliers fondateurs.</h2>
+          {/* Intro */}
+          <div className="max-w-3xl mb-16">
+            <div className="eyebrow mb-6">Expertise & exécution</div>
+            <h2 className="display-md">
+              Un partenaire d'<em className="not-italic text-champagne font-display">exécution</em> pour vos transformations SAP Finance.
+            </h2>
+            <p className="lede mt-6 text-muted-foreground">
+              Nous accompagnons les directions Finance et IT dans la conduite de leurs programmes SAP S/4HANA — des environnements à fort enjeu où la qualité d'exécution conditionne la valeur créée.
+            </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Compass, title: "Expertise Finance SAP", text: "Une connaissance fine du fonctionnel et du paramétrage Finance dans SAP." },
-              { icon: Target, title: "Compréhension des processus", text: "Une lecture claire des processus métier et de leur traduction système." },
-              { icon: Building2, title: "Maîtrise des enjeux de transformation SAP", text: "Une vision stratégique des projets de transformation Finance." },
-              { icon: GraduationCap, title: "Pédagogie premium", text: "Un standard pédagogique exigeant, au service de la montée en compétence." },
-            ].map((b, i) => (
-              <Reveal key={b.title} delay={i * 60} className="card-premium p-7">
-                <b.icon className="h-6 w-6 text-champagne" strokeWidth={1.5} />
-                <div className="font-display text-lg mt-5">{b.title}</div>
-                <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{b.text}</p>
-              </Reveal>
-            ))}
+
+          {/* Two columns: maîtrise + risques */}
+          <div className="grid lg:grid-cols-2 gap-px bg-border border border-border rounded-sm overflow-hidden mb-10">
+            {/* Maîtrise */}
+            <div className="bg-background p-10">
+              <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-5">Ce que nous maîtrisons</div>
+              <h3 className="font-display text-2xl leading-tight mb-6">Les leviers d'une transformation Finance réussie.</h3>
+              <ul className="space-y-4">
+                {[
+                  { k: "Processus Finance core", v: "Record-to-Report, Procure-to-Pay, Order-to-Cash." },
+                  { k: "Transformation S/4HANA", v: "Cadrage, design, déploiement et reprises de données." },
+                  { k: "Alignement Finance / IT", v: "Traduction des exigences métier en architecture cible." },
+                  { k: "Operating model & gouvernance", v: "Organisation cible, responsabilités, instances de pilotage." },
+                  { k: "Team enablement", v: "Montée en compétence des équipes internes pour sécuriser l'autonomie post-projet." },
+                ].map((m) => (
+                  <li key={m.k} className="flex gap-4 border-t border-border pt-4 first:border-0 first:pt-0">
+                    <span className="text-champagne font-display text-xs tracking-[0.15em] pt-1 shrink-0 w-2">—</span>
+                    <div>
+                      <div className="font-display text-[15px] leading-snug">{m.k}</div>
+                      <div className="text-sm text-muted-foreground mt-1 leading-relaxed">{m.v}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Risques */}
+            <div className="bg-background p-10">
+              <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-5">Les risques que nous adressons</div>
+              <h3 className="font-display text-2xl leading-tight mb-6">Sécuriser les zones critiques d'un programme SAP.</h3>
+              <ul className="space-y-4">
+                {[
+                  "Désalignement entre vision Finance et conception SAP.",
+                  "Faible adoption des nouveaux processus par les équipes opérationnelles.",
+                  "Dérives de planning et explosion des coûts en phase de réalisation.",
+                  "Dépendance excessive vis-à-vis des intégrateurs externes.",
+                  "Go-live readiness insuffisante : reprises de données, tests, cutover.",
+                ].map((r) => (
+                  <li key={r} className="flex gap-4 border-t border-border pt-4 first:border-0 first:pt-0">
+                    <span className="text-champagne font-display text-xs tracking-[0.15em] pt-1 shrink-0 w-2">—</span>
+                    <p className="text-[15px] leading-relaxed">{r}</p>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 pt-6 border-t border-border">
+                <p className="font-display text-[15px] leading-snug">
+                  <span className="text-champagne">Notre rôle :</span> apporter le niveau d'exigence, de structure et d'expertise qui sécurise l'exécution du programme et garantit la création de valeur.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Position unique */}
+          <div className="bg-ink text-ivory rounded-sm p-10 lg:p-14 mb-10">
+            <div className="grid lg:grid-cols-12 gap-10 items-start">
+              <div className="lg:col-span-4">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-5">Notre position unique</div>
+                <h3 className="font-display text-2xl lg:text-3xl leading-tight text-ivory">
+                  À la croisée de trois expertises rarement réunies.
+                </h3>
+              </div>
+              <div className="lg:col-span-8 grid sm:grid-cols-3 gap-px bg-ivory/15 rounded-sm overflow-hidden">
+                {[
+                  { k: "Finance", v: "Maîtrise des processus, des normes et des enjeux de pilotage." },
+                  { k: "SAP", v: "Expertise fonctionnelle et technique avancée sur S/4HANA Finance." },
+                  { k: "Projet", v: "Méthodologie de transformation, gouvernance et conduite du changement." },
+                ].map((p, i) => (
+                  <div key={p.k} className="bg-ink p-7">
+                    <div className="text-champagne font-display text-sm tracking-[0.2em] mb-3">0{i + 1}</div>
+                    <div className="font-display text-xl text-ivory mb-3">{p.k}</div>
+                    <p className="text-[14px] text-ivory/70 leading-relaxed">{p.v}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Impact mesurable */}
+          <div className="mb-12">
+            <div className="max-w-2xl mb-8">
+              <div className="eyebrow mb-5">Impact mesurable</div>
+              <h3 className="font-display text-2xl lg:text-3xl leading-tight">
+                Des résultats tangibles, à chaque étape du programme.
+              </h3>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border border border-border rounded-sm overflow-hidden">
+              {[
+                { k: "Risque", v: "Réduction des risques projet et financiers." },
+                { k: "Vélocité", v: "Accélération des phases de design et de déploiement." },
+                { k: "Autonomie", v: "Indépendance accrue vis-à-vis des intégrateurs." },
+                { k: "Adoption", v: "Appropriation rapide par les équipes Finance." },
+                { k: "Performance", v: "Processus Finance plus fiables et plus performants." },
+              ].map((it) => (
+                <div key={it.k} className="bg-background p-6">
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-3">{it.k}</div>
+                  <p className="text-[14px] leading-relaxed">{it.v}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Signature + CTA */}
+          <div className="border-t border-border pt-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+            <p className="font-display text-2xl lg:text-3xl leading-snug max-w-3xl">
+              Nous ne formons pas à SAP. Nous préparons des organisations à <em className="not-italic text-champagne">réussir</em> leur transformation Finance.
+            </p>
+            <div className="flex flex-wrap gap-3 shrink-0">
+              <Button asChild size="lg" variant="ink"><Link to="/contact">Parler à un expert <ArrowRight /></Link></Button>
+              <Button asChild size="lg" variant="outline"><Link to="/contact">Demander une analyse</Link></Button>
+            </div>
           </div>
         </div>
       </section>
