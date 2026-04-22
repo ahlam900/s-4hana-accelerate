@@ -118,10 +118,15 @@ const ProduitsDigitaux = () => {
       {/* CTA */}
       <section className="section-y bg-secondary">
         <div className="container-narrow text-center">
-          <div className="eyebrow mb-6 justify-center inline-flex">Besoin d'une ressource sur mesure ?</div>
-          <h2 className="display-md">Nous concevons aussi des contenus adaptés à votre organisation.</h2>
+          <div className="eyebrow mb-6 justify-center inline-flex">Besoin d'une approche sur mesure ?</div>
+          <h2 className="display-md">
+            Construisons des ressources SAP Finance <em className="not-italic text-champagne font-display">parfaitement adaptées</em> à vos enjeux.
+          </h2>
+          <p className="lede mt-6 max-w-2xl mx-auto text-muted-foreground">
+            Nous concevons des playbooks, supports et frameworks sur mesure pour vos équipes Finance et vos projets SAP S/4HANA, alignés avec vos processus, votre organisation et vos objectifs.
+          </p>
           <Button asChild size="lg" variant="ink" className="mt-8">
-            <Link to="/contact">Nous contacter <ArrowRight /></Link>
+            <Link to="/contact">Échanger avec un expert <ArrowRight /></Link>
           </Button>
         </div>
       </section>
