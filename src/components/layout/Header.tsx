@@ -59,7 +59,7 @@ const Header = () => {
           />
         </LLink>
 
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 whitespace-nowrap mx-auto">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 whitespace-nowrap mx-auto">
           {NAV.map((item) => (
             <LNavLink
               key={item.to}
