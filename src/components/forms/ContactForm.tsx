@@ -61,7 +61,7 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
   const sujetValue = watch("sujet");
 
   const onSubmit = async (data: FormData) => {
-    const { error } = await insertLead({
+    const leadPayload = {
       prenom: data.prenom,
       nom: data.nom,
       email: data.email,
@@ -72,25 +72,16 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
       source: "website",
       statut: "new",
       formulaire: "contact",
-    });
+    };
+
+    const { error } = await insertLead(leadPayload);
     if (error) { toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer."); return; }
     toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
     void supabase.functions.invoke("send-transactional-email", {
       body: {
         templateName: "lead-notification",
-        idempotencyKey: `lead-contact-${data.email}-${Date.now()}`,
-        templateData: {
-          formulaire: "contact",
-          type_demande: data.sujet,
-          prenom: data.prenom,
-          nom: data.nom,
-          email: data.email,
-          telephone: data.telephone,
-          societe: data.societe,
-          message: data.message,
-          source: "website",
-          statut: "new",
-        },
+        idempotencyKey: `lead-contact-${leadPayload.email}-${Date.now()}`,
+        templateData: leadPayload,
       },
     });
     setSubmitted(true);

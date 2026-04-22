@@ -37,7 +37,7 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
   });
 
   const onSubmit = async (data: FormData) => {
-    const { error } = await insertLead({
+    const leadPayload = {
       prenom: data.prenom,
       nom: data.nom,
       email: data.email,
@@ -50,31 +50,19 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
       source: "website",
       statut: "new",
       formulaire: "formation",
-    });
+    };
+
+    const { error } = await insertLead(leadPayload);
     if (error) {
       toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
       return;
     }
     toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
-    // Notification email to CBS team (non-blocking)
     void supabase.functions.invoke("send-transactional-email", {
       body: {
         templateName: "lead-notification",
-        idempotencyKey: `lead-formation-${data.email}-${Date.now()}`,
-        templateData: {
-          formulaire: "formation",
-          type_demande: data.formation_souhaitee,
-          prenom: data.prenom,
-          nom: data.nom,
-          email: data.email,
-          telephone: data.telephone || "",
-          societe: data.societe || "",
-          niveau: data.niveau || "",
-          objectif: data.objectif || "",
-          message: data.message || "",
-          source: "website",
-          statut: "new",
-        },
+        idempotencyKey: `lead-formation-${leadPayload.email}-${Date.now()}`,
+        templateData: leadPayload,
       },
     });
     setSubmitted(true);

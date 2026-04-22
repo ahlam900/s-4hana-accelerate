@@ -14,24 +14,24 @@ import {
 import type { TemplateEntry } from './registry.ts'
 
 interface LeadNotificationProps {
-  formulaire?: string
-  type_demande?: string
-  prenom?: string
-  nom?: string
-  email?: string
-  telephone?: string
-  societe?: string
-  niveau?: string
-  objectif?: string
-  fonction?: string
-  besoin?: string
-  message?: string
-  source?: string
-  statut?: string
+  formulaire?: string | null
+  type_demande?: string | null
+  prenom?: string | null
+  nom?: string | null
+  email?: string | null
+  telephone?: string | null
+  societe?: string | null
+  niveau?: string | null
+  objectif?: string | null
+  fonction?: string | null
+  besoin?: string | null
+  message?: string | null
+  source?: string | null
+  statut?: string | null
 }
 
-const dash = (v?: string) => (v && v.trim() ? v : '—')
-const has = (v?: string) => !!(v && v.trim())
+const dash = (v?: string | null) => (v && v.trim() ? v : '—')
+const has = (v?: string | null) => !!(v && v.trim())
 
 const formLabel = (f?: string) => {
   switch ((f || '').toLowerCase()) {
@@ -195,22 +195,7 @@ export const template = {
     `[CBS Lead] New submission - ${data.formulaire ?? '—'} - ${data.prenom ?? ''} ${data.nom ?? ''}`.trim(),
   to: 'contact@cbs-institute.com',
   displayName: 'CBS lead notification',
-  previewData: {
-    formulaire: 'contact',
-    type_demande: 'Information',
-    prenom: 'Jane',
-    nom: 'Doe',
-    email: 'jane@example.com',
-    telephone: '+33 6 12 34 56 78',
-    societe: 'Acme',
-    niveau: 'Avancé',
-    objectif: 'Certification',
-    fonction: 'CFO',
-    besoin: 'Audit S/4HANA',
-    message: 'Bonjour, je souhaite être recontacté concernant un projet de transformation Finance S/4HANA.',
-    source: 'website',
-    statut: 'new',
-  },
+  previewData: undefined,
 } satisfies TemplateEntry
 
 /* Styles — premium corporate (deep blue / white / accent) */
