@@ -77,10 +77,20 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
     toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
     void supabase.functions.invoke("send-transactional-email", {
       body: {
-        templateName: "contact-confirmation",
-        recipientEmail: data.email,
-        idempotencyKey: `contact-${data.email}-${Date.now()}`,
-        templateData: { prenom: data.prenom },
+        templateName: "lead-notification",
+        idempotencyKey: `lead-contact-${data.email}-${Date.now()}`,
+        templateData: {
+          formulaire: "contact",
+          type_demande: data.sujet,
+          prenom: data.prenom,
+          nom: data.nom,
+          email: data.email,
+          telephone: data.telephone,
+          societe: data.societe,
+          message: data.message,
+          source: "website",
+          statut: "new",
+        },
       },
     });
     setSubmitted(true);

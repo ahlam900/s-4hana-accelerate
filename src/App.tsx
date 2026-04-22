@@ -27,6 +27,7 @@ const MentionsLegales = lazy(() => import("./pages/legal/MentionsLegales"));
 const Confidentialite = lazy(() => import("./pages/legal/Confidentialite"));
 const CGV = lazy(() => import("./pages/legal/CGV"));
 const Cookies = lazy(() => import("./pages/legal/Cookies"));
+const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -56,6 +57,7 @@ const AppRoutes = () => (
       <Route path="/confidentialite" element={<Confidentialite />} />
       <Route path="/cgv" element={<CGV />} />
       <Route path="/cookies" element={<Cookies />} />
+      <Route path="/unsubscribe" element={<Unsubscribe />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Suspense>

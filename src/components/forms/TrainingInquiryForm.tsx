@@ -56,13 +56,25 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
       return;
     }
     toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
-    // Confirmation email (non-blocking)
+    // Notification email to CBS team (non-blocking)
     void supabase.functions.invoke("send-transactional-email", {
       body: {
-        templateName: "training-inquiry-confirmation",
-        recipientEmail: data.email,
-        idempotencyKey: `training-${data.email}-${Date.now()}`,
-        templateData: { prenom: data.prenom, formation: data.formation_souhaitee },
+        templateName: "lead-notification",
+        idempotencyKey: `lead-formation-${data.email}-${Date.now()}`,
+        templateData: {
+          formulaire: "formation",
+          type_demande: data.formation_souhaitee,
+          prenom: data.prenom,
+          nom: data.nom,
+          email: data.email,
+          telephone: data.telephone || "",
+          societe: data.societe || "",
+          niveau: data.niveau || "",
+          objectif: data.objectif || "",
+          message: data.message || "",
+          source: "website",
+          statut: "new",
+        },
       },
     });
     setSubmitted(true);

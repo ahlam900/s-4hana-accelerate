@@ -53,10 +53,22 @@ const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
     toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
     void supabase.functions.invoke("send-transactional-email", {
       body: {
-        templateName: "corporate-inquiry-confirmation",
-        recipientEmail: data.email,
-        idempotencyKey: `corp-${data.email}-${Date.now()}`,
-        templateData: { prenom: data.prenom, offre: data.offre_souhaitee },
+        templateName: "lead-notification",
+        idempotencyKey: `lead-entreprise-${data.email}-${Date.now()}`,
+        templateData: {
+          formulaire: "entreprise",
+          type_demande: data.offre_souhaitee,
+          prenom: data.prenom,
+          nom: data.nom,
+          email: data.email,
+          telephone: data.telephone || "",
+          societe: data.societe,
+          fonction: data.fonction || "",
+          besoin: data.besoin || "",
+          message: data.message || "",
+          source: "website",
+          statut: "new",
+        },
       },
     });
     setSubmitted(true);
