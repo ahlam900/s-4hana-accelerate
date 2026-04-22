@@ -152,7 +152,7 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
         <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-champagne" /> Aucun démarchage</div>
       </div>
     </form>
-  );
+
 };
 
 const Field = ({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) => (
