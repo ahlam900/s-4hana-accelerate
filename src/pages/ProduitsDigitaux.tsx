@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 
 import Reveal from "@/components/Reveal";
 import { products, productCategories } from "@/data/products";
+import Seo from "@/components/Seo";
 import { cn } from "@/lib/utils";
 
 const ProduitsDigitaux = () => {
@@ -13,6 +14,7 @@ const ProduitsDigitaux = () => {
 
   return (
     <>
+      <Seo titleKey="seo.digital_title" descriptionKey="seo.digital_desc" />
       <section className="section-y border-b border-border bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">

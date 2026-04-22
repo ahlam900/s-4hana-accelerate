@@ -3,10 +3,12 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import aboutVisual from "@/assets/about-visual.jpg";
+import Seo from "@/components/Seo";
 
 const APropos = () => {
   return (
     <>
+      <Seo titleKey="seo.about_title" descriptionKey="seo.about_desc" />
       {/* HERO — Positioning */}
       <section className="section-y border-b border-border bg-secondary">
         <div className="container-wide">

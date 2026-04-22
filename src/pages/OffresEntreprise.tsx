@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import CorporateInquiryForm from "@/components/forms/CorporateInquiryForm";
+import Seo from "@/components/Seo";
 
 const OffresEntreprise = () => {
   return (
     <>
+      <Seo titleKey="seo.corporate_title" descriptionKey="seo.corporate_desc" />
       <section className="section-y border-b border-border bg-ink text-ivory">
         <div className="container-wide">
           <div className="max-w-4xl">
