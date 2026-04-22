@@ -1,7 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -33,6 +30,7 @@ export default async function handler(req: any, res: any) {
       besoin: data.besoin || "",
     };
 
+    // 🔹 INSERT SUPABASE
     const { data: insertedLead, error } = await supabase
       .from("leads")
       .insert(payload)
@@ -41,12 +39,10 @@ export default async function handler(req: any, res: any) {
 
     if (error) {
       console.error("Supabase insert error:", error);
-      return res.status(500).json({
-        error: "Supabase insert failed",
-        details: error,
-      });
+      return res.status(500).json({ error: "Supabase insert failed" });
     }
 
+    // 🔹 EMAIL HTML
     const html = `
       <h2>Nouveau lead reçu</h2>
       <p><strong>Formulaire :</strong> ${insertedLead.formulaire}</p>
@@ -61,33 +57,33 @@ export default async function handler(req: any, res: any) {
       <p><strong>Besoin :</strong> ${insertedLead.besoin || "-"}</p>
       <p><strong>Message :</strong></p>
       <p>${insertedLead.message || "-"}</p>
-      <hr />
-      <p><strong>Source :</strong> ${insertedLead.source || "-"}</p>
-      <p><strong>Statut :</strong> ${insertedLead.statut || "-"}</p>
     `;
 
-    console.log("EMAIL DEBUG:", {
-      to: process.env.LEAD_NOTIFICATION_TO,
-      from: "CBS Institute <contact@cbs-institute.com>",
-      formulaire: insertedLead.formulaire,
-      leadEmail: insertedLead.email,
+    // 🔹 ENVOI EMAIL VIA API RESEND (SANS LIBRAIRIE)
+    const emailResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "CBS Institute <contact@cbs-institute.com>",
+        to: process.env.LEAD_NOTIFICATION_TO!,
+        subject: `Nouveau lead (${insertedLead.formulaire})`,
+        html,
+        reply_to: insertedLead.email || undefined,
+      }),
     });
 
-    const emailResult = await resend.emails.send({
-      from: "CBS Institute <contact@cbs-institute.com>",
-      to: process.env.LEAD_NOTIFICATION_TO!,
-      subject: `Nouveau lead (${insertedLead.formulaire})`,
-      html,
-      replyTo: insertedLead.email || undefined,
-    });
+    const emailResult = await emailResponse.json();
 
     console.log("RESEND RESULT:", emailResult);
 
-    if (emailResult.error) {
-      console.error("Resend send error:", emailResult.error);
+    if (!emailResponse.ok) {
+      console.error("Resend send error:", emailResult);
       return res.status(500).json({
         error: "Email send failed",
-        details: emailResult.error,
+        details: emailResult,
       });
     }
 
@@ -97,10 +93,7 @@ export default async function handler(req: any, res: any) {
       email: emailResult,
     });
   } catch (err) {
-    console.error("API /api/lead fatal error:", err);
-    return res.status(500).json({
-      error: "Server error",
-      details: err,
-    });
+    console.error("SERVER ERROR:", err);
+    return res.status(500).json({ error: "Server error" });
   }
 }
