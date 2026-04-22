@@ -35,7 +35,7 @@ const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
   });
 
   const onSubmit = async (data: FormData) => {
-    const { error } = await insertLead({
+    const leadPayload = {
       prenom: data.prenom,
       nom: data.nom,
       societe: data.societe,
@@ -48,27 +48,16 @@ const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
       source: "website",
       statut: "new",
       formulaire: "entreprise",
-    });
+    };
+
+    const { error } = await insertLead(leadPayload);
     if (error) { toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer."); return; }
     toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
     void supabase.functions.invoke("send-transactional-email", {
       body: {
         templateName: "lead-notification",
-        idempotencyKey: `lead-entreprise-${data.email}-${Date.now()}`,
-        templateData: {
-          formulaire: "entreprise",
-          type_demande: data.offre_souhaitee,
-          prenom: data.prenom,
-          nom: data.nom,
-          email: data.email,
-          telephone: data.telephone || "",
-          societe: data.societe,
-          fonction: data.fonction || "",
-          besoin: data.besoin || "",
-          message: data.message || "",
-          source: "website",
-          statut: "new",
-        },
+        idempotencyKey: `lead-entreprise-${leadPayload.email}-${Date.now()}`,
+        templateData: leadPayload,
       },
     });
     setSubmitted(true);
