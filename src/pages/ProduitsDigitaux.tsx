@@ -15,7 +15,7 @@ const ProduitsDigitaux = () => {
   return (
     <>
       <Seo titleKey="seo.digital_title" descriptionKey="seo.digital_desc" />
-      <section className="section-y border-b border-border bg-secondary">
+      <section className="hero-y border-b border-border bg-secondary flex items-center min-h-[420px] md:min-h-[480px] lg:min-h-[520px]">
         <div className="container-wide">
           <div className="max-w-4xl">
             <div className="eyebrow mb-6">Ressources expertes</div>
