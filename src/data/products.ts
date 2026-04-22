@@ -1,5 +1,3 @@
-export type ProductBadge = "Best-seller" | "Indispensable" | "Recommandé";
-
 export interface DigitalProduct {
   id: string;
   slug: string;
@@ -11,7 +9,6 @@ export interface DigitalProduct {
   format: string;
   price: number;
   pages?: string;
-  badge?: ProductBadge;
   valueBullets: string[];
   highlights: string[];
   benefits: string[];
