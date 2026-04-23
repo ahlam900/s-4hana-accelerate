@@ -7,8 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { supabase } from "@/integrations/supabase/client";
-import { insertLead } from "@/integrations/leads/client";
 import { toast } from "sonner";
 
 const schema = z.object({
@@ -31,7 +29,13 @@ interface Props {
 
 const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
   const [submitted, setSubmitted] = useState(false);
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<FormData>({
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: { formation_souhaitee: defaultFormation },
   });
@@ -41,32 +45,41 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
       prenom: data.prenom,
       nom: data.nom,
       email: data.email,
-      telephone: data.telephone || null,
-      societe: data.societe || null,
+      telephone: data.telephone || "",
+      societe: data.societe || "",
       type_demande: data.formation_souhaitee,
-      niveau: data.niveau || null,
-      objectif: data.objectif || null,
-      message: data.message || null,
+      niveau: data.niveau || "",
+      objectif: data.objectif || "",
+      message: data.message || "",
       source: "website",
       statut: "new",
       formulaire: "formation",
     };
 
-    const { error } = await insertLead(leadPayload);
-    if (error) {
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(leadPayload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        console.error("API /api/lead error:", result);
+        toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
+        return;
+      }
+
+      toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
+      setSubmitted(true);
+      reset();
+    } catch (error) {
+      console.error("Submit error:", error);
       toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
-      return;
     }
-    toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
-    void supabase.functions.invoke("send-transactional-email", {
-      body: {
-        templateName: "lead-notification",
-        idempotencyKey: `lead-formation-${leadPayload.email}-${Date.now()}`,
-        templateData: leadPayload,
-      },
-    });
-    setSubmitted(true);
-    reset();
   };
 
   if (submitted) {
@@ -77,7 +90,9 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
         <p className="text-muted-foreground mt-4 max-w-md mx-auto">
           Notre équipe revient vers vous sous 48 h ouvrées avec le programme complet et les modalités d'inscription.
         </p>
-        <Button variant="outline" className="mt-8" onClick={() => setSubmitted(false)}>Envoyer une autre demande</Button>
+        <Button variant="outline" className="mt-8" onClick={() => setSubmitted(false)}>
+          Envoyer une autre demande
+        </Button>
       </div>
     );
   }
@@ -85,14 +100,27 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="card-premium p-8 md:p-10 space-y-5">
       <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Prénom *" error={errors.prenom?.message}><Input {...register("prenom")} /></Field>
-        <Field label="Nom *" error={errors.nom?.message}><Input {...register("nom")} /></Field>
+        <Field label="Prénom *" error={errors.prenom?.message}>
+          <Input {...register("prenom")} />
+        </Field>
+        <Field label="Nom *" error={errors.nom?.message}>
+          <Input {...register("nom")} />
+        </Field>
       </div>
+
       <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Email *" error={errors.email?.message}><Input type="email" {...register("email")} /></Field>
-        <Field label="Téléphone"><Input type="tel" {...register("telephone")} /></Field>
+        <Field label="Email *" error={errors.email?.message}>
+          <Input type="email" {...register("email")} />
+        </Field>
+        <Field label="Téléphone">
+          <Input type="tel" {...register("telephone")} />
+        </Field>
       </div>
-      <Field label="Société"><Input {...register("societe")} /></Field>
+
+      <Field label="Société">
+        <Input {...register("societe")} />
+      </Field>
+
       <Field label="Formation souhaitée *" error={errors.formation_souhaitee?.message}>
         <select
           {...register("formation_souhaitee")}
@@ -107,6 +135,7 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
           <option value="Je ne sais pas encore">Je ne sais pas encore</option>
         </select>
       </Field>
+
       <Field label="Niveau / profil">
         <select
           {...register("niveau")}
@@ -119,10 +148,18 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
           <option value="En reconversion">En reconversion</option>
         </select>
       </Field>
+
       <Field label="Objectif">
-        <Input {...register("objectif")} placeholder="Ex. Devenir consultant SAP Finance, évoluer vers S/4HANA, renforcer mon expertise FI/CO…" />
+        <Input
+          {...register("objectif")}
+          placeholder="Ex. Devenir consultant SAP Finance, évoluer vers S/4HANA, renforcer mon expertise FI/CO…"
+        />
       </Field>
-      <Field label="Message"><Textarea rows={4} {...register("message")} /></Field>
+
+      <Field label="Message">
+        <Textarea rows={4} {...register("message")} />
+      </Field>
+
       <div className="pt-2">
         <p className="text-[12.5px] text-muted-foreground leading-relaxed mb-4">
           Cette demande vous permet d'accéder au programme détaillé et d'être recontacté par un expert.
@@ -141,6 +178,7 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
           </span>
         </div>
       </div>
+
       <p className="text-xs text-muted-foreground border-t border-border/60 pt-4">
         Vos données sont traitées conformément à notre politique de confidentialité.
       </p>
@@ -148,7 +186,15 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
   );
 };
 
-const Field = ({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) => (
+const Field = ({
+  label,
+  error,
+  children,
+}: {
+  label: string;
+  error?: string;
+  children: React.ReactNode;
+}) => (
   <div className="space-y-2">
     <Label className="text-xs uppercase tracking-[0.12em] text-muted-foreground">{label}</Label>
     {children}
