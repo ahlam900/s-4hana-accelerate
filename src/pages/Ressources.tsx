@@ -107,16 +107,16 @@ const Ressources = () => {
       <section className="hero-uniform bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <div className="eyebrow mb-6">Ressources</div>
+            <div className="eyebrow mb-6">Bibliothèque experte</div>
             <h1 className="display-lg text-foreground">
-              Des décryptages utiles pour vos projets <em className="not-italic text-champagne font-display">SAP Finance</em>.
+              Insights et décryptages <em className="not-italic text-champagne font-display">SAP Finance</em>, en accès libre.
             </h1>
             <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
               <p className="lede">
-                Comprendre S/4HANA, éviter les angles morts du cadrage et structurer vos décisions Finance avec des contenus issus de projets réels.
+                Notre bibliothèque experte rassemble analyses, retours d'expérience et repères méthodologiques pour comprendre S/4HANA et structurer vos décisions Finance.
               </p>
               <p className="text-[15px] leading-relaxed">
-                Retours d'expérience, repères méthodologiques et points de vigilance — pensés pour les directions Finance et les équipes projet.
+                Des contenus courts, issus de projets réels — pensés pour les directions Finance, les consultants SAP et les équipes projet.
               </p>
             </div>
             <div className="mt-10">
