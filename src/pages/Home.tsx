@@ -73,14 +73,14 @@ const Home = () => {
                 <LLink to="/offres-entreprise">{t("home.cta_corporate")}</LLink>
               </Button>
             </div>
-            <div className="mt-12 pt-6 border-t border-border/70 grid grid-cols-3 divide-x divide-border/40 max-w-2xl">
-              <span className="flex items-center justify-center text-center px-2 sm:px-5 min-h-[2.75rem] text-[11px] leading-[1.4] uppercase tracking-[0.2em] font-medium text-muted-foreground">
+            <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center justify-between max-w-2xl divide-x divide-border/40">
+              <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
                 {t("home.trust_1")}
               </span>
-              <span className="flex items-center justify-center text-center px-2 sm:px-5 min-h-[2.75rem] text-[11px] leading-[1.4] uppercase tracking-[0.2em] font-medium text-muted-foreground">
+              <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
                 {t("home.trust_2")}
               </span>
-              <span className="flex items-center justify-center text-center px-2 sm:px-5 min-h-[2.75rem] text-[11px] leading-[1.4] uppercase tracking-[0.2em] font-medium text-muted-foreground">
+              <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
                 {t("home.trust_3")}
               </span>
             </div>
