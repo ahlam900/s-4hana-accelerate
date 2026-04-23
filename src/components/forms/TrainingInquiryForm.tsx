@@ -156,8 +156,8 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
         <Input
           {...register("objectif")}
           placeholder={tx(
-            "Ex. Devenir consultant SAP Finance, évoluer vers S/4HANA, renforcer mon expertise FI/CO…",
-            "E.g. Become an SAP Finance consultant, evolve toward S/4HANA, deepen FI/CO expertise…"
+            "Ex. : évoluer vers un rôle SAP Finance, renforcer ma maîtrise des processus, préparer une montée en compétence projet",
+            "E.g.: evolve toward an SAP Finance role, strengthen my process mastery, prepare an upskilling for a project"
           )}
         />
       </Field>
@@ -176,7 +176,7 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
         <Button type="submit" size="lg" variant="ink" disabled={isSubmitting} className="w-full sm:w-auto">
           {isSubmitting
             ? tx("Envoi en cours…", "Sending…")
-            : tx("Recevoir mon programme personnalisé →", "Receive my personalized program →")}
+            : tx("Recevoir mon programme personnalisé", "Receive my personalized program")}
         </Button>
         <div className="mt-3 flex flex-col gap-1.5 text-[12px] text-muted-foreground">
           <span className="inline-flex items-center gap-2">
