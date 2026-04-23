@@ -18,12 +18,12 @@ const ProduitsDigitaux = () => {
       <section className="hero-uniform bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <div className="eyebrow mb-6">Produits digitaux</div>
+            <div className="eyebrow mb-6">Ressources premium</div>
             <h1 className="display-lg text-foreground">
-              Playbooks, guides et templates <em className="not-italic text-champagne font-display">SAP Finance</em>.
+              Outils, supports et contenus avancés <em className="not-italic text-champagne font-display">SAP Finance</em>.
             </h1>
             <p className="lede mt-6 max-w-2xl text-muted-foreground">
-              Des outils opérationnels issus de projets S/4HANA réels, prêts à être utilisés en mission ou en formation interne — pour les professionnels et les équipes Finance qui veulent gagner du temps sur l'essentiel.
+              Playbooks, guides et templates issus de projets S/4HANA réels — des ressources premium à forte valeur ajoutée, prêtes à être utilisées en mission ou en formation interne par les professionnels et équipes Finance les plus exigeants.
             </p>
             <ul className="mt-9 space-y-3 max-w-xl border-t border-border pt-7">
               {[
