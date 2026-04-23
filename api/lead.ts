@@ -83,35 +83,62 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    const clientHtml = `
-      <div style="font-family: Arial, Helvetica, sans-serif; color: #0f172a; max-width: 640px; margin: 0 auto; line-height: 1.6;">
-        <div style="padding: 32px 24px; border: 1px solid #e5e7eb; border-radius: 12px;">
-          <h2 style="margin: 0 0 16px; font-size: 28px; color: #0f172a;">Merci pour votre demande</h2>
-          
-          <p>Bonjour ${insertedLead.prenom || "et merci"},</p>
-          
-          <p>Nous avons bien reçu votre demande concernant <strong>${insertedLead.type_demande || "nos offres CBS Institute"}</strong>.</p>
-          
-          <p>Notre équipe reviendra vers vous sous <strong>24 à 48 heures</strong> avec un premier niveau d’analyse et les prochaines étapes adaptées à votre besoin.</p>
+   const clientHtml = `
+<div style="font-family: 'Helvetica Neue', Arial, sans-serif; background:#f8fafc; padding:40px 0;">
+  <div style="max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e2e8f0;">
+    
+    <div style="background:#0f172a;color:white;padding:28px 24px;">
+      <h2 style="margin:0;font-size:22px;">CBS FINANCE INSTITUTE</h2>
+      <p style="margin:4px 0 0;font-size:14px;color:#cbd5f5;">Expertise Finance SAP & Transformation Digitale</p>
+    </div>
 
-          <div style="margin: 24px 0; padding: 16px; background: #f8fafc; border-radius: 10px;">
-            <p style="margin: 0 0 8px;"><strong>Récapitulatif</strong></p>
-            <p style="margin: 0;"><strong>Nom :</strong> ${insertedLead.prenom} ${insertedLead.nom}</p>
-            <p style="margin: 0;"><strong>Email :</strong> ${insertedLead.email}</p>
-            <p style="margin: 0;"><strong>Société :</strong> ${insertedLead.societe || "-"}</p>
-            <p style="margin: 0;"><strong>Type de demande :</strong> ${insertedLead.type_demande || "-"}</p>
-          </div>
+    <div style="padding:30px 24px;color:#0f172a;">
+      
+      <h1 style="font-size:26px;margin-bottom:10px;">Merci pour votre demande</h1>
 
-          <p>Si votre demande est urgente, vous pouvez répondre directement à cet email.</p>
+      <p>Bonjour <strong>${insertedLead.prenom}</strong>,</p>
 
-          <p style="margin-top: 32px;">
-            Bien cordialement,<br />
-            <strong>CBS Institute</strong><br />
-            Expertise Finance SAP
-          </p>
-        </div>
+      <p>
+        Nous avons bien reçu votre demande concernant 
+        <strong>${insertedLead.type_demande}</strong>.
+      </p>
+
+      <p>
+        Un expert CBS vous contactera sous 
+        <strong>24 à 48 heures</strong> afin d’analyser votre besoin 
+        et vous proposer un accompagnement adapté.
+      </p>
+
+      <div style="margin:25px 0;padding:18px;background:#f1f5f9;border-radius:10px;">
+        <p style="margin:0 0 10px;"><strong>Résumé de votre demande</strong></p>
+        <p style="margin:0;"><strong>Nom :</strong> ${insertedLead.prenom} ${insertedLead.nom}</p>
+        <p style="margin:0;"><strong>Email :</strong> ${insertedLead.email}</p>
+        <p style="margin:0;"><strong>Société :</strong> ${insertedLead.societe || "-"}</p>
+        <p style="margin:0;"><strong>Type :</strong> ${insertedLead.type_demande}</p>
       </div>
-    `;
+
+      <div style="margin:30px 0;padding:20px;border:1px solid #0f172a;border-radius:10px;">
+        <p style="margin:0 0 10px;"><strong>Accélérer votre demande ?</strong></p>
+        <p style="margin:0 0 15px;">
+          Répondez directement à cet email pour être recontacté en priorité.
+        </p>
+        <a href="mailto:contact@cbs-institute.com" 
+           style="display:inline-block;padding:12px 18px;background:#0f172a;color:#fff;text-decoration:none;border-radius:6px;">
+           Contacter un expert
+        </a>
+      </div>
+
+      <p style="margin-top:30px;">
+        Bien cordialement,<br/>
+        <strong>CBS Finance Institute</strong><br/>
+        Conseil & Formation SAP Finance
+      </p>
+
+    </div>
+
+  </div>
+</div>
+`;
 
     const clientEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
