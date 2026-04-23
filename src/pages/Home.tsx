@@ -73,12 +73,16 @@ const Home = () => {
                 <LLink to="/offres-entreprise">{t("home.cta_corporate")}</LLink>
               </Button>
             </div>
-            <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center gap-x-6 md:gap-x-8 text-[10.5px] md:text-[11px] uppercase tracking-[0.2em] text-muted-foreground whitespace-nowrap">
-              <span>{t("home.trust_1")}</span>
-              <span className="h-3 w-px bg-border shrink-0" />
-              <span>{t("home.trust_2")}</span>
-              <span className="h-3 w-px bg-border shrink-0" />
-              <span>{t("home.trust_3")}</span>
+            <div className="mt-12 pt-6 border-t border-border/70 grid grid-cols-1 sm:grid-cols-3 sm:divide-x divide-border max-w-2xl">
+              <span className="flex items-center justify-center sm:justify-start sm:px-5 first:sm:pl-0 py-2 sm:py-0 text-center sm:text-left text-[11px] leading-[1.4] uppercase tracking-[0.2em] font-medium text-muted-foreground">
+                {t("home.trust_1")}
+              </span>
+              <span className="flex items-center justify-center sm:px-5 py-2 sm:py-0 text-center text-[11px] leading-[1.4] uppercase tracking-[0.2em] font-medium text-muted-foreground">
+                {t("home.trust_2")}
+              </span>
+              <span className="flex items-center justify-center sm:justify-end sm:px-5 last:sm:pr-0 py-2 sm:py-0 text-center sm:text-right text-[11px] leading-[1.4] uppercase tracking-[0.2em] font-medium text-muted-foreground">
+                {t("home.trust_3")}
+              </span>
             </div>
           </div>
           <div className="lg:col-span-5 relative">
