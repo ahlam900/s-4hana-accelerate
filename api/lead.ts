@@ -41,6 +41,34 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: "Supabase insert failed" });
     }
 
+    let prefix = "[AUTRE]";
+
+    if (insertedLead.formulaire === "formation") {
+      prefix = "[FORMATION]";
+    }
+
+    if (insertedLead.formulaire === "entreprise") {
+      if ((insertedLead.type_demande || "").toLowerCase().includes("key users")) {
+        prefix = "[KEY USERS]";
+      } else {
+        prefix = "[PROJET]";
+      }
+    }
+
+    if (insertedLead.formulaire === "contact") {
+      const typeDemande = (insertedLead.type_demande || "").toLowerCase();
+
+      if (typeDemande.includes("formation")) {
+        prefix = "[FORMATION]";
+      } else if (typeDemande.includes("transformation") || typeDemande.includes("projet")) {
+        prefix = "[PROJET]";
+      } else if (typeDemande.includes("key user")) {
+        prefix = "[KEY USERS]";
+      } else {
+        prefix = "[AUTRE]";
+      }
+    }
+
     const internalHtml = `
       <h2>Nouveau lead reçu</h2>
       <p><strong>Formulaire :</strong> ${insertedLead.formulaire}</p>
@@ -66,7 +94,7 @@ export default async function handler(req: any, res: any) {
       body: JSON.stringify({
         from: "CBS Institute <contact@cbs-institute.com>",
         to: process.env.LEAD_NOTIFICATION_TO!,
-        subject: `Lead ${insertedLead.type_demande} - ${insertedLead.prenom} ${insertedLead.nom}`,
+        subject: `${prefix} ${insertedLead.type_demande || insertedLead.formulaire} - ${insertedLead.prenom} ${insertedLead.nom}`,
         html: internalHtml,
         reply_to: insertedLead.email || undefined,
       }),
@@ -83,7 +111,7 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-   const clientHtml = `
+    const clientHtml = `
 <div style="font-family: 'Helvetica Neue', Arial, sans-serif; background:#f8fafc; padding:40px 0;">
   <div style="max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e2e8f0;">
     
