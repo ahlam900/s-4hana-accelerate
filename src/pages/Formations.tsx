@@ -24,12 +24,12 @@ const Formations = () => {
               <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("FORMATIONS FINANCE SAP", "SAP FINANCE TRAINING")}</span>
             </div>
             <h1 className="display-xl text-foreground max-w-[18ch] leading-[1.05]">
-              {tx("Devenez un professionnel ", "Become an operational ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP", "SAP Finance")}</em>{tx(" opérationnel.", " professional.")}
+              {tx("Développez une maîtrise opérationnelle de la ", "Develop operational mastery of ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP", "SAP Finance")}</em>.
             </h1>
             <p className="lede mt-7 max-w-lg leading-relaxed">
               {tx(
-                "Des parcours structurés pour consultants, professionnels Finance et profils en reconversion qui veulent maîtriser FICO, S/4HANA et les processus de bout en bout — et le prouver dès la première mission.",
-                "Structured programs for consultants, finance professionals and career-changers seeking to master FICO, S/4HANA and end-to-end processes — and prove it from the first engagement."
+                "Des parcours structurés pour consultants, professionnels Finance et profils en évolution qui veulent maîtriser les processus, leur traduction dans SAP et leur application concrète en mission.",
+                "Structured programs for consultants, finance professionals and evolving profiles who want to master the processes, their translation into SAP and their concrete application on engagements."
               )}
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
@@ -59,9 +59,9 @@ const Formations = () => {
                 </div>
                 <ul className="divide-y divide-border/70">
                   {[
-                    { icon: Award, title: "SAP FICO Consultant Program", meta: tx("70 h · Cursus certifiant", "70 h · Certifying curriculum") },
-                    { icon: GraduationCap, title: tx("Parcours Finance SAP", "SAP Finance pathways"), meta: tx("Formats intensifs · Niveau avancé", "Intensive formats · Advanced level") },
-                    { icon: Briefcase, title: tx("Formations pour experts SAP", "Programs for SAP experts"), meta: tx("Sessions ciblées · Cas projet", "Targeted sessions · Real cases") },
+                  { icon: Award, title: "SAP FICO Consultant Program", meta: tx("70 h · Cursus certifiant", "70 h · Certifying curriculum") },
+                    { icon: GraduationCap, title: tx("Parcours Finance SAP", "SAP Finance pathways"), meta: tx("Formats intensifs · Progression par niveau", "Intensive formats · Level-based progression") },
+                    { icon: Briefcase, title: tx("Formations pour experts SAP", "Programs for SAP experts"), meta: tx("Sessions ciblées · Cas projet", "Targeted sessions · Project cases") },
                   ].map((item) => (
                     <li key={item.title} className="py-4 first:pt-0 last:pb-0 flex items-start gap-4">
                       <div className="flex items-center justify-center h-9 w-9 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0">
@@ -105,8 +105,8 @@ const Formations = () => {
               <div className="mt-8 h-px w-12 bg-champagne/60" />
               <p className="mt-8 text-[15px] text-muted-foreground leading-relaxed max-w-md">
                 {tx(
-                  "Nos formations couvrent les besoins de montée en compétence sur SAP comme sur les processus Finance — pour acquérir une lecture précise et une posture immédiatement utile en mission.",
-                  "Our programs address upskilling needs across SAP and finance processes alike — building the analytical depth and stance that prove useful from day one of your engagement."
+                  "Nos formations couvrent les besoins de montée en compétence sur les processus Finance et leur usage dans SAP, pour acquérir des repères solides, une lecture projet claire et une posture directement utile en mission.",
+                  "Our programs cover upskilling needs on finance processes and their use in SAP — building solid references, a clear project perspective and a stance that is directly useful on engagements."
                 )}
               </p>
             </div>
@@ -117,10 +117,10 @@ const Formations = () => {
               </div>
               <ul className="divide-y divide-border/70 border-y border-border/70">
                 {[
-                  { num: "01", title: tx("Consultants SAP", "SAP Consultants"), detail: tx("En activité ou en évolution vers de nouveaux modules", "Active consultants or those expanding into new modules") },
-                  { num: "02", title: tx("Professionnels Finance", "Finance Professionals"), detail: tx("Souhaitant renforcer leur expertise SAP S/4HANA", "Looking to deepen their SAP S/4HANA expertise") },
-                  { num: "03", title: tx("Chefs de projet & responsables", "Project Managers & Leads"), detail: tx("Pilotant un domaine Finance ou une transformation", "Driving a finance domain or a transformation program") },
-                  { num: "04", title: tx("Profils en reconversion", "Career-Changers"), detail: tx("Vers le métier de consultant SAP Finance", "Transitioning into SAP Finance consulting") },
+                  { num: "01", title: tx("Consultants SAP", "SAP Consultants"), detail: tx("En activité ou en évolution vers de nouveaux domaines Finance.", "Active or evolving into new finance domains.") },
+                  { num: "02", title: tx("Professionnels Finance", "Finance Professionals"), detail: tx("Souhaitant renforcer leur maîtrise des processus et de leur traduction dans SAP.", "Seeking to strengthen mastery of processes and their translation into SAP.") },
+                  { num: "03", title: tx("Chefs de projet & responsables", "Project Managers & Leads"), detail: tx("Pilotant un domaine Finance ou une transformation impliquant SAP.", "Leading a finance domain or a SAP-related transformation.") },
+                  { num: "04", title: tx("Profils en reconversion", "Career-Changers"), detail: tx("Souhaitant construire une trajectoire vers les métiers Finance SAP.", "Building a trajectory toward SAP Finance roles.") },
                 ].map((a) => (
                   <li key={a.num} className="group flex items-start gap-6 py-5 transition-colors hover:bg-secondary/40 -mx-4 px-4 rounded-sm">
                     <span className="font-display text-[13px] text-champagne tracking-[0.18em] mt-1 shrink-0">{a.num}</span>
@@ -150,8 +150,8 @@ const Formations = () => {
               </div>
               <p className="lede mt-7 text-ivory/75">
                 {tx(
-                  "Le parcours intensif de référence pour préparer consultants et professionnels Finance à intervenir avec autorité sur des projets S/4HANA — fondamentaux FICO, architecture cible et posture projet.",
-                  "The reference intensive program preparing consultants and finance professionals to operate with authority on S/4HANA projects — FICO fundamentals, target architecture and project stance."
+                  "Le parcours intensif de référence pour préparer consultants et professionnels Finance à intervenir avec méthode sur des sujets Finance SAP : fondamentaux FICO, lecture des processus, architecture cible et posture projet.",
+                  "The benchmark intensive program preparing consultants and finance professionals to operate with method on SAP Finance topics: FICO fundamentals, process reading, target architecture and project stance."
                 )}
               </p>
               <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3 text-sm text-ivory/80">
@@ -182,9 +182,9 @@ const Formations = () => {
                 </div>
                 <ul className="space-y-3 text-sm">
                   {[
-                    { title: "SAP Functional Consultant", meta: tx("Projets S/4HANA · TMA", "S/4HANA projects · AMS") },
+                    { title: "SAP Functional Consultant", meta: tx("Intervention sur projets Finance SAP", "Engagement on SAP Finance projects") },
                     { title: "SAP Finance Consultant", meta: tx("Cadrage & paramétrage FI/CO", "FI/CO scoping & configuration") },
-                    { title: "ERP Transformation Specialist", meta: tx("Conduite du changement", "Change management") },
+                    { title: "ERP Transformation Specialist", meta: tx("Contribution aux projets d'évolution et d'adoption", "Contribution to evolution and adoption projects") },
                   ].map((o) => (
                     <li key={o.title} className="flex gap-3 text-ivory/85">
                       <Briefcase className="h-4 w-4 text-champagne mt-0.5 shrink-0" />
@@ -217,8 +217,8 @@ const Formations = () => {
             <div className="lg:col-span-5">
               <p className="text-[15px] text-muted-foreground leading-relaxed max-w-md lg:ml-auto">
                 {tx(
-                  "Du socle métier à l'expertise S/4HANA, complété par une spécialisation sectorielle pour les profils qui veulent un positionnement différenciant.",
-                  "From the business foundation to S/4HANA expertise, complemented by a sector specialization for professionals seeking a differentiating positioning."
+                  "Du socle processus à la montée en expertise, nos parcours vous permettent de progresser avec une logique simple : comprendre, intervenir, approfondir.",
+                  "From the process foundation to expert depth, our pathways let you progress with a simple logic: understand, deliver, deepen."
                 )}
               </p>
             </div>
@@ -235,13 +235,13 @@ const Formations = () => {
                   programme: tx("Processus Finance dans SAP", "Finance Processes in SAP"),
                   duration: tx("10 jours", "10 days"),
                   description: tx(
-                    "Structurer une compréhension complète des processus Finance et de leur traduction dans SAP.",
-                    "Build a complete understanding of finance processes and how they translate into SAP."
+                    "Structurer une compréhension claire des processus Finance et de leur traduction dans SAP.",
+                    "Build a clear understanding of finance processes and how they translate into SAP."
                   ),
                   outcomes: [
-                    tx("Comprendre Record-to-Report, OTC, P2P", "Understand Record-to-Report, OTC, P2P"),
+                    tx("Comprendre les grands cycles Finance", "Understand the main finance cycles"),
                     tx("Visualiser la traduction métier dans SAP", "Visualize the business-to-SAP translation"),
-                    tx("Identifier les points clés de paramétrage", "Identify the critical configuration points"),
+                    tx("Identifier les points clés de paramétrage", "Identify the key configuration points"),
                   ],
                   cta: tx("Découvrir le parcours", "Discover the program"),
                 },
@@ -251,13 +251,13 @@ const Formations = () => {
                   programme: "SAP FICO Consultant Program",
                   duration: tx("10 jours intensifs", "10 intensive days"),
                   description: tx(
-                    "Développer une posture opérationnelle de consultant SAP Finance sur des projets S/4HANA.",
-                    "Develop the operational stance of an SAP Finance consultant on S/4HANA programs."
+                    "Développer une posture opérationnelle sur des sujets Finance SAP et intervenir avec plus d'assurance en contexte projet.",
+                    "Develop an operational stance on SAP Finance topics and engage with greater confidence in project contexts."
                   ),
                   outcomes: [
                     tx("Maîtriser Financial Accounting & Controlling", "Master Financial Accounting & Controlling"),
-                    tx("Naviguer l'architecture S/4HANA Finance", "Navigate the S/4HANA Finance architecture"),
-                    tx("Acquérir une méthodologie projet SAP", "Acquire a structured SAP project method"),
+                    tx("Lire l'architecture Finance dans SAP", "Read the finance architecture in SAP"),
+                    tx("Acquérir une méthode projet claire", "Acquire a clear project method"),
                   ],
                   cta: tx("Recevoir le programme", "Receive the program"),
                   highlight: true,
@@ -265,16 +265,16 @@ const Formations = () => {
                 {
                   step: "03",
                   level: tx("Niveau Expert", "Expert Level"),
-                  programme: tx("SAP S/4HANA Finance avancé", "Advanced SAP S/4HANA Finance"),
+                  programme: tx("SAP Finance avancé", "Advanced SAP Finance"),
                   duration: tx("10 jours", "10 days"),
                   description: tx(
-                    "Approfondir l'expertise SAP Finance sur les sujets critiques et structurants des projets S/4HANA.",
-                    "Deepen SAP Finance expertise on the critical, structuring topics of S/4HANA programs."
+                    "Approfondir l'expertise Finance SAP sur des sujets complexes et structurants.",
+                    "Deepen SAP Finance expertise on complex, structuring topics."
                   ),
                   outcomes: [
-                    tx("Maîtriser l'Universal Journal", "Master the Universal Journal"),
-                    tx("Appréhender Central Finance", "Grasp Central Finance"),
-                    tx("Optimiser la clôture financière", "Optimize the financial close"),
+                    tx("Maîtriser des enjeux Finance avancés", "Master advanced finance challenges"),
+                    tx("Approfondir les architectures et impacts", "Deepen architectures and impacts"),
+                    tx("Renforcer la capacité d'intervention sur projets exigeants", "Strengthen delivery capability on demanding projects"),
                   ],
                   cta: tx("Approfondir le programme", "Go deeper into the program"),
                 },
@@ -327,7 +327,7 @@ const Formations = () => {
           <div className="mt-20 lg:mt-24">
             <div className="flex items-center gap-4 mb-10">
               <span className="h-px w-10 bg-champagne/60" />
-              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("Spécialisation sectorielle", "Sector specialization")}</span>
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("SPÉCIALISATION SECTORIELLE", "SECTOR SPECIALIZATION")}</span>
             </div>
 
             <Reveal>
@@ -337,7 +337,7 @@ const Formations = () => {
                     <Sparkles className="h-5 w-5 text-champagne" strokeWidth={1.5} />
                   </div>
                   <h3 className="display-sm leading-[1.15]">
-                    {tx("Spécialisation ", "")}<em className="not-italic text-champagne font-display">SAP RE-FX</em>{tx("", " specialization")}
+                    {tx("Spécialisation ", "")}<em className="not-italic text-champagne font-display">SAP RE-FX</em>{tx("", " Specialization")}
                   </h3>
                   <p className="mt-5 text-[14.5px] text-muted-foreground leading-relaxed max-w-md">
                     {tx(
@@ -402,20 +402,20 @@ const Formations = () => {
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <div className="eyebrow mb-6">{tx("Pourquoi nos formations", "Why our programs")}</div>
-            <h2 className="display-md">{tx("Une pédagogie pensée pour le terrain projet.", "A pedagogy designed for project reality.")}</h2>
+            <h2 className="display-md">{tx("Une pédagogie pensée pour le terrain projet.", "A pedagogy built for project reality.")}</h2>
             <p className="mt-6 text-[15px] text-muted-foreground leading-relaxed max-w-2xl">
               {tx(
-                "Nos contenus sont issus de missions SAP Finance réelles. Vous repartez avec des repères, des méthodes et un vocabulaire directement utilisables dès le prochain atelier.",
-                "Our content is drawn from real SAP Finance engagements. You leave with the references, methods and vocabulary directly usable from your next workshop."
+                "Nos contenus sont issus de missions Finance SAP réelles. Vous repartez avec des repères, des méthodes et un vocabulaire directement mobilisables en atelier, en cadrage ou en mission.",
+                "Our content is drawn from real SAP Finance engagements. You leave with references, methods and vocabulary directly usable in workshops, scoping or on assignment."
               )}
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Target, title: tx("Spécialisation métier + système", "Business + system specialization"), text: tx("Une lecture complète des processus Finance et de leur traduction dans SAP, directement exploitable en projet.", "A complete reading of finance processes and their translation into SAP, directly usable in project.") },
+              { icon: Target, title: tx("Spécialisation métier + système", "Business + system specialization"), text: tx("Une lecture complète des processus Finance et de leur traduction dans SAP, directement exploitable en projet.", "A complete reading of finance processes and their translation into SAP, directly usable on projects.") },
               { icon: Briefcase, title: tx("Pédagogie ancrée projet", "Project-anchored pedagogy"), text: tx("Des cas réels, des mises en situation et une approche inspirée des environnements SAP.", "Real cases, simulations and an approach inspired by live SAP environments.") },
-              { icon: Sparkles, title: tx("Vision des enjeux SAP Finance", "SAP Finance strategic perspective"), text: tx("Une compréhension des enjeux de transformation, au-delà de la simple utilisation de l'outil.", "A grasp of transformation stakes that goes beyond simple tool usage.") },
-              { icon: GraduationCap, title: tx("Exigence pédagogique élevée", "High pedagogical standards"), text: tx("Des parcours structurés, des contenus exigeants et un accompagnement pour profils ambitieux.", "Structured paths, demanding content and dedicated guidance for ambitious profiles.") },
+              { icon: Sparkles, title: tx("Vision des enjeux Finance SAP", "SAP Finance strategic perspective"), text: tx("Une compréhension des transformations et des usages, au-delà de la simple prise en main de l'outil.", "An understanding of transformations and usage that goes beyond simple tool handling.") },
+              { icon: GraduationCap, title: tx("Exigence pédagogique élevée", "High pedagogical standards"), text: tx("Des parcours structurés, des contenus solides et un accompagnement adapté aux profils ambitieux.", "Structured paths, solid content and tailored guidance for ambitious profiles.") },
             ].map((b, i) => (
               <Reveal key={b.title} delay={i * 60}>
                 <div className="card-premium p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] group h-full">
@@ -444,15 +444,15 @@ const Formations = () => {
             </h2>
             <p className="lede mt-6">
               {tx(
-                "Indiquez votre profil et votre objectif. Nous vous adressons le programme complet et une recommandation de parcours adaptée à votre point de départ.",
-                "Share your profile and your goal. We'll send you the full program and a path recommendation tailored to your starting point."
+                "Indiquez votre profil et votre objectif. Nous vous adressons le programme complet ainsi qu'une recommandation de parcours adaptée à votre niveau et à votre besoin.",
+                "Share your profile and your goal. We'll send you the full program along with a pathway recommendation tailored to your level and need."
               )}
             </p>
             <ul className="mt-10 space-y-4 border-t border-border/70 pt-8">
               {[
-                tx("Échange avec un expert SAP Finance", "Exchange with an SAP Finance expert"),
-                tx("Recommandation personnalisée et orientée projet", "Personalized, project-oriented recommendation"),
-                tx("Accès au programme détaillé et aux modalités d'accompagnement", "Access to the detailed program and support modalities"),
+                tx("Échange avec un expert Finance SAP", "Exchange with an SAP Finance expert"),
+                tx("Recommandation personnalisée orientée usage", "Personalized, usage-oriented recommendation"),
+                tx("Accès au programme détaillé et aux modalités", "Access to the detailed program and modalities"),
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[14.5px] text-foreground/85">
                   <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-champagne shrink-0" />
