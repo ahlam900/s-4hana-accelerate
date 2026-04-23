@@ -8,15 +8,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { useTx } from "@/i18n/tx";
 
 const schema = z.object({
-  prenom: z.string().trim().min(1, "Prénom requis").max(80),
-  nom: z.string().trim().min(1, "Nom requis").max(80),
-  societe: z.string().trim().min(1, "Société requise").max(120),
+  prenom: z.string().trim().min(1, "Required").max(80),
+  nom: z.string().trim().min(1, "Required").max(80),
+  societe: z.string().trim().min(1, "Required").max(120),
   fonction: z.string().trim().max(120).optional().or(z.literal("")),
-  email: z.string().trim().email("Email invalide").max(255),
+  email: z.string().trim().email("Invalid email").max(255),
   telephone: z.string().trim().max(40).optional().or(z.literal("")),
-  offre_souhaitee: z.string().trim().min(1, "Offre requise").max(160),
+  offre_souhaitee: z.string().trim().min(1, "Required").max(160),
   besoin: z.string().trim().max(500).optional().or(z.literal("")),
   message: z.string().trim().max(2000).optional().or(z.literal("")),
 });
@@ -28,6 +29,7 @@ interface Props {
 }
 
 const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
+  const tx = useTx();
   const [submitted, setSubmitted] = useState(false);
 
   const {
@@ -59,9 +61,7 @@ const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
     try {
       const response = await fetch("/api/lead", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(leadPayload),
       });
 
@@ -69,16 +69,16 @@ const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
 
       if (!response.ok) {
         console.error("API /api/lead error:", result);
-        toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
+        toast.error(tx("Une erreur est survenue lors de l'envoi. Merci de réessayer.", "An error occurred while sending. Please try again."));
         return;
       }
 
-      toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
+      toast.success(tx("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.", "Thank you, your request has been received. We'll get back to you within 24–48 h."));
       setSubmitted(true);
       reset();
     } catch (error) {
       console.error("Submit error:", error);
-      toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
+      toast.error(tx("Une erreur est survenue lors de l'envoi. Merci de réessayer.", "An error occurred while sending. Please try again."));
     }
   };
 
@@ -86,12 +86,15 @@ const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
     return (
       <div className="card-premium p-10 md:p-12 text-center">
         <CheckCircle2 className="h-12 w-12 text-champagne mx-auto" strokeWidth={1.5} />
-        <h3 className="display-sm mt-6">Votre demande nous est bien parvenue.</h3>
+        <h3 className="display-sm mt-6">{tx("Votre demande nous est bien parvenue.", "Your request has been received.")}</h3>
         <p className="text-muted-foreground mt-4 max-w-md mx-auto">
-          Un membre de notre équipe vous recontacte sous 48 h ouvrées pour échanger sur votre besoin et préparer une proposition adaptée.
+          {tx(
+            "Un membre de notre équipe vous recontacte sous 48 h ouvrées pour échanger sur votre besoin et préparer une proposition adaptée.",
+            "A member of our team will reach out within 48 business hours to discuss your needs and prepare a tailored proposal."
+          )}
         </p>
         <Button variant="outline" className="mt-8" onClick={() => setSubmitted(false)}>
-          Envoyer une autre demande
+          {tx("Envoyer une autre demande", "Send another request")}
         </Button>
       </div>
     );
@@ -100,72 +103,81 @@ const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="card-premium p-8 md:p-10 space-y-5">
       <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Prénom *" error={errors.prenom?.message}>
+        <Field label={tx("Prénom *", "First name *")} error={errors.prenom?.message}>
           <Input {...register("prenom")} />
         </Field>
-        <Field label="Nom *" error={errors.nom?.message}>
+        <Field label={tx("Nom *", "Last name *")} error={errors.nom?.message}>
           <Input {...register("nom")} />
         </Field>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Société *" error={errors.societe?.message}>
+        <Field label={tx("Société *", "Company *")} error={errors.societe?.message}>
           <Input {...register("societe")} />
         </Field>
-        <Field label="Fonction">
+        <Field label={tx("Fonction", "Role")}>
           <Input {...register("fonction")} />
         </Field>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Email *" error={errors.email?.message}>
+        <Field label={tx("Email *", "Email *")} error={errors.email?.message}>
           <Input type="email" {...register("email")} />
         </Field>
-        <Field label="Téléphone">
+        <Field label={tx("Téléphone", "Phone")}>
           <Input type="tel" {...register("telephone")} />
         </Field>
       </div>
 
-      <Field label="Type d'accompagnement *" error={errors.offre_souhaitee?.message}>
+      <Field label={tx("Type d'accompagnement *", "Type of engagement *")} error={errors.offre_souhaitee?.message}>
         <select
           {...register("offre_souhaitee")}
           className="flex h-10 w-full rounded-sm border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          <option value="">— Sélectionner —</option>
-          <option>Pack Transformation Digitale SAP</option>
-          <option>Pack Formation Key Users SAP</option>
-          <option>Accompagnement projet S/4HANA</option>
-          <option>Audit / cadrage SAP Finance</option>
-          <option>Autre besoin</option>
+          <option value="">{tx("— Sélectionner —", "— Select —")}</option>
+          <option>{tx("Pack Transformation Digitale SAP", "SAP Digital Transformation Pack")}</option>
+          <option>{tx("Pack Formation Key Users SAP", "SAP Key User Enablement Pack")}</option>
+          <option>{tx("Accompagnement projet S/4HANA", "S/4HANA project advisory")}</option>
+          <option>{tx("Audit / cadrage SAP Finance", "SAP Finance audit / scoping")}</option>
+          <option>{tx("Autre besoin", "Other need")}</option>
         </select>
       </Field>
 
-      <Field label="Besoin">
+      <Field label={tx("Besoin", "Need")}>
         <Input
           {...register("besoin")}
-          placeholder="Ex. Cadrage d'un projet S/4HANA, montée en compétence des équipes, optimisation des processus Finance…"
+          placeholder={tx(
+            "Ex. Cadrage d'un projet S/4HANA, montée en compétence des équipes, optimisation des processus Finance…",
+            "E.g. S/4HANA project scoping, team upskilling, finance process optimization…"
+          )}
         />
       </Field>
 
-      <Field label="Message">
+      <Field label={tx("Message", "Message")}>
         <Textarea
           rows={5}
           {...register("message")}
-          placeholder="Décrivez brièvement votre contexte, vos enjeux et vos objectifs."
+          placeholder={tx(
+            "Décrivez brièvement votre contexte, vos enjeux et vos objectifs.",
+            "Briefly describe your context, your stakes and your objectives."
+          )}
         />
       </Field>
 
       <div className="pt-2">
         <Button type="submit" size="lg" variant="ink" disabled={isSubmitting} className="w-full sm:w-auto">
-          {isSubmitting ? "Envoi en cours…" : "Être recontacté par un expert"}
+          {isSubmitting ? tx("Envoi en cours…", "Sending…") : tx("Être recontacté par un expert", "Get contacted by an expert")}
         </Button>
         <p className="mt-3 text-[12.5px] text-muted-foreground">
-          Réponse sous 24–48h — échange confidentiel — sans engagement
+          {tx("Réponse sous 24–48h — échange confidentiel — sans engagement", "Reply within 24–48 h — confidential exchange — no commitment")}
         </p>
       </div>
 
       <p className="text-xs text-muted-foreground">
-        Vos données sont traitées conformément à notre politique de confidentialité.
+        {tx(
+          "Vos données sont traitées conformément à notre politique de confidentialité.",
+          "Your data is processed in accordance with our privacy policy."
+        )}
       </p>
     </form>
   );

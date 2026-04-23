@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
+import { useTx } from "@/i18n/tx";
 
 const TYPES = [
   "Formation SAP Finance",
@@ -23,16 +24,16 @@ const TYPES = [
 ] as const;
 
 const schema = z.object({
-  prenom: z.string().trim().min(1, "Prénom requis").max(80),
-  nom: z.string().trim().min(1, "Nom requis").max(80),
-  email: z.string().trim().email("Email invalide").max(255),
-  telephone: z.string().trim().min(1, "Téléphone requis").max(40),
-  societe: z.string().trim().min(1, "Société requise").max(120),
+  prenom: z.string().trim().min(1, "Required").max(80),
+  nom: z.string().trim().min(1, "Required").max(80),
+  email: z.string().trim().email("Invalid email").max(255),
+  telephone: z.string().trim().min(1, "Required").max(40),
+  societe: z.string().trim().min(1, "Required").max(120),
   sujet: z.string().refine(
     (v): v is (typeof TYPES)[number] => (TYPES as readonly string[]).includes(v),
-    { message: "Sélectionnez un type de demande" }
+    { message: "Select a request type" }
   ),
-  message: z.string().trim().min(10, "Message trop court").max(2000),
+  message: z.string().trim().min(10, "Message too short").max(2000),
 });
 
 type FormData = z.input<typeof schema>;
@@ -42,7 +43,14 @@ interface ContactFormProps {
 }
 
 const ContactForm = ({ defaultSujet }: ContactFormProps) => {
+  const tx = useTx();
   const [submitted, setSubmitted] = useState(false);
+
+  const labelFor = (t: (typeof TYPES)[number]) => {
+    if (t === "Formation SAP Finance") return tx("Formation SAP Finance", "SAP Finance Training");
+    if (t === "Projet / Transformation SAP") return tx("Projet / Transformation SAP", "SAP Project / Transformation");
+    return tx("Autre demande", "Other inquiry");
+  };
 
   const {
     register,
@@ -81,9 +89,7 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
     try {
       const response = await fetch("/api/lead", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(leadPayload),
       });
 
@@ -91,16 +97,16 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
 
       if (!response.ok) {
         console.error("API /api/lead error:", result);
-        toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
+        toast.error(tx("Une erreur est survenue lors de l'envoi. Merci de réessayer.", "An error occurred while sending. Please try again."));
         return;
       }
 
-      toast.success("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.");
+      toast.success(tx("Merci, votre demande a bien été envoyée. Nous reviendrons vers vous sous 24 à 48h.", "Thank you, your request has been received. We'll get back to you within 24–48 h."));
       setSubmitted(true);
       reset();
     } catch (error) {
       console.error("Submit error:", error);
-      toast.error("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
+      toast.error(tx("Une erreur est survenue lors de l'envoi. Merci de réessayer.", "An error occurred while sending. Please try again."));
     }
   };
 
@@ -108,16 +114,15 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
     return (
       <div className="card-premium p-10 md:p-12 text-center">
         <CheckCircle2 className="h-12 w-12 text-champagne mx-auto" strokeWidth={1.5} />
-        <h3 className="display-sm mt-6">Demande bien envoyée.</h3>
+        <h3 className="display-sm mt-6">{tx("Demande bien envoyée.", "Request sent.")}</h3>
         <p className="text-muted-foreground mt-4 max-w-md mx-auto">
-          Merci. Notre équipe vous répond sous 24 à 48h avec un premier niveau d'analyse.
+          {tx(
+            "Merci. Notre équipe vous répond sous 24 à 48h avec un premier niveau d'analyse.",
+            "Thank you. Our team will respond within 24–48 h with a first-level analysis."
+          )}
         </p>
-        <Button
-          variant="outline"
-          className="mt-8"
-          onClick={() => setSubmitted(false)}
-        >
-          Envoyer une autre demande
+        <Button variant="outline" className="mt-8" onClick={() => setSubmitted(false)}>
+          {tx("Envoyer une autre demande", "Send another request")}
         </Button>
       </div>
     );
@@ -126,28 +131,28 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="card-premium p-8 md:p-10 space-y-5">
       <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Prénom *" error={errors.prenom?.message}>
+        <Field label={tx("Prénom *", "First name *")} error={errors.prenom?.message}>
           <Input {...register("prenom")} />
         </Field>
-        <Field label="Nom *" error={errors.nom?.message}>
+        <Field label={tx("Nom *", "Last name *")} error={errors.nom?.message}>
           <Input {...register("nom")} />
         </Field>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Email *" error={errors.email?.message}>
+        <Field label={tx("Email *", "Email *")} error={errors.email?.message}>
           <Input type="email" {...register("email")} />
         </Field>
-        <Field label="Téléphone *" error={errors.telephone?.message}>
+        <Field label={tx("Téléphone *", "Phone *")} error={errors.telephone?.message}>
           <Input type="tel" {...register("telephone")} />
         </Field>
       </div>
 
-      <Field label="Société *" error={errors.societe?.message}>
+      <Field label={tx("Société *", "Company *")} error={errors.societe?.message}>
         <Input {...register("societe")} />
       </Field>
 
-      <Field label="Type de demande *" error={errors.sujet?.message}>
+      <Field label={tx("Type de demande *", "Request type *")} error={errors.sujet?.message}>
         <Select
           value={sujetValue ?? ""}
           onValueChange={(v) =>
@@ -155,22 +160,25 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
           }
         >
           <SelectTrigger className="h-10">
-            <SelectValue placeholder="Sélectionnez votre besoin" />
+            <SelectValue placeholder={tx("Sélectionnez votre besoin", "Select your need")} />
           </SelectTrigger>
           <SelectContent>
             {TYPES.map((t) => (
               <SelectItem key={t} value={t}>
-                {t}
+                {labelFor(t)}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
       </Field>
 
-      <Field label="Message *" error={errors.message?.message}>
+      <Field label={tx("Message *", "Message *")} error={errors.message?.message}>
         <Textarea
           rows={6}
-          placeholder="Décrivez brièvement votre contexte, vos enjeux et l'horizon de votre projet."
+          placeholder={tx(
+            "Décrivez brièvement votre contexte, vos enjeux et l'horizon de votre projet.",
+            "Briefly describe your context, your stakes and your project horizon."
+          )}
           {...register("message")}
         />
       </Field>
@@ -182,21 +190,21 @@ const ContactForm = ({ defaultSujet }: ContactFormProps) => {
         disabled={isSubmitting}
         className="w-full sm:w-auto"
       >
-        {isSubmitting ? "Envoi en cours…" : "Envoyer ma demande"}
+        {isSubmitting ? tx("Envoi en cours…", "Sending…") : tx("Envoyer ma demande", "Send my request")}
       </Button>
 
       <div className="pt-4 border-t border-border grid sm:grid-cols-3 gap-4 text-xs text-muted-foreground">
         <div className="flex items-center gap-2">
           <Clock className="h-4 w-4 text-champagne" />
-          <span>Réponse sous 24 à 48h</span>
+          <span>{tx("Réponse sous 24 à 48h", "Reply within 24–48 h")}</span>
         </div>
         <div className="flex items-center gap-2">
           <Lock className="h-4 w-4 text-champagne" />
-          <span>Données confidentielles</span>
+          <span>{tx("Données confidentielles", "Confidential data")}</span>
         </div>
         <div className="flex items-center gap-2">
           <ShieldCheck className="h-4 w-4 text-champagne" />
-          <span>Aucun démarchage</span>
+          <span>{tx("Aucun démarchage", "No cold outreach")}</span>
         </div>
       </div>
     </form>
