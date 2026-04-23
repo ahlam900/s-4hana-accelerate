@@ -30,7 +30,6 @@ export default async function handler(req: any, res: any) {
       besoin: data.besoin || "",
     };
 
-    // 🔹 INSERT SUPABASE
     const { data: insertedLead, error } = await supabase
       .from("leads")
       .insert(payload)
@@ -42,8 +41,7 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: "Supabase insert failed" });
     }
 
-    // 🔹 EMAIL HTML
-    const html = `
+    const internalHtml = `
       <h2>Nouveau lead reçu</h2>
       <p><strong>Formulaire :</strong> ${insertedLead.formulaire}</p>
       <p><strong>Nom :</strong> ${insertedLead.prenom} ${insertedLead.nom}</p>
@@ -59,8 +57,7 @@ export default async function handler(req: any, res: any) {
       <p>${insertedLead.message || "-"}</p>
     `;
 
-    // 🔹 ENVOI EMAIL VIA API RESEND (SANS LIBRAIRIE)
-    const emailResponse = await fetch("https://api.resend.com/emails", {
+    const internalEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
@@ -70,27 +67,79 @@ export default async function handler(req: any, res: any) {
         from: "CBS Institute <contact@cbs-institute.com>",
         to: process.env.LEAD_NOTIFICATION_TO!,
         subject: `Lead ${insertedLead.type_demande} - ${insertedLead.prenom} ${insertedLead.nom}`,
-        html,
+        html: internalHtml,
         reply_to: insertedLead.email || undefined,
       }),
     });
 
-    const emailResult = await emailResponse.json();
+    const internalEmailResult = await internalEmailResponse.json();
+    console.log("INTERNAL EMAIL RESULT:", internalEmailResult);
 
-    console.log("RESEND RESULT:", emailResult);
-
-    if (!emailResponse.ok) {
-      console.error("Resend send error:", emailResult);
+    if (!internalEmailResponse.ok) {
+      console.error("Internal email send error:", internalEmailResult);
       return res.status(500).json({
-        error: "Email send failed",
-        details: emailResult,
+        error: "Internal email send failed",
+        details: internalEmailResult,
       });
+    }
+
+    const clientHtml = `
+      <div style="font-family: Arial, Helvetica, sans-serif; color: #0f172a; max-width: 640px; margin: 0 auto; line-height: 1.6;">
+        <div style="padding: 32px 24px; border: 1px solid #e5e7eb; border-radius: 12px;">
+          <h2 style="margin: 0 0 16px; font-size: 28px; color: #0f172a;">Merci pour votre demande</h2>
+          
+          <p>Bonjour ${insertedLead.prenom || "et merci"},</p>
+          
+          <p>Nous avons bien reçu votre demande concernant <strong>${insertedLead.type_demande || "nos offres CBS Institute"}</strong>.</p>
+          
+          <p>Notre équipe reviendra vers vous sous <strong>24 à 48 heures</strong> avec un premier niveau d’analyse et les prochaines étapes adaptées à votre besoin.</p>
+
+          <div style="margin: 24px 0; padding: 16px; background: #f8fafc; border-radius: 10px;">
+            <p style="margin: 0 0 8px;"><strong>Récapitulatif</strong></p>
+            <p style="margin: 0;"><strong>Nom :</strong> ${insertedLead.prenom} ${insertedLead.nom}</p>
+            <p style="margin: 0;"><strong>Email :</strong> ${insertedLead.email}</p>
+            <p style="margin: 0;"><strong>Société :</strong> ${insertedLead.societe || "-"}</p>
+            <p style="margin: 0;"><strong>Type de demande :</strong> ${insertedLead.type_demande || "-"}</p>
+          </div>
+
+          <p>Si votre demande est urgente, vous pouvez répondre directement à cet email.</p>
+
+          <p style="margin-top: 32px;">
+            Bien cordialement,<br />
+            <strong>CBS Institute</strong><br />
+            Expertise Finance SAP
+          </p>
+        </div>
+      </div>
+    `;
+
+    const clientEmailResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "CBS Institute <contact@cbs-institute.com>",
+        to: insertedLead.email,
+        subject: "CBS Institute — Nous avons bien reçu votre demande",
+        html: clientHtml,
+        reply_to: process.env.LEAD_NOTIFICATION_TO || "contact@cbs-institute.com",
+      }),
+    });
+
+    const clientEmailResult = await clientEmailResponse.json();
+    console.log("CLIENT EMAIL RESULT:", clientEmailResult);
+
+    if (!clientEmailResponse.ok) {
+      console.error("Client email send error:", clientEmailResult);
     }
 
     return res.status(200).json({
       success: true,
       lead: insertedLead,
-      email: emailResult,
+      internalEmail: internalEmailResult,
+      clientEmail: clientEmailResult,
     });
   } catch (err) {
     console.error("SERVER ERROR:", err);
