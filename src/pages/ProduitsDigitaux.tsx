@@ -18,18 +18,18 @@ const ProduitsDigitaux = () => {
       <section className="hero-uniform bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <div className="eyebrow mb-6">Ressources expertes</div>
+            <div className="eyebrow mb-6">Produits digitaux</div>
             <h1 className="display-lg text-foreground">
-              Des ressources expertes pour <em className="not-italic text-champagne font-display">accélérer votre maîtrise</em> de la Finance SAP.
+              Playbooks, guides et templates <em className="not-italic text-champagne font-display">SAP Finance</em>.
             </h1>
             <p className="lede mt-6 max-w-2xl text-muted-foreground">
-              Playbooks, frameworks, templates et guides opérationnels conçus pour les professionnels SAP Finance qui veulent passer au niveau supérieur.
+              Des outils opérationnels issus de projets S/4HANA réels, prêts à être utilisés en mission ou en formation interne — pour les professionnels et les équipes Finance qui veulent gagner du temps sur l'essentiel.
             </p>
             <ul className="mt-9 space-y-3 max-w-xl border-t border-border pt-7">
               {[
-                "Méthodologies issues de projets S/4HANA réels",
-                "Outils directement applicables en mission",
-                "Accélération de la montée en compétence SAP Finance",
+                "Méthodes éprouvées sur des projets S/4HANA réels",
+                "Templates directement utilisables en mission",
+                "Référentiels pour structurer formation et adoption",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[14.5px] text-foreground/85 leading-relaxed">
                   <span className="text-champagne shrink-0 mt-0.5">✔</span>
@@ -39,10 +39,10 @@ const ProduitsDigitaux = () => {
             </ul>
             <div className="mt-10">
               <Button asChild size="lg" variant="ink">
-                <Link to="/contact">Être informé du lancement <ArrowRight /></Link>
+                <Link to="/contact">Demander un accès anticipé <ArrowRight /></Link>
               </Button>
               <p className="mt-4 text-[12.5px] text-muted-foreground inline-flex items-center gap-2">
-                <span className="text-champagne">✦</span> Ressources expertes en cours de finalisation — accès anticipé sur demande
+                <span className="text-champagne">✦</span> Catalogue en cours de finalisation — accès prioritaire sur demande
               </p>
             </div>
           </div>
@@ -120,15 +120,15 @@ const ProduitsDigitaux = () => {
       {/* CTA */}
       <section className="section-y bg-secondary">
         <div className="container-narrow text-center">
-          <div className="eyebrow mb-6 justify-center inline-flex">Besoin d'une approche sur mesure ?</div>
+          <div className="eyebrow mb-6 justify-center inline-flex">Sur mesure</div>
           <h2 className="display-md">
-            Construisons des ressources SAP Finance <em className="not-italic text-champagne font-display">parfaitement adaptées</em> à vos enjeux.
+            Vos équipes ont besoin d'un livrable <em className="not-italic text-champagne font-display">spécifique</em> ?
           </h2>
           <p className="lede mt-6 max-w-2xl mx-auto text-muted-foreground">
-            Nous concevons des playbooks, supports et frameworks sur mesure pour vos équipes Finance et vos projets SAP S/4HANA, alignés avec vos processus, votre organisation et vos objectifs.
+            Nous concevons playbooks, supports de formation et templates calibrés sur vos processus, votre organisation et votre feuille de route S/4HANA.
           </p>
           <Button asChild size="lg" variant="ink" className="mt-8">
-            <Link to="/contact">Échanger avec un expert <ArrowRight /></Link>
+            <Link to="/contact">Demander un livrable sur mesure <ArrowRight /></Link>
           </Button>
         </div>
       </section>

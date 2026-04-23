@@ -109,19 +109,19 @@ const Ressources = () => {
           <div className="max-w-4xl">
             <div className="eyebrow mb-6">Ressources</div>
             <h1 className="display-lg text-foreground">
-              Des repères concrets pour réussir vos projets <em className="not-italic text-champagne font-display">SAP Finance</em>.
+              Des décryptages utiles pour vos projets <em className="not-italic text-champagne font-display">SAP Finance</em>.
             </h1>
             <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
               <p className="lede">
-                Comprendre S/4HANA, éviter les erreurs clés et structurer vos projets Finance avec des contenus issus du terrain.
+                Comprendre S/4HANA, éviter les angles morts du cadrage et structurer vos décisions Finance avec des contenus issus de projets réels.
               </p>
               <p className="text-[15px] leading-relaxed">
-                Retours d'expérience, décryptages et conseils directement inspirés de projets SAP Finance réels.
+                Retours d'expérience, repères méthodologiques et points de vigilance — pensés pour les directions Finance et les équipes projet.
               </p>
             </div>
             <div className="mt-10">
               <Button asChild size="lg" variant="ink">
-                <a href="#newsletter">Recevoir les prochains insights <ArrowRight /></a>
+                <a href="#newsletter">Recevoir les prochains décryptages <ArrowRight /></a>
               </Button>
             </div>
           </div>
@@ -134,10 +134,10 @@ const Ressources = () => {
           <div className="max-w-3xl mb-14">
             <div className="eyebrow mb-6">Vos enjeux</div>
             <h2 className="display-md">
-              Les enjeux que nous <em className="not-italic text-champagne font-display">traitons</em>.
+              Les questions que nos contenus <em className="not-italic text-champagne font-display">éclairent</em>.
             </h2>
             <p className="lede mt-6 text-muted-foreground">
-              Chaque ressource répond à une question concrète rencontrée par les équipes Finance et les programmes SAP.
+              Chaque ressource répond à une problématique concrète rencontrée par les directions Finance et les équipes projet S/4HANA.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -269,20 +269,20 @@ const Ressources = () => {
       <section className="section-y bg-ink text-ivory">
         <div className="container-narrow text-center">
           <div className="eyebrow mb-6 text-ivory/60 justify-center inline-flex">Aller plus loin</div>
-          <h2 className="display-md text-ivory">
-            Besoin d'aller plus <em className="not-italic text-champagne font-display">loin</em> ?
-          </h2>
-          <p className="lede text-ivory/75 mt-6 max-w-2xl mx-auto">
-            Nous accompagnons les entreprises dans la formation SAP Finance et la structuration de leurs projets S/4HANA.
-          </p>
-          <div className="mt-10 flex justify-center">
-            <Button asChild size="lg" variant="champagne">
-              <Link to="/contact">Parler à un expert <ArrowRight /></Link>
-            </Button>
-          </div>
-          <div className="mt-5 text-xs uppercase tracking-[0.2em] text-ivory/50">
-            Échange confidentiel — réponse sous 24h
-          </div>
+            <h2 className="display-md text-ivory">
+              Vous voulez aller au-delà de la <em className="not-italic text-champagne font-display">lecture</em> ?
+            </h2>
+            <p className="lede text-ivory/75 mt-6 max-w-2xl mx-auto">
+              Nous formons vos équipes Finance SAP et accompagnons les directions dans la structuration de leurs programmes S/4HANA.
+            </p>
+            <div className="mt-10 flex justify-center">
+              <Button asChild size="lg" variant="champagne">
+                <Link to="/contact">Planifier un échange <ArrowRight /></Link>
+              </Button>
+            </div>
+            <div className="mt-5 text-xs uppercase tracking-[0.2em] text-ivory/50">
+              Échange confidentiel — réponse sous 24 à 48h
+            </div>
         </div>
       </section>
     </>

@@ -15,14 +15,14 @@ const APropos = () => {
           <div className="max-w-4xl">
             <div className="eyebrow mb-6">CBS Finance Institute</div>
             <h1 className="display-lg text-foreground">
-              Le partenaire de référence pour l'<em className="not-italic text-champagne font-display">exécution</em> et la montée en compétence sur SAP Finance.
+              L'institut spécialisé pour former, transformer et ancrer l'<em className="not-italic text-champagne font-display">adoption SAP Finance</em>.
             </h1>
             <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
               <p className="lede">
-                Nous accompagnons les directions Finance et les programmes SAP S/4HANA dans des environnements à fort enjeu, en combinant exécution de transformation et développement des capacités internes.
+                Nous formons les professionnels Finance SAP, accompagnons les directions Finance dans leurs programmes S/4HANA et préparons les Key Users à sécuriser le déploiement.
               </p>
               <p className="text-[15px] leading-relaxed">
-                Là où la complexité technique rencontre les exigences métier, notre rôle est d'apporter la rigueur, la structure et l'expertise qui sécurisent la valeur créée.
+                Une seule discipline, traitée en profondeur : la Finance SAP — des processus à leur paramétrage, et des équipes à leur autonomie.
               </p>
             </div>
           </div>
@@ -35,14 +35,14 @@ const APropos = () => {
           <div className="lg:col-span-6">
             <div className="eyebrow mb-6">Notre identité</div>
             <h2 className="display-md">
-              Un partenaire de transformation, pas un simple <em className="not-italic text-champagne font-display">centre de formation</em>.
+              Un institut de formation et un partenaire de <em className="not-italic text-champagne font-display">transformation</em>.
             </h2>
             <div className="mt-6 space-y-5">
               <p className="lede">
-                CBS Finance Institute intervient au cœur des programmes SAP S/4HANA des directions Finance et IT — sur les processus core, l'architecture cible, l'alignement organisationnel et la conduite de l'exécution.
+                Nous intervenons au cœur des programmes S/4HANA des directions Finance et IT : processus core, architecture cible, alignement organisationnel et conduite de l'exécution.
               </p>
               <p className="text-[15px] leading-relaxed text-muted-foreground">
-                Nos dispositifs de capability building prolongent cette même expertise terrain : ils préparent les équipes à intervenir avec le même niveau d'exigence sur des environnements réels et structurants.
+                Nos parcours de formation prolongent cette expertise terrain et préparent professionnels, consultants et Key Users à intervenir avec le même niveau d'exigence en environnement réel.
               </p>
             </div>
           </div>
@@ -288,21 +288,21 @@ const APropos = () => {
       <section className="section-y bg-secondary">
         <div className="container-narrow text-center">
           <h2 className="display-md">
-            Passez un cap sur votre transformation <em className="not-italic text-champagne font-display">SAP Finance</em>.
+            Parlons de votre prochaine étape <em className="not-italic text-champagne font-display">SAP Finance</em>.
           </h2>
           <p className="lede text-muted-foreground mt-6 max-w-2xl mx-auto">
-            Un échange structuré pour analyser votre contexte, sécuriser vos décisions et aligner vos équipes sur les enjeux clés de votre programme.
+            Un échange structuré pour qualifier votre contexte, sécuriser vos arbitrages et orienter vos équipes vers le bon dispositif — formation, cadrage projet ou préparation Key Users.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" variant="ink">
-              <Link to="/contact">Échanger avec un expert <ArrowRight /></Link>
+              <Link to="/contact">Planifier un échange <ArrowRight /></Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link to="/contact">Demander une analyse</Link>
+              <Link to="/offres-entreprise">Voir les offres entreprise</Link>
             </Button>
           </div>
           <div className="mt-5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Échange confidentiel — réponse sous 24h
+            Échange confidentiel — réponse sous 24 à 48h
           </div>
         </div>
       </section>

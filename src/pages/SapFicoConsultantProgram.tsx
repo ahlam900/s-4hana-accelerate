@@ -126,8 +126,7 @@ const SapFicoConsultantProgram = () => {
               SAP <em className="not-italic text-champagne font-display">FICO</em> Consultant Program
             </h1>
             <p className="lede mt-7 max-w-2xl leading-relaxed">
-              Le parcours intensif de référence pour maîtriser les fondamentaux Finance SAP, comprendre l’architecture
-              S/4HANA Finance et développer une posture opérationnelle de consultant.
+              Le parcours intensif pour devenir un consultant SAP Finance opérationnel : maîtrise des fondamentaux FICO, lecture de l'architecture S/4HANA Finance et posture projet attendue dès la première mission.
             </p>
 
             <ul className="mt-9 grid sm:grid-cols-2 gap-x-8 gap-y-3 max-w-xl">
@@ -142,11 +141,11 @@ const SapFicoConsultantProgram = () => {
             <div className="mt-10 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
                 <Link to="#programme-cta">
-                  Recevoir le programme <ArrowRight />
+                  Recevoir le programme détaillé <ArrowRight />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="/contact">Échanger avec un expert</Link>
+                <Link to="/contact">Vérifier mon éligibilité</Link>
               </Button>
             </div>
           </div>
@@ -400,24 +399,20 @@ const SapFicoConsultantProgram = () => {
               </span>
             </div>
             <h2 className="display-md text-ivory max-w-[22ch]">
-              Recevez le programme complet et échangeons sur votre{" "}
+              Recevez le programme et validons votre{" "}
               <em className="not-italic text-champagne font-display">positionnement</em>.
             </h2>
             <p className="lede mt-6 max-w-2xl text-ivory/75">
-              Que vous soyez en reconversion, en montée en compétence ou en préparation à une mission SAP Finance, nous
-              vous aidons à vérifier si ce programme est le bon niveau pour vous.
+              Reconversion, montée en compétence ou préparation à une mission SAP Finance : nous vous aidons à vérifier que ce programme correspond à votre point de départ et à votre objectif.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="champagne">
                 <Link to="/contact">
-                  Recevoir le programme <ArrowRight />
+                  Recevoir le programme détaillé <ArrowRight />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outlineLight">
-                <Link to="/contact">Échanger avec un expert</Link>
-              </Button>
-              <Button asChild size="lg" variant="outlineLight">
-                <Link to="/contact">Candidater</Link>
+                <Link to="/contact">Vérifier mon éligibilité</Link>
               </Button>
             </div>
           </div>

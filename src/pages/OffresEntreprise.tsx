@@ -15,19 +15,19 @@ const OffresEntreprise = () => {
           <div className="max-w-4xl">
             <div className="eyebrow mb-6 text-ivory/60">Offres entreprise</div>
             <h1 className="display-lg text-ivory leading-[1.05]">
-              Structurez et sécurisez vos <em className="not-italic text-champagne font-display">transformations Finance SAP</em>.
+              Cadrez, sécurisez et ancrez vos <em className="not-italic text-champagne font-display">transformations Finance SAP</em>.
             </h1>
             <p className="lede mt-6 max-w-2xl text-ivory/75">
-              CBS Finance Institute supports finance departments in structuring, securing, and accelerating their SAP Finance transformations.
+              Nous accompagnons les directions Finance et IT sur l'ensemble du cycle S/4HANA : cadrage des processus, alignement métier-paramétrage, montée en compétence des équipes et adoption au go-live.
             </p>
             <p className="mt-4 max-w-2xl text-ivory/70 leading-relaxed text-[15px]">
-              Our approach ensures process reliability, team alignment, and successful execution of S/4HANA projects in demanding environments.
+              Une intervention structurée, sans angle mort, pensée pour des programmes à fort enjeu et des organisations exigeantes.
             </p>
             <ul className="mt-9 space-y-3 max-w-xl border-t border-ivory/15 pt-7">
               {[
-                "Structuration des processus Finance SAP",
-                "Formation des équipes clés (Key Users & experts)",
-                "Accompagnement des projets S/4HANA",
+                "Cadrage des processus Finance SAP (R2R, P2P, O2C)",
+                "Préparation des Key Users et des relais métier",
+                "Pilotage et sécurisation des projets S/4HANA",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[14.5px] text-ivory/85 leading-relaxed">
                   <span className="text-champagne shrink-0 mt-0.5">✔</span>
@@ -37,10 +37,10 @@ const OffresEntreprise = () => {
             </ul>
             <div className="mt-10">
               <Button asChild size="lg" variant="champagne">
-                <Link to="#devis">Discuss your transformation <ArrowRight /></Link>
+                <Link to="#devis">Demander un devis entreprise <ArrowRight /></Link>
               </Button>
               <p className="mt-4 text-[12.5px] text-ivory/65 inline-flex items-center gap-2">
-                <span className="text-champagne">✔</span> Response within 24h — confidential exchange
+                <span className="text-champagne">✔</span> Réponse sous 24 à 48h — échange confidentiel
               </p>
             </div>
           </div>
@@ -52,55 +52,55 @@ const OffresEntreprise = () => {
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <div className="eyebrow mb-6">Nos offres</div>
-            <h2 className="display-md">Deux offres stratégiques pour vos transformations SAP Finance.</h2>
+            <h2 className="display-md">Deux packs pour couvrir tout le cycle de transformation S/4HANA.</h2>
             <p className="lede mt-6 text-muted-foreground">
-              Deux offres conçues pour accompagner les directions financières dans leurs transformations SAP S/4HANA, avec une approche orientée résultats et non formation générique.
+              Du cadrage stratégique à l'adoption par les équipes : deux engagements structurés pour des directions Finance et IT engagées dans une refonte ou une migration SAP Finance.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-px bg-border border border-border rounded-sm overflow-hidden">
             <DetailedOffer
               index="01"
-              tag="Engagement n°1"
+              tag="Pour les directions Finance & IT"
               title="Pack Transformation Digitale SAP"
-              subtitle="Conçu pour les directions financières pilotant des programmes de transformation SAP Finance critiques."
-              approachLabel="Livrables clés & impact"
-              approachIntro="Nous intervenons sur les étapes clés des programmes de transformation SAP Finance :"
+              subtitle="Pour les directions Finance et IT engagées dans une refonte ou une migration S/4HANA — du cadrage à la sécurisation du go-live."
+              approachLabel="Ce que nous délivrons"
+              approachIntro="Nos interventions couvrent les étapes structurantes d'un programme S/4HANA Finance :"
               approach={[
-                "Structuration de bout en bout des processus Finance SAP (Record-to-Report, P2P, OTC)",
-                "Identification et sécurisation des risques de transformation",
-                "Alignement entre Finance, IT et équipes projet",
-                "Définition du modèle opérationnel cible et de la gouvernance",
-                "Accélération de la préparation et de l'exécution des projets S/4HANA",
+                "Cadrage des processus Finance cible (R2R, P2P, O2C) et alignement métier-paramétrage",
+                "Identification et traitement des risques de transformation",
+                "Alignement Finance, IT et équipes projet sur la cible et la gouvernance",
+                "Définition du modèle opérationnel cible et des instances de pilotage",
+                "Accélération de la préparation et de l'exécution du programme S/4HANA",
                 "Accompagnement de l'adoption et de la conduite du changement",
               ]}
-              closingLine="Notre approche garantit une exécution fiable, une réduction des risques et un time-to-value accéléré."
-              ctaLabel="Demander un devis"
+              closingLine="Résultat attendu : un projet structuré, des arbitrages sécurisés et un time-to-value raccourci."
+              ctaLabel="Demander un devis entreprise"
             />
             <DetailedOffer
               index="02"
-              tag="Engagement n°2"
+              tag="Pour les équipes projet & Key Users"
               title="Pack Formation Key Users SAP"
-              problem="Les key users sont souvent laissés seuls face à la complexité SAP, ce qui freine l'adoption et la performance post go-live."
+              problem="Sans préparation structurée, les Key Users restent dépendants des intégrateurs et l'adoption décroche après le go-live."
               approachLabel="Notre approche"
               approach={[
-                "Parcours de montée en compétence adaptés à chaque profil key user",
-                "Cas pratiques ancrés dans vos processus Finance réels",
-                "Sessions de type train-the-trainer pour renforcer l'autonomie interne",
+                "Parcours de montée en compétence calibrés par profil Key User",
+                "Cas pratiques construits sur vos processus Finance réels",
+                "Sessions train-the-trainer pour ancrer l'autonomie interne",
                 "Accompagnement opérationnel avant, pendant et après le go-live",
               ]}
-              impactLabel="Impact mesurable"
+              impactLabel="Résultat attendu"
               impact={[
-                "Key users autonomes sur les processus Finance SAP clés",
-                "Taux d'adoption renforcé dans les équipes",
-                "Performance opérationnelle durable après déploiement",
+                "Key Users autonomes sur les processus Finance SAP critiques",
+                "Adoption renforcée et continue dans les équipes métier",
+                "Performance opérationnelle durable après le déploiement",
               ]}
-              ctaLabel="Former mes key users"
+              ctaLabel="Préparer mes Key Users"
             />
           </div>
 
           <p className="mt-12 text-center text-[13.5px] text-muted-foreground">
-            Chaque engagement est défini avec votre comité de direction — périmètre, intensité et livrables sont adaptés à votre feuille de route de transformation.
+            Chaque engagement est cadré avec votre comité de direction : périmètre, intensité et livrables sont alignés sur votre feuille de route.
           </p>
         </div>
       </section>
@@ -110,16 +110,16 @@ const OffresEntreprise = () => {
         <div className="container-wide">
           <div className="max-w-2xl mb-14">
             <div className="eyebrow mb-6 text-ivory/60">Pourquoi CBS Finance Institute</div>
-            <h2 className="display-md text-ivory">Un partenaire spécialisé pour vos transformations SAP Finance critiques.</h2>
+            <h2 className="display-md text-ivory">Un partenaire spécialisé, focalisé sur l'exécution.</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ivory/10 border border-ivory/10 rounded-sm overflow-hidden">
             {[
-              { icon: Compass, title: "Expertise 100 % dédiée SAP Finance", text: "Une spécialisation pointue exclusivement dédiée aux transformations SAP Finance." },
-              { icon: Building2, title: "Compréhension des enjeux métier", text: "Une lecture Finance alignée avec vos priorités stratégiques et opérationnelles." },
-              { icon: Sparkles, title: "Approche de conseil haut de gamme", text: "Un niveau d'exigence et d'exécution aligné avec les standards des grands programmes de transformation." },
-              { icon: Target, title: "Adoption et performance mesurable", text: "Des dispositifs structurés garantissant une adoption réelle et une performance durable." },
-              { icon: Briefcase, title: "Culture orientée exécution", text: "Du cadrage au go-live, avec un ancrage opérationnel fort." },
-              { icon: ShieldCheck, title: "Exigence de qualité des livrables", text: "Un haut niveau d'exigence appliqué à l'ensemble des livrables et des phases projet." },
+              { icon: Compass, title: "Spécialisation 100 % SAP Finance", text: "Une seule discipline, traitée en profondeur — pas de dispersion thématique." },
+              { icon: Building2, title: "Lecture Finance alignée métier", text: "Nos recommandations partent des enjeux de la direction Finance, pas du standard outil." },
+              { icon: Sparkles, title: "Standards de conseil senior", text: "Un niveau d'exigence aligné sur les programmes SAP les plus structurants." },
+              { icon: Target, title: "Adoption mesurable au go-live", text: "Des dispositifs Key Users qui sécurisent l'adoption réelle et la performance dans la durée." },
+              { icon: Briefcase, title: "Ancrage projet, pas conseil hors-sol", text: "Du cadrage à la mise en run, avec une présence opérationnelle continue." },
+              { icon: ShieldCheck, title: "Exigence sur les livrables", text: "Structure, traçabilité et qualité appliquées à chaque phase et chaque artefact." },
             ].map((b, i) => (
               <Reveal key={b.title} delay={i * 50} className="bg-ink p-7">
                 <b.icon className="h-6 w-6 text-champagne" strokeWidth={1.5} />
@@ -136,17 +136,17 @@ const OffresEntreprise = () => {
         <div className="container-narrow grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <div className="eyebrow mb-6">Demande entreprise</div>
-            <h2 className="display-md">Parlons de votre transformation SAP Finance.</h2>
+            <h2 className="display-md">Cadrons votre projet SAP Finance.</h2>
             <p className="lede mt-6">
-              Décrivez votre contexte et vos enjeux.
+              Décrivez votre contexte, votre périmètre et l'étape où vous en êtes.
             </p>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              Nous vous recontactons sous 24 à 48h avec une première analyse et des recommandations adaptées à votre projet.
+              Nous revenons sous 24 à 48h avec une première lecture de votre situation et les options d'accompagnement les plus pertinentes.
             </p>
             <ul className="mt-8 space-y-3 border-t border-border pt-6">
               {[
-                "Échange avec un expert SAP Finance",
-                "Analyse rapide de votre situation",
+                "Échange direct avec un expert SAP Finance senior",
+                "Première analyse de votre contexte projet",
                 "Recommandations concrètes et actionnables",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[14.5px] text-foreground/85 leading-relaxed">
