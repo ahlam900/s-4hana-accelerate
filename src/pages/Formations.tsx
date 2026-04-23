@@ -22,17 +22,17 @@ const Formations = () => {
               <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">FORMATIONS FINANCE SAP</span>
             </div>
             <h1 className="display-xl text-foreground max-w-[18ch] leading-[1.05]">
-              Formations <em className="not-italic text-champagne font-display">Finance SAP</em> à impact concret.
+              Devenez un professionnel <em className="not-italic text-champagne font-display">Finance SAP</em> opérationnel.
             </h1>
             <p className="lede mt-7 max-w-lg leading-relaxed">
-              Programmes premium pour développer une expertise opérationnelle, immédiatement utile sur des projets et missions Finance SAP.
+              Des parcours structurés pour consultants, professionnels Finance et profils en reconversion qui veulent maîtriser FICO, S/4HANA et les processus de bout en bout — et le prouver dès la première mission.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
-                <Link to="#demande">Recevoir le programme <ArrowRight /></Link>
+                <Link to="#demande">Recevoir le programme détaillé <ArrowRight /></Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="#catalogue">Découvrir les programmes</Link>
+                <Link to="#catalogue">Voir les parcours</Link>
               </Button>
             </div>
             <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center gap-x-6 md:gap-x-8 text-[10.5px] md:text-[11px] uppercase tracking-[0.2em] text-muted-foreground whitespace-nowrap">
@@ -97,11 +97,11 @@ const Formations = () => {
             <div className="lg:col-span-5">
               <div className="eyebrow mb-6">À qui s'adressent nos formations</div>
               <h2 className="display-sm leading-[1.15] max-w-md">
-                Conçues pour les professionnels qui exigent un haut niveau de <em className="not-italic text-champagne font-display">pertinence</em>.
+                Pensées pour ceux qui veulent intervenir, pas seulement <em className="not-italic text-champagne font-display">comprendre</em>.
               </h2>
               <div className="mt-8 h-px w-12 bg-champagne/60" />
               <p className="mt-8 text-[15px] text-muted-foreground leading-relaxed max-w-md">
-                Nos formations Finance SAP couvrent les besoins de montée en compétence avancée, sur SAP comme sur les processus Finance qui les sous-tendent.
+                Nos formations couvrent les besoins de montée en compétence sur SAP comme sur les processus Finance — pour acquérir une lecture précise et une posture immédiatement utile en mission.
               </p>
             </div>
 
@@ -143,7 +143,7 @@ const Formations = () => {
                 {featured.duration}
               </div>
               <p className="lede mt-7 text-ivory/75">
-                Programme professionnel conçu pour préparer de futurs consultants SAP Finance et professionnels Finance à intervenir dans des environnements SAP S/4HANA.
+                Le parcours intensif de référence pour préparer consultants et professionnels Finance à intervenir avec autorité sur des projets S/4HANA — fondamentaux FICO, architecture cible et posture projet.
               </p>
               <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3 text-sm text-ivory/80">
                 <span className="inline-flex items-center gap-2"><Users className="h-4 w-4 text-champagne" />{featured.audience.split(',')[0]}</span>
@@ -203,12 +203,12 @@ const Formations = () => {
             <div className="lg:col-span-7">
               <div className="eyebrow mb-6">Parcours de formation</div>
               <h2 className="display-md leading-[1.1] max-w-2xl">
-                Un parcours <em className="not-italic text-champagne font-display">structuré</em> pour évoluer en Finance SAP.
+                Trois niveaux, une <em className="not-italic text-champagne font-display">trajectoire claire</em> en Finance SAP.
               </h2>
             </div>
             <div className="lg:col-span-5">
               <p className="text-[15px] text-muted-foreground leading-relaxed max-w-md lg:ml-auto">
-                Trois niveaux de progression cohérents, du fondamental à l'expertise, complétés par une spécialisation sectorielle ciblée.
+                Du socle métier à l'expertise S/4HANA, complété par une spécialisation sectorielle pour les profils qui veulent un positionnement différenciant.
               </p>
             </div>
           </div>
@@ -379,9 +379,9 @@ const Formations = () => {
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <div className="eyebrow mb-6">Pourquoi nos formations</div>
-            <h2 className="display-md">Une exigence pédagogique pensée pour l'opérationnel.</h2>
+            <h2 className="display-md">Une pédagogie pensée pour le terrain projet.</h2>
             <p className="mt-6 text-[15px] text-muted-foreground leading-relaxed max-w-2xl">
-              Une approche issue du terrain, conçue pour répondre aux exigences réelles des projets SAP Finance les plus structurants.
+              Nos contenus sont issus de missions SAP Finance réelles. Vous repartez avec des repères, des méthodes et un vocabulaire directement utilisables dès le prochain atelier.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -414,10 +414,10 @@ const Formations = () => {
           <div className="lg:col-span-5">
             <div className="eyebrow mb-6">Demande de formation</div>
             <h2 className="display-md leading-[1.1]">
-              Accédez au programme détaillé et bénéficiez d'un échange avec un <em className="not-italic text-champagne font-display">expert SAP Finance</em>.
+              Recevez le programme détaillé et un avis d'<em className="not-italic text-champagne font-display">expert SAP Finance</em>.
             </h2>
             <p className="lede mt-6">
-              Décrivez votre profil et votre objectif. Nous vous adressons le programme détaillé ainsi qu'une recommandation personnalisée basée sur votre parcours.
+              Indiquez votre profil et votre objectif. Nous vous adressons le programme complet et une recommandation de parcours adaptée à votre point de départ.
             </p>
             <ul className="mt-10 space-y-4 border-t border-border/70 pt-8">
               {[

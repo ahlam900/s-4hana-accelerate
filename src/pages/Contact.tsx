@@ -13,20 +13,20 @@ const needs: { key: Need; icon: typeof GraduationCap; title: string; desc: strin
   {
     key: "Formation SAP Finance",
     icon: GraduationCap,
-    title: "Formation SAP Finance",
-    desc: "Former vos équipes ou monter en compétence sur SAP Finance.",
+    title: "Formation Finance SAP",
+    desc: "Pour vous-même ou vos équipes : montée en compétence FICO, S/4HANA ou Key Users.",
   },
   {
     key: "Projet / Transformation SAP",
     icon: Briefcase,
-    title: "Projet / Transformation SAP",
-    desc: "Cadrage, structuration ou accompagnement de votre projet S/4HANA.",
+    title: "Projet S/4HANA & Key Users",
+    desc: "Cadrage, structuration ou sécurisation du go-live d'un programme SAP Finance.",
   },
   {
     key: "Autre demande",
     icon: HelpCircle,
     title: "Autre demande",
-    desc: "Partenariat, information ou besoin spécifique.",
+    desc: "Partenariat, intervention, information ou besoin spécifique.",
   },
 ];
 
@@ -47,14 +47,14 @@ const Contact = () => {
           <div className="max-w-4xl">
             <div className="eyebrow mb-6">Contact</div>
             <h1 className="display-lg text-foreground">
-              Parlons de votre projet <em className="not-italic text-champagne font-display">SAP Finance</em>.
+              Échangeons sur votre besoin <em className="not-italic text-champagne font-display">SAP Finance</em>.
             </h1>
             <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
               <p className="lede">
-                Formation, montée en compétence ou transformation S/4HANA : échangeons sur vos enjeux.
+                Formation individuelle, accompagnement entreprise ou préparation Key Users : un seul point d'entrée pour qualifier votre besoin.
               </p>
               <p className="text-[15px] leading-relaxed">
-                Notre équipe vous répond sous 24 à 48h avec un premier niveau d'analyse adapté à votre besoin.
+                Réponse sous 24 à 48h avec une première lecture concrète et l'orientation vers le bon dispositif.
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@ const Contact = () => {
           <div className="max-w-3xl mb-12">
             <div className="eyebrow mb-6">Votre besoin</div>
             <h2 className="display-md">
-              Sélectionnez le sujet de votre <em className="not-italic text-champagne font-display">demande</em>.
+              Quelle est la nature de votre <em className="not-italic text-champagne font-display">demande</em> ?
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -116,19 +116,19 @@ const Contact = () => {
           <div className="lg:col-span-5">
             <div className="eyebrow mb-6">Formulaire</div>
             <h2 className="display-md">
-              Décrivez-nous votre <em className="not-italic text-champagne font-display">contexte</em>.
+              Décrivez votre <em className="not-italic text-champagne font-display">contexte</em>.
             </h2>
             <p className="lede mt-6 text-muted-foreground">
-              Plus votre demande est précise, plus notre première réponse pourra être ciblée et utile.
+              Plus votre demande est précise, plus notre première réponse sera ciblée — et utile dès le premier échange.
             </p>
             <div className="mt-10 space-y-4 text-sm text-muted-foreground">
               <div className="flex items-start gap-3">
                 <Check className="h-4 w-4 text-champagne mt-1 shrink-0" />
-                Réponse personnalisée par un expert SAP Finance
+                Réponse par un expert SAP Finance senior
               </div>
               <div className="flex items-start gap-3">
                 <Check className="h-4 w-4 text-champagne mt-1 shrink-0" />
-                Premier niveau d'analyse de votre besoin
+                Première lecture concrète de votre besoin
               </div>
               <div className="flex items-start gap-3">
                 <Check className="h-4 w-4 text-champagne mt-1 shrink-0" />
@@ -168,15 +168,15 @@ const Contact = () => {
         <div className="container-narrow text-center">
           <div className="eyebrow mb-6 text-ivory/60 justify-center inline-flex">Échange rapide</div>
           <h2 className="display-md text-ivory">
-            Besoin d'un échange <em className="not-italic text-champagne font-display">rapide</em> ?
+            Besoin d'une réponse <em className="not-italic text-champagne font-display">rapide</em> ?
           </h2>
           <p className="lede text-ivory/75 mt-6 max-w-2xl mx-auto">
-            Nous pouvons organiser un échange rapide pour qualifier votre besoin et vous orienter vers le bon format.
+            Décrivez votre besoin en quelques lignes : nous qualifions votre demande et revenons vers vous avec le bon interlocuteur.
           </p>
           <div className="mt-10 flex justify-center">
             <Button asChild size="lg" variant="champagne">
               <Link to="#formulaire" onClick={(e) => { e.preventDefault(); document.getElementById("formulaire")?.scrollIntoView({ behavior: "smooth" }); }}>
-                Parler à un expert <ArrowRight />
+                Planifier un échange <ArrowRight />
               </Link>
             </Button>
           </div>
