@@ -7,10 +7,15 @@ import Reveal from "@/components/Reveal";
 import { products, productCategories } from "@/data/products";
 import Seo from "@/components/Seo";
 import { cn } from "@/lib/utils";
+import { useTx } from "@/i18n/tx";
+import { useLang } from "@/i18n/useLang";
 
 const ProduitsDigitaux = () => {
-  const [active, setActive] = useState<string>("Toutes");
-  const filtered = active === "Toutes" ? products : products.filter((p) => p.category === active);
+  const tx = useTx();
+  const { localize } = useLang();
+  const allLabel = tx("Toutes", "All");
+  const [active, setActive] = useState<string>(allLabel);
+  const filtered = active === allLabel ? products : products.filter((p) => p.category === active);
 
   return (
     <>
@@ -18,18 +23,21 @@ const ProduitsDigitaux = () => {
       <section className="hero-uniform bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <div className="eyebrow mb-6">Ressources premium</div>
+            <div className="eyebrow mb-6">{tx("Ressources premium", "Premium Resources")}</div>
             <h1 className="display-lg text-foreground">
-              Outils, supports et contenus avancés <em className="not-italic text-champagne font-display">SAP Finance</em>.
+              {tx("Outils, supports et contenus avancés ", "Tools, frameworks and advanced content for ")}<em className="not-italic text-champagne font-display">{tx("SAP Finance", "SAP Finance")}</em>.
             </h1>
             <p className="lede mt-6 max-w-2xl text-muted-foreground">
-              Playbooks, guides et templates issus de projets S/4HANA réels — des ressources premium à forte valeur ajoutée, prêtes à être utilisées en mission ou en formation interne par les professionnels et équipes Finance les plus exigeants.
+              {tx(
+                "Playbooks, guides et templates issus de projets S/4HANA réels — des ressources premium à forte valeur ajoutée, prêtes à être utilisées en mission ou en formation interne par les professionnels et équipes Finance les plus exigeants.",
+                "Playbooks, guides and templates drawn from real S/4HANA projects — high-value premium resources, ready to be used in delivery or internal training by the most demanding finance professionals and teams."
+              )}
             </p>
             <ul className="mt-9 space-y-3 max-w-xl border-t border-border pt-7">
               {[
-                "Méthodes éprouvées sur des projets S/4HANA réels",
-                "Templates directement utilisables en mission",
-                "Référentiels pour structurer formation et adoption",
+                tx("Méthodes éprouvées sur des projets S/4HANA réels", "Methods proven on real S/4HANA projects"),
+                tx("Templates directement utilisables en mission", "Templates ready to use in delivery"),
+                tx("Référentiels pour structurer formation et adoption", "Frameworks to structure training and adoption"),
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[14.5px] text-foreground/85 leading-relaxed">
                   <span className="text-champagne shrink-0 mt-0.5">✔</span>
@@ -39,10 +47,10 @@ const ProduitsDigitaux = () => {
             </ul>
             <div className="mt-10">
               <Button asChild size="lg" variant="ink">
-                <Link to="/contact">Demander un accès anticipé <ArrowRight /></Link>
+                <Link to={localize("/contact")}>{tx("Demander un accès anticipé", "Request early access")} <ArrowRight /></Link>
               </Button>
               <p className="mt-4 text-[12.5px] text-muted-foreground inline-flex items-center gap-2">
-                <span className="text-champagne">✦</span> Catalogue en cours de finalisation — accès prioritaire sur demande
+                <span className="text-champagne">✦</span> {tx("Catalogue en cours de finalisation — accès prioritaire sur demande", "Catalog being finalized — priority access on request")}
               </p>
             </div>
           </div>
@@ -53,7 +61,7 @@ const ProduitsDigitaux = () => {
       <section id="catalogue" className="pt-16">
         <div className="container-wide">
           <div className="flex flex-wrap gap-2">
-            {(["Toutes", ...productCategories] as string[]).map((c) => (
+            {([allLabel, ...productCategories] as string[]).map((c) => (
               <button
                 key={c}
                 onClick={() => setActive(c)}
@@ -86,7 +94,7 @@ const ProduitsDigitaux = () => {
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-display text-lg leading-snug">
-                    <Link to={`/produits-digitaux/${p.slug}`} className="hover:text-champagne transition-colors">{p.title}</Link>
+                    <Link to={localize(`/produits-digitaux/${p.slug}`)} className="hover:text-champagne transition-colors">{p.title}</Link>
                   </h3>
                   <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{p.shortDescription}</p>
                   <ul className="mt-4 space-y-1.5 flex-1">
@@ -102,11 +110,11 @@ const ProduitsDigitaux = () => {
                   <div className="mt-5 pt-5 border-t border-border space-y-4">
                     <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-champagne font-semibold">
                       <Clock className="h-3.5 w-3.5" strokeWidth={2} />
-                      Disponible prochainement
+                      {tx("Disponible prochainement", "Available soon")}
                     </div>
                     <Button asChild size="sm" variant="outline" className="w-full">
-                      <Link to="/contact">
-                        <BellRing className="h-4 w-4" /> Être informé du lancement
+                      <Link to={localize("/contact")}>
+                        <BellRing className="h-4 w-4" /> {tx("Être informé du lancement", "Get notified at launch")}
                       </Link>
                     </Button>
                   </div>
@@ -120,15 +128,18 @@ const ProduitsDigitaux = () => {
       {/* CTA */}
       <section className="section-y bg-secondary">
         <div className="container-narrow text-center">
-          <div className="eyebrow mb-6 justify-center inline-flex">Sur mesure</div>
+          <div className="eyebrow mb-6 justify-center inline-flex">{tx("Sur mesure", "Tailored")}</div>
           <h2 className="display-md">
-            Vos équipes ont besoin d'un livrable <em className="not-italic text-champagne font-display">spécifique</em> ?
+            {tx("Vos équipes ont besoin d'un livrable ", "Your teams need a ")}<em className="not-italic text-champagne font-display">{tx("spécifique", "specific deliverable")}</em> ?
           </h2>
           <p className="lede mt-6 max-w-2xl mx-auto text-muted-foreground">
-            Nous concevons playbooks, supports de formation et templates calibrés sur vos processus, votre organisation et votre feuille de route S/4HANA.
+            {tx(
+              "Nous concevons playbooks, supports de formation et templates calibrés sur vos processus, votre organisation et votre feuille de route S/4HANA.",
+              "We design playbooks, training materials and templates calibrated on your processes, your organization and your S/4HANA roadmap."
+            )}
           </p>
           <Button asChild size="lg" variant="ink" className="mt-8">
-            <Link to="/contact">Demander un livrable sur mesure <ArrowRight /></Link>
+            <Link to={localize("/contact")}>{tx("Demander un livrable sur mesure", "Request a tailored deliverable")} <ArrowRight /></Link>
           </Button>
         </div>
       </section>

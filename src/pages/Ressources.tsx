@@ -18,85 +18,89 @@ import { Input } from "@/components/ui/input";
 import Reveal from "@/components/Reveal";
 import { toast } from "@/hooks/use-toast";
 import Seo from "@/components/Seo";
-
-const challenges = [
-  {
-    icon: Target,
-    title: "Comprendre les impacts réels de S/4HANA sur la Finance",
-    desc: "Mesurer ce qui change vraiment pour la clôture, le pilotage et le contrôle.",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Éviter les erreurs fréquentes en phase de cadrage",
-    desc: "Identifier les angles morts qui coûtent le plus cher en exécution.",
-  },
-  {
-    icon: Workflow,
-    title: "Structurer efficacement les processus Finance",
-    desc: "R2R, P2P, O2C : poser une cible claire, alignée avec le standard SAP.",
-  },
-  {
-    icon: Network,
-    title: "Aligner Finance et IT dans un projet SAP",
-    desc: "Construire une gouvernance qui sécurise les arbitrages tout au long du programme.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Monter rapidement en compétence sur SAP Finance",
-    desc: "Acquérir les repères essentiels pour contribuer dès les premiers ateliers.",
-  },
-];
-
-const featured = [
-  {
-    title: "S/4HANA Finance : ce qui change vraiment",
-    desc: "Universal Journal, modèle de données simplifié, impacts sur le contrôle et le pilotage. Une lecture courte des changements structurants.",
-    cta: "Lire",
-    icon: BookOpen,
-  },
-  {
-    title: "3 erreurs fréquentes en phase de cadrage SAP",
-    desc: "Périmètre flou, gouvernance Finance / IT mal posée, sous-estimation du legacy : ce que l'on observe le plus souvent en programme.",
-    cta: "Lire",
-    icon: BookOpen,
-  },
-  {
-    title: "Comprendre le Universal Journal simplement",
-    desc: "Le concept central de S/4HANA Finance expliqué clairement : structure, intérêt et impacts sur le reporting.",
-    cta: "Voir",
-    icon: PlayCircle,
-  },
-  {
-    title: "Cadrer un programme S/4HANA en 5 questions",
-    desc: "Les questions à poser dès les premiers ateliers pour aligner sponsors, Finance et IT sur la cible.",
-    cta: "Lire",
-    icon: BookOpen,
-  },
-  {
-    title: "R2R dans S/4HANA : ce qu'il faut savoir",
-    desc: "Clôture, allocations, consolidation : comment SAP repense le processus Record-to-Report dans S/4HANA.",
-    cta: "Lire",
-    icon: BookOpen,
-  },
-  {
-    title: "Finance et IT : comment vraiment s'aligner",
-    desc: "Trois leviers concrets pour faire converger les attentes Finance et la réalité d'une plateforme SAP.",
-    cta: "Voir",
-    icon: PlayCircle,
-  },
-];
+import { useTx } from "@/i18n/tx";
+import { useLang } from "@/i18n/useLang";
 
 const Ressources = () => {
+  const tx = useTx();
+  const { localize } = useLang();
   const [email, setEmail] = useState("");
+
+  const challenges = [
+    {
+      icon: Target,
+      title: tx("Comprendre les impacts réels de S/4HANA sur la Finance", "Understanding the real impact of S/4HANA on finance"),
+      desc: tx("Mesurer ce qui change vraiment pour la clôture, le pilotage et le contrôle.", "Measure what really changes for close, steering and control."),
+    },
+    {
+      icon: AlertTriangle,
+      title: tx("Éviter les erreurs fréquentes en phase de cadrage", "Avoiding common pitfalls during the scoping phase"),
+      desc: tx("Identifier les angles morts qui coûtent le plus cher en exécution.", "Identify the blind spots that cost the most during execution."),
+    },
+    {
+      icon: Workflow,
+      title: tx("Structurer efficacement les processus Finance", "Effectively structuring finance processes"),
+      desc: tx("R2R, P2P, O2C : poser une cible claire, alignée avec le standard SAP.", "R2R, P2P, O2C: set a clear target aligned with the SAP standard."),
+    },
+    {
+      icon: Network,
+      title: tx("Aligner Finance et IT dans un projet SAP", "Aligning Finance and IT within an SAP project"),
+      desc: tx("Construire une gouvernance qui sécurise les arbitrages tout au long du programme.", "Build governance that secures arbitrations throughout the program."),
+    },
+    {
+      icon: GraduationCap,
+      title: tx("Monter rapidement en compétence sur SAP Finance", "Rapidly upskilling in SAP Finance"),
+      desc: tx("Acquérir les repères essentiels pour contribuer dès les premiers ateliers.", "Acquire the essential references to contribute from the very first workshops."),
+    },
+  ];
+
+  const featured = [
+    {
+      title: tx("S/4HANA Finance : ce qui change vraiment", "S/4HANA Finance: what really changes"),
+      desc: tx("Universal Journal, modèle de données simplifié, impacts sur le contrôle et le pilotage. Une lecture courte des changements structurants.", "Universal Journal, simplified data model, impacts on control and steering. A concise read of the structuring changes."),
+      cta: tx("Lire", "Read"),
+      icon: BookOpen,
+    },
+    {
+      title: tx("3 erreurs fréquentes en phase de cadrage SAP", "3 common pitfalls during SAP scoping"),
+      desc: tx("Périmètre flou, gouvernance Finance / IT mal posée, sous-estimation du legacy : ce que l'on observe le plus souvent en programme.", "Blurred scope, weak Finance/IT governance, underestimated legacy: what we observe most often on programs."),
+      cta: tx("Lire", "Read"),
+      icon: BookOpen,
+    },
+    {
+      title: tx("Comprendre le Universal Journal simplement", "Understanding the Universal Journal — simply"),
+      desc: tx("Le concept central de S/4HANA Finance expliqué clairement : structure, intérêt et impacts sur le reporting.", "The central concept of S/4HANA Finance explained clearly: structure, value and impact on reporting."),
+      cta: tx("Voir", "Watch"),
+      icon: PlayCircle,
+    },
+    {
+      title: tx("Cadrer un programme S/4HANA en 5 questions", "Framing an S/4HANA program in 5 questions"),
+      desc: tx("Les questions à poser dès les premiers ateliers pour aligner sponsors, Finance et IT sur la cible.", "The questions to ask in the very first workshops to align sponsors, Finance and IT on the target."),
+      cta: tx("Lire", "Read"),
+      icon: BookOpen,
+    },
+    {
+      title: tx("R2R dans S/4HANA : ce qu'il faut savoir", "R2R in S/4HANA: what you need to know"),
+      desc: tx("Clôture, allocations, consolidation : comment SAP repense le processus Record-to-Report dans S/4HANA.", "Close, allocations, consolidation: how SAP rethinks the Record-to-Report process in S/4HANA."),
+      cta: tx("Lire", "Read"),
+      icon: BookOpen,
+    },
+    {
+      title: tx("Finance et IT : comment vraiment s'aligner", "Finance and IT: how to truly align"),
+      desc: tx("Trois leviers concrets pour faire converger les attentes Finance et la réalité d'une plateforme SAP.", "Three concrete levers to converge finance expectations with the reality of an SAP platform."),
+      cta: tx("Voir", "Watch"),
+      icon: PlayCircle,
+    },
+  ];
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     const trimmed = email.trim();
     if (!trimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed) || trimmed.length > 255) {
-      toast({ title: "Email invalide", description: "Merci d'indiquer une adresse email valide." });
+      toast({ title: tx("Email invalide", "Invalid email"), description: tx("Merci d'indiquer une adresse email valide.", "Please provide a valid email address.") });
       return;
     }
-    toast({ title: "Inscription enregistrée", description: "Vous recevrez nos prochains insights SAP Finance." });
+    toast({ title: tx("Inscription enregistrée", "Subscription confirmed"), description: tx("Vous recevrez nos prochains insights SAP Finance.", "You'll receive our next SAP Finance insights.") });
     setEmail("");
   };
 
@@ -107,21 +111,27 @@ const Ressources = () => {
       <section className="hero-uniform bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <div className="eyebrow mb-6">Bibliothèque experte</div>
+            <div className="eyebrow mb-6">{tx("Bibliothèque experte", "Expert Library")}</div>
             <h1 className="display-lg text-foreground">
-              Insights et décryptages <em className="not-italic text-champagne font-display">SAP Finance</em>, en accès libre.
+              {tx("Insights et décryptages ", "Insights and analyses on ")}<em className="not-italic text-champagne font-display">{tx("SAP Finance", "SAP Finance")}</em>{tx(", en accès libre.", " — freely accessible.")}
             </h1>
             <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
               <p className="lede">
-                Notre bibliothèque experte rassemble analyses, retours d'expérience et repères méthodologiques pour comprendre S/4HANA et structurer vos décisions Finance.
+                {tx(
+                  "Notre bibliothèque experte rassemble analyses, retours d'expérience et repères méthodologiques pour comprendre S/4HANA et structurer vos décisions Finance.",
+                  "Our expert library brings together analyses, lessons learned and methodological references to understand S/4HANA and structure your finance decisions."
+                )}
               </p>
               <p className="text-[15px] leading-relaxed">
-                Des contenus courts, issus de projets réels — pensés pour les directions Finance, les consultants SAP et les équipes projet.
+                {tx(
+                  "Des contenus courts, issus de projets réels — pensés pour les directions Finance, les consultants SAP et les équipes projet.",
+                  "Concise content drawn from real projects — designed for finance leaders, SAP consultants and project teams."
+                )}
               </p>
             </div>
             <div className="mt-10">
               <Button asChild size="lg" variant="ink">
-                <a href="#newsletter">Recevoir les prochains décryptages <ArrowRight /></a>
+                <a href="#newsletter">{tx("Recevoir les prochains décryptages", "Receive our next analyses")} <ArrowRight /></a>
               </Button>
             </div>
           </div>
@@ -132,12 +142,15 @@ const Ressources = () => {
       <section className="section-y">
         <div className="container-wide">
           <div className="max-w-3xl mb-14">
-            <div className="eyebrow mb-6">Vos enjeux</div>
+            <div className="eyebrow mb-6">{tx("Vos enjeux", "Your challenges")}</div>
             <h2 className="display-md">
-              Les questions que nos contenus <em className="not-italic text-champagne font-display">éclairent</em>.
+              {tx("Les questions que nos contenus ", "The questions our content ")}<em className="not-italic text-champagne font-display">{tx("éclairent", "illuminates")}</em>.
             </h2>
             <p className="lede mt-6 text-muted-foreground">
-              Chaque ressource répond à une problématique concrète rencontrée par les directions Finance et les équipes projet S/4HANA.
+              {tx(
+                "Chaque ressource répond à une problématique concrète rencontrée par les directions Finance et les équipes projet S/4HANA.",
+                "Every resource addresses a concrete challenge faced by finance leaders and S/4HANA project teams."
+              )}
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -165,9 +178,9 @@ const Ressources = () => {
       <section className="section-y bg-secondary border-y border-border">
         <div className="container-wide">
           <div className="max-w-3xl mb-14">
-            <div className="eyebrow mb-6">Contenus en avant</div>
+            <div className="eyebrow mb-6">{tx("Contenus en avant", "Featured content")}</div>
             <h2 className="display-md">
-              Des repères clairs pour vos projets <em className="not-italic text-champagne font-display">Finance SAP</em>.
+              {tx("Des repères clairs pour vos projets ", "Clear references for your ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP", "SAP Finance")}</em>{tx("", " projects")}.
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -194,24 +207,27 @@ const Ressources = () => {
       <section className="section-y bg-ink text-ivory">
         <div className="container-wide grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
-            <div className="eyebrow mb-6 text-ivory/60">Notre angle</div>
+            <div className="eyebrow mb-6 text-ivory/60">{tx("Notre angle", "Our angle")}</div>
             <h2 className="display-md text-ivory">
-              Des contenus issus du <em className="not-italic text-champagne font-display">terrain</em>.
+              {tx("Des contenus issus du ", "Content drawn from the ")}<em className="not-italic text-champagne font-display">{tx("terrain", "field")}</em>.
             </h2>
             <p className="lede text-ivory/75 mt-6">
-              Chaque contenu est basé sur des projets SAP Finance réels, avec une approche opérationnelle orientée décision et exécution.
+              {tx(
+                "Chaque contenu est basé sur des projets SAP Finance réels, avec une approche opérationnelle orientée décision et exécution.",
+                "Every piece is grounded in real SAP Finance projects, with an operational approach oriented toward decision and execution."
+              )}
             </p>
             <div className="mt-8 inline-flex items-center gap-3 text-ivory/60 text-sm">
               <Compass className="h-4 w-4 text-champagne" />
-              Pensé pour les décideurs Finance et les équipes projet.
+              {tx("Pensé pour les décideurs Finance et les équipes projet.", "Designed for finance decision-makers and project teams.")}
             </div>
           </div>
           <div className="lg:col-span-7">
             <ul className="space-y-5">
               {[
-                { k: "Expérience projet S/4HANA", v: "Inspirés de programmes multi-entités, multi-pays et multi-référentiels." },
-                { k: "Vision Finance + SAP", v: "Une lecture qui croise les enjeux métier et la réalité de la plateforme." },
-                { k: "Contenus directement applicables", v: "Des repères utilisables dès le prochain comité projet." },
+                { k: tx("Expérience projet S/4HANA", "S/4HANA project experience"), v: tx("Inspirés de programmes multi-entités, multi-pays et multi-référentiels.", "Drawn from multi-entity, multi-country, multi-standard programs.") },
+                { k: tx("Vision Finance + SAP", "Finance + SAP perspective"), v: tx("Une lecture qui croise les enjeux métier et la réalité de la plateforme.", "A reading that intersects business stakes and platform reality.") },
+                { k: tx("Contenus directement applicables", "Directly applicable content"), v: tx("Des repères utilisables dès le prochain comité projet.", "References usable from your next project committee.") },
               ].map((v) => (
                 <li key={v.k} className="flex gap-5 border-t border-ivory/15 pt-5 first:border-0 first:pt-0">
                   <span className="text-champagne font-display text-sm tracking-[0.15em] pt-1 shrink-0">—</span>
@@ -234,32 +250,35 @@ const Ressources = () => {
               <div className="h-10 w-10 rounded-sm bg-ink text-ivory flex items-center justify-center">
                 <Mail className="h-5 w-5 text-champagne" />
               </div>
-              <div className="eyebrow">Newsletter</div>
+              <div className="eyebrow">{tx("Newsletter", "Newsletter")}</div>
             </div>
             <h2 className="display-md">
-              Recevez nos insights <em className="not-italic text-champagne font-display">SAP Finance</em>.
+              {tx("Recevez nos insights ", "Receive our ")}<em className="not-italic text-champagne font-display">{tx("SAP Finance", "SAP Finance insights")}</em>.
             </h2>
             <p className="lede mt-6 text-muted-foreground">
-              Un contenu court, utile et directement applicable pour progresser sur vos projets SAP Finance.
+              {tx(
+                "Un contenu court, utile et directement applicable pour progresser sur vos projets SAP Finance.",
+                "Short, useful, directly applicable content to make progress on your SAP Finance projects."
+              )}
             </p>
             <form onSubmit={handleSubscribe} className="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl">
               <Input
                 type="email"
                 required
                 maxLength={255}
-                placeholder="votre.email@entreprise.com"
+                placeholder={tx("votre.email@entreprise.com", "your.email@company.com")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="h-12 bg-background"
-                aria-label="Adresse email"
+                aria-label={tx("Adresse email", "Email address")}
               />
               <Button type="submit" size="lg" variant="ink" className="shrink-0">
-                Recevoir les contenus <ArrowRight />
+                {tx("Recevoir les contenus", "Receive the content")} <ArrowRight />
               </Button>
             </form>
             <div className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-champagne" />
-              Aucun spam. Contenu à forte valeur uniquement.
+              {tx("Aucun spam. Contenu à forte valeur uniquement.", "No spam. High-value content only.")}
             </div>
           </div>
         </div>
@@ -268,20 +287,23 @@ const Ressources = () => {
       {/* FINAL CTA */}
       <section className="section-y bg-ink text-ivory">
         <div className="container-narrow text-center">
-          <div className="eyebrow mb-6 text-ivory/60 justify-center inline-flex">Aller plus loin</div>
+          <div className="eyebrow mb-6 text-ivory/60 justify-center inline-flex">{tx("Aller plus loin", "Go further")}</div>
             <h2 className="display-md text-ivory">
-              Vous voulez aller au-delà de la <em className="not-italic text-champagne font-display">lecture</em> ?
+              {tx("Vous voulez aller au-delà de la ", "Want to go beyond ")}<em className="not-italic text-champagne font-display">{tx("lecture", "reading")}</em> ?
             </h2>
             <p className="lede text-ivory/75 mt-6 max-w-2xl mx-auto">
-              Nous formons vos équipes Finance SAP et accompagnons les directions dans la structuration de leurs programmes S/4HANA.
+              {tx(
+                "Nous formons vos équipes Finance SAP et accompagnons les directions dans la structuration de leurs programmes S/4HANA.",
+                "We train your SAP Finance teams and support leaders in structuring their S/4HANA programs."
+              )}
             </p>
             <div className="mt-10 flex justify-center">
               <Button asChild size="lg" variant="champagne">
-                <Link to="/contact">Planifier un échange <ArrowRight /></Link>
+                <Link to={localize("/contact")}>{tx("Planifier un échange", "Schedule a discussion")} <ArrowRight /></Link>
               </Button>
             </div>
             <div className="mt-5 text-xs uppercase tracking-[0.2em] text-ivory/50">
-              Échange confidentiel — réponse sous 24 à 48h
+              {tx("Échange confidentiel — réponse sous 24 à 48h", "Confidential exchange — reply within 24–48 h")}
             </div>
         </div>
       </section>
