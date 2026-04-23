@@ -69,7 +69,7 @@ export default async function handler(req: any, res: any) {
       body: JSON.stringify({
         from: "CBS Institute <contact@cbs-institute.com>",
         to: process.env.LEAD_NOTIFICATION_TO!,
-        subject: `Nouveau lead (${insertedLead.formulaire})`,
+        subject: `Nouveau lead CBS - ${insertedLead.prenom} ${insertedLead.nom}`,
         html,
         reply_to: insertedLead.email || undefined,
       }),
