@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
-import aboutVisual from "@/assets/about-visual.jpg";
+import trainingRoomVisual from "@/assets/cbs-training-room.png";
 import Seo from "@/components/Seo";
 import { useTx } from "@/i18n/tx";
 import { useLang } from "@/i18n/useLang";
@@ -63,8 +63,16 @@ const APropos = () => {
             </div>
           </div>
           <div className="lg:col-span-6">
-            <div className="aspect-[4/5] rounded-sm overflow-hidden">
-              <img src={aboutVisual} alt={tx("Composition éditoriale", "Editorial composition")} className="h-full w-full object-cover" loading="lazy" width={1280} height={1600} />
+            <div className="aspect-[4/5] rounded-sm overflow-hidden relative bg-secondary">
+              <img
+                src={trainingRoomVisual}
+                alt={tx("Salle de formation CBS Finance Institute", "CBS Finance Institute training room")}
+                className="h-full w-full object-cover object-center"
+                loading="lazy"
+                width={1080}
+                height={1920}
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-background/15 via-transparent to-ink/10" />
             </div>
           </div>
         </div>
