@@ -9,6 +9,15 @@ import Seo from "@/components/Seo";
 import { cn } from "@/lib/utils";
 import { useTx } from "@/i18n/tx";
 import { useLang } from "@/i18n/useLang";
+import playbookTransformationImage from "@/assets/product-playbook-transformation-finance-sap.jpg";
+import guideS4HanaFinanceImage from "@/assets/product-guide-s4hana-finance.jpg";
+import processMappingImage from "@/assets/product-template-process-mapping-finance-sap.jpg";
+
+const productImages: Record<string, string> = {
+  "playbook-sap-finance": playbookTransformationImage,
+  "guide-s4hana-finance": guideS4HanaFinanceImage,
+  "template-cartographie-processus": processMappingImage,
+};
 
 const ProduitsDigitaux = () => {
   const tx = useTx();
@@ -86,10 +95,22 @@ const ProduitsDigitaux = () => {
             {filtered.map((p, i) => (
               <Reveal key={p.id} delay={i * 50} className="card-premium overflow-hidden flex flex-col group">
                 <div className="aspect-[4/3] bg-secondary relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-champagne/20 via-transparent to-ink/10" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="font-display text-5xl text-ink/15 leading-none">{p.title.split(" ").slice(0, 2).join(" ")}</div>
-                  </div>
+                  {productImages[p.id] ? (
+                    <img
+                      src={productImages[p.id]}
+                      alt={p.title}
+                      className="h-full w-full object-cover saturate-[0.82] contrast-[0.96] transition-transform duration-700 group-hover:scale-[1.035]"
+                      loading="lazy"
+                      width={1280}
+                      height={960}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-secondary">
+                      <div className="font-display text-5xl text-ink/15 leading-none">{p.title.split(" ").slice(0, 2).join(" ")}</div>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/20 to-ink/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-transparent to-background/15" />
                   <div className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] bg-background/90 backdrop-blur px-3 py-1.5 rounded-sm">{p.category}</div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
