@@ -12,11 +12,17 @@ import { useLang } from "@/i18n/useLang";
 import playbookTransformationImage from "@/assets/product-playbook-transformation-finance-sap.jpg";
 import guideS4HanaFinanceImage from "@/assets/product-guide-s4hana-finance.jpg";
 import processMappingImage from "@/assets/product-template-process-mapping-finance-sap.jpg";
+import goLiveChecklistImage from "@/assets/product-checklist-go-live-finance-sap.jpg";
+import keyUserKitImage from "@/assets/product-kit-key-user-sap.jpg";
+import controllingGuideImage from "@/assets/product-guide-controlling-sap-co.jpg";
 
 const productImages: Record<string, string> = {
   "playbook-sap-finance": playbookTransformationImage,
   "guide-s4hana-finance": guideS4HanaFinanceImage,
   "template-cartographie-processus": processMappingImage,
+  "checklist-go-live": goLiveChecklistImage,
+  "ressource-key-user": keyUserKitImage,
+  "guide-controlling": controllingGuideImage,
 };
 
 const ProduitsDigitaux = () => {
