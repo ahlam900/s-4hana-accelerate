@@ -40,19 +40,19 @@ const ProduitsDigitaux = () => {
           <div className="max-w-4xl">
             <div className="eyebrow mb-6">{tx("Ressources premium", "Premium Resources")}</div>
             <h1 className="display-lg text-foreground">
-              {tx("Outils, supports et contenus avancés ", "Tools, frameworks and advanced content for ")}<em className="not-italic text-champagne font-display">{tx("SAP Finance", "SAP Finance")}</em>.
+              {tx("Des ressources premium pour structurer vos enjeux ", "Premium resources to structure your ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP", "SAP Finance")}</em>{tx(".", " priorities.")}
             </h1>
             <p className="lede mt-6 max-w-2xl text-muted-foreground">
               {tx(
-                "Playbooks, guides et templates issus de projets S/4HANA réels — des ressources premium à forte valeur ajoutée, prêtes à être utilisées en mission ou en formation interne par les professionnels et équipes Finance les plus exigeants.",
-                "Playbooks, guides and templates drawn from real S/4HANA projects — high-value premium resources, ready to be used in delivery or internal training by the most demanding finance professionals and teams."
+                "Playbooks, guides, templates et kits opérationnels conçus pour aider les professionnels et les équipes Finance SAP à cadrer, exécuter, former et sécuriser leurs projets.",
+                "Playbooks, guides, templates and operational kits designed to help SAP Finance professionals and teams scope, execute, train and secure their projects."
               )}
             </p>
             <ul className="mt-9 space-y-3 max-w-xl border-t border-border pt-7">
               {[
-                tx("Méthodes éprouvées sur des projets S/4HANA réels", "Methods proven on real S/4HANA projects"),
-                tx("Templates directement utilisables en mission", "Templates ready to use in delivery"),
-                tx("Référentiels pour structurer formation et adoption", "Frameworks to structure training and adoption"),
+                tx("Méthodes issues de contextes Finance SAP réels", "Methods drawn from real SAP Finance contexts"),
+                tx("Templates directement exploitables en mission", "Templates ready to use in delivery"),
+                tx("Supports conçus pour la formation, l'adoption et l'exécution", "Materials designed for training, adoption and execution"),
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[14.5px] text-foreground/85 leading-relaxed">
                   <span className="text-champagne shrink-0 mt-0.5">✔</span>
@@ -65,7 +65,7 @@ const ProduitsDigitaux = () => {
                 <Link to={localize("/contact")}>{tx("Demander un accès anticipé", "Request early access")} <ArrowRight /></Link>
               </Button>
               <p className="mt-4 text-[12.5px] text-muted-foreground inline-flex items-center gap-2">
-                <span className="text-champagne">✦</span> {tx("Catalogue en cours de finalisation — accès prioritaire sur demande", "Catalog being finalized — priority access on request")}
+                <span className="text-champagne">✦</span> {tx("Catalogue en cours de finalisation · accès prioritaire sur demande", "Catalog being finalized · priority access on request")}
               </p>
             </div>
           </div>
@@ -161,8 +161,8 @@ const ProduitsDigitaux = () => {
           </h2>
           <p className="lede mt-6 max-w-2xl mx-auto text-muted-foreground">
             {tx(
-              "Nous concevons playbooks, supports de formation et templates calibrés sur vos processus, votre organisation et votre feuille de route S/4HANA.",
-              "We design playbooks, training materials and templates calibrated on your processes, your organization and your S/4HANA roadmap."
+              "Nous concevons des playbooks, supports de formation, kits opérationnels et templates adaptés à vos processus, à votre organisation et à vos enjeux Finance SAP.",
+              "We design playbooks, training materials, operational kits and templates tailored to your processes, organization and SAP Finance priorities."
             )}
           </p>
           <Button asChild size="lg" variant="ink" className="mt-8">
