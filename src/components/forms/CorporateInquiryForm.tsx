@@ -147,8 +147,8 @@ const CorporateInquiryForm = ({ defaultOffre = "" }: Props) => {
         <Input
           {...register("besoin")}
           placeholder={tx(
-            "Ex. Cadrage d'un projet S/4HANA, montée en compétence des équipes, optimisation des processus Finance…",
-            "E.g. S/4HANA project scoping, team upskilling, finance process optimization…"
+            "Ex. : cadrage d'une transformation Finance SAP, préparation des Key Users, alignement métier / SAP, sécurisation du déploiement",
+            "E.g. SAP Finance transformation scoping, Key User preparation, business / SAP alignment, deployment security"
           )}
         />
       </Field>
