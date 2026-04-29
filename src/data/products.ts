@@ -108,7 +108,7 @@ export const products: DigitalProduct[] = [
     id: "checklist-go-live",
     slug: "checklist-go-live-sap-finance",
     title: "Checklist Go-Live Finance SAP",
-    category: "Templates",
+    category: "Kits opérationnels",
     shortDescription:
       "La checklist complète pour sécuriser un go-live Finance SAP et réduire les angles morts opérationnels.",
     longDescription:
