@@ -193,6 +193,184 @@ export const products: DigitalProduct[] = [
       "Améliorer la qualité du reporting",
     ],
   },
+  {
+    id: "playbook-cadrage-finance-cible",
+    slug: "playbook-cadrage-finance-cible",
+    title: "Playbook de cadrage Finance cible",
+    category: "Playbooks",
+    shortDescription:
+      "Un support structurant pour préparer les ateliers de cadrage et formaliser les choix de conception Finance SAP.",
+    longDescription:
+      "Un playbook expert pour préparer, animer et formaliser les ateliers de cadrage Finance SAP : trame d'ateliers, points de décision, arbitrages structurants et formalisation des choix de conception cible.",
+    audience: "Directions Finance, PMO, consultants SAP",
+    format: "PDF expert",
+    pages: "64 pages",
+    price: 129,
+    valueBullets: [
+      "Prépare les ateliers de cadrage",
+      "Clarifie les choix de conception",
+      "Structure les décisions amont",
+    ],
+    highlights: [
+      "Trame d'ateliers de cadrage",
+      "Grille d'arbitrages structurants",
+      "Formalisation des choix cible",
+      "Points de décision clés",
+    ],
+    benefits: [
+      "Sécuriser les décisions amont",
+      "Aligner Finance, IT et intégrateur",
+      "Réduire les reprises en phase de design",
+    ],
+  },
+  {
+    id: "template-raci-projet-sap-finance",
+    slug: "template-raci-projet-sap-finance",
+    title: "Template RACI projet SAP Finance",
+    category: "Templates",
+    shortDescription:
+      "Un modèle prêt à l'emploi pour clarifier les rôles, responsabilités et circuits de décision d'un projet Finance SAP.",
+    longDescription:
+      "Un template RACI structuré pour les projets Finance SAP : activités clés par phase, répartition des rôles métier, IT et intégrateur, circuits de décision et règles de gouvernance.",
+    audience: "PMO, chefs de projet, directions Finance & IT",
+    format: "Excel + PDF guide",
+    price: 49,
+    valueBullets: [
+      "Clarifie la gouvernance",
+      "Réduit les zones floues",
+      "Accélère l'alignement projet",
+    ],
+    highlights: [
+      "Activités par phase projet",
+      "Rôles métier, IT, intégrateur",
+      "Circuits de décision",
+      "Guide d'utilisation",
+    ],
+    benefits: [
+      "Clarifier les responsabilités projet",
+      "Sécuriser la gouvernance",
+      "Réduire les frictions inter-équipes",
+    ],
+  },
+  {
+    id: "kit-hypercare-finance-sap",
+    slug: "kit-hypercare-finance-sap",
+    title: "Kit Hypercare Finance SAP",
+    category: "Kits opérationnels",
+    shortDescription:
+      "Le support opérationnel pour organiser l'après go-live, stabiliser les usages et structurer le support des équipes.",
+    longDescription:
+      "Un kit dédié à la phase d'hypercare Finance SAP : organisation du support, suivi des irritants, traitement des incidents, gouvernance de stabilisation et passage en run.",
+    audience: "Équipes projet, responsables support, key users",
+    format: "PDF + templates",
+    pages: "48 pages",
+    price: 89,
+    valueBullets: [
+      "Organisation de l'hypercare",
+      "Suivi des irritants et incidents",
+      "Stabilisation des usages après déploiement",
+    ],
+    highlights: [
+      "Organisation du support post go-live",
+      "Suivi des irritants",
+      "Gouvernance de stabilisation",
+      "Passage en mode run",
+    ],
+    benefits: [
+      "Stabiliser rapidement les usages",
+      "Réduire les irritants opérationnels",
+      "Structurer le passage au run",
+    ],
+  },
+  {
+    id: "playbook-adoption-post-go-live",
+    slug: "playbook-adoption-post-go-live",
+    title: "Playbook d'adoption post go-live",
+    category: "Playbooks",
+    shortDescription:
+      "Le playbook pour éviter la chute d'adhésion après déploiement et ancrer les nouveaux usages Finance SAP.",
+    longDescription:
+      "Un playbook orienté adoption pour pérenniser les nouveaux usages Finance SAP après le go-live : relais internes, rituels d'ancrage, mesure d'adoption et continuité de la conduite du changement.",
+    audience: "Responsables transformation, équipes projet, key users",
+    format: "PDF expert",
+    pages: "58 pages",
+    price: 119,
+    valueBullets: [
+      "Ancrage des usages dans la durée",
+      "Structuration des relais internes",
+      "Continuité après le go-live",
+    ],
+    highlights: [
+      "Plan d'adoption post déploiement",
+      "Réseau de relais internes",
+      "Rituels d'ancrage",
+      "Indicateurs d'adoption",
+    ],
+    benefits: [
+      "Éviter la chute d'adhésion",
+      "Ancrer les nouveaux usages",
+      "Mesurer l'adoption réelle",
+    ],
+  },
+  {
+    id: "template-plan-montee-competence-key-users",
+    slug: "template-plan-montee-competence-key-users",
+    title: "Template plan de montée en compétence Key Users",
+    category: "Templates",
+    shortDescription:
+      "Le modèle opérationnel pour structurer un dispositif de montée en compétence par profil, rôle et niveau d'autonomie.",
+    longDescription:
+      "Un template prêt à l'emploi pour structurer la montée en compétence des Key Users SAP : parcours par profil, niveaux d'autonomie attendus, suivi pédagogique et logique train-the-trainer.",
+    audience: "Responsables formation, chefs de projet, managers métiers",
+    format: "Excel + PDF guide",
+    price: 59,
+    valueBullets: [
+      "Progression par profil",
+      "Pilotage pédagogique clair",
+      "Support train-the-trainer",
+    ],
+    highlights: [
+      "Parcours par profil",
+      "Niveaux d'autonomie",
+      "Suivi pédagogique",
+      "Logique train-the-trainer",
+    ],
+    benefits: [
+      "Structurer la montée en compétence",
+      "Piloter la pédagogie projet",
+      "Préparer un dispositif train-the-trainer",
+    ],
+  },
+  {
+    id: "guide-gouvernance-projet-sap-finance",
+    slug: "guide-gouvernance-projet-sap-finance",
+    title: "Guide de gouvernance projet SAP Finance",
+    category: "Guides",
+    shortDescription:
+      "Les repères essentiels pour piloter un programme Finance SAP avec plus de clarté, de maîtrise et de cohérence entre acteurs.",
+    longDescription:
+      "Un guide pour structurer la gouvernance d'un programme Finance SAP : instances, rythmes de pilotage, indicateurs clés, articulation Finance / IT / intégrateur et gestion des arbitrages.",
+    audience: "Sponsors, directions Finance, PMO, responsables transformation",
+    format: "PDF haute qualité",
+    pages: "66 pages",
+    price: 109,
+    valueBullets: [
+      "Clarifie les instances et décisions",
+      "Aide à structurer le pilotage",
+      "Renforce l'alignement des parties prenantes",
+    ],
+    highlights: [
+      "Instances de gouvernance",
+      "Rythmes de pilotage",
+      "Indicateurs clés programme",
+      "Articulation Finance / IT / intégrateur",
+    ],
+    benefits: [
+      "Clarifier le pilotage du programme",
+      "Aligner sponsors et équipes",
+      "Sécuriser les arbitrages clés",
+    ],
+  },
 ];
 
 export const productCategories = [
