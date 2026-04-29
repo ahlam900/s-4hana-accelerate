@@ -23,6 +23,12 @@ const productImages: Record<string, string> = {
   "checklist-go-live": goLiveChecklistImage,
   "ressource-key-user": keyUserKitImage,
   "guide-controlling": controllingGuideImage,
+  "playbook-cadrage-finance-cible": playbookTransformationImage,
+  "template-raci-projet-sap-finance": processMappingImage,
+  "kit-hypercare-finance-sap": goLiveChecklistImage,
+  "playbook-adoption-post-go-live": keyUserKitImage,
+  "template-plan-montee-competence-key-users": processMappingImage,
+  "guide-gouvernance-projet-sap-finance": controllingGuideImage,
 };
 
 const ProduitsDigitaux = () => {
