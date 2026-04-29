@@ -19,19 +19,19 @@ const APropos = () => {
           <div className="max-w-4xl">
             <div className="eyebrow mb-6">CBS Finance Institute</div>
             <h1 className="display-lg text-foreground">
-              {tx("L'institut spécialisé pour former, transformer et ancrer l'", "The specialized institute to train, transform and embed ")}<em className="not-italic text-champagne font-display">{tx("adoption SAP Finance", "SAP Finance adoption")}</em>.
+              {tx("L'institut spécialisé pour former, transformer et rendre la ", "The specialized institute to train, transform and make ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP durable", "SAP Finance sustainable")}</em>.
             </h1>
             <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
               <p className="lede">
                 {tx(
-                  "Nous formons les professionnels Finance SAP, accompagnons les directions Finance dans leurs programmes S/4HANA et préparons les Key Users à sécuriser le déploiement.",
-                  "We train SAP Finance professionals, support finance leaders through their S/4HANA programs and prepare Key Users to secure every deployment."
+                  "Nous formons les professionnels Finance SAP, accompagnons les directions Finance dans leurs transformations et préparons les équipes à sécuriser l'adoption des nouveaux processus.",
+                  "We train SAP Finance professionals, support finance leaders through their transformations and prepare teams to secure the adoption of new processes."
                 )}
               </p>
               <p className="text-[15px] leading-relaxed">
                 {tx(
-                  "Une seule discipline, traitée en profondeur : la Finance SAP — des processus à leur paramétrage, et des équipes à leur autonomie.",
-                  "A single discipline, treated in depth: SAP Finance — from processes to configuration, and from teams to autonomy."
+                  "Une seule discipline, traitée en profondeur : la Finance SAP — des processus à leur traduction dans SAP, et des équipes à leur autonomie.",
+                  "A single discipline, treated in depth: SAP Finance — from processes to their translation into SAP, and from teams to autonomy."
                 )}
               </p>
             </div>
@@ -50,14 +50,14 @@ const APropos = () => {
             <div className="mt-6 space-y-5">
               <p className="lede">
                 {tx(
-                  "Nous intervenons au cœur des programmes S/4HANA des directions Finance et IT : processus core, architecture cible, alignement organisationnel et conduite de l'exécution.",
-                  "We operate at the heart of finance and IT S/4HANA programs: core processes, target architecture, organizational alignment and execution leadership."
+                  "Nous intervenons au cœur des programmes Finance SAP des directions Finance et IT : processus core, architecture cible, alignement organisationnel et conduite de l'exécution.",
+                  "We operate at the heart of SAP Finance programs run by finance and IT leaders: core processes, target architecture, organizational alignment and execution leadership."
                 )}
               </p>
               <p className="text-[15px] leading-relaxed text-muted-foreground">
                 {tx(
-                  "Nos parcours de formation prolongent cette expertise terrain et préparent professionnels, consultants et Key Users à intervenir avec le même niveau d'exigence en environnement réel.",
-                  "Our training programs extend this field expertise and prepare professionals, consultants and Key Users to perform with the same level of rigor in real environments."
+                  "Nos parcours de formation prolongent cette expertise terrain et préparent professionnels, consultants et key users à intervenir avec le même niveau d'exigence en environnement réel.",
+                  "Our training programs extend this field expertise and prepare professionals, consultants and key users to perform with the same level of rigor in real environments."
                 )}
               </p>
             </div>
@@ -84,11 +84,11 @@ const APropos = () => {
           <div className="max-w-3xl mb-14">
             <div className="eyebrow mb-6">{tx("Notre différence", "Our difference")}</div>
             <h2 className="display-md">
-              {tx("Une approche distincte de la transformation ", "A distinct approach to ")}<em className="not-italic text-champagne font-display">{tx("SAP Finance", "SAP Finance transformation")}</em>.
+              {tx("Une approche distincte de la transformation ", "A distinct approach to ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP", "SAP Finance transformation")}</em>.
             </h2>
             <div className="mt-6 space-y-2 text-muted-foreground lede">
-              <p>{tx("Nous n'enseignons pas SAP Finance.", "We don't simply teach SAP Finance.")}</p>
-              <p>{tx("Nous préparons des organisations à le maîtriser dans la durée.", "We prepare organizations to master it over the long term.")}</p>
+              <p>{tx("Nous n'enseignons pas seulement la Finance SAP.", "We don't simply teach SAP Finance.")}</p>
+              <p>{tx("Nous préparons les organisations à la maîtriser dans la durée.", "We prepare organizations to master it over the long term.")}</p>
             </div>
           </div>
 
@@ -97,29 +97,29 @@ const APropos = () => {
               {
                 title: tx("Logique projet, pas logique académique", "Project logic, not academic logic"),
                 text: tx(
-                  "Nos interventions et nos parcours sont structurés autour des cycles réels de transformation S/4HANA : cadrage, design, déploiement, run.",
-                  "Our engagements and programs are structured around the real cycles of S/4HANA transformation: scoping, design, deployment, run."
+                  "Nos interventions et nos parcours sont structurés autour des cycles réels de transformation : cadrage, design, déploiement et autonomie post-projet.",
+                  "Our engagements and programs are structured around the real cycles of transformation: scoping, design, deployment and post-project autonomy."
                 ),
               },
               {
                 title: tx("Double expertise Finance & SAP", "Dual Finance & SAP expertise"),
                 text: tx(
-                  "Maîtrise des processus Finance et de leur traduction dans une architecture S/4HANA — sans rupture entre la vision métier et l'implémentation.",
-                  "Mastery of finance processes and their translation into an S/4HANA architecture — without rupture between business vision and implementation."
+                  "Maîtrise des processus Finance et de leur traduction dans SAP, sans rupture entre vision métier et mise en œuvre.",
+                  "Mastery of finance processes and their translation into SAP, with no rupture between business vision and execution."
                 ),
               },
               {
-                title: tx("Capability building opérationnel", "Operational capability building"),
+                title: tx("Montée en compétence opérationnelle", "Operational capability building"),
                 text: tx(
-                  "Nous développons des profils et des équipes capables d'intervenir, pas seulement de comprendre — autonomie, décision, exécution.",
-                  "We develop people and teams able to deliver, not merely to understand — autonomy, decision, execution."
+                  "Nous développons des profils et des équipes capables d'intervenir, de décider et d'exécuter avec plus d'autonomie.",
+                  "We develop people and teams able to act, decide and execute with greater autonomy."
                 ),
               },
               {
                 title: tx("Standards et exigence d'exécution", "Standards and execution rigor"),
                 text: tx(
-                  "Un niveau de rigueur aligné sur les programmes SAP les plus structurants : structure, livrables, gouvernance, qualité.",
-                  "A level of rigor aligned with the most structuring SAP programs: structure, deliverables, governance, quality."
+                  "Un niveau de rigueur aligné sur les programmes les plus structurants : structure, livrables, gouvernance et qualité.",
+                  "A level of rigor aligned with the most structuring programs: structure, deliverables, governance and quality."
                 ),
               },
             ].map((c, i) => (
@@ -164,13 +164,13 @@ const APropos = () => {
                 },
                 {
                   k: "SAP",
-                  master: tx("Expertise fonctionnelle et technique avancée sur S/4HANA Finance.", "Advanced functional and technical expertise on S/4HANA Finance."),
-                  why: tx("Concevoir une architecture solide, performante et cohérente avec la vision métier.", "Design an architecture that is robust, performant and consistent with the business vision."),
+                  master: tx("Expertise fonctionnelle et architecture Finance dans SAP.", "Functional expertise and finance architecture within SAP."),
+                  why: tx("Concevoir une cible cohérente, robuste et alignée avec les besoins métier.", "Design a target that is coherent, robust and aligned with business needs."),
                 },
                 {
                   k: tx("Transformation", "Transformation"),
-                  master: tx("Méthodologie projet, gouvernance, conduite du changement, go-live readiness.", "Project methodology, governance, change management, go-live readiness."),
-                  why: tx("Sécuriser l'exécution, l'adoption et la création de valeur sur la durée.", "Secure execution, adoption and value creation over time."),
+                  master: tx("Méthodologie projet, gouvernance, conduite du changement, préparation du déploiement.", "Project methodology, governance, change management, deployment readiness."),
+                  why: tx("Sécuriser l'exécution, l'adoption et la création de valeur dans la durée.", "Secure execution, adoption and value creation over time."),
                 },
               ].map((p, i) => (
                 <div key={p.k} className="bg-ink p-8">
@@ -193,12 +193,12 @@ const APropos = () => {
           <div className="max-w-3xl mb-14">
             <div className="eyebrow mb-6">{tx("Exécution", "Execution")}</div>
             <h2 className="display-md">
-              {tx("Un partenaire pour exécuter vos transformations ", "A partner to execute your ")}<em className="not-italic text-champagne font-display">{tx("SAP Finance", "SAP Finance transformations")}</em>.
+              {tx("Un partenaire pour exécuter vos transformations ", "A partner to execute your ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP", "SAP Finance transformations")}</em>.
             </h2>
             <p className="lede mt-6 text-muted-foreground">
               {tx(
-                "Sur des programmes à fort enjeu, la qualité d'exécution conditionne directement la valeur créée. Notre rôle est d'apporter le niveau de rigueur que ces environnements exigent.",
-                "On high-stakes programs, the quality of execution directly conditions value creation. Our role is to bring the level of rigor these environments demand."
+                "Sur les programmes à fort enjeu, la qualité d'exécution conditionne directement la valeur créée. Notre rôle est d'apporter le niveau de structure, de rigueur et de maîtrise que ces environnements exigent.",
+                "On high-stakes programs, the quality of execution directly conditions value creation. Our role is to bring the level of structure, rigor and mastery these environments demand."
               )}
             </p>
           </div>
@@ -210,8 +210,8 @@ const APropos = () => {
               <ul className="space-y-4">
                 {[
                   { k: tx("Processus Finance core", "Core finance processes"), v: tx("Record-to-Report, Procure-to-Pay, Order-to-Cash.", "Record-to-Report, Procure-to-Pay, Order-to-Cash.") },
-                  { k: tx("Transformation S/4HANA", "S/4HANA transformation"), v: tx("Cadrage, design, déploiement et reprises de données.", "Scoping, design, deployment and data migration.") },
-                  { k: tx("Alignement Finance / IT", "Finance / IT alignment"), v: tx("Traduction des exigences métier en architecture cible.", "Translating business requirements into the target architecture.") },
+                  { k: tx("Transformation SAP Finance", "SAP Finance transformation"), v: tx("Cadrage, design, déploiement et structuration des transitions.", "Scoping, design, deployment and structuring of transitions.") },
+                  { k: tx("Alignement Finance / IT", "Finance / IT alignment"), v: tx("Traduction des exigences métier en cible exploitable.", "Translating business requirements into an operable target.") },
                   { k: tx("Gouvernance & operating model", "Governance & operating model"), v: tx("Organisation cible, responsabilités, instances de pilotage.", "Target organization, responsibilities, steering bodies.") },
                   { k: tx("Team enablement", "Team enablement"), v: tx("Montée en compétence des équipes pour sécuriser l'autonomie post-projet.", "Team upskilling to secure post-project autonomy.") },
                 ].map((m) => (
@@ -232,10 +232,10 @@ const APropos = () => {
               <ul className="space-y-4">
                 {[
                   tx("Désalignement entre vision Finance et conception SAP.", "Misalignment between finance vision and SAP design."),
-                  tx("Faible adoption des nouveaux processus par les équipes opérationnelles.", "Weak adoption of new processes by operational teams."),
+                  tx("Faible adoption des nouveaux processus par les équipes.", "Weak adoption of new processes by the teams."),
                   tx("Dérives de planning et explosion des coûts en phase de réalisation.", "Schedule slippage and cost overruns during build phase."),
                   tx("Dépendance excessive vis-à-vis des intégrateurs externes.", "Excessive dependency on external integrators."),
-                  tx("Go-live readiness insuffisante : reprises de données, tests, cutover.", "Insufficient go-live readiness: data migration, testing, cutover."),
+                  tx("Préparation insuffisante au déploiement : tests, données, cutover.", "Insufficient deployment readiness: testing, data, cutover."),
                 ].map((r) => (
                   <li key={r} className="flex gap-4 border-t border-border pt-4 first:border-0 first:pt-0">
                     <span className="text-champagne font-display text-xs tracking-[0.15em] pt-1 shrink-0 w-2">—</span>
@@ -248,7 +248,7 @@ const APropos = () => {
 
           <div className="border-t border-border pt-10">
             <p className="font-display text-xl md:text-2xl leading-snug max-w-3xl">
-              <span className="text-champagne">{tx("Notre rôle :", "Our role:")}</span> {tx("apporter la structure, la rigueur et l'expertise qui sécurisent l'exécution et garantissent la création de valeur.", "to bring the structure, rigor and expertise that secure execution and guarantee value creation.")}
+              <span className="text-champagne">{tx("Notre rôle :", "Our role:")}</span> {tx("apporter la structure, la rigueur et l'expertise qui sécurisent l'exécution et soutiennent la création de valeur.", "to bring the structure, rigor and expertise that secure execution and sustain value creation.")}
             </p>
           </div>
         </div>
@@ -266,10 +266,10 @@ const APropos = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border border border-border rounded-sm overflow-hidden">
             {[
               { k: tx("Risque", "Risk"), v: tx("Réduction des risques projet, financiers et de conformité.", "Reduced project, financial and compliance risks.") },
-              { k: tx("Accélération", "Acceleration"), v: tx("Cycles de design et de déploiement raccourcis.", "Shortened design and deployment cycles.") },
-              { k: tx("Autonomie", "Autonomy"), v: tx("Indépendance accrue vis-à-vis des intégrateurs externes.", "Greater independence from external integrators.") },
-              { k: tx("Adoption", "Adoption"), v: tx("Appropriation rapide par les équipes Finance et opérationnelles.", "Rapid ownership by finance and operational teams.") },
-              { k: tx("Performance", "Performance"), v: tx("Processus Finance plus fiables, plus rapides, plus auditables.", "Finance processes that are more reliable, faster, more auditable.") },
+              { k: tx("Accélération", "Acceleration"), v: tx("Cycles de design et de déploiement plus courts et mieux maîtrisés.", "Shorter, better-controlled design and deployment cycles.") },
+              { k: tx("Autonomie", "Autonomy"), v: tx("Indépendance accrue vis-à-vis des partenaires externes.", "Greater independence from external partners.") },
+              { k: tx("Adoption", "Adoption"), v: tx("Appropriation plus rapide par les équipes Finance et opérationnelles.", "Faster ownership by finance and operational teams.") },
+              { k: tx("Performance", "Performance"), v: tx("Processus Finance plus fiables, plus rapides et plus auditables.", "Finance processes that are more reliable, faster and more auditable.") },
             ].map((it) => (
               <div key={it.k} className="bg-background p-6">
                 <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-3">{it.k}</div>
@@ -297,10 +297,10 @@ const APropos = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border rounded-sm overflow-hidden">
             {[
-              { k: "S/4HANA", v: tx("Programmes de transformation full-scope.", "Full-scope transformation programs.") },
-              { k: tx("Multi-entités", "Multi-entity"), v: tx("Environnements internationaux et consolidés.", "International, consolidated environments.") },
-              { k: tx("Standardisation", "Standardization"), v: tx("Harmonisation des processus Finance core.", "Harmonization of core finance processes.") },
-              { k: "Go-live readiness", v: tx("Migration de données, tests et cutover sécurisés.", "Secured data migration, testing and cutover.") },
+              { k: tx("Transformation", "Transformation"), v: tx("Programmes de transformation Finance à forte intensité organisationnelle.", "Finance transformation programs with high organizational intensity.") },
+              { k: tx("Multi-entités", "Multi-entity"), v: tx("Environnements internationaux, consolidés et multi-acteurs.", "International, consolidated, multi-stakeholder environments.") },
+              { k: tx("Standardisation", "Standardization"), v: tx("Harmonisation des processus Finance core et des pratiques de pilotage.", "Harmonization of core finance processes and steering practices.") },
+              { k: tx("Déploiement", "Deployment"), v: tx("Préparation des tests, des données, du cutover et de la stabilisation.", "Preparation of testing, data, cutover and stabilization.") },
             ].map((c) => (
               <div key={c.k} className="bg-background p-8">
                 <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-3">{c.k}</div>
