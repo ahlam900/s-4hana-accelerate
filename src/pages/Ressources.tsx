@@ -289,7 +289,217 @@ const Ressources = () => {
         </div>
       </section>
 
+      {/* PREMIUM SAP FINANCE RESOURCES — FREE KITS */}
+      <section id="kits" className="section-y bg-ink text-ivory">
+        <div className="container-wide">
+          <div className="max-w-3xl mb-16">
+            <div className="eyebrow mb-6 text-ivory/60">Premium SAP Finance Resources</div>
+            <h2 className="display-md text-ivory">
+              Consulting-grade <em className="not-italic text-champagne font-display">SAP S/4HANA Finance</em> kits — free.
+            </h2>
+            <p className="lede text-ivory/75 mt-6">
+              Access a curated collection of free, consulting-grade SAP S/4HANA Finance operational kits designed for real project execution.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {kits.map((k, i) => {
+              const Icon = k.icon;
+              return (
+                <Reveal
+                  key={k.id}
+                  delay={i * 60}
+                  className="group relative flex flex-col rounded-lg border border-ivory/15 bg-ink-soft/40 p-8 transition-all duration-300 hover:border-champagne/40 hover:bg-ink-soft/60"
+                >
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="h-11 w-11 rounded-sm bg-ivory/[0.06] border border-ivory/15 flex items-center justify-center">
+                      <Icon className="h-5 w-5 text-champagne" />
+                    </div>
+                    <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-champagne border border-champagne/40 px-2.5 py-1 rounded-sm">
+                      {k.label}
+                    </span>
+                  </div>
+
+                  <h3 className="font-display text-xl text-ivory leading-snug">{k.title}</h3>
+                  <p className="text-[14px] text-champagne/90 mt-2 italic">{k.subtitle}</p>
+
+                  <p className="text-[14px] text-ivory/70 mt-5 leading-relaxed">{k.description}</p>
+
+                  <div className="mt-6 pt-6 border-t border-ivory/10">
+                    <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-ivory/50 mb-3">
+                      Key deliverables
+                    </div>
+                    <ul className="space-y-2">
+                      {k.deliverables.map((d) => (
+                        <li key={d} className="flex gap-2.5 text-[13px] text-ivory/80 leading-snug">
+                          <span className="text-champagne mt-1.5 h-1 w-1 rounded-full bg-champagne shrink-0" />
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-6 pt-5 border-t border-ivory/10 flex-1">
+                    <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-ivory/50 mb-2">
+                      Expected outcome
+                    </div>
+                    <p className="text-[13px] text-ivory/85 leading-relaxed">{k.outcome}</p>
+                  </div>
+
+                  <Button
+                    type="button"
+                    variant="champagne"
+                    size="lg"
+                    className="mt-7 w-full"
+                    onClick={() => openKitDialog(k.id, k.id.toUpperCase())}
+                  >
+                    <Download className="h-4 w-4" /> Download Free Kit
+                  </Button>
+                </Reveal>
+              );
+            })}
+
+            {/* Full Toolkit block */}
+            <Reveal
+              delay={kits.length * 60}
+              className="md:col-span-2 lg:col-span-3 relative overflow-hidden rounded-lg border border-champagne/40 bg-gradient-to-br from-ink-soft/60 via-ink to-ink p-10 md:p-14"
+            >
+              <div className="grid lg:grid-cols-12 gap-10 items-center">
+                <div className="lg:col-span-8">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="h-10 w-10 rounded-sm bg-champagne/15 border border-champagne/40 flex items-center justify-center">
+                      <ShieldCheck className="h-5 w-5 text-champagne" />
+                    </div>
+                    <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-champagne">
+                      Full Access — 5 kits bundled
+                    </span>
+                  </div>
+                  <h3 className="font-display text-3xl md:text-4xl text-ivory leading-tight">
+                    SAP FI Core Toolkit — <em className="not-italic text-champagne">Full Access</em>
+                  </h3>
+                  <p className="text-[15px] text-ivory/75 mt-5 leading-relaxed max-w-2xl">
+                    Access all 5 SAP S/4HANA Finance kits in one place and build a complete understanding of core financial processes:
+                    General Ledger, Accounts Payable, Accounts Receivable, Bank Accounting and Payment Program.
+                  </p>
+                </div>
+                <div className="lg:col-span-4 lg:text-right">
+                  <Button
+                    type="button"
+                    variant="champagne"
+                    size="lg"
+                    onClick={() => openKitDialog("full", "Full Toolkit")}
+                    className="w-full lg:w-auto"
+                  >
+                    Access Full Toolkit <ArrowRight />
+                  </Button>
+                  <div className="mt-4 text-[11px] uppercase tracking-[0.18em] text-ivory/50">
+                    Free — sent to your professional inbox
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Lead Capture Dialog */}
+      <Dialog open={kitDialogOpen} onOpenChange={setKitDialogOpen}>
+        <DialogContent className="max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="font-display text-2xl">Access your free SAP Finance kit</DialogTitle>
+            <DialogDescription>
+              Tell us a bit about you. Your kit will be sent to your professional inbox.
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleKitSubmit} className="space-y-4 mt-2">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <Label htmlFor="firstName">First name</Label>
+                <Input
+                  id="firstName"
+                  required
+                  maxLength={80}
+                  value={leadForm.firstName}
+                  onChange={(e) => setLeadForm({ ...leadForm, firstName: e.target.value })}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="lastName">Last name</Label>
+                <Input
+                  id="lastName"
+                  required
+                  maxLength={80}
+                  value={leadForm.lastName}
+                  onChange={(e) => setLeadForm({ ...leadForm, lastName: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="proEmail">Professional email</Label>
+              <Input
+                id="proEmail"
+                type="email"
+                required
+                maxLength={255}
+                value={leadForm.email}
+                onChange={(e) => setLeadForm({ ...leadForm, email: e.target.value })}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <Label htmlFor="company">Company</Label>
+                <Input
+                  id="company"
+                  required
+                  maxLength={120}
+                  value={leadForm.company}
+                  onChange={(e) => setLeadForm({ ...leadForm, company: e.target.value })}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="role">Role</Label>
+                <Input
+                  id="role"
+                  required
+                  maxLength={120}
+                  value={leadForm.role}
+                  onChange={(e) => setLeadForm({ ...leadForm, role: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label>Interest</Label>
+              <Select
+                value={leadForm.interest}
+                onValueChange={(v) => setLeadForm({ ...leadForm, interest: v })}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select a kit" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="GL">General Ledger (GL)</SelectItem>
+                  <SelectItem value="AP">Accounts Payable (AP)</SelectItem>
+                  <SelectItem value="AR">Accounts Receivable (AR)</SelectItem>
+                  <SelectItem value="Bank">Bank Accounting</SelectItem>
+                  <SelectItem value="F110">Payment Program (F110)</SelectItem>
+                  <SelectItem value="Full Toolkit">Full Toolkit</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <DialogFooter className="pt-2">
+              <Button type="submit" variant="ink" size="lg" className="w-full">
+                <Download className="h-4 w-4" /> Send me the kit
+              </Button>
+            </DialogFooter>
+            <p className="text-[11px] text-muted-foreground text-center">
+              Your data is used solely to send you this resource. No spam.
+            </p>
+          </form>
+        </DialogContent>
+      </Dialog>
+
       {/* CHALLENGES */}
+
       <section className="section-y">
         <div className="container-wide">
           <div className="max-w-3xl mb-14">
