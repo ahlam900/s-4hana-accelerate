@@ -48,6 +48,134 @@ const Ressources = () => {
   const tx = useTx();
   const { localize } = useLang();
   const [email, setEmail] = useState("");
+  const [kitDialogOpen, setKitDialogOpen] = useState(false);
+  const [selectedKit, setSelectedKit] = useState<string>("");
+  const [leadForm, setLeadForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    role: "",
+    interest: "",
+  });
+
+  const kits = [
+    {
+      id: "gl",
+      icon: Landmark,
+      label: "Free SAP Finance Kit",
+      title: "General Ledger Configuration Kit",
+      subtitle: "Build and validate the financial backbone of SAP S/4HANA.",
+      description:
+        "A consulting-grade operational kit to structure and configure the core General Ledger components in SAP S/4HANA — chart of accounts, GL accounts, document control and financial reporting structure.",
+      deliverables: [
+        "Chart of accounts matrix",
+        "GL account configuration sheet",
+        "Document types & number ranges",
+        "Ledger configuration framework",
+        "Financial Statement Version (FSV)",
+        "GL validation checklist",
+      ],
+      outcome: "Configure a complete and auditable General Ledger ready for testing.",
+    },
+    {
+      id: "ap",
+      icon: Receipt,
+      label: "Free SAP Finance Kit",
+      title: "Accounts Payable Configuration Kit",
+      subtitle: "Structure and execute the end-to-end vendor accounting cycle.",
+      description:
+        "A practical SAP S/4HANA kit to configure supplier accounting processes — Business Partner, reconciliation accounts, invoice processing and open item management.",
+      deliverables: [
+        "Vendor Business Partner setup",
+        "Reconciliation account configuration",
+        "Payment terms matrix",
+        "Vendor invoice process flow",
+        "Open item management setup",
+        "AP validation checklist",
+      ],
+      outcome: "Configure and validate a complete vendor accounting cycle.",
+    },
+    {
+      id: "f110",
+      icon: Wallet,
+      label: "Free SAP Finance Kit",
+      title: "Automatic Payment Program (F110) Kit",
+      subtitle: "Prepare, control and execute automated vendor payments.",
+      description:
+        "An execution-focused kit covering the full F110 payment cycle: run preparation, item selection, payment proposal analysis, error correction and payment execution.",
+      deliverables: [
+        "F110 run configuration template",
+        "Payment method matrix",
+        "Vendor payment prerequisites",
+        "Payment proposal analysis framework",
+        "Exception handling guide",
+        "Payment validation checklist",
+      ],
+      outcome: "Execute and control a full payment run with accurate accounting results.",
+    },
+    {
+      id: "bank",
+      icon: Banknote,
+      label: "Free SAP Finance Kit",
+      title: "Bank Accounting Configuration Kit",
+      subtitle: "Structure banking data and secure payment readiness.",
+      description:
+        "A complete kit to configure SAP banking structures — bank key, house bank, bank accounts, IBAN — and integrate with the General Ledger and payment program.",
+      deliverables: [
+        "Bank key & house bank setup",
+        "Bank account & IBAN structure",
+        "Bank-to-GL integration matrix",
+        "Payment readiness checklist",
+        "Banking configuration sheet",
+        "Error control framework",
+      ],
+      outcome: "Ensure banking configuration is consistent, reliable and ready for payments.",
+    },
+    {
+      id: "ar",
+      icon: FileSpreadsheet,
+      label: "Free SAP Finance Kit",
+      title: "Accounts Receivable Configuration Kit",
+      subtitle: "Configure and control the customer accounting cycle.",
+      description:
+        "A structured SAP S/4HANA kit covering the customer cycle: Business Partner, customer invoice, incoming payment, open items and dunning process.",
+      deliverables: [
+        "Customer Business Partner setup",
+        "Reconciliation account configuration",
+        "Customer invoice process flow",
+        "Incoming payment & clearing",
+        "Dunning process basics (F150)",
+        "AR validation checklist",
+      ],
+      outcome: "Configure and validate a complete customer accounting cycle.",
+    },
+  ];
+
+  const openKitDialog = (kitId: string, interest: string) => {
+    setSelectedKit(kitId);
+    setLeadForm((p) => ({ ...p, interest }));
+    setKitDialogOpen(true);
+  };
+
+  const handleKitSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { firstName, lastName, email: em, company, role, interest } = leadForm;
+    if (!firstName.trim() || !lastName.trim() || !company.trim() || !role.trim() || !interest) {
+      toast({ title: "Missing information", description: "Please fill in all required fields." });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.trim()) || em.length > 255) {
+      toast({ title: "Invalid email", description: "Please provide a valid professional email." });
+      return;
+    }
+    toast({
+      title: "Kit on its way",
+      description: "Your free SAP Finance kit will be sent to your inbox shortly.",
+    });
+    setKitDialogOpen(false);
+    setLeadForm({ firstName: "", lastName: "", email: "", company: "", role: "", interest: "" });
+  };
 
   const challenges = [
     {
