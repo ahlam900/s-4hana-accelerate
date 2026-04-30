@@ -12,9 +12,32 @@ import {
   Network,
   GraduationCap,
   Compass,
+  Download,
+  Landmark,
+  Receipt,
+  Banknote,
+  Wallet,
+  FileSpreadsheet,
+  ShieldCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import Reveal from "@/components/Reveal";
 import { toast } from "@/hooks/use-toast";
 import Seo from "@/components/Seo";
@@ -25,6 +48,134 @@ const Ressources = () => {
   const tx = useTx();
   const { localize } = useLang();
   const [email, setEmail] = useState("");
+  const [kitDialogOpen, setKitDialogOpen] = useState(false);
+  const [selectedKit, setSelectedKit] = useState<string>("");
+  const [leadForm, setLeadForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    role: "",
+    interest: "",
+  });
+
+  const kits = [
+    {
+      id: "gl",
+      icon: Landmark,
+      label: "Free SAP Finance Kit",
+      title: "General Ledger Configuration Kit",
+      subtitle: "Build and validate the financial backbone of SAP S/4HANA.",
+      description:
+        "A consulting-grade operational kit to structure and configure the core General Ledger components in SAP S/4HANA — chart of accounts, GL accounts, document control and financial reporting structure.",
+      deliverables: [
+        "Chart of accounts matrix",
+        "GL account configuration sheet",
+        "Document types & number ranges",
+        "Ledger configuration framework",
+        "Financial Statement Version (FSV)",
+        "GL validation checklist",
+      ],
+      outcome: "Configure a complete and auditable General Ledger ready for testing.",
+    },
+    {
+      id: "ap",
+      icon: Receipt,
+      label: "Free SAP Finance Kit",
+      title: "Accounts Payable Configuration Kit",
+      subtitle: "Structure and execute the end-to-end vendor accounting cycle.",
+      description:
+        "A practical SAP S/4HANA kit to configure supplier accounting processes — Business Partner, reconciliation accounts, invoice processing and open item management.",
+      deliverables: [
+        "Vendor Business Partner setup",
+        "Reconciliation account configuration",
+        "Payment terms matrix",
+        "Vendor invoice process flow",
+        "Open item management setup",
+        "AP validation checklist",
+      ],
+      outcome: "Configure and validate a complete vendor accounting cycle.",
+    },
+    {
+      id: "f110",
+      icon: Wallet,
+      label: "Free SAP Finance Kit",
+      title: "Automatic Payment Program (F110) Kit",
+      subtitle: "Prepare, control and execute automated vendor payments.",
+      description:
+        "An execution-focused kit covering the full F110 payment cycle: run preparation, item selection, payment proposal analysis, error correction and payment execution.",
+      deliverables: [
+        "F110 run configuration template",
+        "Payment method matrix",
+        "Vendor payment prerequisites",
+        "Payment proposal analysis framework",
+        "Exception handling guide",
+        "Payment validation checklist",
+      ],
+      outcome: "Execute and control a full payment run with accurate accounting results.",
+    },
+    {
+      id: "bank",
+      icon: Banknote,
+      label: "Free SAP Finance Kit",
+      title: "Bank Accounting Configuration Kit",
+      subtitle: "Structure banking data and secure payment readiness.",
+      description:
+        "A complete kit to configure SAP banking structures — bank key, house bank, bank accounts, IBAN — and integrate with the General Ledger and payment program.",
+      deliverables: [
+        "Bank key & house bank setup",
+        "Bank account & IBAN structure",
+        "Bank-to-GL integration matrix",
+        "Payment readiness checklist",
+        "Banking configuration sheet",
+        "Error control framework",
+      ],
+      outcome: "Ensure banking configuration is consistent, reliable and ready for payments.",
+    },
+    {
+      id: "ar",
+      icon: FileSpreadsheet,
+      label: "Free SAP Finance Kit",
+      title: "Accounts Receivable Configuration Kit",
+      subtitle: "Configure and control the customer accounting cycle.",
+      description:
+        "A structured SAP S/4HANA kit covering the customer cycle: Business Partner, customer invoice, incoming payment, open items and dunning process.",
+      deliverables: [
+        "Customer Business Partner setup",
+        "Reconciliation account configuration",
+        "Customer invoice process flow",
+        "Incoming payment & clearing",
+        "Dunning process basics (F150)",
+        "AR validation checklist",
+      ],
+      outcome: "Configure and validate a complete customer accounting cycle.",
+    },
+  ];
+
+  const openKitDialog = (kitId: string, interest: string) => {
+    setSelectedKit(kitId);
+    setLeadForm((p) => ({ ...p, interest }));
+    setKitDialogOpen(true);
+  };
+
+  const handleKitSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { firstName, lastName, email: em, company, role, interest } = leadForm;
+    if (!firstName.trim() || !lastName.trim() || !company.trim() || !role.trim() || !interest) {
+      toast({ title: "Missing information", description: "Please fill in all required fields." });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.trim()) || em.length > 255) {
+      toast({ title: "Invalid email", description: "Please provide a valid professional email." });
+      return;
+    }
+    toast({
+      title: "Kit on its way",
+      description: "Your free SAP Finance kit will be sent to your inbox shortly.",
+    });
+    setKitDialogOpen(false);
+    setLeadForm({ firstName: "", lastName: "", email: "", company: "", role: "", interest: "" });
+  };
 
   const challenges = [
     {
@@ -138,7 +289,217 @@ const Ressources = () => {
         </div>
       </section>
 
+      {/* PREMIUM SAP FINANCE RESOURCES — FREE KITS */}
+      <section id="kits" className="section-y bg-ink text-ivory">
+        <div className="container-wide">
+          <div className="max-w-3xl mb-16">
+            <div className="eyebrow mb-6 text-ivory/60">Premium SAP Finance Resources</div>
+            <h2 className="display-md text-ivory">
+              Consulting-grade <em className="not-italic text-champagne font-display">SAP S/4HANA Finance</em> kits — free.
+            </h2>
+            <p className="lede text-ivory/75 mt-6">
+              Access a curated collection of free, consulting-grade SAP S/4HANA Finance operational kits designed for real project execution.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {kits.map((k, i) => {
+              const Icon = k.icon;
+              return (
+                <Reveal
+                  key={k.id}
+                  delay={i * 60}
+                  className="group relative flex flex-col rounded-lg border border-ivory/15 bg-ink-soft/40 p-8 transition-all duration-300 hover:border-champagne/40 hover:bg-ink-soft/60"
+                >
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="h-11 w-11 rounded-sm bg-ivory/[0.06] border border-ivory/15 flex items-center justify-center">
+                      <Icon className="h-5 w-5 text-champagne" />
+                    </div>
+                    <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-champagne border border-champagne/40 px-2.5 py-1 rounded-sm">
+                      {k.label}
+                    </span>
+                  </div>
+
+                  <h3 className="font-display text-xl text-ivory leading-snug">{k.title}</h3>
+                  <p className="text-[14px] text-champagne/90 mt-2 italic">{k.subtitle}</p>
+
+                  <p className="text-[14px] text-ivory/70 mt-5 leading-relaxed">{k.description}</p>
+
+                  <div className="mt-6 pt-6 border-t border-ivory/10">
+                    <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-ivory/50 mb-3">
+                      Key deliverables
+                    </div>
+                    <ul className="space-y-2">
+                      {k.deliverables.map((d) => (
+                        <li key={d} className="flex gap-2.5 text-[13px] text-ivory/80 leading-snug">
+                          <span className="text-champagne mt-1.5 h-1 w-1 rounded-full bg-champagne shrink-0" />
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-6 pt-5 border-t border-ivory/10 flex-1">
+                    <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-ivory/50 mb-2">
+                      Expected outcome
+                    </div>
+                    <p className="text-[13px] text-ivory/85 leading-relaxed">{k.outcome}</p>
+                  </div>
+
+                  <Button
+                    type="button"
+                    variant="champagne"
+                    size="lg"
+                    className="mt-7 w-full"
+                    onClick={() => openKitDialog(k.id, k.id.toUpperCase())}
+                  >
+                    <Download className="h-4 w-4" /> Download Free Kit
+                  </Button>
+                </Reveal>
+              );
+            })}
+
+            {/* Full Toolkit block */}
+            <Reveal
+              delay={kits.length * 60}
+              className="md:col-span-2 lg:col-span-3 relative overflow-hidden rounded-lg border border-champagne/40 bg-gradient-to-br from-ink-soft/60 via-ink to-ink p-10 md:p-14"
+            >
+              <div className="grid lg:grid-cols-12 gap-10 items-center">
+                <div className="lg:col-span-8">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="h-10 w-10 rounded-sm bg-champagne/15 border border-champagne/40 flex items-center justify-center">
+                      <ShieldCheck className="h-5 w-5 text-champagne" />
+                    </div>
+                    <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-champagne">
+                      Full Access — 5 kits bundled
+                    </span>
+                  </div>
+                  <h3 className="font-display text-3xl md:text-4xl text-ivory leading-tight">
+                    SAP FI Core Toolkit — <em className="not-italic text-champagne">Full Access</em>
+                  </h3>
+                  <p className="text-[15px] text-ivory/75 mt-5 leading-relaxed max-w-2xl">
+                    Access all 5 SAP S/4HANA Finance kits in one place and build a complete understanding of core financial processes:
+                    General Ledger, Accounts Payable, Accounts Receivable, Bank Accounting and Payment Program.
+                  </p>
+                </div>
+                <div className="lg:col-span-4 lg:text-right">
+                  <Button
+                    type="button"
+                    variant="champagne"
+                    size="lg"
+                    onClick={() => openKitDialog("full", "Full Toolkit")}
+                    className="w-full lg:w-auto"
+                  >
+                    Access Full Toolkit <ArrowRight />
+                  </Button>
+                  <div className="mt-4 text-[11px] uppercase tracking-[0.18em] text-ivory/50">
+                    Free — sent to your professional inbox
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Lead Capture Dialog */}
+      <Dialog open={kitDialogOpen} onOpenChange={setKitDialogOpen}>
+        <DialogContent className="max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="font-display text-2xl">Access your free SAP Finance kit</DialogTitle>
+            <DialogDescription>
+              Tell us a bit about you. Your kit will be sent to your professional inbox.
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleKitSubmit} className="space-y-4 mt-2">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <Label htmlFor="firstName">First name</Label>
+                <Input
+                  id="firstName"
+                  required
+                  maxLength={80}
+                  value={leadForm.firstName}
+                  onChange={(e) => setLeadForm({ ...leadForm, firstName: e.target.value })}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="lastName">Last name</Label>
+                <Input
+                  id="lastName"
+                  required
+                  maxLength={80}
+                  value={leadForm.lastName}
+                  onChange={(e) => setLeadForm({ ...leadForm, lastName: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="proEmail">Professional email</Label>
+              <Input
+                id="proEmail"
+                type="email"
+                required
+                maxLength={255}
+                value={leadForm.email}
+                onChange={(e) => setLeadForm({ ...leadForm, email: e.target.value })}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <Label htmlFor="company">Company</Label>
+                <Input
+                  id="company"
+                  required
+                  maxLength={120}
+                  value={leadForm.company}
+                  onChange={(e) => setLeadForm({ ...leadForm, company: e.target.value })}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="role">Role</Label>
+                <Input
+                  id="role"
+                  required
+                  maxLength={120}
+                  value={leadForm.role}
+                  onChange={(e) => setLeadForm({ ...leadForm, role: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label>Interest</Label>
+              <Select
+                value={leadForm.interest}
+                onValueChange={(v) => setLeadForm({ ...leadForm, interest: v })}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select a kit" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="GL">General Ledger (GL)</SelectItem>
+                  <SelectItem value="AP">Accounts Payable (AP)</SelectItem>
+                  <SelectItem value="AR">Accounts Receivable (AR)</SelectItem>
+                  <SelectItem value="Bank">Bank Accounting</SelectItem>
+                  <SelectItem value="F110">Payment Program (F110)</SelectItem>
+                  <SelectItem value="Full Toolkit">Full Toolkit</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <DialogFooter className="pt-2">
+              <Button type="submit" variant="ink" size="lg" className="w-full">
+                <Download className="h-4 w-4" /> Send me the kit
+              </Button>
+            </DialogFooter>
+            <p className="text-[11px] text-muted-foreground text-center">
+              Your data is used solely to send you this resource. No spam.
+            </p>
+          </form>
+        </DialogContent>
+      </Dialog>
+
       {/* CHALLENGES */}
+
       <section className="section-y">
         <div className="container-wide">
           <div className="max-w-3xl mb-14">
