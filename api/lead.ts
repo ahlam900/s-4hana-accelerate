@@ -144,16 +144,28 @@ export default async function handler(req: any, res: any) {
           Télécharger le kit
         </a>
       </div>
+     <p style="margin-top:25px;text-align:center;font-size:15px;">
+  Vous souhaitez aller plus loin sur <strong>SAP Finance</strong> ?
+</p>
 
-      <p style="font-size:13px;color:#475569;text-align:center;margin-top:10px;">
+<div style="text-align:center;margin:15px 0;">
+  <a href="https://ton-site.com/formations" target="_blank"
+    style="display:inline-block;padding:12px 20px;background:#0f172a;color:#ffffff;text-decoration:none;border-radius:6px;font-weight:600;">
+    Découvrir les formations CBS
+  </a>
+</div>
+
+<p style="font-size:13px;color:#475569;text-align:center;margin-top:10px;">
   Accès immédiat · Sans engagement · Utilisé par des consultants SAP
 </p>
 
-<p style="font-size:12px;color:#64748b;text-align:center;margin-top:14px;">
+<p style="font-size:12px;color:#64748b;text-align:center;margin-top:18px;">
   Si le bouton ne fonctionne pas,
-  <a href="${kitDownloadUrl}" target="_blank" style="color:#0f172a;font-weight:600;text-decoration:underline;">
+  <br/>
+  <a href="${kitDownloadUrl}" target="_blank"
+    style="color:#0f172a;font-weight:600;text-decoration:underline;">
     cliquez ici pour télécharger le kit
-  </a>.
+  </a>
 </p>
     `;
 
