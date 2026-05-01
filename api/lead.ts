@@ -145,10 +145,16 @@ export default async function handler(req: any, res: any) {
         </a>
       </div>
 
-      <p style="font-size:12px;color:#666;text-align:center;">
-        Si le bouton ne fonctionne pas, copiez ce lien :<br/>
-        ${kitDownloadUrl || "Lien indisponible"}
-      </p>
+      <p style="font-size:13px;color:#475569;text-align:center;margin-top:10px;">
+  Accès immédiat · Sans engagement · Utilisé par des consultants SAP
+</p>
+
+<p style="font-size:12px;color:#64748b;text-align:center;margin-top:14px;">
+  Si le bouton ne fonctionne pas,
+  <a href="${kitDownloadUrl}" target="_blank" style="color:#0f172a;font-weight:600;text-decoration:underline;">
+    cliquez ici pour télécharger le kit
+  </a>.
+</p>
     `;
 
     const standardEmailBlock = `
