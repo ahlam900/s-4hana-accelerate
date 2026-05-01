@@ -124,9 +124,18 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
   };
 
   const handleDownload = () => {
-    // eslint-disable-next-line no-console
-    console.log("[Download Kit]", kit?.id);
-    window.open("about:blank", "_blank", "noopener,noreferrer");
+    const url = kit ? KIT_DOWNLOAD_URLS[kit.id] : undefined;
+    if (!url) {
+      toast({
+        title: tx("Téléchargement indisponible", "Download unavailable"),
+        description: tx(
+          "Ce kit n'est pas encore disponible. Merci de réessayer plus tard.",
+          "This kit is not available yet. Please try again later.",
+        ),
+      });
+      return;
+    }
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
