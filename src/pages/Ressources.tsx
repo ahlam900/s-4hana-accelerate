@@ -29,8 +29,8 @@ const Ressources = () => {
   const challenges = [
     {
       icon: Target,
-      title: tx("Comprendre les impacts réels de S/4HANA sur la Finance", "Understanding the real impact of S/4HANA on finance"),
-      desc: tx("Mesurer ce qui change vraiment pour la clôture, le pilotage et le contrôle.", "Measure what really changes for close, steering and control."),
+      title: tx("Comprendre ce qui change vraiment pour la Finance", "Understanding what really changes for Finance"),
+      desc: tx("Clôture, pilotage, contrôle, architecture cible : aller au-delà des slogans.", "Close, steering, control, target architecture: going beyond slogans."),
     },
     {
       icon: AlertTriangle,
@@ -40,54 +40,54 @@ const Ressources = () => {
     {
       icon: Workflow,
       title: tx("Structurer efficacement les processus Finance", "Effectively structuring finance processes"),
-      desc: tx("R2R, P2P, O2C : poser une cible claire, alignée avec le standard SAP.", "R2R, P2P, O2C: set a clear target aligned with the SAP standard."),
+      desc: tx("R2R, P2P, O2C : poser une cible claire et exploitable.", "R2R, P2P, O2C: set a clear, actionable target."),
     },
     {
       icon: Network,
       title: tx("Aligner Finance et IT dans un projet SAP", "Aligning Finance and IT within an SAP project"),
-      desc: tx("Construire une gouvernance qui sécurise les arbitrages tout au long du programme.", "Build governance that secures arbitrations throughout the program."),
+      desc: tx("Construire une gouvernance qui sécurise les arbitrages.", "Build governance that secures arbitrations."),
     },
     {
       icon: GraduationCap,
-      title: tx("Monter rapidement en compétence sur SAP Finance", "Rapidly upskilling in SAP Finance"),
+      title: tx("Monter plus rapidement en compétence sur SAP Finance", "Upskilling faster on SAP Finance"),
       desc: tx("Acquérir les repères essentiels pour contribuer dès les premiers ateliers.", "Acquire the essential references to contribute from the very first workshops."),
     },
   ];
 
   const featured = [
     {
-      title: tx("S/4HANA Finance : ce qui change vraiment", "S/4HANA Finance: what really changes"),
-      desc: tx("Universal Journal, modèle de données simplifié, impacts sur le contrôle et le pilotage. Une lecture courte des changements structurants.", "Universal Journal, simplified data model, impacts on control and steering. A concise read of the structuring changes."),
+      title: tx("Ce que la Finance doit vraiment anticiper dans un projet SAP", "What Finance really needs to anticipate in an SAP project"),
+      desc: tx("Les changements qui comptent vraiment pour la clôture, le pilotage, le contrôle et les équipes.", "The changes that really matter for close, steering, control and teams."),
       cta: tx("Lire", "Read"),
       icon: BookOpen,
     },
     {
       title: tx("3 erreurs fréquentes en phase de cadrage SAP", "3 common pitfalls during SAP scoping"),
-      desc: tx("Périmètre flou, gouvernance Finance / IT mal posée, sous-estimation du legacy : ce que l'on observe le plus souvent en programme.", "Blurred scope, weak Finance/IT governance, underestimated legacy: what we observe most often on programs."),
+      desc: tx("Périmètre flou, gouvernance Finance / IT mal posée, sous-estimation du legacy : ce que l'on observe le plus souvent.", "Blurred scope, weak Finance/IT governance, underestimated legacy: what we observe most often."),
       cta: tx("Lire", "Read"),
       icon: BookOpen,
     },
     {
-      title: tx("Comprendre le Universal Journal simplement", "Understanding the Universal Journal — simply"),
-      desc: tx("Le concept central de S/4HANA Finance expliqué clairement : structure, intérêt et impacts sur le reporting.", "The central concept of S/4HANA Finance explained clearly: structure, value and impact on reporting."),
+      title: tx("Universal Journal : ce qu'il change vraiment", "Universal Journal: what it really changes"),
+      desc: tx("Une lecture claire de son intérêt, de ses impacts et de ce qu'il modifie pour la Finance.", "A clear read of its value, impacts and what it changes for Finance."),
       cta: tx("Voir", "Watch"),
       icon: PlayCircle,
     },
     {
-      title: tx("Cadrer un programme S/4HANA en 5 questions", "Framing an S/4HANA program in 5 questions"),
+      title: tx("Cadrer un programme SAP Finance en 5 questions", "Framing an SAP Finance program in 5 questions"),
       desc: tx("Les questions à poser dès les premiers ateliers pour aligner sponsors, Finance et IT sur la cible.", "The questions to ask in the very first workshops to align sponsors, Finance and IT on the target."),
       cta: tx("Lire", "Read"),
       icon: BookOpen,
     },
     {
-      title: tx("R2R dans S/4HANA : ce qu'il faut savoir", "R2R in S/4HANA: what you need to know"),
-      desc: tx("Clôture, allocations, consolidation : comment SAP repense le processus Record-to-Report dans S/4HANA.", "Close, allocations, consolidation: how SAP rethinks the Record-to-Report process in S/4HANA."),
+      title: tx("R2R, P2P, O2C : comment poser une cible exploitable", "R2R, P2P, O2C: how to set an actionable target"),
+      desc: tx("Structurer les processus de bout en bout sans perdre la logique métier.", "Structure end-to-end processes without losing the business logic."),
       cta: tx("Lire", "Read"),
       icon: BookOpen,
     },
     {
       title: tx("Finance et IT : comment vraiment s'aligner", "Finance and IT: how to truly align"),
-      desc: tx("Trois leviers concrets pour faire converger les attentes Finance et la réalité d'une plateforme SAP.", "Three concrete levers to converge finance expectations with the reality of an SAP platform."),
+      desc: tx("Trois leviers concrets pour faire converger les attentes métier et la réalité de la plateforme SAP.", "Three concrete levers to converge business expectations with the reality of the SAP platform."),
       cta: tx("Voir", "Watch"),
       icon: PlayCircle,
     },
