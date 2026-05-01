@@ -159,6 +159,9 @@ const ProduitsDigitaux = () => {
         </div>
       </section>
 
+      {/* OPERATIONAL KITS (free) */}
+      <OperationalKitsSection />
+
       {/* CTA */}
       <section className="section-y bg-secondary">
         <div className="container-narrow text-center">
