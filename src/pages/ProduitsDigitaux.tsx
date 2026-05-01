@@ -4,6 +4,7 @@ import { ArrowRight, BellRing, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import Reveal from "@/components/Reveal";
+import OperationalKitsSection from "@/components/OperationalKitsSection";
 import { products, productCategories } from "@/data/products";
 import Seo from "@/components/Seo";
 import { cn } from "@/lib/utils";
@@ -157,6 +158,9 @@ const ProduitsDigitaux = () => {
           </div>
         </div>
       </section>
+
+      {/* OPERATIONAL KITS (free) */}
+      <OperationalKitsSection />
 
       {/* CTA */}
       <section className="section-y bg-secondary">
