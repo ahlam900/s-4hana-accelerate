@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
-import { CheckCircle2, Download, ExternalLink } from "lucide-react";
+import { CheckCircle2, Download, ExternalLink, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -27,10 +27,8 @@ interface KitLeadDialogProps {
 
 const leadSchema = z.object({
   firstName: z.string().trim().min(1).max(80),
-  lastName: z.string().trim().min(1).max(80),
+  lastName: z.string().trim().max(80).optional().or(z.literal("")),
   email: z.string().trim().email().max(255),
-  company: z.string().trim().min(1).max(120),
-  role: z.string().trim().min(1).max(120),
 });
 
 type Step = "form" | "ready";
@@ -43,14 +41,12 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
     firstName: "",
     lastName: "",
     email: "",
-    company: "",
-    role: "",
   });
 
   const handleClose = () => {
     onClose();
     setStep("form");
-    setForm({ firstName: "", lastName: "", email: "", company: "", role: "" });
+    setForm({ firstName: "", lastName: "", email: "" });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -60,8 +56,8 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
       toast({
         title: tx("Formulaire incomplet", "Form incomplete"),
         description: tx(
-          "Merci de renseigner tous les champs avec un email professionnel valide.",
-          "Please fill in all fields with a valid professional email.",
+          "Merci de renseigner votre prénom et un email professionnel valide.",
+          "Please provide your first name and a valid professional email.",
         ),
       });
       return;
@@ -96,18 +92,37 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
               <DialogTitle className="font-display text-2xl text-ivory leading-snug">
                 {kit.title}
               </DialogTitle>
-              <DialogDescription className="text-ivory/70 text-[14px] leading-relaxed pt-2">
-                {tx(
-                  "Renseignez vos coordonnées professionnelles pour accéder au kit.",
-                  "Provide your professional details to access the kit.",
-                )}
+              <DialogDescription className="sr-only">
+                {tx("Formulaire d'accès au kit", "Kit access form")}
               </DialogDescription>
             </DialogHeader>
-            <form onSubmit={handleSubmit} className="mt-2 space-y-4">
+
+            {/* Value block */}
+            <div className="mt-1 rounded-md border border-ivory/15 bg-ivory/5 p-4">
+              <div className="text-[11px] uppercase tracking-[0.18em] text-champagne mb-2.5">
+                {tx("Vous allez recevoir :", "You will receive:")}
+              </div>
+              <ul className="space-y-1.5 text-[13px] text-ivory/85 leading-relaxed">
+                <li className="flex gap-2">
+                  <span className="text-champagne mt-0.5">›</span>
+                  {tx("Kit SAP S/4HANA prêt à l'emploi", "Ready-to-use SAP S/4HANA kit")}
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-champagne mt-0.5">›</span>
+                  {tx("Matrices et checklist projet", "Project matrices and checklist")}
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-champagne mt-0.5">›</span>
+                  {tx("Cas pratique consultant", "Consultant practical case")}
+                </li>
+              </ul>
+            </div>
+
+            <form onSubmit={handleSubmit} className="mt-3 space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1.5">
                   <Label htmlFor="firstName" className="text-ivory/80 text-xs uppercase tracking-wider">
-                    {tx("Prénom", "First name")}
+                    {tx("Prénom", "First name")} *
                   </Label>
                   <Input
                     id="firstName"
@@ -120,11 +135,13 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="lastName" className="text-ivory/80 text-xs uppercase tracking-wider">
-                    {tx("Nom", "Last name")}
+                    {tx("Nom", "Last name")}{" "}
+                    <span className="text-ivory/40 normal-case tracking-normal">
+                      ({tx("optionnel", "optional")})
+                    </span>
                   </Label>
                   <Input
                     id="lastName"
-                    required
                     maxLength={80}
                     value={form.lastName}
                     onChange={(e) => setForm({ ...form, lastName: e.target.value })}
@@ -134,7 +151,7 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="email" className="text-ivory/80 text-xs uppercase tracking-wider">
-                  {tx("Email professionnel", "Professional email")}
+                  {tx("Email professionnel", "Professional email")} *
                 </Label>
                 <Input
                   id="email"
@@ -146,58 +163,33 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
                   className="bg-ivory/5 border-ivory/20 text-ivory placeholder:text-ivory/40"
                 />
               </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="company" className="text-ivory/80 text-xs uppercase tracking-wider">
-                  {tx("Société", "Company")}
-                </Label>
-                <Input
-                  id="company"
-                  required
-                  maxLength={120}
-                  value={form.company}
-                  onChange={(e) => setForm({ ...form, company: e.target.value })}
-                  className="bg-ivory/5 border-ivory/20 text-ivory placeholder:text-ivory/40"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="role" className="text-ivory/80 text-xs uppercase tracking-wider">
-                  {tx("Rôle", "Role")}
-                </Label>
-                <Input
-                  id="role"
-                  required
-                  maxLength={120}
-                  value={form.role}
-                  onChange={(e) => setForm({ ...form, role: e.target.value })}
-                  className="bg-ivory/5 border-ivory/20 text-ivory placeholder:text-ivory/40"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="interest" className="text-ivory/80 text-xs uppercase tracking-wider">
-                  {tx("Intérêt", "Interest")}
-                </Label>
-                <Input
-                  id="interest"
-                  readOnly
-                  value={kit.interestLabel}
-                  className="bg-ivory/10 border-ivory/20 text-champagne font-medium cursor-not-allowed"
-                />
-              </div>
+
+              {/* Hidden interest field */}
+              <input type="hidden" name="interest" value={kit.interestLabel} />
+
+              <p className="text-[11px] text-ivory/60 text-center pt-1">
+                {tx(
+                  "Utilisé par des consultants SAP et équipes Finance en projet S/4HANA.",
+                  "Used by SAP consultants and Finance teams running S/4HANA projects.",
+                )}
+              </p>
+
               <Button
                 type="submit"
                 variant="champagne"
                 size="lg"
-                className="w-full mt-2"
+                className="w-full"
                 disabled={submitting}
               >
                 {submitting
                   ? tx("Envoi...", "Sending...")
-                  : tx("Recevoir le kit", "Receive the kit")}
+                  : tx("Télécharger le kit gratuitement", "Download the kit for free")}
               </Button>
-              <p className="text-[11px] text-ivory/50 text-center">
+              <p className="text-[11px] text-ivory/50 text-center flex items-center justify-center gap-1.5">
+                <ShieldCheck className="h-3 w-3" />
                 {tx(
-                  "Vos données restent strictement professionnelles et confidentielles.",
-                  "Your data remains strictly professional and confidential.",
+                  "Vos données restent strictement confidentielles. Aucun spam.",
+                  "Your data stays strictly confidential. No spam.",
                 )}
               </p>
             </form>
@@ -205,15 +197,20 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
         )}
 
         {kit && step === "ready" && (
-          <div className="py-4">
+          <div className="py-4 animate-in fade-in-0 zoom-in-95 duration-200">
             <div className="flex flex-col items-center text-center">
               <div className="h-14 w-14 rounded-full bg-champagne/15 flex items-center justify-center mb-5">
                 <CheckCircle2 className="h-7 w-7 text-champagne" />
               </div>
               <DialogTitle className="font-display text-2xl text-ivory leading-snug">
-                {tx("Votre kit est prêt à être téléchargé.", "Your kit is ready to download.")}
+                {tx("Votre kit est prêt", "Your kit is ready")}
               </DialogTitle>
-              <p className="text-ivory/70 text-[14px] mt-3 leading-relaxed max-w-sm">{kit.title}</p>
+              <p className="text-ivory/70 text-[14px] mt-3 leading-relaxed max-w-sm">
+                {tx(
+                  "Merci. Votre ressource SAP Finance est maintenant disponible.",
+                  "Thank you. Your SAP Finance resource is now available.",
+                )}
+              </p>
               <Button
                 type="button"
                 variant="champagne"
@@ -222,15 +219,18 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
                 onClick={handleDownload}
               >
                 <Download className="h-4 w-4" />
-                {tx("Télécharger maintenant", "Download now")}
+                {tx("Télécharger le kit", "Download the kit")}
                 <ExternalLink className="h-3.5 w-3.5 opacity-70" />
               </Button>
-              <p className="text-[11px] text-ivory/50 mt-4">
-                {tx(
-                  "Une copie vous est également envoyée par email.",
-                  "A copy is also sent to your email.",
-                )}
-              </p>
+              <Button
+                type="button"
+                variant="outline"
+                size="lg"
+                className="mt-2 w-full bg-transparent border-ivory/25 text-ivory hover:bg-ivory/10 hover:text-ivory"
+                onClick={handleClose}
+              >
+                {tx("Fermer", "Close")}
+              </Button>
             </div>
           </div>
         )}
