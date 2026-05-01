@@ -5,6 +5,19 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
+const KIT_DOWNLOAD_URLS: Record<string, string> = {
+  "General Ledger Configuration Kit":
+    "https://bcndhwwuamooeofezepv.supabase.co/storage/v1/object/public/kits-sap-finance/GL_Configuration_Kit.zip",
+  "Accounts Payable Configuration Kit":
+    "https://bcndhwwuamooeofezepv.supabase.co/storage/v1/object/public/kits-sap-finance/AP_Configuration_Kit.zip",
+  "Automatic Payment Program F110 Kit":
+    "https://bcndhwwuamooeofezepv.supabase.co/storage/v1/object/public/kits-sap-finance/F110_Payment_Program_Kit.zip",
+  "Bank Accounting Configuration Kit":
+    "https://bcndhwwuamooeofezepv.supabase.co/storage/v1/object/public/kits-sap-finance/Bank_Accounting_Kit.zip",
+  "Accounts Receivable Configuration Kit":
+    "https://bcndhwwuamooeofezepv.supabase.co/storage/v1/object/public/kits-sap-finance/AR_Configuration_Kit.zip",
+};
+
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -48,33 +61,31 @@ export default async function handler(req: any, res: any) {
     }
 
     if (insertedLead.formulaire === "entreprise") {
-      if ((insertedLead.type_demande || "").toLowerCase().includes("key users")) {
-        prefix = "[KEY USERS]";
-      } else {
-        prefix = "[PROJET]";
-      }
+      prefix = (insertedLead.type_demande || "").toLowerCase().includes("key users")
+        ? "[KEY USERS]"
+        : "[PROJET]";
     }
 
     if (insertedLead.formulaire === "contact") {
       const typeDemande = (insertedLead.type_demande || "").toLowerCase();
 
-      if (typeDemande.includes("formation")) {
-        prefix = "[FORMATION]";
-      } else if (
-        typeDemande.includes("transformation") ||
-        typeDemande.includes("projet")
-      ) {
-        prefix = "[PROJET]";
-      } else if (typeDemande.includes("key user")) {
-        prefix = "[KEY USERS]";
-      } else {
-        prefix = "[AUTRE]";
-      }
+      if (typeDemande.includes("formation")) prefix = "[FORMATION]";
+      else if (typeDemande.includes("transformation") || typeDemande.includes("projet")) prefix = "[PROJET]";
+      else if (typeDemande.includes("key user")) prefix = "[KEY USERS]";
     }
 
     if (insertedLead.formulaire === "kit_download") {
       prefix = "[KIT DOWNLOAD]";
     }
+
+    const kitDownloadUrl =
+      insertedLead.formulaire === "kit_download"
+        ? KIT_DOWNLOAD_URLS[insertedLead.type_demande || ""]
+        : "";
+
+    console.log("FORMULAIRE:", insertedLead.formulaire);
+    console.log("TYPE DEMANDE:", insertedLead.type_demande);
+    console.log("URL TROUVÉE:", kitDownloadUrl);
 
     const internalHtml = `
       <h2>Nouveau lead reçu</h2>
@@ -108,7 +119,6 @@ export default async function handler(req: any, res: any) {
     });
 
     const internalEmailResult = await internalEmailResponse.json();
-    console.log("INTERNAL EMAIL RESULT:", internalEmailResult);
 
     if (!internalEmailResponse.ok) {
       console.error("Internal email send error:", internalEmailResult);
@@ -117,6 +127,42 @@ export default async function handler(req: any, res: any) {
         details: internalEmailResult,
       });
     }
+
+    const kitEmailBlock = `
+      <p>
+        Nous avons bien reçu votre demande de téléchargement pour :
+        <strong>${insertedLead.type_demande}</strong>.
+      </p>
+
+      <p>
+        Votre ressource SAP Finance est prête. Cliquez ci-dessous pour la télécharger.
+      </p>
+
+      <div style="margin:25px 0;text-align:center;">
+        <a href="${kitDownloadUrl}" target="_blank"
+          style="display:inline-block;padding:14px 22px;background:#0f172a;color:#ffffff;text-decoration:none;border-radius:8px;font-weight:600;">
+          Télécharger le kit
+        </a>
+      </div>
+
+      <p style="font-size:12px;color:#666;text-align:center;">
+        Si le bouton ne fonctionne pas, copiez ce lien :<br/>
+        ${kitDownloadUrl || "Lien indisponible"}
+      </p>
+    `;
+
+    const standardEmailBlock = `
+      <p>
+        Nous avons bien reçu votre demande concernant :
+        <strong>${insertedLead.type_demande}</strong>.
+      </p>
+
+      <p>
+        Un expert CBS vous contactera sous
+        <strong>24 à 48 heures</strong> afin d’analyser votre besoin
+        et vous proposer un accompagnement adapté.
+      </p>
+    `;
 
     const clientHtml = `
       <div style="font-family: Helvetica Neue, Arial, sans-serif; background:#f8fafc; padding:40px 0;">
@@ -134,33 +180,8 @@ export default async function handler(req: any, res: any) {
 
             ${
               insertedLead.formulaire === "kit_download"
-                ? `
-                  <p>
-                    Nous avons bien reçu votre demande de téléchargement pour :
-                    <strong>${insertedLead.type_demande}</strong>.
-                  </p>
-
-                  <p>
-                    Votre ressource SAP Finance est prête. Vous pouvez la télécharger depuis la page après validation du formulaire.
-                  </p>
-
-                  <div style="margin:25px 0;padding:18px;background:#f1f5f9;border-radius:10px;">
-                    <p style="margin:0 0 10px;"><strong>Ressource demandée</strong></p>
-                    <p style="margin:0;">${insertedLead.type_demande}</p>
-                  </div>
-                `
-                : `
-                  <p>
-                    Nous avons bien reçu votre demande concernant
-                    <strong>${insertedLead.type_demande}</strong>.
-                  </p>
-
-                  <p>
-                    Un expert CBS vous contactera sous
-                    <strong>24 à 48 heures</strong> afin d’analyser votre besoin
-                    et vous proposer un accompagnement adapté.
-                  </p>
-                `
+                ? kitEmailBlock
+                : standardEmailBlock
             }
 
             <div style="margin:30px 0;padding:20px;border:1px solid #0f172a;border-radius:10px;">
@@ -201,7 +222,6 @@ export default async function handler(req: any, res: any) {
     });
 
     const clientEmailResult = await clientEmailResponse.json();
-    console.log("CLIENT EMAIL RESULT:", clientEmailResult);
 
     if (!clientEmailResponse.ok) {
       console.error("Client email send error:", clientEmailResult);
