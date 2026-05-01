@@ -60,7 +60,10 @@ export default async function handler(req: any, res: any) {
 
       if (typeDemande.includes("formation")) {
         prefix = "[FORMATION]";
-      } else if (typeDemande.includes("transformation") || typeDemande.includes("projet")) {
+      } else if (
+        typeDemande.includes("transformation") ||
+        typeDemande.includes("projet")
+      ) {
         prefix = "[PROJET]";
       } else if (typeDemande.includes("key user")) {
         prefix = "[KEY USERS]";
@@ -69,10 +72,14 @@ export default async function handler(req: any, res: any) {
       }
     }
 
+    if (insertedLead.formulaire === "kit_download") {
+      prefix = "[KIT DOWNLOAD]";
+    }
+
     const internalHtml = `
       <h2>Nouveau lead reçu</h2>
       <p><strong>Formulaire :</strong> ${insertedLead.formulaire}</p>
-      <p><strong>Nom :</strong> ${insertedLead.prenom} ${insertedLead.nom}</p>
+      <p><strong>Nom :</strong> ${insertedLead.prenom} ${insertedLead.nom || ""}</p>
       <p><strong>Email :</strong> ${insertedLead.email}</p>
       <p><strong>Téléphone :</strong> ${insertedLead.telephone || "-"}</p>
       <p><strong>Société :</strong> ${insertedLead.societe || "-"}</p>
@@ -93,8 +100,8 @@ export default async function handler(req: any, res: any) {
       },
       body: JSON.stringify({
         from: "CBS Institute <contact@cbs-institute.com>",
-        to: process.env.LEAD_NOTIFICATION_TO!,
-        subject: `${prefix} ${insertedLead.type_demande || insertedLead.formulaire} - ${insertedLead.prenom} ${insertedLead.nom}`,
+        to: process.env.LEAD_NOTIFICATION_TO,
+        subject: `${prefix} ${insertedLead.type_demande || insertedLead.formulaire} - ${insertedLead.prenom} ${insertedLead.nom || ""}`,
         html: internalHtml,
         reply_to: insertedLead.email || undefined,
       }),
@@ -112,61 +119,68 @@ export default async function handler(req: any, res: any) {
     }
 
     const clientHtml = `
-<div style="font-family: 'Helvetica Neue', Arial, sans-serif; background:#f8fafc; padding:40px 0;">
-  <div style="max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e2e8f0;">
-    
-    <div style="background:#0f172a;color:white;padding:28px 24px;">
-      <h2 style="margin:0;font-size:22px;">CBS FINANCE INSTITUTE</h2>
-      <p style="margin:4px 0 0;font-size:14px;color:#cbd5f5;">Expertise Finance SAP & Transformation Digitale</p>
-    </div>
+      <div style="font-family: Helvetica Neue, Arial, sans-serif; background:#f8fafc; padding:40px 0;">
+        <div style="max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e5e7eb;">
 
-    <div style="padding:30px 24px;color:#0f172a;">
-      
-      <h1 style="font-size:26px;margin-bottom:10px;">Merci pour votre demande</h1>
+          <div style="background:#0f172a;color:white;padding:28px 24px;">
+            <h2 style="margin:0;font-size:22px;">CBS FINANCE INSTITUTE</h2>
+            <p style="margin:4px 0 0;font-size:14px;color:#cbd5e1;">Expertise Finance SAP & Transformation Digitale</p>
+          </div>
 
-      <p>Bonjour <strong>${insertedLead.prenom}</strong>,</p>
+          <div style="padding:30px 24px;color:#0f172a;">
+            <h1 style="font-size:26px;margin-bottom:10px;">Merci pour votre demande</h1>
 
-      <p>
-        Nous avons bien reçu votre demande concernant 
-        <strong>${insertedLead.type_demande}</strong>.
-      </p>
+            <p>Bonjour <strong>${insertedLead.prenom}</strong>,</p>
 
-      <p>
-        Un expert CBS vous contactera sous 
-        <strong>24 à 48 heures</strong> afin d’analyser votre besoin 
-        et vous proposer un accompagnement adapté.
-      </p>
+            ${
+              insertedLead.formulaire === "kit_download"
+                ? `
+                  <p>
+                    Nous avons bien reçu votre demande de téléchargement pour :
+                    <strong>${insertedLead.type_demande}</strong>.
+                  </p>
 
-      <div style="margin:25px 0;padding:18px;background:#f1f5f9;border-radius:10px;">
-        <p style="margin:0 0 10px;"><strong>Résumé de votre demande</strong></p>
-        <p style="margin:0;"><strong>Nom :</strong> ${insertedLead.prenom} ${insertedLead.nom}</p>
-        <p style="margin:0;"><strong>Email :</strong> ${insertedLead.email}</p>
-        <p style="margin:0;"><strong>Société :</strong> ${insertedLead.societe || "-"}</p>
-        <p style="margin:0;"><strong>Type :</strong> ${insertedLead.type_demande}</p>
+                  <p>
+                    Votre ressource SAP Finance est prête. Vous pouvez la télécharger depuis la page après validation du formulaire.
+                  </p>
+
+                  <div style="margin:25px 0;padding:18px;background:#f1f5f9;border-radius:10px;">
+                    <p style="margin:0 0 10px;"><strong>Ressource demandée</strong></p>
+                    <p style="margin:0;">${insertedLead.type_demande}</p>
+                  </div>
+                `
+                : `
+                  <p>
+                    Nous avons bien reçu votre demande concernant
+                    <strong>${insertedLead.type_demande}</strong>.
+                  </p>
+
+                  <p>
+                    Un expert CBS vous contactera sous
+                    <strong>24 à 48 heures</strong> afin d’analyser votre besoin
+                    et vous proposer un accompagnement adapté.
+                  </p>
+                `
+            }
+
+            <div style="margin:30px 0;padding:20px;border:1px solid #0f172a;border-radius:10px;">
+              <p style="margin:0 0 10px;"><strong>Résumé de votre demande</strong></p>
+              <p style="margin:0;"><strong>Nom :</strong> ${insertedLead.prenom} ${insertedLead.nom || ""}</p>
+              <p style="margin:0;"><strong>Email :</strong> ${insertedLead.email}</p>
+              <p style="margin:0;"><strong>Société :</strong> ${insertedLead.societe || "-"}</p>
+              <p style="margin:0;"><strong>Type :</strong> ${insertedLead.type_demande || "-"}</p>
+            </div>
+
+            <p style="margin-top:30px;">
+              Bien cordialement,<br/>
+              <strong>CBS Finance Institute</strong><br/>
+              Conseil & Formation SAP Finance
+            </p>
+          </div>
+
+        </div>
       </div>
-
-      <div style="margin:30px 0;padding:20px;border:1px solid #0f172a;border-radius:10px;">
-        <p style="margin:0 0 10px;"><strong>Accélérer votre demande ?</strong></p>
-        <p style="margin:0 0 15px;">
-          Répondez directement à cet email pour être recontacté en priorité.
-        </p>
-        <a href="mailto:contact@cbs-institute.com" 
-           style="display:inline-block;padding:12px 18px;background:#0f172a;color:#fff;text-decoration:none;border-radius:6px;">
-           Contacter un expert
-        </a>
-      </div>
-
-      <p style="margin-top:30px;">
-        Bien cordialement,<br/>
-        <strong>CBS Finance Institute</strong><br/>
-        Conseil & Formation SAP Finance
-      </p>
-
-    </div>
-
-  </div>
-</div>
-`;
+    `;
 
     const clientEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -177,7 +191,10 @@ export default async function handler(req: any, res: any) {
       body: JSON.stringify({
         from: "CBS Institute <contact@cbs-institute.com>",
         to: insertedLead.email,
-        subject: "CBS Institute — Nous avons bien reçu votre demande",
+        subject:
+          insertedLead.formulaire === "kit_download"
+            ? `Votre kit SAP Finance est prêt - ${insertedLead.type_demande}`
+            : "CBS Institute – Nous avons bien reçu votre demande",
         html: clientHtml,
         reply_to: process.env.LEAD_NOTIFICATION_TO || "contact@cbs-institute.com",
       }),
