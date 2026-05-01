@@ -50,6 +50,19 @@ const KIT_DELIVERABLES: Record<string, Deliverable[]> = {
   ],
 };
 
+const KIT_DOWNLOAD_URLS: Record<string, string> = {
+  "kit-general-ledger":
+    "https://bcndhwwuamooeofezepv.supabase.co/storage/v1/object/public/kits-sap-finance/GL_Configuration_Kit.zip",
+  "kit-accounts-payable":
+    "https://bcndhwwuamooeofezepv.supabase.co/storage/v1/object/public/kits-sap-finance/AP_Configuration_Kit.zip",
+  "kit-f110-payment-program":
+    "https://bcndhwwuamooeofezepv.supabase.co/storage/v1/object/public/kits-sap-finance/F110_Payment_Program_Kit.zip",
+  "kit-bank-accounting":
+    "https://bcndhwwuamooeofezepv.supabase.co/storage/v1/object/public/kits-sap-finance/Bank_Accounting_Kit.zip",
+  "kit-accounts-receivable":
+    "https://bcndhwwuamooeofezepv.supabase.co/storage/v1/object/public/kits-sap-finance/AR_Configuration_Kit.zip",
+};
+
 const DEFAULT_DELIVERABLES: Deliverable[] = [
   { fr: "Kit SAP S/4HANA prêt à l'emploi", en: "Ready-to-use SAP S/4HANA kit" },
   { fr: "Matrices et checklist projet", en: "Project matrices and checklist" },
@@ -111,9 +124,18 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
   };
 
   const handleDownload = () => {
-    // eslint-disable-next-line no-console
-    console.log("[Download Kit]", kit?.id);
-    window.open("about:blank", "_blank", "noopener,noreferrer");
+    const url = kit ? KIT_DOWNLOAD_URLS[kit.id] : undefined;
+    if (!url) {
+      toast({
+        title: tx("Téléchargement indisponible", "Download unavailable"),
+        description: tx(
+          "Ce kit n'est pas encore disponible. Merci de réessayer plus tard.",
+          "This kit is not available yet. Please try again later.",
+        ),
+      });
+      return;
+    }
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
