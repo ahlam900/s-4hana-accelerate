@@ -213,21 +213,21 @@ const Ressources = () => {
             </h2>
             <p className="lede text-ivory/75 mt-6">
               {tx(
-                "Chaque contenu est basé sur des projets SAP Finance réels, avec une approche opérationnelle orientée décision et exécution.",
-                "Every piece is grounded in real SAP Finance projects, with an operational approach oriented toward decision and execution."
+                "Chaque contenu est basé sur des projets Finance SAP réels, avec une approche opérationnelle orientée décision, cadrage et exécution.",
+                "Every piece is grounded in real SAP Finance projects, with an operational approach oriented toward decision, scoping and execution."
               )}
             </p>
             <div className="mt-8 inline-flex items-center gap-3 text-ivory/60 text-sm">
               <Compass className="h-4 w-4 text-champagne" />
-              {tx("Pensé pour les décideurs Finance et les équipes projet.", "Designed for finance decision-makers and project teams.")}
+              {tx("Pensé pour les décideurs Finance et les équipes projet.", "Designed for Finance decision-makers and project teams.")}
             </div>
           </div>
           <div className="lg:col-span-7">
             <ul className="space-y-5">
               {[
-                { k: tx("Expérience projet S/4HANA", "S/4HANA project experience"), v: tx("Inspirés de programmes multi-entités, multi-pays et multi-référentiels.", "Drawn from multi-entity, multi-country, multi-standard programs.") },
+                { k: tx("Expérience projet SAP", "SAP project experience"), v: tx("Inspirés de programmes multi-entités, multi-pays et à forts enjeux de transformation.", "Drawn from multi-entity, multi-country programs with high transformation stakes.") },
                 { k: tx("Vision Finance + SAP", "Finance + SAP perspective"), v: tx("Une lecture qui croise les enjeux métier et la réalité de la plateforme.", "A reading that intersects business stakes and platform reality.") },
-                { k: tx("Contenus directement applicables", "Directly applicable content"), v: tx("Des repères utilisables dès le prochain comité projet.", "References usable from your next project committee.") },
+                { k: tx("Contenus directement applicables", "Directly applicable content"), v: tx("Des repères réutilisables dès le prochain atelier, comité ou cadrage.", "References reusable from your next workshop, committee or scoping session.") },
               ].map((v) => (
                 <li key={v.k} className="flex gap-5 border-t border-ivory/15 pt-5 first:border-0 first:pt-0">
                   <span className="text-champagne font-display text-sm tracking-[0.15em] pt-1 shrink-0">—</span>
