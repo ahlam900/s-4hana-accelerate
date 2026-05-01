@@ -118,14 +118,14 @@ const Ressources = () => {
             <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
               <p className="lede">
                 {tx(
-                  "Notre bibliothèque experte rassemble analyses, retours d'expérience et repères méthodologiques pour comprendre S/4HANA et structurer vos décisions Finance.",
-                  "Our expert library brings together analyses, lessons learned and methodological references to understand S/4HANA and structure your finance decisions."
+                  "Notre bibliothèque experte rassemble analyses, retours d'expérience et repères méthodologiques pour aider les directions Finance, les consultants et les équipes projet à mieux cadrer, comprendre et exécuter leurs transformations.",
+                  "Our expert library brings together analyses, lessons learned and methodological references to help Finance leaders, consultants and project teams better frame, understand and execute their transformations."
                 )}
               </p>
               <p className="text-[15px] leading-relaxed">
                 {tx(
-                  "Des contenus courts, issus de projets réels — pensés pour les directions Finance, les consultants SAP et les équipes projet.",
-                  "Concise content drawn from real projects — designed for finance leaders, SAP consultants and project teams."
+                  "Des contenus courts, issus du terrain, pensés pour éclairer les décisions et renforcer les repères utiles en Finance SAP.",
+                  "Short, field-tested content designed to inform decisions and strengthen the useful reference points in SAP Finance."
                 )}
               </p>
             </div>
