@@ -148,8 +148,8 @@ const Ressources = () => {
             </h2>
             <p className="lede mt-6 text-muted-foreground">
               {tx(
-                "Chaque ressource répond à une problématique concrète rencontrée par les directions Finance et les équipes projet S/4HANA.",
-                "Every resource addresses a concrete challenge faced by finance leaders and S/4HANA project teams."
+                "Chaque ressource répond à une problématique concrète rencontrée par les directions Finance, les consultants et les équipes projet.",
+                "Every resource addresses a concrete challenge faced by Finance leaders, consultants and project teams."
               )}
             </p>
           </div>
