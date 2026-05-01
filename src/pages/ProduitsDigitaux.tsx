@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, BellRing, Clock } from "lucide-react";
+import { ArrowRight, BellRing, Clock, Download, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import Reveal from "@/components/Reveal";
-import OperationalKitsSection from "@/components/OperationalKitsSection";
+import KitLeadDialog, { type KitLeadTarget } from "@/components/KitLeadDialog";
 import { products, productCategories } from "@/data/products";
 import Seo from "@/components/Seo";
 import { cn } from "@/lib/utils";
@@ -21,15 +21,18 @@ const productImages: Record<string, string> = {
   "playbook-sap-finance": playbookTransformationImage,
   "guide-s4hana-finance": guideS4HanaFinanceImage,
   "template-cartographie-processus": processMappingImage,
-  "checklist-go-live": goLiveChecklistImage,
-  "ressource-key-user": keyUserKitImage,
   "guide-controlling": controllingGuideImage,
   "playbook-cadrage-finance-cible": playbookTransformationImage,
   "template-raci-projet-sap-finance": processMappingImage,
-  "kit-hypercare-finance-sap": goLiveChecklistImage,
   "playbook-adoption-post-go-live": keyUserKitImage,
   "template-plan-montee-competence-key-users": processMappingImage,
   "guide-gouvernance-projet-sap-finance": controllingGuideImage,
+  // Operational kits (free)
+  "kit-general-ledger": goLiveChecklistImage,
+  "kit-accounts-payable": processMappingImage,
+  "kit-f110-payment-program": controllingGuideImage,
+  "kit-bank-accounting": guideS4HanaFinanceImage,
+  "kit-accounts-receivable": keyUserKitImage,
 };
 
 const ProduitsDigitaux = () => {
@@ -37,6 +40,7 @@ const ProduitsDigitaux = () => {
   const { localize } = useLang();
   const allLabel = tx("Toutes", "All");
   const [active, setActive] = useState<string>(allLabel);
+  const [openKit, setOpenKit] = useState<KitLeadTarget | null>(null);
   const filtered = active === allLabel ? products : products.filter((p) => p.category === active);
 
   return (
@@ -105,62 +109,92 @@ const ProduitsDigitaux = () => {
       <section className="section-y-sm pb-24">
         <div className="container-wide">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((p, i) => (
-              <Reveal key={p.id} delay={i * 50} className="card-premium overflow-hidden flex flex-col group">
-                <div className="aspect-[4/3] bg-secondary relative overflow-hidden">
-                  {productImages[p.id] ? (
-                    <img
-                      src={productImages[p.id]}
-                      alt={p.title}
-                      className="h-full w-full object-cover saturate-[0.82] contrast-[0.96] transition-transform duration-700 group-hover:scale-[1.035]"
-                      loading="lazy"
-                      width={1280}
-                      height={960}
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-secondary">
-                      <div className="font-display text-5xl text-ink/15 leading-none">{p.title.split(" ").slice(0, 2).join(" ")}</div>
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/20 to-ink/20" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-transparent to-background/15" />
-                  <div className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] bg-background/90 backdrop-blur px-3 py-1.5 rounded-sm">{p.category}</div>
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <h3 className="font-display text-lg leading-snug">
-                    <Link to={localize(`/produits-digitaux/${p.slug}`)} className="hover:text-champagne transition-colors">{p.title}</Link>
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{p.shortDescription}</p>
-                  <ul className="mt-4 space-y-1.5 flex-1">
-                    {p.valueBullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-[13px] text-foreground/80 leading-relaxed">
-                        <span className="text-champagne shrink-0 mt-0.5">✔</span>
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="text-xs text-muted-foreground mt-4">{p.audience}</div>
-                  <div className="text-xs text-muted-foreground">{p.format}{p.pages && ` · ${p.pages}`}</div>
-                  <div className="mt-5 pt-5 border-t border-border space-y-4">
-                    <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-champagne font-semibold">
-                      <Clock className="h-3.5 w-3.5" strokeWidth={2} />
-                      {tx("Disponible prochainement", "Available soon")}
-                    </div>
-                    <Button asChild size="sm" variant="outline" className="w-full">
-                      <Link to={localize("/contact")}>
-                        <BellRing className="h-4 w-4" /> {tx("Être informé du lancement", "Get notified at launch")}
-                      </Link>
-                    </Button>
+            {filtered.map((p, i) => {
+              const isKit = p.category === "Kits opérationnels";
+              return (
+                <Reveal key={p.id} delay={i * 50} className="card-premium overflow-hidden flex flex-col group">
+                  <div className="aspect-[4/3] bg-secondary relative overflow-hidden">
+                    {productImages[p.id] ? (
+                      <img
+                        src={productImages[p.id]}
+                        alt={p.title}
+                        className="h-full w-full object-cover saturate-[0.82] contrast-[0.96] transition-transform duration-700 group-hover:scale-[1.035]"
+                        loading="lazy"
+                        width={1280}
+                        height={960}
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center bg-secondary">
+                        <div className="font-display text-5xl text-ink/15 leading-none">{p.title.split(" ").slice(0, 2).join(" ")}</div>
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/20 to-ink/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-transparent to-background/15" />
+                    <div className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] bg-background/90 backdrop-blur px-3 py-1.5 rounded-sm">{p.category}</div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="font-display text-lg leading-snug">
+                      {isKit ? (
+                        <span>{p.title}</span>
+                      ) : (
+                        <Link to={localize(`/produits-digitaux/${p.slug}`)} className="hover:text-champagne transition-colors">{p.title}</Link>
+                      )}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{p.shortDescription}</p>
+                    <ul className="mt-4 space-y-1.5 flex-1">
+                      {p.valueBullets.map((b) => (
+                        <li key={b} className="flex items-start gap-2 text-[13px] text-foreground/80 leading-relaxed">
+                          <span className="text-champagne shrink-0 mt-0.5">✔</span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="text-xs text-muted-foreground mt-4">{p.audience}</div>
+                    <div className="text-xs text-muted-foreground">{p.format}{p.pages && ` · ${p.pages}`}</div>
+                    <div className="mt-5 pt-5 border-t border-border space-y-4">
+                      {isKit ? (
+                        <>
+                          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-champagne font-semibold">
+                            <Sparkles className="h-3.5 w-3.5" strokeWidth={2} />
+                            {tx("Disponible gratuitement", "Available for free")}
+                          </div>
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="ink"
+                            className="w-full"
+                            onClick={() =>
+                              setOpenKit({
+                                id: p.id,
+                                title: p.title,
+                                interestLabel: p.title,
+                              })
+                            }
+                          >
+                            <Download className="h-4 w-4" /> {tx("Télécharger le kit", "Download the kit")}
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-champagne font-semibold">
+                            <Clock className="h-3.5 w-3.5" strokeWidth={2} />
+                            {tx("Disponible prochainement", "Available soon")}
+                          </div>
+                          <Button asChild size="sm" variant="outline" className="w-full">
+                            <Link to={localize("/contact")}>
+                              <BellRing className="h-4 w-4" /> {tx("Être informé du lancement", "Get notified at launch")}
+                            </Link>
+                          </Button>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
-
-      {/* OPERATIONAL KITS (free) */}
-      <OperationalKitsSection />
 
       {/* CTA */}
       <section className="section-y bg-secondary">
@@ -180,6 +214,8 @@ const ProduitsDigitaux = () => {
           </Button>
         </div>
       </section>
+
+      <KitLeadDialog kit={openKit} onClose={() => setOpenKit(null)} />
     </>
   );
 };
