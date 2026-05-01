@@ -257,7 +257,7 @@ const Ressources = () => {
             </h2>
             <p className="lede mt-6 text-muted-foreground">
               {tx(
-                "Un contenu court, utile et directement applicable pour progresser sur vos projets SAP Finance.",
+                "Un contenu court, utile et directement applicable pour progresser sur vos projets Finance SAP.",
                 "Short, useful, directly applicable content to make progress on your SAP Finance projects."
               )}
             </p>
