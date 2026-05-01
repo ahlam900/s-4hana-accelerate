@@ -293,8 +293,8 @@ const Ressources = () => {
             </h2>
             <p className="lede text-ivory/75 mt-6 max-w-2xl mx-auto">
               {tx(
-                "Nous formons vos équipes Finance SAP et accompagnons les directions dans la structuration de leurs programmes S/4HANA.",
-                "We train your SAP Finance teams and support leaders in structuring their S/4HANA programs."
+                "Nous formons les équipes Finance SAP et accompagnons les directions dans le cadrage, la montée en compétence et la structuration de leurs transformations.",
+                "We train SAP Finance teams and support leaders in scoping, upskilling and structuring their transformations."
               )}
             </p>
             <div className="mt-10 flex justify-center">
