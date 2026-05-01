@@ -112,15 +112,57 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
       return;
     }
     setSubmitting(true);
-    // eslint-disable-next-line no-console
-    console.log("[Operational Kit Lead]", {
-      kit: kit?.id,
-      interest: kit?.interestLabel,
-      ...parsed.data,
-    });
-    await new Promise((r) => setTimeout(r, 400));
-    setSubmitting(false);
-    setStep("ready");
+    const selectedKitTitle = kit?.title ?? kit?.interestLabel ?? "";
+    const leadPayload = {
+      prenom: parsed.data.firstName,
+      nom: parsed.data.lastName || "",
+      email: parsed.data.email,
+      telephone: "",
+      societe: "",
+      type_demande: selectedKitTitle,
+      message: "Demande de téléchargement du kit : " + selectedKitTitle,
+      source: "resources_premium",
+      statut: "new",
+      formulaire: "kit_download",
+      niveau: "",
+      objectif: "",
+      fonction: "",
+      besoin: selectedKitTitle,
+    };
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(leadPayload),
+      });
+      if (!response.ok) {
+        const result = await response.json().catch(() => ({}));
+        // eslint-disable-next-line no-console
+        console.error("API /api/lead error:", result);
+        toast({
+          title: tx("Envoi impossible", "Submission failed"),
+          description: tx(
+            "Une erreur est survenue. Merci de réessayer.",
+            "An error occurred. Please try again.",
+          ),
+        });
+        setSubmitting(false);
+        return;
+      }
+      setSubmitting(false);
+      setStep("ready");
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error("Submit error:", error);
+      toast({
+        title: tx("Envoi impossible", "Submission failed"),
+        description: tx(
+          "Une erreur est survenue. Merci de réessayer.",
+          "An error occurred. Please try again.",
+        ),
+      });
+      setSubmitting(false);
+    }
   };
 
   const handleDownload = () => {
