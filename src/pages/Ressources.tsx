@@ -29,8 +29,8 @@ const Ressources = () => {
   const challenges = [
     {
       icon: Target,
-      title: tx("Comprendre les impacts réels de S/4HANA sur la Finance", "Understanding the real impact of S/4HANA on finance"),
-      desc: tx("Mesurer ce qui change vraiment pour la clôture, le pilotage et le contrôle.", "Measure what really changes for close, steering and control."),
+      title: tx("Comprendre ce qui change vraiment pour la Finance", "Understanding what really changes for Finance"),
+      desc: tx("Clôture, pilotage, contrôle, architecture cible : aller au-delà des slogans.", "Close, steering, control, target architecture: going beyond slogans."),
     },
     {
       icon: AlertTriangle,
@@ -40,54 +40,54 @@ const Ressources = () => {
     {
       icon: Workflow,
       title: tx("Structurer efficacement les processus Finance", "Effectively structuring finance processes"),
-      desc: tx("R2R, P2P, O2C : poser une cible claire, alignée avec le standard SAP.", "R2R, P2P, O2C: set a clear target aligned with the SAP standard."),
+      desc: tx("R2R, P2P, O2C : poser une cible claire et exploitable.", "R2R, P2P, O2C: set a clear, actionable target."),
     },
     {
       icon: Network,
       title: tx("Aligner Finance et IT dans un projet SAP", "Aligning Finance and IT within an SAP project"),
-      desc: tx("Construire une gouvernance qui sécurise les arbitrages tout au long du programme.", "Build governance that secures arbitrations throughout the program."),
+      desc: tx("Construire une gouvernance qui sécurise les arbitrages.", "Build governance that secures arbitrations."),
     },
     {
       icon: GraduationCap,
-      title: tx("Monter rapidement en compétence sur SAP Finance", "Rapidly upskilling in SAP Finance"),
+      title: tx("Monter plus rapidement en compétence sur SAP Finance", "Upskilling faster on SAP Finance"),
       desc: tx("Acquérir les repères essentiels pour contribuer dès les premiers ateliers.", "Acquire the essential references to contribute from the very first workshops."),
     },
   ];
 
   const featured = [
     {
-      title: tx("S/4HANA Finance : ce qui change vraiment", "S/4HANA Finance: what really changes"),
-      desc: tx("Universal Journal, modèle de données simplifié, impacts sur le contrôle et le pilotage. Une lecture courte des changements structurants.", "Universal Journal, simplified data model, impacts on control and steering. A concise read of the structuring changes."),
+      title: tx("Ce que la Finance doit vraiment anticiper dans un projet SAP", "What Finance really needs to anticipate in an SAP project"),
+      desc: tx("Les changements qui comptent vraiment pour la clôture, le pilotage, le contrôle et les équipes.", "The changes that really matter for close, steering, control and teams."),
       cta: tx("Lire", "Read"),
       icon: BookOpen,
     },
     {
       title: tx("3 erreurs fréquentes en phase de cadrage SAP", "3 common pitfalls during SAP scoping"),
-      desc: tx("Périmètre flou, gouvernance Finance / IT mal posée, sous-estimation du legacy : ce que l'on observe le plus souvent en programme.", "Blurred scope, weak Finance/IT governance, underestimated legacy: what we observe most often on programs."),
+      desc: tx("Périmètre flou, gouvernance Finance / IT mal posée, sous-estimation du legacy : ce que l'on observe le plus souvent.", "Blurred scope, weak Finance/IT governance, underestimated legacy: what we observe most often."),
       cta: tx("Lire", "Read"),
       icon: BookOpen,
     },
     {
-      title: tx("Comprendre le Universal Journal simplement", "Understanding the Universal Journal — simply"),
-      desc: tx("Le concept central de S/4HANA Finance expliqué clairement : structure, intérêt et impacts sur le reporting.", "The central concept of S/4HANA Finance explained clearly: structure, value and impact on reporting."),
+      title: tx("Universal Journal : ce qu'il change vraiment", "Universal Journal: what it really changes"),
+      desc: tx("Une lecture claire de son intérêt, de ses impacts et de ce qu'il modifie pour la Finance.", "A clear read of its value, impacts and what it changes for Finance."),
       cta: tx("Voir", "Watch"),
       icon: PlayCircle,
     },
     {
-      title: tx("Cadrer un programme S/4HANA en 5 questions", "Framing an S/4HANA program in 5 questions"),
+      title: tx("Cadrer un programme SAP Finance en 5 questions", "Framing an SAP Finance program in 5 questions"),
       desc: tx("Les questions à poser dès les premiers ateliers pour aligner sponsors, Finance et IT sur la cible.", "The questions to ask in the very first workshops to align sponsors, Finance and IT on the target."),
       cta: tx("Lire", "Read"),
       icon: BookOpen,
     },
     {
-      title: tx("R2R dans S/4HANA : ce qu'il faut savoir", "R2R in S/4HANA: what you need to know"),
-      desc: tx("Clôture, allocations, consolidation : comment SAP repense le processus Record-to-Report dans S/4HANA.", "Close, allocations, consolidation: how SAP rethinks the Record-to-Report process in S/4HANA."),
+      title: tx("R2R, P2P, O2C : comment poser une cible exploitable", "R2R, P2P, O2C: how to set an actionable target"),
+      desc: tx("Structurer les processus de bout en bout sans perdre la logique métier.", "Structure end-to-end processes without losing the business logic."),
       cta: tx("Lire", "Read"),
       icon: BookOpen,
     },
     {
       title: tx("Finance et IT : comment vraiment s'aligner", "Finance and IT: how to truly align"),
-      desc: tx("Trois leviers concrets pour faire converger les attentes Finance et la réalité d'une plateforme SAP.", "Three concrete levers to converge finance expectations with the reality of an SAP platform."),
+      desc: tx("Trois leviers concrets pour faire converger les attentes métier et la réalité de la plateforme SAP.", "Three concrete levers to converge business expectations with the reality of the SAP platform."),
       cta: tx("Voir", "Watch"),
       icon: PlayCircle,
     },
@@ -118,14 +118,14 @@ const Ressources = () => {
             <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
               <p className="lede">
                 {tx(
-                  "Notre bibliothèque experte rassemble analyses, retours d'expérience et repères méthodologiques pour comprendre S/4HANA et structurer vos décisions Finance.",
-                  "Our expert library brings together analyses, lessons learned and methodological references to understand S/4HANA and structure your finance decisions."
+                  "Notre bibliothèque experte rassemble analyses, retours d'expérience et repères méthodologiques pour aider les directions Finance, les consultants et les équipes projet à mieux cadrer, comprendre et exécuter leurs transformations.",
+                  "Our expert library brings together analyses, lessons learned and methodological references to help Finance leaders, consultants and project teams better frame, understand and execute their transformations."
                 )}
               </p>
               <p className="text-[15px] leading-relaxed">
                 {tx(
-                  "Des contenus courts, issus de projets réels — pensés pour les directions Finance, les consultants SAP et les équipes projet.",
-                  "Concise content drawn from real projects — designed for finance leaders, SAP consultants and project teams."
+                  "Des contenus courts, issus du terrain, pensés pour éclairer les décisions et renforcer les repères utiles en Finance SAP.",
+                  "Short, field-tested content designed to inform decisions and strengthen the useful reference points in SAP Finance."
                 )}
               </p>
             </div>
@@ -148,8 +148,8 @@ const Ressources = () => {
             </h2>
             <p className="lede mt-6 text-muted-foreground">
               {tx(
-                "Chaque ressource répond à une problématique concrète rencontrée par les directions Finance et les équipes projet S/4HANA.",
-                "Every resource addresses a concrete challenge faced by finance leaders and S/4HANA project teams."
+                "Chaque ressource répond à une problématique concrète rencontrée par les directions Finance, les consultants et les équipes projet.",
+                "Every resource addresses a concrete challenge faced by Finance leaders, consultants and project teams."
               )}
             </p>
           </div>
@@ -213,21 +213,21 @@ const Ressources = () => {
             </h2>
             <p className="lede text-ivory/75 mt-6">
               {tx(
-                "Chaque contenu est basé sur des projets SAP Finance réels, avec une approche opérationnelle orientée décision et exécution.",
-                "Every piece is grounded in real SAP Finance projects, with an operational approach oriented toward decision and execution."
+                "Chaque contenu est basé sur des projets Finance SAP réels, avec une approche opérationnelle orientée décision, cadrage et exécution.",
+                "Every piece is grounded in real SAP Finance projects, with an operational approach oriented toward decision, scoping and execution."
               )}
             </p>
             <div className="mt-8 inline-flex items-center gap-3 text-ivory/60 text-sm">
               <Compass className="h-4 w-4 text-champagne" />
-              {tx("Pensé pour les décideurs Finance et les équipes projet.", "Designed for finance decision-makers and project teams.")}
+              {tx("Pensé pour les décideurs Finance et les équipes projet.", "Designed for Finance decision-makers and project teams.")}
             </div>
           </div>
           <div className="lg:col-span-7">
             <ul className="space-y-5">
               {[
-                { k: tx("Expérience projet S/4HANA", "S/4HANA project experience"), v: tx("Inspirés de programmes multi-entités, multi-pays et multi-référentiels.", "Drawn from multi-entity, multi-country, multi-standard programs.") },
+                { k: tx("Expérience projet SAP", "SAP project experience"), v: tx("Inspirés de programmes multi-entités, multi-pays et à forts enjeux de transformation.", "Drawn from multi-entity, multi-country programs with high transformation stakes.") },
                 { k: tx("Vision Finance + SAP", "Finance + SAP perspective"), v: tx("Une lecture qui croise les enjeux métier et la réalité de la plateforme.", "A reading that intersects business stakes and platform reality.") },
-                { k: tx("Contenus directement applicables", "Directly applicable content"), v: tx("Des repères utilisables dès le prochain comité projet.", "References usable from your next project committee.") },
+                { k: tx("Contenus directement applicables", "Directly applicable content"), v: tx("Des repères réutilisables dès le prochain atelier, comité ou cadrage.", "References reusable from your next workshop, committee or scoping session.") },
               ].map((v) => (
                 <li key={v.k} className="flex gap-5 border-t border-ivory/15 pt-5 first:border-0 first:pt-0">
                   <span className="text-champagne font-display text-sm tracking-[0.15em] pt-1 shrink-0">—</span>
@@ -257,7 +257,7 @@ const Ressources = () => {
             </h2>
             <p className="lede mt-6 text-muted-foreground">
               {tx(
-                "Un contenu court, utile et directement applicable pour progresser sur vos projets SAP Finance.",
+                "Un contenu court, utile et directement applicable pour progresser sur vos projets Finance SAP.",
                 "Short, useful, directly applicable content to make progress on your SAP Finance projects."
               )}
             </p>
@@ -293,8 +293,8 @@ const Ressources = () => {
             </h2>
             <p className="lede text-ivory/75 mt-6 max-w-2xl mx-auto">
               {tx(
-                "Nous formons vos équipes Finance SAP et accompagnons les directions dans la structuration de leurs programmes S/4HANA.",
-                "We train your SAP Finance teams and support leaders in structuring their S/4HANA programs."
+                "Nous formons les équipes Finance SAP et accompagnons les directions dans le cadrage, la montée en compétence et la structuration de leurs transformations.",
+                "We train SAP Finance teams and support leaders in scoping, upskilling and structuring their transformations."
               )}
             </p>
             <div className="mt-10 flex justify-center">
