@@ -139,18 +139,12 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
                 {tx("Vous allez recevoir :", "You will receive:")}
               </div>
               <ul className="space-y-1.5 text-[13px] text-ivory/85 leading-relaxed">
-                <li className="flex gap-2">
-                  <span className="text-champagne mt-0.5">›</span>
-                  {tx("Kit SAP S/4HANA prêt à l'emploi", "Ready-to-use SAP S/4HANA kit")}
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-champagne mt-0.5">›</span>
-                  {tx("Matrices et checklist projet", "Project matrices and checklist")}
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-champagne mt-0.5">›</span>
-                  {tx("Cas pratique consultant", "Consultant practical case")}
-                </li>
+                {(KIT_DELIVERABLES[kit.id] ?? DEFAULT_DELIVERABLES).map((d, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-champagne mt-0.5">›</span>
+                    {tx(d.fr, d.en)}
+                  </li>
+                ))}
               </ul>
             </div>
 
