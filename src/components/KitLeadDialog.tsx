@@ -20,6 +20,42 @@ export interface KitLeadTarget {
   interestLabel: string;
 }
 
+type Deliverable = { fr: string; en: string };
+
+const KIT_DELIVERABLES: Record<string, Deliverable[]> = {
+  "kit-general-ledger": [
+    { fr: "Kit General Ledger prêt à l'emploi", en: "Ready-to-use General Ledger kit" },
+    { fr: "Matrice plan de comptes & structure GL", en: "Chart of accounts matrix & GL structure" },
+    { fr: "Cas pratique configuration GL", en: "GL configuration practical case" },
+  ],
+  "kit-accounts-payable": [
+    { fr: "Kit Accounts Payable prêt à l'emploi", en: "Ready-to-use Accounts Payable kit" },
+    { fr: "Paramétrage fournisseur & comptes collectifs", en: "Vendor & reconciliation accounts setup" },
+    { fr: "Cas pratique facture fournisseur", en: "Vendor invoice practical case" },
+  ],
+  "kit-f110-payment-program": [
+    { fr: "Kit F110 prêt à l'emploi", en: "Ready-to-use F110 kit" },
+    { fr: "Paramétrage des paiements automatisés", en: "Automated payments configuration" },
+    { fr: "Cas pratique run de paiement", en: "Payment run practical case" },
+  ],
+  "kit-bank-accounting": [
+    { fr: "Kit Bank Accounting prêt à l'emploi", en: "Ready-to-use Bank Accounting kit" },
+    { fr: "Configuration banques & comptes bancaires", en: "Banks & bank accounts configuration" },
+    { fr: "Cas pratique intégration paiement", en: "Payment integration practical case" },
+  ],
+  "kit-accounts-receivable": [
+    { fr: "Kit Accounts Receivable prêt à l'emploi", en: "Ready-to-use Accounts Receivable kit" },
+    { fr: "Paramétrage client & encaissement", en: "Customer & collection setup" },
+    { fr: "Cas pratique facture client", en: "Customer invoice practical case" },
+  ],
+};
+
+const DEFAULT_DELIVERABLES: Deliverable[] = [
+  { fr: "Kit SAP S/4HANA prêt à l'emploi", en: "Ready-to-use SAP S/4HANA kit" },
+  { fr: "Matrices et checklist projet", en: "Project matrices and checklist" },
+  { fr: "Cas pratique consultant", en: "Consultant practical case" },
+];
+
 interface KitLeadDialogProps {
   kit: KitLeadTarget | null;
   onClose: () => void;
@@ -103,18 +139,12 @@ const KitLeadDialog = ({ kit, onClose }: KitLeadDialogProps) => {
                 {tx("Vous allez recevoir :", "You will receive:")}
               </div>
               <ul className="space-y-1.5 text-[13px] text-ivory/85 leading-relaxed">
-                <li className="flex gap-2">
-                  <span className="text-champagne mt-0.5">›</span>
-                  {tx("Kit SAP S/4HANA prêt à l'emploi", "Ready-to-use SAP S/4HANA kit")}
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-champagne mt-0.5">›</span>
-                  {tx("Matrices et checklist projet", "Project matrices and checklist")}
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-champagne mt-0.5">›</span>
-                  {tx("Cas pratique consultant", "Consultant practical case")}
-                </li>
+                {(KIT_DELIVERABLES[kit.id] ?? DEFAULT_DELIVERABLES).map((d, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-champagne mt-0.5">›</span>
+                    {tx(d.fr, d.en)}
+                  </li>
+                ))}
               </ul>
             </div>
 
