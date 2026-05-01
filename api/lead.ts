@@ -149,7 +149,7 @@ export default async function handler(req: any, res: any) {
 </p>
 
 <div style="text-align:center;margin:15px 0;">
-  <a href="https://ton-site.com/formations" target="_blank"
+  <a href="https://cbs-institute.com/formations" target="_blank"
     style="display:inline-block;padding:12px 20px;background:#0f172a;color:#ffffff;text-decoration:none;border-radius:6px;font-weight:600;">
     Découvrir les formations CBS
   </a>
