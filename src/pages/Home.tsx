@@ -64,15 +64,6 @@ const Home = () => {
       {/* HERO */}
       <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
-        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
-          <div className="lg:col-span-7 relative z-10">
-            <div className="inline-flex items-center gap-3 mb-8">
-              <span className="h-px w-8 bg-champagne" />
-              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{t("home.eyebrow")}</span>
-            </div>
-      {/* HERO */}
-      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
         <div className="container-wide relative">
           {/* Slide 1 */}
           <div
