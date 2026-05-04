@@ -1,4 +1,5 @@
-import { ArrowRight, Compass, GraduationCap, Building2, ShieldCheck, Sparkles, Layers, Users, Briefcase, BookOpen, FileText, Mail } from "lucide-react";
+import { ArrowRight, Compass, GraduationCap, Building2, ShieldCheck, Sparkles, Layers, Users, Briefcase, BookOpen, FileText, Mail, MapPin } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
