@@ -1,4 +1,5 @@
-import { ArrowRight, Compass, GraduationCap, Building2, ShieldCheck, Sparkles, Layers, Users, Briefcase, BookOpen, FileText, Mail } from "lucide-react";
+import { ArrowRight, Compass, GraduationCap, Building2, ShieldCheck, Sparkles, Layers, Users, Briefcase, BookOpen, FileText, Mail, MapPin } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
@@ -10,6 +11,13 @@ import corporateVisual from "@/assets/corporate-visual.jpg";
 
 const Home = () => {
   const { t } = useTranslation();
+  const [slide, setSlide] = useState(0);
+  const slidesCount = 2;
+  useEffect(() => {
+    const id = setInterval(() => setSlide((s) => (s + 1) % slidesCount), 7000);
+    return () => clearInterval(id);
+  }, []);
+
 
   const pillars = [
     { icon: Compass, title: t("home.pillar_1_title"), text: t("home.pillar_1_text") },
@@ -55,48 +63,142 @@ const Home = () => {
       {/* HERO */}
       <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
-        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
-          <div className="lg:col-span-7 relative z-10">
-            <div className="inline-flex items-center gap-3 mb-8">
-              <span className="h-px w-8 bg-champagne" />
-              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{t("home.eyebrow")}</span>
+        <div className="container-wide relative">
+          <div className="relative">
+            {/* Slide 1 */}
+            <div
+              className={`transition-opacity duration-700 ${slide === 0 ? "opacity-100 relative" : "opacity-0 absolute inset-0 pointer-events-none"}`}
+              aria-hidden={slide !== 0}
+            >
+              <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <div className="lg:col-span-7 relative z-10">
+                  <div className="inline-flex items-center gap-3 mb-8">
+                    <span className="h-px w-8 bg-champagne" />
+                    <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{t("home.eyebrow")}</span>
+                  </div>
+                  <h1 className="display-xl text-foreground">
+                    {t("home.title_a")}<em className="not-italic text-champagne font-display">{t("home.title_em")}</em>{t("home.title_b")}
+                  </h1>
+                  <p className="lede mt-7 max-w-lg leading-relaxed">{t("home.lede")}</p>
+                  <div className="mt-9 flex flex-wrap gap-3">
+                    <Button asChild size="lg" variant="ink">
+                      <LLink to="/formations">{t("home.cta_trainings")} <ArrowRight /></LLink>
+                    </Button>
+                    <Button asChild size="lg" variant="outline">
+                      <LLink to="/offres-entreprise">{t("home.cta_corporate")}</LLink>
+                    </Button>
+                  </div>
+                  <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center justify-between max-w-2xl divide-x divide-border/40">
+                    <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
+                      {t("home.trust_1")}
+                    </span>
+                    <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
+                      {t("home.trust_2")}
+                    </span>
+                    <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
+                      {t("home.trust_3")}
+                    </span>
+                  </div>
+                </div>
+                <div className="lg:col-span-5 relative">
+                  <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)] ring-1 ring-ink/5">
+                    <img src={heroVisual} alt="CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                  <div className="hidden md:block absolute bottom-8 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory p-4 rounded-sm max-w-[220px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
+                    <div className="flex items-center gap-2 text-[9.5px] uppercase tracking-[0.28em] text-champagne mb-2">
+                      <span className="h-px w-4 bg-champagne" /> {t("home.flagship")}
+                    </div>
+                    <div className="font-display text-[15px] leading-snug">{t("home.flagship_program")}</div>
+                    <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">{t("home.flagship_meta")}</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h1 className="display-xl text-foreground">
-              {t("home.title_a")}<em className="not-italic text-champagne font-display">{t("home.title_em")}</em>{t("home.title_b")}
-            </h1>
-            <p className="lede mt-7 max-w-lg leading-relaxed">{t("home.lede")}</p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild size="lg" variant="ink">
-                <LLink to="/formations">{t("home.cta_trainings")} <ArrowRight /></LLink>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <LLink to="/offres-entreprise">{t("home.cta_corporate")}</LLink>
-              </Button>
-            </div>
-            <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center justify-between max-w-2xl divide-x divide-border/40">
-              <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                {t("home.trust_1")}
-              </span>
-              <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                {t("home.trust_2")}
-              </span>
-              <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                {t("home.trust_3")}
-              </span>
+
+            {/* Slide 2 — Key User locations */}
+            <div
+              className={`transition-opacity duration-700 ${slide === 1 ? "opacity-100 relative" : "opacity-0 absolute inset-0 pointer-events-none"}`}
+              aria-hidden={slide !== 1}
+            >
+              <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <div className="lg:col-span-7 relative z-10">
+                  <div className="inline-flex items-center gap-3 mb-8">
+                    <span className="h-px w-8 bg-champagne" />
+                    <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">Key User SAP — Paris · Dubaï</span>
+                  </div>
+                  <h1 className="display-xl text-foreground">
+                    Key User SAP : disponible à <em className="not-italic text-champagne font-display">Paris</em> et à <em className="not-italic text-champagne font-display">Dubaï</em>
+                  </h1>
+                  <p className="lede mt-7 max-w-lg leading-relaxed">
+                    Une formation immersive, pensée pour accélérer l’adoption SAP dans vos équipes.
+                  </p>
+                  <p className="mt-5 max-w-xl text-[15px] text-muted-foreground leading-[1.75]">
+                    Le programme Key User SAP peut être suivi à Paris ou à Dubaï, pour répondre aux besoins des équipes locales et internationales. Nous proposons également une formule <span className="text-foreground font-medium">Séminaire entreprise</span>, idéale pour regrouper vos collaborateurs et accélérer la montée en compétence sur SAP.
+                  </p>
+                  <ul className="mt-8 space-y-3 max-w-xl">
+                    {[
+                      { t: "Paris", d: "Sessions régulières en présentiel" },
+                      { t: "Dubaï", d: "Sessions dédiées pour vos équipes internationales" },
+                      { t: "Séminaire entreprise", d: "Format intensif sur mesure" },
+                    ].map((it) => (
+                      <li key={it.t} className="flex items-start gap-4 border-t border-border/60 pt-3">
+                        <span className="flex items-center justify-center h-9 w-9 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0">
+                          <MapPin className="h-4 w-4 text-champagne" strokeWidth={1.5} />
+                        </span>
+                        <div className="min-w-0">
+                          <div className="font-display text-[16px] leading-tight tracking-tight text-foreground">{it.t}</div>
+                          <div className="text-[13.5px] text-muted-foreground mt-1">{it.d}</div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-9 flex flex-wrap gap-3">
+                    <Button asChild size="lg" variant="ink">
+                      <LLink to="/formations">Découvrir le programme <ArrowRight /></LLink>
+                    </Button>
+                    <Button asChild size="lg" variant="outline">
+                      <LLink to="/offres-entreprise">Demander un séminaire</LLink>
+                    </Button>
+                  </div>
+                </div>
+                <div className="lg:col-span-5 relative">
+                  <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)] ring-1 ring-ink/5 bg-gradient-to-br from-secondary via-background to-secondary">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--champagne)/0.12),transparent_55%),radial-gradient(circle_at_75%_80%,hsl(var(--champagne)/0.08),transparent_50%)]" />
+                    <div className="absolute inset-0 flex flex-col justify-center px-10 gap-8">
+                      {[
+                        { city: "Paris", meta: "Présentiel · Sessions régulières" },
+                        { city: "Dubaï", meta: "Sessions internationales" },
+                        { city: "Séminaire", meta: "Sur mesure · Intra-entreprise" },
+                      ].map((c) => (
+                        <div key={c.city} className="flex items-center gap-4">
+                          <span className="flex items-center justify-center h-11 w-11 rounded-sm bg-ink text-champagne ring-1 ring-champagne/30">
+                            <MapPin className="h-5 w-5" strokeWidth={1.5} />
+                          </span>
+                          <div>
+                            <div className="font-display text-[20px] leading-tight tracking-tight text-foreground">{c.city}</div>
+                            <div className="text-[11.5px] uppercase tracking-[0.2em] text-muted-foreground mt-1">{c.meta}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="absolute inset-x-6 bottom-6 h-px bg-gradient-to-r from-transparent via-champagne/40 to-transparent" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)] ring-1 ring-ink/5">
-              <img src={heroVisual} alt="CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
-            </div>
-            <div className="hidden md:block absolute bottom-8 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory p-4 rounded-sm max-w-[220px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
-              <div className="flex items-center gap-2 text-[9.5px] uppercase tracking-[0.28em] text-champagne mb-2">
-                <span className="h-px w-4 bg-champagne" /> {t("home.flagship")}
-              </div>
-              <div className="font-display text-[15px] leading-snug">{t("home.flagship_program")}</div>
-              <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">{t("home.flagship_meta")}</div>
-            </div>
+
+          {/* Dots */}
+          <div className="mt-10 flex items-center justify-center gap-3">
+            {Array.from({ length: slidesCount }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setSlide(i)}
+                aria-label={`Aller au slide ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${slide === i ? "w-10 bg-champagne" : "w-5 bg-border hover:bg-champagne/40"}`}
+              />
+            ))}
           </div>
         </div>
       </section>
