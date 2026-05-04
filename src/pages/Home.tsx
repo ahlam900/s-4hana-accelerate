@@ -132,15 +132,12 @@ const Home = () => {
               <p className="lede mt-7 max-w-lg leading-relaxed">
                 {tx(
                   "Une formation immersive pensée pour accélérer l'adoption SAP. Proposée à Paris et à Dubaï pour accompagner vos équipes locales et internationales.",
-                  "An immersive program designed to accelerate SAP adoption. Available in Paris and Dubai to support your local and international teams.",
+                  "An immersive program designed to accelerate SAP adoption. Offered in Paris and Dubai to support your local and international teams.",
                 )}
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Button asChild size="lg" variant="ink">
-                  <LLink to="/formations">{tx("Découvrir le programme", "Discover the program")} <ArrowRight /></LLink>
-                </Button>
-                <Button asChild size="lg" variant="outline">
-                  <LLink to="/offres-entreprise">{tx("Séminaire entreprise", "Corporate seminar")}</LLink>
+                  <LLink to="/offres-entreprise">{tx("Découvrir les offres entreprise", "Discover corporate offers")} <ArrowRight /></LLink>
                 </Button>
               </div>
               <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center justify-between max-w-2xl divide-x divide-border/40">
