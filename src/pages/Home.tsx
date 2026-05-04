@@ -11,6 +11,13 @@ import corporateVisual from "@/assets/corporate-visual.jpg";
 
 const Home = () => {
   const { t } = useTranslation();
+  const [slide, setSlide] = useState(0);
+  const slidesCount = 2;
+  useEffect(() => {
+    const id = setInterval(() => setSlide((s) => (s + 1) % slidesCount), 7000);
+    return () => clearInterval(id);
+  }, []);
+
 
   const pillars = [
     { icon: Compass, title: t("home.pillar_1_title"), text: t("home.pillar_1_text") },
