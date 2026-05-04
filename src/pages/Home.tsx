@@ -1,15 +1,24 @@
 import { ArrowRight, Compass, GraduationCap, Building2, ShieldCheck, Sparkles, Layers, Users, Briefcase, BookOpen, FileText, Mail } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import { LLink } from "@/i18n/LLink";
 import Seo from "@/components/Seo";
 import heroVisual from "@/assets/hero-visual.jpg";
+import heroLocationsVisual from "@/assets/hero-locations-visual.jpg";
 import productsVisual from "@/assets/products-visual.jpg";
 import corporateVisual from "@/assets/corporate-visual.jpg";
+import { useTx } from "@/i18n/tx";
 
 const Home = () => {
   const { t } = useTranslation();
+  const tx = useTx();
+  const [slide, setSlide] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setSlide((s) => (s + 1) % 2), 7000);
+    return () => clearInterval(id);
+  }, []);
 
   const pillars = [
     { icon: Compass, title: t("home.pillar_1_title"), text: t("home.pillar_1_text") },
