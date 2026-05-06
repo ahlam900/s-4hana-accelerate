@@ -61,7 +61,7 @@ const Home = () => {
   return (
     <>
       <Seo
-        title="CBS Finance Institute | SAP Finance Training"
+        title="SAP Finance Training"
         description="CBS Finance Institute accompagne les professionnels et les entreprises dans la montée en compétence SAP Finance, S/4HANA, Key User SAP et transformation digitale Finance."
       />
       {/* HERO */}
