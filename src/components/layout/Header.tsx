@@ -44,16 +44,16 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide flex items-center justify-between gap-6 h-32 md:h-36 lg:h-40 xl:h-44">
+      <div className="container-wide flex items-center justify-between gap-6 h-28 md:h-32 lg:h-36 xl:h-40">
         <LLink
           to="/"
-          className="flex items-center shrink-0 h-full -my-2"
+          className="flex items-center shrink-0 h-full"
           aria-label="CBS Finance Institute"
         >
           <img
             src={logo}
             alt="CBS Finance Institute — SAP Finance Expertise"
-            className="block w-auto object-contain object-left h-24 sm:h-28 md:h-32 lg:h-36 xl:h-40"
+            className="block w-auto object-contain object-left h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36"
             loading="eager"
             decoding="async"
           />
