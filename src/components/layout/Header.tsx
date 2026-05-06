@@ -44,7 +44,7 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="container-wide flex items-center justify-between gap-8 h-24 md:h-28 lg:h-32 xl:h-36">
+      <div className="container-wide flex items-center justify-between gap-8 h-20 md:h-24 lg:h-28 xl:h-28">
         <LLink
           to="/"
           className="flex items-center shrink-0 h-full"
@@ -53,7 +53,7 @@ const Header = () => {
           <img
             src={logo}
             alt="CBS Finance Institute — SAP Finance Expertise"
-            className="block w-auto object-contain object-left h-14 sm:h-16 md:h-20 lg:h-24 xl:h-[104px]"
+            className="block w-auto object-contain object-left h-10 sm:h-12 md:h-14 lg:h-[68px] xl:h-[76px]"
             loading="eager"
             decoding="async"
           />
