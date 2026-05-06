@@ -24,9 +24,12 @@ const Seo = ({ titleKey, title, descriptionKey, description }: SeoProps) => {
   useEffect(() => {
     const resolvedTitle = titleKey ? t(titleKey) : title;
     const resolvedDesc = descriptionKey ? t(descriptionKey) : description;
+    const fullTitle = resolvedTitle
+      ? (resolvedTitle.includes(SITE) ? resolvedTitle : `${resolvedTitle} | ${SITE}`)
+      : undefined;
 
-    if (resolvedTitle) {
-      document.title = `${resolvedTitle} | ${SITE}`;
+    if (fullTitle) {
+      document.title = fullTitle;
     }
 
     if (resolvedDesc) {
@@ -47,14 +50,14 @@ const Seo = ({ titleKey, title, descriptionKey, description }: SeoProps) => {
       og.content = resolvedDesc;
     }
 
-    if (resolvedTitle) {
+    if (fullTitle) {
       let ogTitle = document.head.querySelector<HTMLMetaElement>('meta[property="og:title"]');
       if (!ogTitle) {
         ogTitle = document.createElement("meta");
         ogTitle.setAttribute("property", "og:title");
         document.head.appendChild(ogTitle);
       }
-      ogTitle.content = `${resolvedTitle} | ${SITE}`;
+      ogTitle.content = fullTitle;
     }
   }, [titleKey, title, descriptionKey, description, t, i18n.language]);
 
