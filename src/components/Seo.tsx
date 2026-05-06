@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 
 interface SeoProps {
   /** i18n key for the page title (without site suffix) */
@@ -10,58 +10,58 @@ interface SeoProps {
   descriptionKey?: string;
   /** Plain description fallback */
   description?: string;
+  /** Plain canonical URL fallback */
+  canonicalUrl?: string;
+  /** Plain Open Graph title fallback */
+  ogTitle?: string;
+  /** Plain Open Graph description fallback */
+  ogDescription?: string;
+  /** Plain Open Graph URL fallback */
+  ogUrl?: string;
+  /** Open Graph type */
+  ogType?: string;
 }
 
 const SITE = "CBS Finance Institute";
 
 /**
- * Per-page SEO component: updates <title> and meta description.
- * Hreflang/canonical are handled globally by SeoHreflang.
+ * Per-page SEO component rendered into the actual document <head>.
  */
-const Seo = ({ titleKey, title, descriptionKey, description }: SeoProps) => {
+const Seo = ({
+  titleKey,
+  title,
+  descriptionKey,
+  description,
+  canonicalUrl,
+  ogTitle,
+  ogDescription,
+  ogUrl,
+  ogType = "website",
+}: SeoProps) => {
   const { t, i18n } = useTranslation();
 
-  useEffect(() => {
-    const resolvedTitle = titleKey ? t(titleKey) : title;
-    const resolvedDesc = descriptionKey ? t(descriptionKey) : description;
-    const fullTitle = resolvedTitle
-      ? (resolvedTitle.includes(SITE) ? resolvedTitle : `${resolvedTitle} | ${SITE}`)
-      : undefined;
+  const resolvedTitle = titleKey ? t(titleKey) : title;
+  const resolvedDescription = descriptionKey ? t(descriptionKey) : description;
+  const fullTitle = resolvedTitle
+    ? (resolvedTitle.includes(SITE) ? resolvedTitle : `${resolvedTitle} | ${SITE}`)
+    : undefined;
+  const resolvedOgTitle = ogTitle ?? fullTitle;
+  const resolvedOgDescription = ogDescription ?? resolvedDescription;
 
-    if (fullTitle) {
-      document.title = fullTitle;
-    }
-
-    if (resolvedDesc) {
-      let meta = document.head.querySelector<HTMLMetaElement>('meta[name="description"]');
-      if (!meta) {
-        meta = document.createElement("meta");
-        meta.name = "description";
-        document.head.appendChild(meta);
-      }
-      meta.content = resolvedDesc;
-
-      let og = document.head.querySelector<HTMLMetaElement>('meta[property="og:description"]');
-      if (!og) {
-        og = document.createElement("meta");
-        og.setAttribute("property", "og:description");
-        document.head.appendChild(og);
-      }
-      og.content = resolvedDesc;
-    }
-
-    if (fullTitle) {
-      let ogTitle = document.head.querySelector<HTMLMetaElement>('meta[property="og:title"]');
-      if (!ogTitle) {
-        ogTitle = document.createElement("meta");
-        ogTitle.setAttribute("property", "og:title");
-        document.head.appendChild(ogTitle);
-      }
-      ogTitle.content = fullTitle;
-    }
-  }, [titleKey, title, descriptionKey, description, t, i18n.language]);
-
-  return null;
+  return (
+    <Helmet prioritizeSeoTags>
+      {fullTitle ? <title>{fullTitle}</title> : null}
+      {resolvedDescription ? <meta name="description" content={resolvedDescription} /> : null}
+      {canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null}
+      {resolvedOgTitle ? <meta property="og:title" content={resolvedOgTitle} /> : null}
+      {resolvedOgDescription ? <meta property="og:description" content={resolvedOgDescription} /> : null}
+      {ogUrl ? <meta property="og:url" content={ogUrl} /> : null}
+      {ogType ? <meta property="og:type" content={ogType} /> : null}
+      {resolvedOgTitle ? <meta name="twitter:title" content={resolvedOgTitle} /> : null}
+      {resolvedOgDescription ? <meta name="twitter:description" content={resolvedOgDescription} /> : null}
+      <html lang={i18n.language?.startsWith("en") ? "en" : "fr"} />
+    </Helmet>
+  );
 };
 
 export default Seo;
