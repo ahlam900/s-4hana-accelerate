@@ -24,9 +24,12 @@ const Seo = ({ titleKey, title, descriptionKey, description }: SeoProps) => {
   useEffect(() => {
     const resolvedTitle = titleKey ? t(titleKey) : title;
     const resolvedDesc = descriptionKey ? t(descriptionKey) : description;
+    const fullTitle = resolvedTitle
+      ? (resolvedTitle.includes(SITE) ? resolvedTitle : `${resolvedTitle} | ${SITE}`)
+      : undefined;
 
-    if (resolvedTitle) {
-      document.title = `${resolvedTitle} | ${SITE}`;
+    if (fullTitle) {
+      document.title = fullTitle;
     }
 
     if (resolvedDesc) {
