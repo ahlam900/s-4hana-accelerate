@@ -50,14 +50,14 @@ const Seo = ({ titleKey, title, descriptionKey, description }: SeoProps) => {
       og.content = resolvedDesc;
     }
 
-    if (resolvedTitle) {
+    if (fullTitle) {
       let ogTitle = document.head.querySelector<HTMLMetaElement>('meta[property="og:title"]');
       if (!ogTitle) {
         ogTitle = document.createElement("meta");
         ogTitle.setAttribute("property", "og:title");
         document.head.appendChild(ogTitle);
       }
-      ogTitle.content = `${resolvedTitle} | ${SITE}`;
+      ogTitle.content = fullTitle;
     }
   }, [titleKey, title, descriptionKey, description, t, i18n.language]);
 
