@@ -1,41 +1,27 @@
-import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { useLang, stripLangPrefix, withLang } from "./useLang";
 
 const BASE = "https://cbs-finance-institute.fr";
 
-/** Injects/updates <link rel="alternate" hreflang> and <link rel="canonical">. */
+/** Renders canonical and hreflang tags into the document head. */
 const SeoHreflang = () => {
   const { pathname } = useLocation();
   const { lang } = useLang();
 
-  useEffect(() => {
-    const canonical = stripLangPrefix(pathname);
-    const frUrl = `${BASE}${withLang(canonical, "fr")}`;
-    const enUrl = `${BASE}${withLang(canonical, "en")}`;
-    const selfUrl = lang === "en" ? enUrl : frUrl;
+  const canonical = stripLangPrefix(pathname);
+  const frUrl = `${BASE}${withLang(canonical, "fr")}`;
+  const enUrl = `${BASE}${withLang(canonical, "en")}`;
+  const selfUrl = lang === "en" ? enUrl : frUrl;
 
-    const set = (rel: string, href: string, hreflang?: string) => {
-      const sel = hreflang
-        ? `link[rel="${rel}"][hreflang="${hreflang}"]`
-        : `link[rel="${rel}"]`;
-      let el = document.head.querySelector<HTMLLinkElement>(sel);
-      if (!el) {
-        el = document.createElement("link");
-        el.rel = rel;
-        if (hreflang) el.hreflang = hreflang;
-        document.head.appendChild(el);
-      }
-      el.href = href;
-    };
-
-    set("canonical", selfUrl);
-    set("alternate", frUrl, "fr");
-    set("alternate", enUrl, "en");
-    set("alternate", frUrl, "x-default");
-  }, [pathname, lang]);
-
-  return null;
+  return (
+    <Helmet>
+      <link rel="canonical" href={selfUrl} />
+      <link rel="alternate" hrefLang="fr" href={frUrl} />
+      <link rel="alternate" hrefLang="en" href={enUrl} />
+      <link rel="alternate" hrefLang="x-default" href={frUrl} />
+    </Helmet>
+  );
 };
 
 export default SeoHreflang;
