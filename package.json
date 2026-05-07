@@ -14,6 +14,7 @@
     "test:watch": "vitest"
   },
   "reactSnap": {
+    "source": "dist",
     "include": [
       "/"
     ],
