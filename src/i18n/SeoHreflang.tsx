@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useLang, stripLangPrefix, withLang } from "./useLang";
 
-const BASE = "https://cbs-finance-institute.fr";
+const BASE = "https://www.cbs-institute.com";
 
 /** Renders canonical and hreflang tags into the document head. */
 const SeoHreflang = () => {
