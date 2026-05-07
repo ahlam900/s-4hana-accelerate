@@ -16,7 +16,6 @@ const SeoHreflang = () => {
 
   return (
     <Helmet>
-      <link rel="canonical" href={selfUrl} />
       <link rel="alternate" hrefLang="fr" href={frUrl} />
       <link rel="alternate" hrefLang="en" href={enUrl} />
       <link rel="alternate" hrefLang="x-default" href={frUrl} />
