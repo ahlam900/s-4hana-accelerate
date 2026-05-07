@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { useCart } from "@/store/cart";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import Seo from "@/components/Seo";
 
 const schema = z.object({
   prenom: z.string().trim().min(1).max(80),
@@ -59,6 +60,8 @@ const Checkout = () => {
   };
 
   return (
+    <>
+    <Seo titleKey="seo.checkout_title" noindex />
     <section className="section-y">
       <div className="container-wide grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-7">
