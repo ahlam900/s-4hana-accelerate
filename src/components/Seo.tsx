@@ -1,32 +1,29 @@
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { stripLangPrefix, getLangFromPath } from "@/i18n/useLang";
 
 interface SeoProps {
-  /** i18n key for the page title (without site suffix) */
   titleKey?: string;
-  /** Plain title fallback (used if titleKey not provided) */
   title?: string;
-  /** i18n key for the meta description */
   descriptionKey?: string;
-  /** Plain description fallback */
   description?: string;
-  /** Plain canonical URL fallback */
+  /** Override canonical URL. Defaults to current path. */
   canonicalUrl?: string;
-  /** Plain Open Graph title fallback */
   ogTitle?: string;
-  /** Plain Open Graph description fallback */
   ogDescription?: string;
-  /** Plain Open Graph URL fallback */
   ogUrl?: string;
-  /** Open Graph type */
   ogType?: string;
+  /** Absolute URL or path of the OG image. Defaults to /og-image.png. */
+  ogImage?: string;
+  /** Set to true to add noindex,nofollow (cart/checkout/confirmation/unsubscribe/404). */
+  noindex?: boolean;
 }
 
 const SITE = "CBS Finance Institute";
+const BASE = "https://www.cbs-institute.com";
+const DEFAULT_OG_IMAGE = `${BASE}/og-image.png`;
 
-/**
- * Per-page SEO component rendered into the actual document <head>.
- */
 const Seo = ({
   titleKey,
   title,
@@ -37,8 +34,12 @@ const Seo = ({
   ogDescription,
   ogUrl,
   ogType = "website",
+  ogImage,
+  noindex,
 }: SeoProps) => {
   const { t, i18n } = useTranslation();
+  const { pathname } = useLocation();
+  const lang = getLangFromPath(pathname);
 
   const resolvedTitle = titleKey ? t(titleKey) : title;
   const resolvedDescription = descriptionKey ? t(descriptionKey) : description;
@@ -48,17 +49,39 @@ const Seo = ({
   const resolvedOgTitle = ogTitle ?? fullTitle;
   const resolvedOgDescription = ogDescription ?? resolvedDescription;
 
+  // Canonical = self URL (lang-aware)
+  const canonical = stripLangPrefix(pathname);
+  const selfPath = lang === "en" ? (canonical === "/" ? "/en" : `/en${canonical}`) : canonical;
+  const resolvedCanonical = canonicalUrl ?? `${BASE}${selfPath}`;
+  const resolvedOgUrl = ogUrl ?? resolvedCanonical;
+  const resolvedOgImage = ogImage
+    ? (ogImage.startsWith("http") ? ogImage : `${BASE}${ogImage.startsWith("/") ? "" : "/"}${ogImage}`)
+    : DEFAULT_OG_IMAGE;
+
   return (
     <Helmet prioritizeSeoTags>
       {fullTitle ? <title>{fullTitle}</title> : null}
       {resolvedDescription ? <meta name="description" content={resolvedDescription} /> : null}
-      {canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null}
+      <link rel="canonical" href={resolvedCanonical} />
+      {noindex ? <meta name="robots" content="noindex,nofollow" /> : <meta name="robots" content="index,follow" />}
+
+      {/* Open Graph */}
       {resolvedOgTitle ? <meta property="og:title" content={resolvedOgTitle} /> : null}
       {resolvedOgDescription ? <meta property="og:description" content={resolvedOgDescription} /> : null}
-      {ogUrl ? <meta property="og:url" content={ogUrl} /> : null}
-      {ogType ? <meta property="og:type" content={ogType} /> : null}
+      <meta property="og:url" content={resolvedOgUrl} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:site_name" content={SITE} />
+      <meta property="og:locale" content={lang === "en" ? "en_US" : "fr_FR"} />
+      <meta property="og:image" content={resolvedOgImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+
+      {/* Twitter / X */}
+      <meta name="twitter:card" content="summary_large_image" />
       {resolvedOgTitle ? <meta name="twitter:title" content={resolvedOgTitle} /> : null}
       {resolvedOgDescription ? <meta name="twitter:description" content={resolvedOgDescription} /> : null}
+      <meta name="twitter:image" content={resolvedOgImage} />
+
       <html lang={i18n.language?.startsWith("en") ? "en" : "fr"} />
     </Helmet>
   );
