@@ -22,10 +22,13 @@ const Panier = () => {
           </Button>
         </div>
       </section>
+      </>
     );
   }
 
   return (
+    <>
+    <Seo titleKey="seo.cart_title" noindex />
     <section className="section-y">
       <div className="container-wide">
         <div className="eyebrow mb-6">Votre panier</div>
