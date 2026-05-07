@@ -10,5 +10,14 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
 User-agent: *
 Allow: /
+Disallow: /produits-digitaux/panier
+Disallow: /produits-digitaux/checkout
+Disallow: /produits-digitaux/confirmation
+Disallow: /unsubscribe
+
+Sitemap: https://www.cbs-institute.com/sitemap.xml

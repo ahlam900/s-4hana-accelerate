@@ -2,6 +2,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowLeft, BellRing, Clock, ShieldCheck, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
+import Seo from "@/components/Seo";
 
 const ProduitDetail = () => {
   const { slug } = useParams();
@@ -11,6 +12,11 @@ const ProduitDetail = () => {
 
   return (
     <>
+      <Seo
+        title={product.title}
+        description={product.shortDescription}
+        ogType="product"
+      />
       <section className="border-b border-border bg-secondary py-6">
         <div className="container-wide">
           <Link to="/produits-digitaux" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">

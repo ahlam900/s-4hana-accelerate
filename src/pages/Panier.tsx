@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Trash2, Minus, Plus, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/store/cart";
+import Seo from "@/components/Seo";
 
 const Panier = () => {
   const { items, setQuantity, remove, total } = useCart();
@@ -9,6 +10,8 @@ const Panier = () => {
 
   if (items.length === 0) {
     return (
+      <>
+      <Seo titleKey="seo.cart_title" noindex />
       <section className="section-y">
         <div className="container-narrow text-center py-16">
           <ShoppingBag className="h-12 w-12 text-champagne mx-auto" strokeWidth={1.5} />
@@ -19,10 +22,13 @@ const Panier = () => {
           </Button>
         </div>
       </section>
+      </>
     );
   }
 
   return (
+    <>
+    <Seo titleKey="seo.cart_title" noindex />
     <section className="section-y">
       <div className="container-wide">
         <div className="eyebrow mb-6">Votre panier</div>
@@ -71,6 +77,7 @@ const Panier = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

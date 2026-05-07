@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import Seo from "@/components/Seo";
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_ANON = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
@@ -64,6 +65,7 @@ const Unsubscribe = () => {
 
   return (
     <main className="min-h-[70vh] flex items-center justify-center px-6">
+      <Seo titleKey="seo.unsubscribe_title" noindex />
       <div className="card-premium p-10 md:p-12 max-w-lg w-full text-center">
         {state.kind === "loading" && (
           <>
