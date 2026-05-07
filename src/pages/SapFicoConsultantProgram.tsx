@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
+import Seo from "@/components/Seo";
 
 const quickInfo = [
   { icon: Clock, label: "10 jours" },
@@ -111,6 +112,7 @@ const afterProgram = [
 const SapFicoConsultantProgram = () => {
   return (
     <>
+      <Seo titleKey="seo.fico_program_title" descriptionKey="seo.fico_program_desc" />
       {/* HERO */}
       <section className="relative pt-24 md:pt-28 pb-20 md:pb-24 overflow-hidden bg-secondary border-b border-border">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
