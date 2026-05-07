@@ -106,11 +106,15 @@
   }
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
     font-feature-settings: 'ss01', 'cv11';
+    font-synthesis: none;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
@@ -118,10 +122,35 @@
     letter-spacing: -0.012em;
     font-feature-settings: 'liga', 'kern', 'calt';
     text-rendering: optimizeLegibility;
+    text-wrap: balance;
   }
+  p { text-wrap: pretty; }
+  img, video { @apply max-w-full h-auto; }
   ::selection {
     background: hsl(var(--champagne) / 0.3);
     color: hsl(var(--ink));
+  }
+  /* Premium focus ring — accessible and elegant */
+  :focus-visible {
+    outline: 2px solid hsl(var(--champagne));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  /* Softer scrollbar (WebKit) */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--ivory-deep)); }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--ink) / 0.15);
+    border-radius: 8px;
+    border: 2px solid hsl(var(--ivory-deep));
+  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--ink) / 0.3); }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
