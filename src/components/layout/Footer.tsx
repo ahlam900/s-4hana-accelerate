@@ -55,8 +55,6 @@ const Footer = () => {
             <div className="font-medium text-foreground">CBS FINANCE INSTITUTE</div>
             <div>SIRET : 884 903 121 00017</div>
             <div>Déclaration d'activité : 11931243893</div>
-            <div className="text-xs text-muted-foreground/80 pt-2">
-            </div>
           </div>
         </div>
       </div>
