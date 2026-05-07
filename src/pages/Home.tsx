@@ -62,10 +62,10 @@ const Home = () => {
     <>
       <Seo
         title="CBS Finance Institute | SAP Finance Training & S/4HANA Transformation"
-        description="CBS Finance Institute accompagne les professionnels et les entreprises dans la maîtrise de SAP Finance (FI/CO), S/4HANA et la transformation digitale. Formations Key Users et programmes consultants à Paris et Dubaï."
+        description="CBS Finance Institute accompagne les professionnels et les entreprises dans la maîtrise de SAP Finance (FI/CO), S/4HANA et la transformation digitale."
         canonicalUrl="https://www.cbs-institute.com"
         ogTitle="CBS Finance Institute | SAP Finance Training"
-        ogDescription="Formations SAP Finance et S/4HANA pour professionnels et entreprises."
+        ogDescription="Formations SAP Finance et S/4HANA pour professionnels et entreprises"
         ogUrl="https://www.cbs-institute.com"
         ogType="website"
       />
