@@ -143,6 +143,14 @@
     "privacy_title": "Privacy policy",
     "cgv_title": "Terms and conditions of sale",
     "cookies_title": "Cookie policy",
-    "legal_desc": "Legal information and rules applicable to the use of the CBS Finance Institute website."
+    "legal_desc": "Legal information and rules applicable to the use of the CBS Finance Institute website.",
+    "fico_program_title": "SAP FICO Consultant Program — 10-day certifying track",
+    "fico_program_desc": "10-day intensive program to become an SAP Finance consultant: FI, CO, S/4HANA, project posture. Premium mentoring by active experts.",
+    "cart_title": "Your cart — Premium resources",
+    "checkout_title": "Secure checkout",
+    "confirmation_title": "Order confirmed",
+    "unsubscribe_title": "Unsubscribe",
+    "notfound_title": "Page not found (404)",
+    "notfound_desc": "The requested page could not be found. Return to the CBS Finance Institute homepage."
   }
 }
