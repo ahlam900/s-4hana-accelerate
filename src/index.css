@@ -106,11 +106,15 @@
   }
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
     font-feature-settings: 'ss01', 'cv11';
+    font-synthesis: none;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
@@ -118,10 +122,35 @@
     letter-spacing: -0.012em;
     font-feature-settings: 'liga', 'kern', 'calt';
     text-rendering: optimizeLegibility;
+    text-wrap: balance;
   }
+  p { text-wrap: pretty; }
+  img, video { @apply max-w-full h-auto; }
   ::selection {
     background: hsl(var(--champagne) / 0.3);
     color: hsl(var(--ink));
+  }
+  /* Premium focus ring — accessible and elegant */
+  :focus-visible {
+    outline: 2px solid hsl(var(--champagne));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  /* Softer scrollbar (WebKit) */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--ivory-deep)); }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--ink) / 0.15);
+    border-radius: 8px;
+    border: 2px solid hsl(var(--ivory-deep));
+  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--ink) / 0.3); }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
@@ -151,12 +180,14 @@
   .lede { @apply text-lg md:text-xl text-muted-foreground leading-relaxed; }
 
   .card-premium {
-    @apply bg-card border border-border rounded-lg transition-all duration-300;
+    @apply bg-card border border-border rounded-lg transition-all duration-500 ease-out;
     box-shadow: var(--shadow-soft);
+    will-change: transform, box-shadow;
   }
   .card-premium:hover {
-    box-shadow: var(--shadow-card);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-3px);
+    border-color: hsl(var(--champagne) / 0.35);
   }
 
   .gradient-ink { background: var(--gradient-ink); }
@@ -177,3 +208,55 @@
   }
   .link-underline:hover::after { @apply scale-x-100; }
 }
+
+@layer components {
+  /* Premium CTA refinement — applies subtle lift to all buttons site-wide */
+  button, [role="button"], a.btn, .btn {
+    transition: transform 0.25s ease, box-shadow 0.3s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+
+  /* Subtle premium card hover for shadcn cards */
+  .group\/card:hover, [data-card]:hover { box-shadow: var(--shadow-lift); }
+
+  /* Image polish — discreet, no replacement */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  /* Section rhythm helper for tighter mobile, breathing desktop */
+  .section-tight { @apply py-12 md:py-16; }
+
+  /* Premium micro-animation: rise-in on scroll-friendly entrance */
+  .rise-in { animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Champagne underline accent for inline links */
+  a:not(.no-underline-fx):not([class*="btn"]):not(.link-underline) {
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+
+  /* Premium primary button polish (without changing text) */
+  .bg-primary:hover { box-shadow: 0 8px 24px -10px hsl(var(--ink) / 0.35); }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+
+  /* Mobile readability: prevent overflow */
+  .no-x-overflow { overflow-x: clip; }
+
+  /* Premium glass surface (used opt-in only) */
+  .surface-glass {
+    background: hsl(var(--ivory) / 0.72);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+  }
+}
+
+/* Global mobile guard — prevent horizontal scroll on small screens */
+html, body { overflow-x: clip; }
