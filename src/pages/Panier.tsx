@@ -77,6 +77,7 @@ const Panier = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
