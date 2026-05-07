@@ -151,12 +151,14 @@
   .lede { @apply text-lg md:text-xl text-muted-foreground leading-relaxed; }
 
   .card-premium {
-    @apply bg-card border border-border rounded-lg transition-all duration-300;
+    @apply bg-card border border-border rounded-lg transition-all duration-500 ease-out;
     box-shadow: var(--shadow-soft);
+    will-change: transform, box-shadow;
   }
   .card-premium:hover {
-    box-shadow: var(--shadow-card);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-3px);
+    border-color: hsl(var(--champagne) / 0.35);
   }
 
   .gradient-ink { background: var(--gradient-ink); }
