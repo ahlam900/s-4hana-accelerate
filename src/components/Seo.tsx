@@ -18,6 +18,10 @@ interface SeoProps {
   ogImage?: string;
   /** Set to true to add noindex,nofollow (cart/checkout/confirmation/unsubscribe/404). */
   noindex?: boolean;
+  /** Comma-separated keywords (used sparingly, mainly for Bing/Yandex). */
+  keywords?: string;
+  /** Optional JSON-LD payload (object or array). Injected as application/ld+json. */
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 const SITE = "CBS Finance Institute";
@@ -36,6 +40,8 @@ const Seo = ({
   ogType = "website",
   ogImage,
   noindex,
+  keywords,
+  jsonLd,
 }: SeoProps) => {
   const { t, i18n } = useTranslation();
   const { pathname } = useLocation();

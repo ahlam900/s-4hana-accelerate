@@ -51,11 +51,38 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
+      "@type": ["Organization", "EducationalOrganization", "ProfessionalService"],
+      "@id": "https://www.cbs-institute.com/#organization",
       "name": "CBS Finance Institute",
+      "alternateName": "CBS Finance Academy",
       "url": "https://www.cbs-institute.com",
-      "logo": "https://www.cbs-institute.com/og-image.png",
-      "description": "Institut spécialisé Finance SAP : formations expertes, accompagnement des transformations digitales SAP et préparation des Key Users.",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.cbs-institute.com/android-chrome-512x512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://www.cbs-institute.com/og-image.png",
+      "description": "Institut premium spécialisé en Finance SAP, S/4HANA Finance, SAP FI/CO et formation des Key Users : programmes certifiants, conseil aux directions Finance et accompagnement des transformations digitales SAP en entreprise.",
+      "slogan": "SAP Finance Training & Digital Transformation",
+      "areaServed": ["FR", "EU", "Worldwide"],
+      "knowsAbout": [
+        "SAP Finance",
+        "SAP FI/CO",
+        "SAP S/4HANA Finance",
+        "SAP Key User Training",
+        "SAP Digital Transformation",
+        "SAP Implementation",
+        "Finance Business Process",
+        "RE-FX",
+        "Group Reporting"
+      ],
+      "serviceType": [
+        "SAP Finance Training",
+        "SAP S/4HANA Consulting",
+        "Key User Enablement",
+        "Finance Transformation Advisory"
+      ],
       "sameAs": [
         "https://www.linkedin.com/company/cbsfinanceinstitute"
       ]
@@ -65,8 +92,10 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://www.cbs-institute.com/#website",
       "name": "CBS Finance Institute",
       "url": "https://www.cbs-institute.com",
+      "publisher": { "@id": "https://www.cbs-institute.com/#organization" },
       "inLanguage": ["fr-FR", "en-US"]
     }
     </script>
