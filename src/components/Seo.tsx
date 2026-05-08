@@ -68,8 +68,9 @@ const Seo = ({
     <Helmet prioritizeSeoTags>
       {fullTitle ? <title>{fullTitle}</title> : null}
       {resolvedDescription ? <meta name="description" content={resolvedDescription} /> : null}
+      {keywords ? <meta name="keywords" content={keywords} /> : null}
       <link rel="canonical" href={resolvedCanonical} />
-      {noindex ? <meta name="robots" content="noindex,nofollow" /> : <meta name="robots" content="index,follow" />}
+      {noindex ? <meta name="robots" content="noindex,nofollow" /> : <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />}
 
       {/* Open Graph */}
       {resolvedOgTitle ? <meta property="og:title" content={resolvedOgTitle} /> : null}
@@ -89,6 +90,11 @@ const Seo = ({
       <meta name="twitter:image" content={resolvedOgImage} />
 
       <html lang={i18n.language?.startsWith("en") ? "en" : "fr"} />
+      {jsonLd ? (
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      ) : null}
     </Helmet>
   );
 };
