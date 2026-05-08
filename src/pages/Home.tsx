@@ -61,13 +61,27 @@ const Home = () => {
   return (
     <>
       <Seo
-        title="CBS Finance Institute | SAP Finance Training & S/4HANA Transformation"
-        description="CBS Finance Institute accompagne les professionnels et les entreprises dans la maîtrise de SAP Finance (FI/CO), S/4HANA et la transformation digitale."
-        canonicalUrl="https://www.cbs-institute.com"
-        ogTitle="CBS Finance Institute | SAP Finance Training"
-        ogDescription="Formations SAP Finance et S/4HANA pour professionnels et entreprises"
-        ogUrl="https://www.cbs-institute.com"
+        titleKey="seo.home_title"
+        descriptionKey="seo.home_desc"
+        keywords="SAP Finance, SAP FI/CO, SAP S/4HANA Finance, formation SAP Finance, SAP Key User, transformation digitale SAP, conseil SAP Finance, CBS Finance Institute, SAP FICO, RE-FX, Group Reporting"
         ogType="website"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "@id": "https://www.cbs-institute.com/#service",
+          "name": "CBS Finance Institute — SAP Finance Training & Transformation",
+          "url": "https://www.cbs-institute.com",
+          "image": "https://www.cbs-institute.com/og-image.png",
+          "areaServed": ["FR", "EU", "Worldwide"],
+          "provider": { "@id": "https://www.cbs-institute.com/#organization" },
+          "serviceType": [
+            "SAP Finance Training",
+            "SAP S/4HANA Finance Consulting",
+            "SAP FI/CO Consulting",
+            "SAP Key User Enablement",
+            "Finance Digital Transformation"
+          ]
+        }}
       />
       {/* HERO */}
       <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary">

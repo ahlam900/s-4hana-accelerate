@@ -112,7 +112,32 @@ const afterProgram = [
 const SapFicoConsultantProgram = () => {
   return (
     <>
-      <Seo titleKey="seo.fico_program_title" descriptionKey="seo.fico_program_desc" />
+      <Seo
+        titleKey="seo.fico_program_title"
+        descriptionKey="seo.fico_program_desc"
+        keywords="SAP FICO, formation SAP FI/CO, consultant SAP Finance, SAP S/4HANA Finance, programme certifiant SAP, SAP Key User, CBS Finance Institute"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "SAP FICO Consultant Program",
+          "description": "Programme intensif 10 jours pour devenir consultant SAP Finance : FI, CO, S/4HANA et posture projet, encadré par des experts en activité.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "@id": "https://www.cbs-institute.com/#organization",
+            "name": "CBS Finance Institute",
+            "sameAs": "https://www.cbs-institute.com"
+          },
+          "educationalLevel": "Professional",
+          "inLanguage": ["fr", "en"],
+          "courseMode": ["onsite", "online"],
+          "about": ["SAP FI", "SAP CO", "SAP S/4HANA Finance", "SAP FICO Consulting"],
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "Blended",
+            "courseWorkload": "PT80H"
+          }
+        }}
+      />
       {/* HERO */}
       <section className="relative pt-24 md:pt-28 pb-20 md:pb-24 overflow-hidden bg-secondary border-b border-border">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
