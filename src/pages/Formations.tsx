@@ -34,7 +34,7 @@ const Formations = () => {
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
-                <Link to="#demande">{tx("Recevoir le programme détaillé", "Receive the detailed program")} <ArrowRight /></Link>
+                <Link to="?sujet=Programme%20formation%20SAP%20Finance#demande">{tx("Recevoir le programme détaillé", "Receive the detailed program")} <ArrowRight /></Link>
               </Button>
               <Button asChild size="lg" variant="outline">
                 <Link to="#catalogue">{tx("Voir les parcours", "Explore the programs")}</Link>
@@ -139,7 +139,7 @@ const Formations = () => {
 
       {/* FEATURED — SAP FICO */}
       {featured && (
-        <section className="pt-20 md:pt-24 pb-16 md:pb-20 bg-ink text-ivory">
+        <section id="programme-fico" className="pt-20 md:pt-24 pb-16 md:pb-20 bg-ink text-ivory scroll-mt-24">
           <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-5">
               <div className="eyebrow mb-6 text-ivory/60">{tx("Programme phare", "Flagship program")}</div>
@@ -159,8 +159,8 @@ const Formations = () => {
                 <span className="inline-flex items-center gap-2"><GraduationCap className="h-4 w-4 text-champagne" />{featured.format}</span>
               </div>
               <div className="mt-9 flex flex-wrap gap-3">
-                <Button asChild size="lg" variant="champagne"><Link to="#demande">{tx("S'inscrire à la formation", "Enroll in the program")} <ArrowRight /></Link></Button>
-                <Button asChild size="lg" variant="outlineLight"><Link to="#demande">{tx("Recevoir le programme", "Receive the program")}</Link></Button>
+                <Button asChild size="lg" variant="champagne"><Link to="?sujet=Inscription%20SAP%20FICO%20Consultant%20Program#demande">{tx("S'inscrire à la formation", "Enroll in the program")} <ArrowRight /></Link></Button>
+                <Button asChild size="lg" variant="outlineLight"><Link to="?sujet=Programme%20formation%20SAP%20Finance#demande">{tx("Recevoir le programme", "Receive the program")}</Link></Button>
               </div>
             </div>
             <div className="lg:col-span-7 grid sm:grid-cols-2 gap-10 sm:gap-8">
@@ -244,6 +244,7 @@ const Formations = () => {
                     tx("Identifier les points clés de paramétrage", "Identify the key configuration points"),
                   ],
                   cta: tx("Découvrir le parcours", "Discover the program"),
+                  href: "#programme-fico",
                 },
                 {
                   step: "02",
@@ -260,6 +261,7 @@ const Formations = () => {
                     tx("Acquérir une méthode projet claire", "Acquire a clear project method"),
                   ],
                   cta: tx("Recevoir le programme", "Receive the program"),
+                  href: "?sujet=Inscription%20SAP%20FICO%20Consultant%20Program#demande",
                   highlight: true,
                 },
                 {
@@ -277,6 +279,7 @@ const Formations = () => {
                     tx("Renforcer la capacité d'intervention sur projets exigeants", "Strengthen delivery capability on demanding projects"),
                   ],
                   cta: tx("Approfondir le programme", "Go deeper into the program"),
+                  href: "#specialisation-refx",
                 },
               ].map((lvl) => (
                 <Reveal key={lvl.step} className={`relative h-full ${lvl.highlight ? "lg:-my-3" : ""}`}>
@@ -313,7 +316,7 @@ const Formations = () => {
 
                       <div className="mt-7">
                         <Button asChild size="sm" variant={lvl.highlight ? "ink" : "outline"} className="w-full">
-                          <Link to="#demande">{lvl.cta} <ArrowRight /></Link>
+                          <Link to={lvl.href}>{lvl.cta} <ArrowRight /></Link>
                         </Button>
                       </div>
                     </div>
@@ -324,7 +327,7 @@ const Formations = () => {
           </div>
 
           {/* Spécialisation RE-FX */}
-          <div className="mt-20 lg:mt-24">
+          <div id="specialisation-refx" className="mt-20 lg:mt-24 scroll-mt-24">
             <div className="flex items-center gap-4 mb-10">
               <span className="h-px w-10 bg-champagne/60" />
               <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("SPÉCIALISATION SECTORIELLE", "SECTOR SPECIALIZATION")}</span>
@@ -384,10 +387,10 @@ const Formations = () => {
 
                   <div className="mt-10 pt-6 border-t border-border/70 flex flex-wrap gap-3">
                     <Button asChild size="sm" variant="ink" className="transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]">
-                      <Link to="#demande">{tx("Se spécialiser en RE-FX", "Specialize in RE-FX")} <ArrowRight className="h-4 w-4" /></Link>
+                      <Link to="?sujet=Sp%C3%A9cialisation%20SAP%20RE-FX#demande">{tx("Se spécialiser en RE-FX", "Specialize in RE-FX")} <ArrowRight className="h-4 w-4" /></Link>
                     </Button>
                     <Button asChild size="sm" variant="outline" className="transition-all duration-300 hover:-translate-y-0.5">
-                      <Link to="#demande">{tx("Échanger avec un expert", "Speak with an expert")}</Link>
+                      <Link to="?sujet=%C3%89change%20avec%20un%20expert#demande">{tx("Échanger avec un expert", "Speak with an expert")}</Link>
                     </Button>
                   </div>
                 </div>

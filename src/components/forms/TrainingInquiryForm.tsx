@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -32,15 +32,36 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
   const tx = useTx();
   const [submitted, setSubmitted] = useState(false);
 
+  const initialFormation = useMemo(() => {
+    if (typeof window === "undefined") return defaultFormation;
+    const params = new URLSearchParams(window.location.search);
+    return params.get("sujet") || defaultFormation;
+  }, [defaultFormation]);
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    setValue,
   } = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: { formation_souhaitee: defaultFormation },
+    defaultValues: { formation_souhaitee: initialFormation },
   });
+
+  useEffect(() => {
+    const onPop = () => {
+      const params = new URLSearchParams(window.location.search);
+      const sujet = params.get("sujet");
+      if (sujet) setValue("formation_souhaitee", sujet);
+    };
+    window.addEventListener("popstate", onPop);
+    window.addEventListener("hashchange", onPop);
+    return () => {
+      window.removeEventListener("popstate", onPop);
+      window.removeEventListener("hashchange", onPop);
+    };
+  }, [setValue]);
 
   const onSubmit = async (data: FormData) => {
     const leadPayload = {
@@ -128,9 +149,13 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
         <select
           {...register("formation_souhaitee")}
           className="flex h-11 w-full rounded-sm border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          defaultValue={defaultFormation}
+          defaultValue={initialFormation}
         >
           <option value="">{tx("Sélectionnez une formation…", "Select a program…")}</option>
+          {initialFormation &&
+            !["SAP FICO Consultant Program (confirmé)", "Processus Finance dans SAP (débutant)", "SAP S/4HANA Finance avancé (expert)", "Spécialisation SAP RE-FX", "Je ne sais pas encore"].includes(initialFormation) && (
+              <option value={initialFormation}>{initialFormation}</option>
+            )}
           <option value="SAP FICO Consultant Program (confirmé)">{tx("SAP FICO Consultant Program (confirmé)", "SAP FICO Consultant Program (advanced)")}</option>
           <option value="Processus Finance dans SAP (débutant)">{tx("Processus Finance dans SAP (débutant)", "Finance Processes in SAP (beginner)")}</option>
           <option value="SAP S/4HANA Finance avancé (expert)">{tx("SAP S/4HANA Finance avancé (expert)", "Advanced SAP S/4HANA Finance (expert)")}</option>
