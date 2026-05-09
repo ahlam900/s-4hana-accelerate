@@ -32,15 +32,36 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
   const tx = useTx();
   const [submitted, setSubmitted] = useState(false);
 
+  const initialFormation = useMemo(() => {
+    if (typeof window === "undefined") return defaultFormation;
+    const params = new URLSearchParams(window.location.search);
+    return params.get("sujet") || defaultFormation;
+  }, [defaultFormation]);
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    setValue,
   } = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: { formation_souhaitee: defaultFormation },
+    defaultValues: { formation_souhaitee: initialFormation },
   });
+
+  useEffect(() => {
+    const onPop = () => {
+      const params = new URLSearchParams(window.location.search);
+      const sujet = params.get("sujet");
+      if (sujet) setValue("formation_souhaitee", sujet);
+    };
+    window.addEventListener("popstate", onPop);
+    window.addEventListener("hashchange", onPop);
+    return () => {
+      window.removeEventListener("popstate", onPop);
+      window.removeEventListener("hashchange", onPop);
+    };
+  }, [setValue]);
 
   const onSubmit = async (data: FormData) => {
     const leadPayload = {
