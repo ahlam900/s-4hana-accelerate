@@ -139,7 +139,7 @@ const Formations = () => {
 
       {/* FEATURED — SAP FICO */}
       {featured && (
-        <section className="pt-20 md:pt-24 pb-16 md:pb-20 bg-ink text-ivory">
+        <section id="programme-fico" className="pt-20 md:pt-24 pb-16 md:pb-20 bg-ink text-ivory scroll-mt-24">
           <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-5">
               <div className="eyebrow mb-6 text-ivory/60">{tx("Programme phare", "Flagship program")}</div>
