@@ -149,9 +149,13 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
         <select
           {...register("formation_souhaitee")}
           className="flex h-11 w-full rounded-sm border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          defaultValue={defaultFormation}
+          defaultValue={initialFormation}
         >
           <option value="">{tx("Sélectionnez une formation…", "Select a program…")}</option>
+          {initialFormation &&
+            !["SAP FICO Consultant Program (confirmé)", "Processus Finance dans SAP (débutant)", "SAP S/4HANA Finance avancé (expert)", "Spécialisation SAP RE-FX", "Je ne sais pas encore"].includes(initialFormation) && (
+              <option value={initialFormation}>{initialFormation}</option>
+            )}
           <option value="SAP FICO Consultant Program (confirmé)">{tx("SAP FICO Consultant Program (confirmé)", "SAP FICO Consultant Program (advanced)")}</option>
           <option value="Processus Finance dans SAP (débutant)">{tx("Processus Finance dans SAP (débutant)", "Finance Processes in SAP (beginner)")}</option>
           <option value="SAP S/4HANA Finance avancé (expert)">{tx("SAP S/4HANA Finance avancé (expert)", "Advanced SAP S/4HANA Finance (expert)")}</option>
