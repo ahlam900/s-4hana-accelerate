@@ -159,8 +159,8 @@ const Formations = () => {
                 <span className="inline-flex items-center gap-2"><GraduationCap className="h-4 w-4 text-champagne" />{featured.format}</span>
               </div>
               <div className="mt-9 flex flex-wrap gap-3">
-                <Button asChild size="lg" variant="champagne"><Link to="#demande">{tx("S'inscrire à la formation", "Enroll in the program")} <ArrowRight /></Link></Button>
-                <Button asChild size="lg" variant="outlineLight"><Link to="#demande">{tx("Recevoir le programme", "Receive the program")}</Link></Button>
+                <Button asChild size="lg" variant="champagne"><Link to="?sujet=Inscription%20SAP%20FICO%20Consultant%20Program#demande">{tx("S'inscrire à la formation", "Enroll in the program")} <ArrowRight /></Link></Button>
+                <Button asChild size="lg" variant="outlineLight"><Link to="?sujet=Programme%20formation%20SAP%20Finance#demande">{tx("Recevoir le programme", "Receive the program")}</Link></Button>
               </div>
             </div>
             <div className="lg:col-span-7 grid sm:grid-cols-2 gap-10 sm:gap-8">
