@@ -244,6 +244,7 @@ const Formations = () => {
                     tx("Identifier les points clés de paramétrage", "Identify the key configuration points"),
                   ],
                   cta: tx("Découvrir le parcours", "Discover the program"),
+                  href: "#programme-fico",
                 },
                 {
                   step: "02",
