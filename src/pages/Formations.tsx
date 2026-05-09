@@ -34,7 +34,7 @@ const Formations = () => {
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
-                <Link to="#demande">{tx("Recevoir le programme détaillé", "Receive the detailed program")} <ArrowRight /></Link>
+                <Link to="?sujet=Programme%20formation%20SAP%20Finance#demande">{tx("Recevoir le programme détaillé", "Receive the detailed program")} <ArrowRight /></Link>
               </Button>
               <Button asChild size="lg" variant="outline">
                 <Link to="#catalogue">{tx("Voir les parcours", "Explore the programs")}</Link>
