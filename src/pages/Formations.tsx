@@ -279,6 +279,7 @@ const Formations = () => {
                     tx("Renforcer la capacité d'intervention sur projets exigeants", "Strengthen delivery capability on demanding projects"),
                   ],
                   cta: tx("Approfondir le programme", "Go deeper into the program"),
+                  href: "#specialisation-refx",
                 },
               ].map((lvl) => (
                 <Reveal key={lvl.step} className={`relative h-full ${lvl.highlight ? "lg:-my-3" : ""}`}>
