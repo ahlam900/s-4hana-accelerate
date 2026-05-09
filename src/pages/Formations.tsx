@@ -327,7 +327,7 @@ const Formations = () => {
           </div>
 
           {/* Spécialisation RE-FX */}
-          <div className="mt-20 lg:mt-24">
+          <div id="specialisation-refx" className="mt-20 lg:mt-24 scroll-mt-24">
             <div className="flex items-center gap-4 mb-10">
               <span className="h-px w-10 bg-champagne/60" />
               <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("SPÉCIALISATION SECTORIELLE", "SECTOR SPECIALIZATION")}</span>
