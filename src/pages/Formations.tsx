@@ -316,7 +316,7 @@ const Formations = () => {
 
                       <div className="mt-7">
                         <Button asChild size="sm" variant={lvl.highlight ? "ink" : "outline"} className="w-full">
-                          <Link to="#demande">{lvl.cta} <ArrowRight /></Link>
+                          <Link to={lvl.href}>{lvl.cta} <ArrowRight /></Link>
                         </Button>
                       </div>
                     </div>
