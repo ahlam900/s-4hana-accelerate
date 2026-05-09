@@ -387,10 +387,10 @@ const Formations = () => {
 
                   <div className="mt-10 pt-6 border-t border-border/70 flex flex-wrap gap-3">
                     <Button asChild size="sm" variant="ink" className="transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]">
-                      <Link to="#demande">{tx("Se spécialiser en RE-FX", "Specialize in RE-FX")} <ArrowRight className="h-4 w-4" /></Link>
+                      <Link to="?sujet=Sp%C3%A9cialisation%20SAP%20RE-FX#demande">{tx("Se spécialiser en RE-FX", "Specialize in RE-FX")} <ArrowRight className="h-4 w-4" /></Link>
                     </Button>
                     <Button asChild size="sm" variant="outline" className="transition-all duration-300 hover:-translate-y-0.5">
-                      <Link to="#demande">{tx("Échanger avec un expert", "Speak with an expert")}</Link>
+                      <Link to="?sujet=%C3%89change%20avec%20un%20expert#demande">{tx("Échanger avec un expert", "Speak with an expert")}</Link>
                     </Button>
                   </div>
                 </div>
