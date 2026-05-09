@@ -261,6 +261,7 @@ const Formations = () => {
                     tx("Acquérir une méthode projet claire", "Acquire a clear project method"),
                   ],
                   cta: tx("Recevoir le programme", "Receive the program"),
+                  href: "?sujet=Inscription%20SAP%20FICO%20Consultant%20Program#demande",
                   highlight: true,
                 },
                 {
