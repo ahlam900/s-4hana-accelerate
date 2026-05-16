@@ -109,32 +109,42 @@ const Ressources = () => {
     <>
       <Seo titleKey="seo.resources_title" descriptionKey="seo.resources_desc" />
       {/* HERO */}
-      <section className="hero-uniform bg-secondary">
-        <div className="container-wide">
-          <div className="max-w-4xl">
-            <div className="eyebrow mb-6">{tx("Bibliothèque experte", "Expert Library")}</div>
-            <h1 className="display-lg text-foreground">
+      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary border-b border-border">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
+          <div className="lg:col-span-7 relative z-10">
+            <div className="inline-flex items-center gap-3 mb-8">
+              <span className="h-px w-8 bg-champagne" />
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("BIBLIOTHÈQUE EXPERTE", "EXPERT LIBRARY")}</span>
+            </div>
+            <h1 className="display-xl text-foreground max-w-[22ch] leading-[1.05]">
               {tx("Insights et décryptages ", "Insights and analyses on ")}<em className="not-italic text-champagne font-display">{tx("SAP Finance", "SAP Finance")}</em>{tx(", en accès libre.", " — freely accessible.")}
             </h1>
-            <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
-              <p className="lede">
-                {tx(
-                  "Notre bibliothèque experte rassemble analyses, retours d'expérience et repères méthodologiques pour aider les directions Finance, les consultants et les équipes projet à mieux cadrer, comprendre et exécuter leurs transformations.",
-                  "Our expert library brings together analyses, lessons learned and methodological references to help Finance leaders, consultants and project teams better frame, understand and execute their transformations."
-                )}
-              </p>
-              <p className="text-[15px] leading-relaxed">
-                {tx(
-                  "Des contenus courts, issus du terrain, pensés pour éclairer les décisions et renforcer les repères utiles en Finance SAP.",
-                  "Short, field-tested content designed to inform decisions and strengthen the useful reference points in SAP Finance."
-                )}
-              </p>
-            </div>
-            <div className="mt-10">
+            <p className="lede mt-7 max-w-xl leading-relaxed">
+              {tx(
+                "Analyses, retours d'expérience et repères méthodologiques pour aider les directions Finance, les consultants et les équipes projet à cadrer, comprendre et exécuter leurs transformations.",
+                "Analyses, lessons learned and methodological references to help Finance leaders, consultants and project teams frame, understand and execute their transformations."
+              )}
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
                 <a href="#newsletter">{tx("Recevoir les prochains décryptages", "Receive our next analyses")} <ArrowRight /></a>
               </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href="#articles">{tx("Explorer la bibliothèque", "Explore the library")}</a>
+              </Button>
             </div>
+          </div>
+          <div className="lg:col-span-5 relative">
+            <HeroContextCard
+              label={tx("Au programme", "What you'll find")}
+              items={[
+                { icon: BookOpen, title: tx("Insights", "Insights"), meta: tx("Analyses de fond Finance SAP", "In-depth SAP Finance analyses") },
+                { icon: Compass, title: tx("Décryptages", "Analyses"), meta: tx("Retours d'expérience terrain", "Field lessons learned") },
+                { icon: Workflow, title: tx("Méthodes", "Methods"), meta: tx("Repères méthodologiques", "Methodological references") },
+              ]}
+              footerLabel={tx("Accès libre · sans inscription", "Free access · no signup")}
+            />
           </div>
         </div>
       </section>
