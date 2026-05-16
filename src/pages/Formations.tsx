@@ -189,13 +189,6 @@ const Formations = () => {
                 </Link>
               </div>
             </div>
-            <div className="hidden md:flex items-center gap-3 absolute -bottom-5 -left-4 lg:-left-6 bg-ink/90 backdrop-blur-md text-ivory pl-3 pr-5 py-2.5 rounded-sm shadow-[var(--shadow-lift)] ring-1 ring-champagne/15">
-              <span className="h-8 w-px bg-champagne/40" />
-              <div>
-                <div className="text-[9px] uppercase tracking-[0.28em] text-champagne/90 mb-0.5">{tx("Sur-mesure", "Tailored")}</div>
-                <div className="font-display text-[12.5px] leading-tight">{tx("Sessions intra-entreprise", "On-site corporate sessions")}</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
