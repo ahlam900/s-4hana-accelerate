@@ -500,6 +500,12 @@ const Home = () => {
                 </div>
               ))}
             </div>
+            <p className="mt-6 text-[12px] text-muted-foreground italic">
+              {tx(
+                "Ex : Guide SAP FI/CO en migration S/4HANA · Checklist de clôture financière SAP",
+                "E.g. SAP FI/CO migration to S/4HANA guide · SAP financial close checklist",
+              )}
+            </p>
             <Button asChild size="lg" variant="ink" className="mt-10">
               <LLink to="/produits-digitaux">{t("home.digital_cta")} <ArrowRight /></LLink>
             </Button>
