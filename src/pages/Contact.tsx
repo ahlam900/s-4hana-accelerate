@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, GraduationCap, Briefcase, HelpCircle, ArrowRight, Check } from "lucide-react";
+import { Mail, GraduationCap, Briefcase, HelpCircle, ArrowRight, Check, Clock, Compass, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ContactForm from "@/components/forms/ContactForm";
 import Reveal from "@/components/Reveal";
+import HeroContextCard from "@/components/HeroContextCard";
 import { cn } from "@/lib/utils";
 import Seo from "@/components/Seo";
 import { useTx } from "@/i18n/tx";
@@ -53,27 +54,42 @@ const Contact = () => {
     <>
       <Seo titleKey="seo.contact_title" descriptionKey="seo.contact_desc" />
       {/* HERO */}
-      <section className="hero-uniform bg-secondary">
-        <div className="container-wide">
-          <div className="max-w-4xl">
-            <div className="eyebrow mb-6">{tx("Contact", "Contact")}</div>
-            <h1 className="display-lg text-foreground">
+      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary border-b border-border">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
+          <div className="lg:col-span-7 relative z-10">
+            <div className="inline-flex items-center gap-3 mb-8">
+              <span className="h-px w-8 bg-champagne" />
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("CONTACT", "CONTACT")}</span>
+            </div>
+            <h1 className="display-xl text-foreground max-w-[22ch] leading-[1.05]">
               {tx("Échangeons sur votre besoin ", "Let's discuss your ")}<em className="not-italic text-champagne font-display">{tx("SAP Finance", "SAP Finance need")}</em>.
             </h1>
-            <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
-              <p className="lede">
-                {tx(
-                  "Formation individuelle, accompagnement entreprise ou préparation Key Users : un seul point d'entrée pour qualifier votre besoin.",
-                  "Individual training, enterprise advisory or Key User enablement: a single entry point to qualify your need."
-                )}
-              </p>
-              <p className="text-[15px] leading-relaxed">
-                {tx(
-                  "Réponse sous 24 à 48h avec une première lecture concrète et l'orientation vers le bon dispositif.",
-                  "Reply within 24–48 h with a concrete first read and guidance toward the right format."
-                )}
-              </p>
+            <p className="lede mt-7 max-w-xl leading-relaxed">
+              {tx(
+                "Formation individuelle, accompagnement entreprise ou préparation Key Users : un seul point d'entrée pour qualifier votre besoin.",
+                "Individual training, enterprise advisory or Key User enablement: a single entry point to qualify your need."
+              )}
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Button asChild size="lg" variant="ink">
+                <a href="#formulaire">{tx("Démarrer l'échange", "Start the conversation")} <ArrowRight /></a>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href="mailto:contact@cbs-institute.com">{tx("Écrire un email", "Send an email")}</a>
+              </Button>
             </div>
+          </div>
+          <div className="lg:col-span-5 relative">
+            <HeroContextCard
+              label={tx("Notre engagement", "Our commitment")}
+              items={[
+                { icon: Clock, title: tx("Réponse sous 24h", "Reply within 24h"), meta: tx("Échange confidentiel", "Confidential exchange") },
+                { icon: Compass, title: tx("Qualification du besoin", "Need qualification"), meta: tx("Première lecture concrète", "Concrete first read") },
+                { icon: Sparkles, title: tx("Recommandation experte", "Expert recommendation"), meta: tx("Orientation vers le bon dispositif", "Guidance to the right format") },
+              ]}
+              footerLabel={tx("Paris · Dubaï · Distanciel", "Paris · Dubai · Remote")}
+            />
           </div>
         </div>
       </section>

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Building2, Sparkles, Target, ShieldCheck, Layers, Briefcase, Compass } from "lucide-react";
+import { ArrowRight, Building2, Sparkles, Target, ShieldCheck, Layers, Briefcase, Compass, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
+import HeroContextCard from "@/components/HeroContextCard";
 import CorporateInquiryForm from "@/components/forms/CorporateInquiryForm";
 import Seo from "@/components/Seo";
 import { useTx } from "@/i18n/tx";
@@ -11,51 +12,51 @@ const OffresEntreprise = () => {
   return (
     <>
       <Seo titleKey="seo.corporate_title" descriptionKey="seo.corporate_desc" />
-      <section className="section-y border-b border-border bg-ink text-ivory">
-        <div className="container-wide">
-          <div className="max-w-4xl">
-            <div className="eyebrow mb-6 text-ivory/60">{tx("Offres entreprise", "Enterprise Services")}</div>
-            <h1 className="display-lg text-ivory leading-[1.05]">
+      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary border-b border-border">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
+          <div className="lg:col-span-7 relative z-10">
+            <div className="inline-flex items-center gap-3 mb-8">
+              <span className="h-px w-8 bg-champagne" />
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("OFFRES ENTREPRISE", "ENTERPRISE SERVICES")}</span>
+            </div>
+            <h1 className="display-xl text-foreground max-w-[22ch] leading-[1.05]">
               {tx("Cadrez, sécurisez et faites aboutir vos ", "Scope, secure and deliver your ")}<em className="not-italic text-champagne font-display">{tx("transformations Finance SAP", "SAP Finance transformations")}</em>.
             </h1>
-            <p className="lede mt-6 max-w-2xl text-ivory/75">
+            <p className="lede mt-7 max-w-xl leading-relaxed">
               {tx(
                 "Nous accompagnons les directions Finance et les équipes projet dans les phases clés de leurs transformations SAP : cadrage des processus, alignement métier-outil, montée en compétence des équipes et sécurisation de l'adoption.",
                 "We support finance leaders and project teams through the key phases of their SAP transformations: process scoping, business–tool alignment, team upskilling and adoption security."
               )}
             </p>
-            <p className="mt-4 max-w-2xl text-ivory/70 leading-relaxed text-[15px]">
-              {tx(
-                "Une intervention structurée, pensée pour les programmes exigeants qui doivent avancer vite, réduire les angles morts et renforcer l'autonomie des acteurs.",
-                "A structured engagement, designed for demanding programs that must move fast, reduce blind spots and strengthen the autonomy of stakeholders."
-              )}
-            </p>
-            <ul className="mt-9 space-y-3 max-w-xl border-t border-ivory/15 pt-7">
-              {[
-                tx("Cadrage des processus Finance SAP (R2R, P2P, O2C)", "SAP Finance process scoping (R2R, P2P, O2C)"),
-                tx("Préparation des Key Users et des relais métier", "Key User and business relay enablement"),
-                tx("Sécurisation des projets et de l'adoption", "Securing projects and adoption"),
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-3 text-[14.5px] text-ivory/85 leading-relaxed">
-                  <span className="text-champagne shrink-0 mt-0.5">✔</span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10">
-              <Button asChild size="lg" variant="champagne">
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Button asChild size="lg" variant="ink">
                 <Link to="#devis">{tx("Demander un devis entreprise", "Request a proposal")} <ArrowRight /></Link>
               </Button>
-              <p className="mt-4 text-[12.5px] text-ivory/65 inline-flex items-center gap-2">
-                <span className="text-champagne">✔</span> {tx("Réponse sous 24 à 48h — échange confidentiel", "Reply within 24–48 h — confidential exchange")}
-              </p>
+              <Button asChild size="lg" variant="outline">
+                <Link to="#offres">{tx("Découvrir nos packs", "Discover our packs")}</Link>
+              </Button>
             </div>
+            <p className="mt-6 text-[12.5px] text-muted-foreground inline-flex items-center gap-2">
+              <span className="text-champagne">✔</span> {tx("Réponse sous 24 à 48h — échange confidentiel", "Reply within 24–48 h — confidential exchange")}
+            </p>
+          </div>
+          <div className="lg:col-span-5 relative">
+            <HeroContextCard
+              label={tx("Nos interventions", "Our engagements")}
+              items={[
+                { icon: Target, title: tx("Cadrage des processus", "Process scoping"), meta: tx("R2R · P2P · O2C", "R2R · P2P · O2C") },
+                { icon: Users, title: tx("Formation Key Users", "Key User enablement"), meta: tx("Préparation & relais métier", "Preparation & business relays") },
+                { icon: ShieldCheck, title: tx("Accompagnement S/4HANA", "S/4HANA support"), meta: tx("Sécurisation de l'adoption", "Securing adoption") },
+              ]}
+              footerLabel={tx("Paris · Dubaï · sur site", "Paris · Dubai · on-site")}
+            />
           </div>
         </div>
       </section>
 
       {/* OUR OFFERINGS IN DETAIL */}
-      <section className="section-y">
+      <section id="offres" className="section-y scroll-mt-24">
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <div className="eyebrow mb-6">{tx("Nos offres", "Our services")}</div>

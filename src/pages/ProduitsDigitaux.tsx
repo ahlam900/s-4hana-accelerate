@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, BellRing, Clock, Download, Sparkles } from "lucide-react";
+import { ArrowRight, BellRing, Clock, Download, Sparkles, BookOpen, FileText, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import Reveal from "@/components/Reveal";
+import HeroContextCard from "@/components/HeroContextCard";
 import KitLeadDialog, { type KitLeadTarget } from "@/components/KitLeadDialog";
 import { products, productCategories } from "@/data/products";
 import Seo from "@/components/Seo";
@@ -46,39 +47,42 @@ const ProduitsDigitaux = () => {
   return (
     <>
       <Seo titleKey="seo.digital_title" descriptionKey="seo.digital_desc" />
-      <section className="hero-uniform bg-secondary">
-        <div className="container-wide">
-          <div className="max-w-4xl">
-            <div className="eyebrow mb-6">{tx("Ressources premium", "Premium Resources")}</div>
-            <h1 className="display-lg text-foreground">
+      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary border-b border-border">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
+          <div className="lg:col-span-7 relative z-10">
+            <div className="inline-flex items-center gap-3 mb-8">
+              <span className="h-px w-8 bg-champagne" />
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("RESSOURCES PREMIUM", "PREMIUM RESOURCES")}</span>
+            </div>
+            <h1 className="display-xl text-foreground max-w-[22ch] leading-[1.05]">
               {tx("Des ressources premium pour structurer vos enjeux ", "Premium resources to structure your ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP", "SAP Finance")}</em>{tx(".", " priorities.")}
             </h1>
-            <p className="lede mt-6 max-w-2xl text-muted-foreground">
+            <p className="lede mt-7 max-w-xl leading-relaxed">
               {tx(
                 "Playbooks, guides, templates et kits opérationnels conçus pour aider les professionnels et les équipes Finance SAP à cadrer, exécuter, former et sécuriser leurs projets.",
                 "Playbooks, guides, templates and operational kits designed to help SAP Finance professionals and teams scope, execute, train and secure their projects."
               )}
             </p>
-            <ul className="mt-9 space-y-3 max-w-xl border-t border-border pt-7">
-              {[
-                tx("Méthodes issues de contextes Finance SAP réels", "Methods drawn from real SAP Finance contexts"),
-                tx("Templates directement exploitables en mission", "Templates ready to use in delivery"),
-                tx("Supports conçus pour la formation, l'adoption et l'exécution", "Materials designed for training, adoption and execution"),
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-3 text-[14.5px] text-foreground/85 leading-relaxed">
-                  <span className="text-champagne shrink-0 mt-0.5">✔</span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10">
+            <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
-                <Link to={localize("/contact")}>{tx("Demander un accès anticipé", "Request early access")} <ArrowRight /></Link>
+                <a href="#catalogue">{tx("Explorer le catalogue", "Explore the catalog")} <ArrowRight /></a>
               </Button>
-              <p className="mt-4 text-[12.5px] text-muted-foreground inline-flex items-center gap-2">
-                <span className="text-champagne">✦</span> {tx("Catalogue en cours de finalisation · accès prioritaire sur demande", "Catalog being finalized · priority access on request")}
-              </p>
+              <Button asChild size="lg" variant="outline">
+                <Link to={localize("/contact")}>{tx("Demander un accès anticipé", "Request early access")}</Link>
+              </Button>
             </div>
+          </div>
+          <div className="lg:col-span-5 relative">
+            <HeroContextCard
+              label={tx("Catégories", "Categories")}
+              items={[
+                { icon: BookOpen, title: tx("Playbooks", "Playbooks"), meta: tx("Méthodes Finance SAP terrain", "Field-tested SAP Finance methods") },
+                { icon: FileText, title: tx("Templates", "Templates"), meta: tx("Directement exploitables en mission", "Ready to use on engagements") },
+                { icon: Layers, title: tx("Kits opérationnels", "Operational kits"), meta: tx("Formation · adoption · exécution", "Training · adoption · execution") },
+              ]}
+              footerLabel={tx("Catalogue en cours · accès prioritaire", "Catalog in progress · priority access")}
+            />
           </div>
         </div>
       </section>
