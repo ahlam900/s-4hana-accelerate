@@ -153,19 +153,15 @@ const TrainingInquiryForm = ({ defaultFormation = "" }: Props) => {
         >
           <option value="">{tx("Sélectionnez une formation…", "Select a program…")}</option>
           {initialFormation &&
-            !["SAP FICO Consultant Program (confirmé)", "Processus Finance dans SAP (débutant)", "SAP S/4HANA Finance avancé (expert)", "Spécialisation SAP RE-FX", "Automatiser la clôture financière dans SAP", "Système de relance intelligent SAP", "Pilotage trésorerie temps réel avec SAP Analytics", "Architecte transformation Finance SAP", "Je ne sais pas encore"].includes(initialFormation) && (
+            !["SAP FICO Consultant Program", "Automatiser la clôture financière dans SAP", "Système de relance intelligent SAP", "Pilotage trésorerie temps réel avec SAP Analytics", "Architecte transformation Finance SAP", "Spécialisation SAP RE-FX", "Je ne sais pas encore"].includes(initialFormation) && (
               <option value={initialFormation}>{initialFormation}</option>
             )}
-          <option value="SAP FICO Consultant Program (confirmé)">{tx("SAP FICO Consultant Program (confirmé)", "SAP FICO Consultant Program (advanced)")}</option>
-          <option value="Processus Finance dans SAP (débutant)">{tx("Processus Finance dans SAP (débutant)", "Finance Processes in SAP (beginner)")}</option>
-          <option value="SAP S/4HANA Finance avancé (expert)">{tx("SAP S/4HANA Finance avancé (expert)", "Advanced SAP S/4HANA Finance (expert)")}</option>
+          <option value="SAP FICO Consultant Program">{tx("SAP FICO Consultant Program", "SAP FICO Consultant Program")}</option>
+          <option value="Automatiser la clôture financière dans SAP">{tx("Automatiser la clôture financière dans SAP", "Automating the SAP close")}</option>
+          <option value="Système de relance intelligent SAP">{tx("Système de relance intelligent SAP", "Intelligent SAP dunning system")}</option>
+          <option value="Pilotage trésorerie temps réel avec SAP Analytics">{tx("Pilotage trésorerie temps réel avec SAP Analytics", "Real-time treasury steering with SAP Analytics")}</option>
+          <option value="Architecte transformation Finance SAP">{tx("Architecte transformation Finance SAP", "SAP Finance transformation architect")}</option>
           <option value="Spécialisation SAP RE-FX">{tx("Spécialisation SAP RE-FX", "SAP RE-FX Specialization")}</option>
-          <optgroup label={tx("Nouvelles formations IA", "New AI programs")}>
-            <option value="Automatiser la clôture financière dans SAP">{tx("Automatiser la clôture financière dans SAP", "Automate financial closing in SAP")}</option>
-            <option value="Système de relance intelligent SAP">{tx("Système de relance intelligent SAP", "Intelligent SAP dunning system")}</option>
-            <option value="Pilotage trésorerie temps réel avec SAP Analytics">{tx("Pilotage trésorerie temps réel avec SAP Analytics", "Real-time treasury management with SAP Analytics")}</option>
-            <option value="Architecte transformation Finance SAP">{tx("Architecte transformation Finance SAP", "SAP Finance transformation architect")}</option>
-          </optgroup>
           <option value="Je ne sais pas encore">{tx("Je ne sais pas encore", "Not sure yet")}</option>
         </select>
       </Field>
