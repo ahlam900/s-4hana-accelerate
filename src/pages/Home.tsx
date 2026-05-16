@@ -20,13 +20,7 @@ const Home = () => {
     return () => clearInterval(id);
   }, []);
 
-  const trust = [
-    { k: t("home.trust_k_1"), v: t("home.trust_v_1") },
-    { k: t("home.trust_k_2"), v: t("home.trust_v_2") },
-    { k: t("home.trust_k_3"), v: t("home.trust_v_3") },
-    { k: t("home.trust_k_4"), v: t("home.trust_v_4") },
-    { k: t("home.trust_k_5"), v: t("home.trust_v_5") },
-  ];
+
 
   return (
     <>
