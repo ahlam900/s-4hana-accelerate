@@ -174,7 +174,7 @@
     @apply h-px w-8 bg-accent;
   }
 
-  .display-xl { font-family: var(--font-display); @apply text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[1.06] font-semibold; letter-spacing: -0.018em; }
+  .display-xl { font-family: var(--font-display); @apply text-[2.25rem] sm:text-[2.75rem] md:text-5xl lg:text-[3.75rem] xl:text-[4rem] leading-[1.08] font-semibold; letter-spacing: -0.018em; }
   .display-lg { font-family: var(--font-display); @apply text-[2.125rem] sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] font-semibold; letter-spacing: -0.016em; }
   .display-md { font-family: var(--font-display); @apply text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl leading-[1.14] font-semibold; letter-spacing: -0.014em; }
   .display-sm { font-family: var(--font-display); @apply text-2xl md:text-3xl leading-[1.22] font-semibold; letter-spacing: -0.01em; }
