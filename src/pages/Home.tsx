@@ -251,8 +251,9 @@ const Home = () => {
             </h2>
           </div>
           {/* Bloc 1 — Programme phare */}
-          <Reveal className="group relative bg-card border border-champagne/50 ring-1 ring-champagne/20 rounded-sm p-8 md:p-12 lg:p-14 mb-10 lg:mb-12 overflow-hidden">
-            <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-full" />
+          <Reveal className="group relative border border-[#D6B06A]/45 ring-1 ring-[#D6B06A]/15 rounded-sm p-8 md:p-12 lg:p-14 mb-10 lg:mb-12 overflow-hidden shadow-[0_1px_2px_rgba(20,20,20,0.04),0_18px_40px_-22px_rgba(120,90,30,0.18)] hover:shadow-[0_1px_2px_rgba(20,20,20,0.05),0_26px_56px_-22px_rgba(120,90,30,0.28)] hover:border-[#D6B06A]/65 transition-all duration-500 bg-[#F7F3EC]">
+            <span className="absolute top-0 left-0 h-px w-0 bg-[#D6B06A] transition-all duration-700 ease-out group-hover:w-full" />
+            <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-[#D6B06A]/[0.04]" />
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-6">
