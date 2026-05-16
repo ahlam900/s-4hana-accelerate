@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, GraduationCap, Briefcase, HelpCircle, ArrowRight, Check } from "lucide-react";
+import { Mail, GraduationCap, Briefcase, HelpCircle, ArrowRight, Check, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ContactForm from "@/components/forms/ContactForm";
 import Reveal from "@/components/Reveal";
+import StandardHero from "@/components/StandardHero";
 import { cn } from "@/lib/utils";
 import Seo from "@/components/Seo";
 import { useTx } from "@/i18n/tx";
