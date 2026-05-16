@@ -56,7 +56,7 @@ const OffresEntreprise = () => {
       </section>
 
       {/* OUR OFFERINGS IN DETAIL */}
-      <section className="section-y">
+      <section id="offres" className="section-y scroll-mt-24">
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <div className="eyebrow mb-6">{tx("Nos offres", "Our services")}</div>
