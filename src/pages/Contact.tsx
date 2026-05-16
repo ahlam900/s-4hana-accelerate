@@ -54,30 +54,53 @@ const Contact = () => {
     <>
       <Seo titleKey="seo.contact_title" descriptionKey="seo.contact_desc" />
       {/* HERO */}
-      <section className="hero-uniform bg-secondary">
-        <div className="container-wide">
-          <div className="max-w-4xl">
-            <div className="eyebrow mb-6">{tx("Contact", "Contact")}</div>
-            <h1 className="display-lg text-foreground">
-              {tx("Échangeons sur votre besoin ", "Let's discuss your ")}<em className="not-italic text-champagne font-display">{tx("SAP Finance", "SAP Finance need")}</em>.
-            </h1>
-            <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
-              <p className="lede">
-                {tx(
-                  "Formation individuelle, accompagnement entreprise ou préparation Key Users : un seul point d'entrée pour qualifier votre besoin.",
-                  "Individual training, enterprise advisory or Key User enablement: a single entry point to qualify your need."
-                )}
-              </p>
-              <p className="text-[15px] leading-relaxed">
-                {tx(
-                  "Réponse sous 24 à 48h avec une première lecture concrète et l'orientation vers le bon dispositif.",
-                  "Reply within 24–48 h with a concrete first read and guidance toward the right format."
-                )}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <StandardHero
+        eyebrow={tx("CONTACT", "CONTACT")}
+        title={
+          <>
+            {tx("Échangeons sur votre besoin ", "Let's discuss your ")}
+            <em className="not-italic text-champagne font-display">
+              {tx("SAP Finance", "SAP Finance need")}
+            </em>.
+          </>
+        }
+        description={tx(
+          "Formation individuelle, accompagnement entreprise ou préparation Key Users : un seul point d'entrée pour qualifier votre besoin.",
+          "Individual training, enterprise advisory or Key User enablement: a single entry point to qualify your need."
+        )}
+        primaryCta={{ label: tx("Démarrer la conversation", "Start the conversation"), to: "#formulaire" }}
+        secondaryCta={{ label: tx("Voir nos formations", "View our training"), to: "/formations" }}
+        proofItems={[
+          tx("Réponse 24–48h", "Reply within 24–48h"),
+          tx("Sans engagement", "No commitment"),
+          tx("Orientation experte", "Expert guidance"),
+        ]}
+        rightCard={{
+          eyebrow: tx("Vos points d'entrée", "Your entry points"),
+          items: [
+            {
+              icon: GraduationCap,
+              title: tx("Formation Finance SAP", "SAP Finance Training"),
+              meta: tx("FICO · S/4HANA · Key Users", "FICO · S/4HANA · Key Users"),
+            },
+            {
+              icon: Briefcase,
+              title: tx("Projet S/4HANA", "S/4HANA Project"),
+              meta: tx("Cadrage · Structuration · Go-live", "Scoping · Structuring · Go-live"),
+            },
+            {
+              icon: Clock,
+              title: tx("Autre demande", "Other inquiry"),
+              meta: tx("Partenariat · Intervention · Info", "Partnership · Speaking · Info"),
+            },
+          ],
+          footer: {
+            label: tx("Réponse rapide", "Fast reply"),
+            ctaLabel: tx("Écrire au formulaire", "Open the form"),
+            ctaTo: "#formulaire",
+          },
+        }}
+      />
 
       {/* NEED SELECTOR */}
       <section className="section-y">
