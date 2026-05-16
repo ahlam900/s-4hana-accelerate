@@ -1,0 +1,23 @@
+# CBS Finance Institute
+
+> SAP S/4HANA Finance transformation, expert training and digital playbooks for CFOs, finance leaders and SAP consultants.
+
+CBS Finance Institute is a French consulting and training institute specialized in SAP Finance (FICO, RE-FX) and AI-driven finance transformation. We help enterprises modernize their finance function on SAP S/4HANA through three pillars: expert advisory, premium training programs, and ready-to-use digital products.
+
+## Pages
+
+- [Home](/): Overview of CBS Finance Institute — SAP Finance transformation, training and digital products.
+- [Formations](/formations): Premium SAP Finance & AI training catalog — FICO Consultant Program, automation modules, and RE-FX specialization.
+- [SAP FICO Consultant Program](/formations/sap-fico-consultant-program): Flagship program to become an operational SAP FICO consultant.
+- [Offres Entreprise](/offres-entreprise): Tailored corporate offers — Key User programs, transformation sprints and SAP Finance advisory.
+- [Produits digitaux](/produits-digitaux): Digital playbooks, configuration kits and templates for SAP Finance teams.
+- [Ressources](/ressources): Articles, guides and resources on SAP Finance transformation.
+- [À propos](/a-propos): Mission, expertise and team behind CBS Finance Institute.
+- [Contact](/contact): Get in touch with our SAP Finance experts.
+
+## Optional
+
+- [Mentions légales](/mentions-legales): Legal notice.
+- [Politique de confidentialité](/confidentialite): Privacy policy.
+- [CGV](/cgv): Terms of sale.
+- [Cookies](/cookies): Cookie policy.
