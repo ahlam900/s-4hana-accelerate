@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, GraduationCap, Layers, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import HeroContextCard from "@/components/HeroContextCard";
 import Reveal from "@/components/Reveal";
 import trainingRoomVisual from "@/assets/cbs-training-room.png";
 import Seo from "@/components/Seo";
