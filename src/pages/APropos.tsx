@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import trainingRoomVisual from "@/assets/cbs-training-room.png";
 import Seo from "@/components/Seo";
-import StandardHero from "@/components/StandardHero";
+import GlobalHeroSection from "@/components/GlobalHeroSection";
 import { useTx } from "@/i18n/tx";
 import { useLang } from "@/i18n/useLang";
 
@@ -15,7 +15,7 @@ const APropos = () => {
     <>
       <Seo titleKey="seo.about_title" descriptionKey="seo.about_desc" />
       {/* HERO */}
-      <StandardHero
+      <GlobalHeroSection
         eyebrow={tx("CBS FINANCE INSTITUTE", "CBS FINANCE INSTITUTE")}
         title={
           <>
