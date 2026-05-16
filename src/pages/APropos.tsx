@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, GraduationCap, Briefcase, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import trainingRoomVisual from "@/assets/cbs-training-room.png";
 import Seo from "@/components/Seo";
-import StandardHero from "@/components/StandardHero";
 import { useTx } from "@/i18n/tx";
 import { useLang } from "@/i18n/useLang";
 
@@ -15,60 +14,33 @@ const APropos = () => {
     <>
       <Seo titleKey="seo.about_title" descriptionKey="seo.about_desc" />
       {/* HERO */}
-      <StandardHero
-        eyebrow={tx("CBS FINANCE INSTITUTE", "CBS FINANCE INSTITUTE")}
-        title={
-          <>
-            {tx("L'institut spécialisé pour former, transformer et rendre la ", "The specialized institute to train, transform and make ")}
-            <em className="not-italic text-champagne font-display">
-              {tx("Finance SAP durable", "SAP Finance sustainable")}
-            </em>.
-          </>
-        }
-        description={
-          <>
-            {tx(
-              "Nous formons les professionnels Finance SAP, accompagnons les directions Finance dans leurs transformations et préparons les équipes à sécuriser l'adoption des nouveaux processus.",
-              "We train SAP Finance professionals, support finance leaders through their transformations and prepare teams to secure the adoption of new processes."
-            )}
-          </>
-        }
-        primaryCta={{ label: tx("Découvrir notre approche", "Discover our approach"), to: "#approche" }}
-        secondaryCta={{ label: tx("Échanger avec un expert", "Speak with an expert"), to: localize("/contact") }}
-        proofItems={[
-          tx("Institut SAP Finance", "SAP Finance institute"),
-          tx("Experts en mission", "Active experts"),
-          tx("Présence internationale", "International reach"),
-        ]}
-        rightCard={{
-          eyebrow: tx("Notre ADN", "Our DNA"),
-          items: [
-            {
-              icon: GraduationCap,
-              title: tx("Academy SAP Finance", "SAP Finance Academy"),
-              meta: tx("Formations premium · FICO · S/4HANA", "Premium training · FICO · S/4HANA"),
-            },
-            {
-              icon: Briefcase,
-              title: tx("Cabinet de transformation", "Transformation advisory"),
-              meta: tx("Cadrage · Architecture · Go-live", "Scoping · Architecture · Go-live"),
-            },
-            {
-              icon: Users,
-              title: tx("Adoption & Key Users", "Adoption & Key Users"),
-              meta: tx("Sécurisation des équipes finance", "Securing finance teams"),
-            },
-          ],
-          footer: {
-            label: tx("En savoir plus", "Learn more"),
-            ctaLabel: tx("Notre approche", "Our approach"),
-            ctaTo: "#approche",
-          },
-        }}
-      />
+      <section className="hero-uniform bg-secondary">
+        <div className="container-wide">
+          <div className="max-w-4xl">
+            <div className="eyebrow mb-6">CBS Finance Institute</div>
+            <h1 className="display-lg text-foreground">
+              {tx("L'institut spécialisé pour former, transformer et rendre la ", "The specialized institute to train, transform and make ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP durable", "SAP Finance sustainable")}</em>.
+            </h1>
+            <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
+              <p className="lede">
+                {tx(
+                  "Nous formons les professionnels Finance SAP, accompagnons les directions Finance dans leurs transformations et préparons les équipes à sécuriser l'adoption des nouveaux processus.",
+                  "We train SAP Finance professionals, support finance leaders through their transformations and prepare teams to secure the adoption of new processes."
+                )}
+              </p>
+              <p className="text-[15px] leading-relaxed">
+                {tx(
+                  "Une seule discipline, traitée en profondeur : la Finance SAP — des processus à leur traduction dans SAP, et des équipes à leur autonomie.",
+                  "A single discipline, treated in depth: SAP Finance — from processes to their translation into SAP, and from teams to autonomy."
+                )}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* POSITIONING */}
-      <section id="approche" className="section-y scroll-mt-24">
+      <section className="section-y">
         <div className="container-wide grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6">
             <div className="eyebrow mb-6">{tx("Notre identité", "Our identity")}</div>
