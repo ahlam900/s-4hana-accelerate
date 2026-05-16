@@ -94,15 +94,15 @@ const Home = () => {
             <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)] ring-1 ring-ink/5">
                 <img src={heroVisual} alt="CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} fetchPriority="high" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/10 to-ink/15 pointer-events-none" />
               </div>
-              <div className="hidden md:block absolute bottom-8 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory p-4 rounded-sm max-w-[220px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
-                <div className="flex items-center gap-2 text-[9.5px] uppercase tracking-[0.28em] text-champagne mb-2">
-                  <span className="h-px w-4 bg-champagne" /> {tx("PROGRAMME PHARE", "FLAGSHIP")}
+              <div className="hidden md:block absolute bottom-6 -left-4 lg:-left-6 bg-ink/95 backdrop-blur-sm text-ivory px-3.5 py-3 rounded-sm max-w-[200px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
+                <div className="flex items-center gap-2 text-[8.5px] uppercase tracking-[0.26em] text-champagne mb-1.5">
+                  <span className="h-px w-3 bg-champagne" /> {tx("PROGRAMME PHARE", "FLAGSHIP")}
                 </div>
-                <div className="font-display text-[15px] leading-snug">SAP FICO Consultant Program</div>
-                <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">{tx("Présentiel Paris · Distanciel", "On-site Paris · Remote")}</div>
-                <div className="text-[9px] uppercase tracking-wide text-ivory/40 mt-1.5">{tx("Prochaine session : Juin 2025", "Next session: June 2025")}</div>
+                <div className="font-display text-[13.5px] leading-snug">SAP FICO Consultant Program</div>
+                <div className="text-[9.5px] uppercase tracking-[0.18em] text-ivory/55 mt-1.5 pt-1.5 border-t border-ivory/10">{tx("Présentiel Paris · Distanciel", "On-site Paris · Remote")}</div>
+                <div className="text-[8.5px] uppercase tracking-wide text-ivory/40 mt-1">{tx("Prochaine session : Juin 2025", "Next session: June 2025")}</div>
               </div>
             </div>
           </div>
