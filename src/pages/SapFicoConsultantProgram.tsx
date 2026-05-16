@@ -27,8 +27,9 @@ const quickInfo = [
 const summaryHighlights = [
   { label: "Durée", value: "10 jours" },
   { label: "Niveau", value: "Confirmé" },
+  { label: "Consultant", value: "6 900 € TTC" },
+  { label: "Entreprise", value: "14 900 € HT" },
   { label: "Reconnaissance", value: "Parcours certifiant" },
-  { label: "Pédagogie", value: "Cas concrets" },
   { label: "Périmètre", value: "S/4HANA Finance" },
 ];
 
