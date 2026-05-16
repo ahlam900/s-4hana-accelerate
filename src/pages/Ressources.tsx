@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Reveal from "@/components/Reveal";
+import HeroContextCard from "@/components/HeroContextCard";
 import { toast } from "@/hooks/use-toast";
 import Seo from "@/components/Seo";
 import { useTx } from "@/i18n/tx";
