@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, BellRing, Clock, Download, Sparkles } from "lucide-react";
+import { ArrowRight, BellRing, Clock, Download, Sparkles, BookOpen, FileText, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import Reveal from "@/components/Reveal";
 import KitLeadDialog, { type KitLeadTarget } from "@/components/KitLeadDialog";
 import { products, productCategories } from "@/data/products";
 import Seo from "@/components/Seo";
+import StandardHero from "@/components/StandardHero";
 import { cn } from "@/lib/utils";
 import { useTx } from "@/i18n/tx";
 import { useLang } from "@/i18n/useLang";
@@ -46,42 +47,54 @@ const ProduitsDigitaux = () => {
   return (
     <>
       <Seo titleKey="seo.digital_title" descriptionKey="seo.digital_desc" />
-      <section className="hero-uniform bg-secondary">
-        <div className="container-wide">
-          <div className="max-w-4xl">
-            <div className="eyebrow mb-6">{tx("Ressources premium", "Premium Resources")}</div>
-            <h1 className="display-lg text-foreground">
-              {tx("Des ressources premium pour structurer vos enjeux ", "Premium resources to structure your ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP", "SAP Finance")}</em>{tx(".", " priorities.")}
-            </h1>
-            <p className="lede mt-6 max-w-2xl text-muted-foreground">
-              {tx(
-                "Playbooks, guides, templates et kits opérationnels conçus pour aider les professionnels et les équipes Finance SAP à cadrer, exécuter, former et sécuriser leurs projets.",
-                "Playbooks, guides, templates and operational kits designed to help SAP Finance professionals and teams scope, execute, train and secure their projects."
-              )}
-            </p>
-            <ul className="mt-9 space-y-3 max-w-xl border-t border-border pt-7">
-              {[
-                tx("Méthodes issues de contextes Finance SAP réels", "Methods drawn from real SAP Finance contexts"),
-                tx("Templates directement exploitables en mission", "Templates ready to use in delivery"),
-                tx("Supports conçus pour la formation, l'adoption et l'exécution", "Materials designed for training, adoption and execution"),
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-3 text-[14.5px] text-foreground/85 leading-relaxed">
-                  <span className="text-champagne shrink-0 mt-0.5">✔</span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10">
-              <Button asChild size="lg" variant="ink">
-                <Link to={localize("/contact")}>{tx("Demander un accès anticipé", "Request early access")} <ArrowRight /></Link>
-              </Button>
-              <p className="mt-4 text-[12.5px] text-muted-foreground inline-flex items-center gap-2">
-                <span className="text-champagne">✦</span> {tx("Catalogue en cours de finalisation · accès prioritaire sur demande", "Catalog being finalized · priority access on request")}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <StandardHero
+        eyebrow={tx("RESSOURCES PREMIUM", "PREMIUM RESOURCES")}
+        title={
+          <>
+            {tx("Des ressources premium pour structurer vos enjeux ", "Premium resources to structure your ")}
+            <em className="not-italic text-champagne font-display">
+              {tx("Finance SAP", "SAP Finance")}
+            </em>
+            {tx(".", " priorities.")}
+          </>
+        }
+        description={tx(
+          "Playbooks, guides, templates et kits opérationnels conçus pour aider les professionnels et les équipes Finance SAP à cadrer, exécuter, former et sécuriser leurs projets.",
+          "Playbooks, guides, templates and operational kits designed to help SAP Finance professionals and teams scope, execute, train and secure their projects."
+        )}
+        primaryCta={{ label: tx("Demander un accès anticipé", "Request early access"), to: localize("/contact") }}
+        secondaryCta={{ label: tx("Voir le catalogue", "View the catalog"), to: "#catalogue" }}
+        proofItems={[
+          tx("Issus du terrain", "Field-tested"),
+          tx("Exploitables en mission", "Ready for delivery"),
+          tx("Accès prioritaire", "Priority access"),
+        ]}
+        rightCard={{
+          eyebrow: tx("Notre catalogue", "Our catalog"),
+          items: [
+            {
+              icon: BookOpen,
+              title: tx("Playbooks de transformation", "Transformation playbooks"),
+              meta: tx("Cadrage · Architecture · Adoption", "Scoping · Architecture · Adoption"),
+            },
+            {
+              icon: FileText,
+              title: tx("Templates opérationnels", "Operational templates"),
+              meta: tx("RACI · Cartographies · Plans", "RACI · Process maps · Plans"),
+            },
+            {
+              icon: Briefcase,
+              title: tx("Kits Key Users", "Key User kits"),
+              meta: tx("GL · AP · AR · F110 · Bank", "GL · AP · AR · F110 · Bank"),
+            },
+          ],
+          footer: {
+            label: tx("Catalogue en finalisation", "Catalog being finalized"),
+            ctaLabel: tx("Explorer", "Explore"),
+            ctaTo: "#catalogue",
+          },
+        }}
+      />
 
       {/* CATEGORIES */}
       <section id="catalogue" className="pt-16">

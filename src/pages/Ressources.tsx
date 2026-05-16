@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import Reveal from "@/components/Reveal";
 import { toast } from "@/hooks/use-toast";
 import Seo from "@/components/Seo";
+import StandardHero from "@/components/StandardHero";
 import { useTx } from "@/i18n/tx";
 import { useLang } from "@/i18n/useLang";
 
@@ -108,35 +109,54 @@ const Ressources = () => {
     <>
       <Seo titleKey="seo.resources_title" descriptionKey="seo.resources_desc" />
       {/* HERO */}
-      <section className="hero-uniform bg-secondary">
-        <div className="container-wide">
-          <div className="max-w-4xl">
-            <div className="eyebrow mb-6">{tx("Bibliothèque experte", "Expert Library")}</div>
-            <h1 className="display-lg text-foreground">
-              {tx("Insights et décryptages ", "Insights and analyses on ")}<em className="not-italic text-champagne font-display">{tx("SAP Finance", "SAP Finance")}</em>{tx(", en accès libre.", " — freely accessible.")}
-            </h1>
-            <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
-              <p className="lede">
-                {tx(
-                  "Notre bibliothèque experte rassemble analyses, retours d'expérience et repères méthodologiques pour aider les directions Finance, les consultants et les équipes projet à mieux cadrer, comprendre et exécuter leurs transformations.",
-                  "Our expert library brings together analyses, lessons learned and methodological references to help Finance leaders, consultants and project teams better frame, understand and execute their transformations."
-                )}
-              </p>
-              <p className="text-[15px] leading-relaxed">
-                {tx(
-                  "Des contenus courts, issus du terrain, pensés pour éclairer les décisions et renforcer les repères utiles en Finance SAP.",
-                  "Short, field-tested content designed to inform decisions and strengthen the useful reference points in SAP Finance."
-                )}
-              </p>
-            </div>
-            <div className="mt-10">
-              <Button asChild size="lg" variant="ink">
-                <a href="#newsletter">{tx("Recevoir les prochains décryptages", "Receive our next analyses")} <ArrowRight /></a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <StandardHero
+        eyebrow={tx("BIBLIOTHÈQUE EXPERTE", "EXPERT LIBRARY")}
+        title={
+          <>
+            {tx("Insights et décryptages ", "Insights and analyses on ")}
+            <em className="not-italic text-champagne font-display">
+              {tx("SAP Finance", "SAP Finance")}
+            </em>
+            {tx(", en accès libre.", " — freely accessible.")}
+          </>
+        }
+        description={tx(
+          "Notre bibliothèque experte rassemble analyses, retours d'expérience et repères méthodologiques pour aider les directions Finance, les consultants et les équipes projet à mieux cadrer, comprendre et exécuter leurs transformations.",
+          "Our expert library brings together analyses, lessons learned and methodological references to help Finance leaders, consultants and project teams better frame, understand and execute their transformations."
+        )}
+        primaryCta={{ label: tx("Recevoir les prochains décryptages", "Receive our next analyses"), to: "#newsletter" }}
+        secondaryCta={{ label: tx("Parcourir la bibliothèque", "Browse the library"), to: "#articles" }}
+        proofItems={[
+          tx("Contenus terrain", "Field-tested content"),
+          tx("Méthodologie SAP", "SAP methodology"),
+          tx("Accès libre", "Free access"),
+        ]}
+        rightCard={{
+          eyebrow: tx("Ce que vous y trouverez", "What you'll find"),
+          items: [
+            {
+              icon: BookOpen,
+              title: tx("Décryptages SAP Finance", "SAP Finance analyses"),
+              meta: tx("S/4HANA · FICO · Close · Tax", "S/4HANA · FICO · Close · Tax"),
+            },
+            {
+              icon: Compass,
+              title: tx("Repères méthodologiques", "Methodological references"),
+              meta: tx("Cadrage · Architecture · Adoption", "Scoping · Architecture · Adoption"),
+            },
+            {
+              icon: GraduationCap,
+              title: tx("Retours d'expérience", "Lessons learned"),
+              meta: tx("Programmes réels & enseignements", "Real programs & learnings"),
+            },
+          ],
+          footer: {
+            label: tx("Newsletter mensuelle", "Monthly newsletter"),
+            ctaLabel: tx("S'inscrire", "Subscribe"),
+            ctaTo: "#newsletter",
+          },
+        }}
+      />
 
       {/* CHALLENGES */}
       <section className="section-y">
