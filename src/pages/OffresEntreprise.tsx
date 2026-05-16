@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Building2, Sparkles, Target, ShieldCheck, Layers, Briefcase, Compass } from "lucide-react";
+import { ArrowRight, Building2, Sparkles, Target, ShieldCheck, Layers, Briefcase, Compass, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
+import HeroContextCard from "@/components/HeroContextCard";
 import CorporateInquiryForm from "@/components/forms/CorporateInquiryForm";
 import Seo from "@/components/Seo";
 import { useTx } from "@/i18n/tx";
