@@ -560,19 +560,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* TRUST */}
-      <section className="pt-20 md:pt-24 pb-10 md:pb-14">
-        <div className="container-wide">
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-border border border-border rounded-sm overflow-hidden">
-            {trust.map((tr, i) => (
-              <Reveal key={tr.k} delay={i * 50} className="bg-background p-6 md:p-8">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-3">{tr.k}</div>
-                <div className="text-sm text-muted-foreground leading-relaxed">{tr.v}</div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* KEY METRICS */}
+      <KeyMetrics />
 
       {/* FINAL CTA */}
       <section className="pt-10 md:pt-14 pb-20 md:pb-24 bg-ink text-ivory">
