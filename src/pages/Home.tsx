@@ -1,5 +1,4 @@
 import { ArrowRight, Compass, Building2, ShieldCheck, Sparkles, Layers, Users, Briefcase, BookOpen, FileText, Mail, Award, Cpu, BarChart3, Network, Building, MapPin, Monitor, Users2 } from "lucide-react";
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
@@ -7,20 +6,13 @@ import { LLink } from "@/i18n/LLink";
 import Seo from "@/components/Seo";
 import KeyMetrics from "@/components/KeyMetrics";
 import heroVisual from "@/assets/hero-visual.jpg";
-import heroLocationsVisual from "@/assets/hero-locations-visual.jpg";
 import productsVisual from "@/assets/products-visual.jpg";
 import { useTx } from "@/i18n/tx";
+import GlobalHeroSection from "@/components/GlobalHeroSection";
 
 const Home = () => {
   const { t } = useTranslation();
   const tx = useTx();
-  const [slide, setSlide] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setSlide((s) => (s + 1) % 2), 5000);
-    return () => clearInterval(id);
-  }, []);
-
-
 
   return (
     <>
@@ -47,131 +39,41 @@ const Home = () => {
           ]
         }}
       />
-      {/* HERO */}
-      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
-        <div className="container-wide relative">
-          {/* Slide 1 */}
-          <div
-            className={`grid lg:grid-cols-12 gap-12 lg:gap-20 items-center transition-opacity duration-700 ${slide === 0 ? "opacity-100" : "opacity-0 pointer-events-none absolute inset-0"}`}
-          >
-            <div className="lg:col-span-7 relative z-10">
-              <div className="inline-flex items-center gap-3 mb-8">
-                <span className="h-px w-8 bg-champagne" />
-                <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("SAP FINANCE & IA", "SAP FINANCE & AI")}</span>
-              </div>
-              <h1 className="display-xl text-foreground">
-                {tx("Accélérez votre carrière avec ", "Accelerate your career with ")}
-                <em className="not-italic text-champagne font-display">{tx("SAP Finance & l'Intelligence Artificielle", "SAP Finance & Artificial Intelligence")}</em>.
-              </h1>
-              <p className="lede mt-7 max-w-xl leading-relaxed">
-                {tx(
-                  "Des formations intensives pour maîtriser SAP S/4HANA, automatiser vos processus et exploiter l'IA dans vos missions.",
-                  "Intensive programs to master SAP S/4HANA, automate your processes and leverage AI in your missions.",
-                )}
-              </p>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <Button asChild size="lg" variant="ink">
-                  <LLink to="/formations">{tx("Découvrir les formations", "Discover the programs")} <ArrowRight /></LLink>
-                </Button>
-                <Button asChild size="lg" variant="outline">
-                  <LLink to="/contact">{tx("Parler à un expert", "Talk to an expert")}</LLink>
-                </Button>
-              </div>
-              <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center justify-between max-w-2xl divide-x divide-border/40">
-                {[
-                  tx("Automation", "Automation"),
-                  tx("Analytics avancés", "Advanced analytics"),
-                  tx("IA appliquée", "Applied AI"),
-                  tx("Finance S/4HANA", "Finance S/4HANA"),
-                ].map((label) => (
-                  <span key={label} className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                    {label}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)] ring-1 ring-ink/5">
-                <img src={heroVisual} alt="CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} fetchPriority="high" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/10 to-ink/15 pointer-events-none" />
-              </div>
-              <div className="hidden md:block absolute bottom-6 -left-4 lg:-left-6 bg-ink/95 backdrop-blur-sm text-ivory px-3.5 py-3 rounded-sm max-w-[200px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
-                <div className="flex items-center gap-2 text-[8.5px] uppercase tracking-[0.26em] text-champagne mb-1.5">
-                  <span className="h-px w-3 bg-champagne" /> {tx("PROGRAMME PHARE", "FLAGSHIP")}
-                </div>
-                <div className="font-display text-[13.5px] leading-snug">SAP FICO Consultant Program</div>
-                <div className="text-[9.5px] uppercase tracking-[0.18em] text-ivory/55 mt-1.5 pt-1.5 border-t border-ivory/10">{tx("Présentiel Paris · Distanciel", "On-site Paris · Remote")}</div>
-                <div className="text-[8.5px] uppercase tracking-wide text-ivory/40 mt-1">{tx("Prochaine session : JUIN 2026", "Next session: June 2026")}</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Slide 2 — Entreprise */}
-          <div
-            className={`grid lg:grid-cols-12 gap-12 lg:gap-20 items-center transition-opacity duration-700 ${slide === 1 ? "opacity-100" : "opacity-0 pointer-events-none absolute inset-0"}`}
-          >
-            <div className="lg:col-span-7 relative z-10">
-              <div className="inline-flex items-center gap-3 mb-8">
-                <span className="h-px w-8 bg-champagne" />
-                <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("OFFRES ENTREPRISE", "CORPORATE OFFERS")}</span>
-              </div>
-              <h1 className="display-xl text-foreground">
-                {tx("Accélérez la performance de vos ", "Accelerate the performance of your ")}
-                <em className="not-italic text-champagne font-display">{tx("équipes Finance & SAP", "Finance & SAP teams")}</em>.
-              </h1>
-              <p className="lede mt-7 max-w-xl leading-relaxed">
-                {tx(
-                  "Formations Key Users, séminaires dédiés et accompagnement sur mesure. Disponible à Paris et à Dubaï.",
-                  "Key User training, dedicated seminars and tailored support. Available in Paris and Dubai.",
-                )}
-              </p>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <Button asChild size="lg" variant="ink">
-                  <LLink to="/offres-entreprise">{tx("Découvrir les offres entreprise", "Discover corporate offers")} <ArrowRight /></LLink>
-                </Button>
-              </div>
-              <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center justify-between max-w-2xl divide-x divide-border/40">
-                {[
-                  tx("Key Users SAP", "SAP Key Users"),
-                  tx("Séminaires entreprise", "Corporate seminars"),
-                  tx("Sessions personnalisées", "Tailored sessions"),
-                  tx("Paris & Dubaï", "Paris & Dubai"),
-                ].map((label) => (
-                  <span key={label} className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                    {label}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)] ring-1 ring-ink/5">
-                <img src={heroLocationsVisual} alt={tx("Offres entreprise — Paris & Dubaï", "Corporate offers — Paris & Dubai")} className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
-              </div>
-              <div className="hidden md:block absolute bottom-8 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory p-4 rounded-sm max-w-[220px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
-                <div className="flex items-center gap-2 text-[9.5px] uppercase tracking-[0.28em] text-champagne mb-2">
-                  <span className="h-px w-4 bg-champagne" /> {tx("PROGRAMME KEY USER", "KEY USER PROGRAM")}
-                </div>
-                <div className="font-display text-[15px] leading-snug">{tx("Key User SAP", "Key User SAP")}<br/><span className="text-champagne">Paris · Dubaï</span></div>
-                <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">{tx("Présentiel & séminaire entreprise", "On-site & corporate seminar")}</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Slide indicators */}
-          <div className="mt-10 flex items-center justify-center gap-3">
-            {[0, 1].map((i) => (
-              <button
-                key={i}
-                onClick={() => setSlide(i)}
-                aria-label={`Slide ${i + 1}`}
-                className={`h-1 rounded-sm transition-all duration-500 ${slide === i ? "w-10 bg-champagne" : "w-5 bg-ink/20 hover:bg-ink/40"}`}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <GlobalHeroSection
+        eyebrow={tx("SAP FINANCE & IA", "SAP FINANCE & AI")}
+        title={
+          <>
+            {tx("Accélérez votre carrière avec ", "Accelerate your career with ")}
+            <em className="not-italic text-champagne font-display">
+              {tx("SAP Finance & l'Intelligence Artificielle", "SAP Finance & Artificial Intelligence")}
+            </em>
+            .
+          </>
+        }
+        description={tx(
+          "Des formations intensives pour maîtriser SAP S/4HANA, automatiser vos processus et exploiter l'IA dans vos missions.",
+          "Intensive programs to master SAP S/4HANA, automate your processes and leverage AI in your missions.",
+        )}
+        primaryCta={{ label: tx("Découvrir les formations", "Discover the programs"), to: "/formations" }}
+        secondaryCta={{ label: tx("Parler à un expert", "Talk to an expert"), to: "/contact" }}
+        proofItems={[
+          tx("Automation", "Automation"),
+          tx("Analytics avancés", "Advanced analytics"),
+          tx("IA appliquée", "Applied AI"),
+          tx("Finance S/4HANA", "Finance S/4HANA"),
+        ]}
+        rightImage={{
+          src: heroVisual,
+          alt: "CBS Finance Institute",
+          priority: true,
+          badge: {
+            eyebrow: tx("PROGRAMME PHARE", "FLAGSHIP"),
+            title: "SAP FICO Consultant Program",
+            meta: tx("Présentiel Paris · Distanciel", "On-site Paris · Remote"),
+            note: tx("Prochaine session : JUIN 2026", "Next session: June 2026"),
+          },
+        }}
+      />
 
       {/* VALEUR CLÉ */}
       <section className="section-y border-y border-border">
