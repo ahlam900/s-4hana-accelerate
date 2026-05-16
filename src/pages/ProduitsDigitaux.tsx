@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, BellRing, Clock, Download, Sparkles } from "lucide-react";
+import { ArrowRight, BellRing, Clock, Download, Sparkles, BookOpen, FileText, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import Reveal from "@/components/Reveal";
+import HeroContextCard from "@/components/HeroContextCard";
 import KitLeadDialog, { type KitLeadTarget } from "@/components/KitLeadDialog";
 import { products, productCategories } from "@/data/products";
 import Seo from "@/components/Seo";
