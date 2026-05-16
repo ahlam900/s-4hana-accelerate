@@ -107,6 +107,7 @@ const Home = () => {
                 </div>
                 <div className="font-display text-[15px] leading-snug">SAP FICO Consultant Program</div>
                 <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">{tx("Présentiel Paris · Distanciel", "On-site Paris · Remote")}</div>
+                <div className="text-[9px] uppercase tracking-wide text-ivory/40 mt-1.5">{tx("Prochaine session : Juin 2025", "Next session: June 2025")}</div>
               </div>
             </div>
           </div>
