@@ -68,7 +68,7 @@ const APropos = () => {
       />
 
       {/* POSITIONING */}
-      <section className="section-y">
+      <section id="approche" className="section-y scroll-mt-24">
         <div className="container-wide grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6">
             <div className="eyebrow mb-6">{tx("Notre identité", "Our identity")}</div>
