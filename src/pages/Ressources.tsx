@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import Reveal from "@/components/Reveal";
 import { toast } from "@/hooks/use-toast";
 import Seo from "@/components/Seo";
-import StandardHero from "@/components/StandardHero";
+import GlobalHeroSection from "@/components/GlobalHeroSection";
 import { useTx } from "@/i18n/tx";
 import { useLang } from "@/i18n/useLang";
 
@@ -109,7 +109,7 @@ const Ressources = () => {
     <>
       <Seo titleKey="seo.resources_title" descriptionKey="seo.resources_desc" />
       {/* HERO */}
-      <StandardHero
+      <GlobalHeroSection
         eyebrow={tx("BIBLIOTHÈQUE EXPERTE", "EXPERT LIBRARY")}
         title={
           <>

@@ -7,7 +7,7 @@ import Reveal from "@/components/Reveal";
 import KitLeadDialog, { type KitLeadTarget } from "@/components/KitLeadDialog";
 import { products, productCategories } from "@/data/products";
 import Seo from "@/components/Seo";
-import StandardHero from "@/components/StandardHero";
+import GlobalHeroSection from "@/components/GlobalHeroSection";
 import { cn } from "@/lib/utils";
 import { useTx } from "@/i18n/tx";
 import { useLang } from "@/i18n/useLang";
@@ -47,7 +47,7 @@ const ProduitsDigitaux = () => {
   return (
     <>
       <Seo titleKey="seo.digital_title" descriptionKey="seo.digital_desc" />
-      <StandardHero
+      <GlobalHeroSection
         eyebrow={tx("RESSOURCES PREMIUM", "PREMIUM RESOURCES")}
         title={
           <>

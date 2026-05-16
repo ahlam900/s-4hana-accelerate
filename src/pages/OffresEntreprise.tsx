@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import CorporateInquiryForm from "@/components/forms/CorporateInquiryForm";
 import Seo from "@/components/Seo";
+import GlobalHeroSection from "@/components/GlobalHeroSection";
 import { useTx } from "@/i18n/tx";
 
 const OffresEntreprise = () => {
@@ -11,51 +12,69 @@ const OffresEntreprise = () => {
   return (
     <>
       <Seo titleKey="seo.corporate_title" descriptionKey="seo.corporate_desc" />
-      <section className="section-y border-b border-border bg-ink text-ivory">
-        <div className="container-wide">
-          <div className="max-w-4xl">
-            <div className="eyebrow mb-6 text-ivory/60">{tx("Offres entreprise", "Enterprise Services")}</div>
-            <h1 className="display-lg text-ivory leading-[1.05]">
-              {tx("Cadrez, sécurisez et faites aboutir vos ", "Scope, secure and deliver your ")}<em className="not-italic text-champagne font-display">{tx("transformations Finance SAP", "SAP Finance transformations")}</em>.
-            </h1>
-            <p className="lede mt-6 max-w-2xl text-ivory/75">
+      <GlobalHeroSection
+        eyebrow={tx("OFFRES ENTREPRISE", "ENTERPRISE SERVICES")}
+        title={
+          <>
+            {tx("Cadrez, sécurisez et faites aboutir vos ", "Scope, secure and deliver your ")}
+            <em className="not-italic text-champagne font-display">
+              {tx("transformations Finance SAP", "SAP Finance transformations")}
+            </em>
+            .
+          </>
+        }
+        description={
+          <>
+            <p>
               {tx(
                 "Nous accompagnons les directions Finance et les équipes projet dans les phases clés de leurs transformations SAP : cadrage des processus, alignement métier-outil, montée en compétence des équipes et sécurisation de l'adoption.",
                 "We support finance leaders and project teams through the key phases of their SAP transformations: process scoping, business–tool alignment, team upskilling and adoption security."
               )}
             </p>
-            <p className="mt-4 max-w-2xl text-ivory/70 leading-relaxed text-[15px]">
+            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
               {tx(
                 "Une intervention structurée, pensée pour les programmes exigeants qui doivent avancer vite, réduire les angles morts et renforcer l'autonomie des acteurs.",
                 "A structured engagement, designed for demanding programs that must move fast, reduce blind spots and strengthen the autonomy of stakeholders."
               )}
             </p>
-            <ul className="mt-9 space-y-3 max-w-xl border-t border-ivory/15 pt-7">
-              {[
-                tx("Cadrage des processus Finance SAP (R2R, P2P, O2C)", "SAP Finance process scoping (R2R, P2P, O2C)"),
-                tx("Préparation des Key Users et des relais métier", "Key User and business relay enablement"),
-                tx("Sécurisation des projets et de l'adoption", "Securing projects and adoption"),
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-3 text-[14.5px] text-ivory/85 leading-relaxed">
-                  <span className="text-champagne shrink-0 mt-0.5">✔</span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10">
-              <Button asChild size="lg" variant="champagne">
-                <Link to="#devis">{tx("Demander un devis entreprise", "Request a proposal")} <ArrowRight /></Link>
-              </Button>
-              <p className="mt-4 text-[12.5px] text-ivory/65 inline-flex items-center gap-2">
-                <span className="text-champagne">✔</span> {tx("Réponse sous 24 à 48h — échange confidentiel", "Reply within 24–48 h — confidential exchange")}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+        primaryCta={{ label: tx("Demander un devis entreprise", "Request a proposal"), to: "#devis" }}
+        secondaryCta={{ label: tx("Voir les offres", "See the offers"), to: "#offres" }}
+        proofItems={[
+          tx("Cadrage Finance SAP", "SAP Finance scoping"),
+          tx("Key Users & adoption", "Key Users & adoption"),
+          tx("Réponse 24–48h", "Reply 24–48h"),
+        ]}
+        rightCard={{
+          eyebrow: tx("Axes d'intervention", "Intervention areas"),
+          items: [
+            {
+              icon: Building2,
+              title: tx("Cadrage des processus Finance", "Finance process scoping"),
+              meta: tx("R2R · P2P · O2C", "R2R · P2P · O2C"),
+            },
+            {
+              icon: Sparkles,
+              title: tx("Préparation des Key Users", "Key User preparation"),
+              meta: tx("Montée en compétence · relais métier", "Upskilling · business relays"),
+            },
+            {
+              icon: ShieldCheck,
+              title: tx("Sécurisation du programme", "Program security"),
+              meta: tx("Adoption · exécution · gouvernance", "Adoption · execution · governance"),
+            },
+          ],
+          footer: {
+            label: tx("Échange confidentiel", "Confidential exchange"),
+            ctaLabel: tx("Demander un devis", "Request a proposal"),
+            ctaTo: "#devis",
+          },
+        }}
+      />
 
       {/* OUR OFFERINGS IN DETAIL */}
-      <section className="section-y">
+      <section id="offres" className="section-y scroll-mt-24">
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <div className="eyebrow mb-6">{tx("Nos offres", "Our services")}</div>
