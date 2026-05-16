@@ -131,7 +131,7 @@ const Ressources = () => {
                 <a href="#newsletter">{tx("Recevoir les prochains décryptages", "Receive our next analyses")} <ArrowRight /></a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <a href="#articles">{tx("Explorer la bibliothèque", "Explore the library")}</a>
+                <Link to={localize("/contact")}>{tx("Parler à un expert", "Talk to an expert")}</Link>
               </Button>
             </div>
           </div>
