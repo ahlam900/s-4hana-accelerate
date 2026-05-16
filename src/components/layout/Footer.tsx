@@ -53,7 +53,6 @@ const Footer = () => {
           <h4 className="text-[11px] uppercase tracking-[0.2em] text-champagne mb-4">{t("footer.legal")}</h4>
           <div className="text-sm text-muted-foreground space-y-1.5">
             <div className="font-medium text-foreground">CBS FINANCE INSTITUTE</div>
-            <div>SIRET : 884 903 121 00017</div>
             <div>Déclaration d'activité : 11931243893</div>
           </div>
         </div>
