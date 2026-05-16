@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import { LLink } from "@/i18n/LLink";
 import Seo from "@/components/Seo";
+import KeyMetrics from "@/components/KeyMetrics";
 import heroVisual from "@/assets/hero-visual.jpg";
 import heroLocationsVisual from "@/assets/hero-locations-visual.jpg";
 import productsVisual from "@/assets/products-visual.jpg";
@@ -15,17 +16,11 @@ const Home = () => {
   const tx = useTx();
   const [slide, setSlide] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setSlide((s) => (s + 1) % 2), 7000);
+    const id = setInterval(() => setSlide((s) => (s + 1) % 2), 5000);
     return () => clearInterval(id);
   }, []);
 
-  const trust = [
-    { k: t("home.trust_k_1"), v: t("home.trust_v_1") },
-    { k: t("home.trust_k_2"), v: t("home.trust_v_2") },
-    { k: t("home.trust_k_3"), v: t("home.trust_v_3") },
-    { k: t("home.trust_k_4"), v: t("home.trust_v_4") },
-    { k: t("home.trust_k_5"), v: t("home.trust_v_5") },
-  ];
+
 
   return (
     <>
@@ -98,7 +93,7 @@ const Home = () => {
             </div>
             <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)] ring-1 ring-ink/5">
-                <img src={heroVisual} alt="CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} />
+                <img src={heroVisual} alt="CBS Finance Institute" className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
               </div>
               <div className="hidden md:block absolute bottom-8 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory p-4 rounded-sm max-w-[220px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
@@ -107,6 +102,7 @@ const Home = () => {
                 </div>
                 <div className="font-display text-[15px] leading-snug">SAP FICO Consultant Program</div>
                 <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">{tx("Présentiel Paris · Distanciel", "On-site Paris · Remote")}</div>
+                <div className="text-[9px] uppercase tracking-wide text-ivory/40 mt-1.5">{tx("Prochaine session : Juin 2025", "Next session: June 2025")}</div>
               </div>
             </div>
           </div>
@@ -216,13 +212,13 @@ const Home = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[
-              { label: tx("Consultants SAP Finance", "SAP Finance consultants"), desc: tx("Qui veulent intervenir sur des projets S/4HANA exigeants.", "Who want to operate on demanding S/4HANA projects.") },
-              { label: tx("Contrôleurs & équipes Finance", "Controllers & Finance teams"), desc: tx("Qui souhaitent automatiser et fiabiliser leurs processus.", "Who want to automate and reinforce their processes.") },
-              { label: tx("Key Users & responsables SAP", "Key Users & SAP leads"), desc: tx("Qui pilotent l'adoption SAP au sein de leurs équipes.", "Who drive SAP adoption within their teams.") },
-              { label: tx("Directions Finance & SI", "Finance & IT leadership"), desc: tx("Qui mènent la transformation SAP S/4HANA et IA.", "Who lead the SAP S/4HANA and AI transformation.") },
+              { label: tx("Consultants SAP Finance", "SAP Finance consultants"), desc: tx("Qui veulent intervenir sur des projets S/4HANA exigeants.", "Who want to operate on demanding S/4HANA projects."), to: "/formations/sap-fico-consultant-program" },
+              { label: tx("Contrôleurs & équipes Finance", "Controllers & Finance teams"), desc: tx("Qui souhaitent automatiser et fiabiliser leurs processus.", "Who want to automate and reinforce their processes."), to: "/formations" },
+              { label: tx("Key Users & responsables SAP", "Key Users & SAP leads"), desc: tx("Qui pilotent l'adoption SAP au sein de leurs équipes.", "Who drive SAP adoption within their teams."), to: "/offres-entreprise" },
+              { label: tx("Directions Finance & SI", "Finance & IT leadership"), desc: tx("Qui mènent la transformation SAP S/4HANA et IA.", "Who lead the SAP S/4HANA and AI transformation."), to: "/offres-entreprise" },
             ].map((a, i) => (
               <Reveal key={a.label} delay={i * 60}>
-                <div className="group relative border-t border-ivory/15 pt-7 pb-2 pr-4 transition-all duration-500 hover:pl-3">
+                <LLink to={a.to} className="group relative block border-t border-ivory/15 pt-7 pb-7 pr-4 transition-all duration-500 hover:pl-3 h-full">
                   <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-8" />
                   <div className="flex items-start gap-4">
                     <div className="flex items-center justify-center h-9 w-9 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0 transition-all duration-500 group-hover:bg-champagne/15 group-hover:ring-champagne/40">
@@ -231,9 +227,12 @@ const Home = () => {
                     <div className="min-w-0">
                       <div className="font-display text-lg md:text-[19px] leading-[1.35] tracking-tight text-ivory">{a.label}</div>
                       <div className="text-[13px] text-ivory/55 leading-[1.6] mt-2">{a.desc}</div>
+                      <div className="mt-5 inline-flex items-center gap-2 text-[11px] uppercase tracking-wide text-champagne font-medium group-hover:gap-3 transition-all">
+                        {tx("Voir le programme adapté", "See the matching program")} <ArrowRight className="h-3 w-3" />
+                      </div>
                     </div>
                   </div>
-                </div>
+                </LLink>
               </Reveal>
             ))}
           </div>
@@ -496,6 +495,12 @@ const Home = () => {
                 </div>
               ))}
             </div>
+            <p className="mt-6 text-[12px] text-muted-foreground italic">
+              {tx(
+                "Ex : Guide SAP FI/CO en migration S/4HANA · Checklist de clôture financière SAP",
+                "E.g. SAP FI/CO migration to S/4HANA guide · SAP financial close checklist",
+              )}
+            </p>
             <Button asChild size="lg" variant="ink" className="mt-10">
               <LLink to="/produits-digitaux">{t("home.digital_cta")} <ArrowRight /></LLink>
             </Button>
@@ -550,19 +555,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* TRUST */}
-      <section className="pt-20 md:pt-24 pb-10 md:pb-14">
-        <div className="container-wide">
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-border border border-border rounded-sm overflow-hidden">
-            {trust.map((tr, i) => (
-              <Reveal key={tr.k} delay={i * 50} className="bg-background p-6 md:p-8">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-3">{tr.k}</div>
-                <div className="text-sm text-muted-foreground leading-relaxed">{tr.v}</div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* KEY METRICS */}
+      <KeyMetrics />
 
       {/* FINAL CTA */}
       <section className="pt-10 md:pt-14 pb-20 md:pb-24 bg-ink text-ivory">
