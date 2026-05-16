@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import TrainingInquiryForm from "@/components/forms/TrainingInquiryForm";
 import Seo from "@/components/Seo";
+import GlobalHeroSection from "@/components/GlobalHeroSection";
 import { useTx } from "@/i18n/tx";
 
 const Formations = () => {
@@ -115,83 +116,27 @@ const Formations = () => {
     <>
       <Seo titleKey="seo.trainings_title" descriptionKey="seo.trainings_desc" />
 
-      {/* HERO */}
-      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary border-b border-border">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
-        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
-          <div className="lg:col-span-7 relative z-10">
-            <div className="inline-flex items-center gap-3 mb-8">
-              <span className="h-px w-8 bg-champagne" />
-              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">
-                {tx("FORMATIONS SAP FINANCE & IA", "SAP FINANCE & AI TRAINING")}
-              </span>
-            </div>
-            <h1 className="display-xl text-foreground max-w-[22ch] leading-[1.05]">
-              {tx("Formations SAP Finance & IA, conçues pour ", "SAP Finance & AI training, built to ")}
-              <em className="not-italic text-champagne font-display">{tx("intervenir en mission", "deliver on engagements")}</em>.
-            </h1>
-            <p className="lede mt-7 max-w-xl leading-relaxed">
-              {tx(
-                "Développez des compétences opérationnelles en SAP S/4HANA, automation, analytics et IA appliquée aux processus financiers.",
-                "Build operational skills in SAP S/4HANA, automation, analytics and AI applied to financial processes."
-              )}
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild size="lg" variant="ink">
-                <Link to="#programmes">
-                  {tx("Découvrir les formations", "Discover the programs")} <ArrowRight />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="?sujet=%C3%89change%20avec%20un%20expert#demande">
-                  {tx("Parler à un expert", "Speak with an expert")}
-                </Link>
-              </Button>
-            </div>
-            <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center gap-x-6 md:gap-x-8 text-[10.5px] md:text-[11px] uppercase tracking-[0.2em] text-muted-foreground whitespace-nowrap">
-              <span><span className="text-champagne font-semibold">6</span> {tx("programmes premium", "premium programs")}</span>
-              <span className="h-3 w-px bg-border shrink-0" />
-              <span>{tx("SAP S/4HANA · IA · Analytics", "SAP S/4HANA · AI · Analytics")}</span>
-              <span className="h-3 w-px bg-border shrink-0" />
-              <span>{tx("Experts SAP en mission", "Active SAP experts")}</span>
-            </div>
-          </div>
-
-          <div className="lg:col-span-5 relative">
-            <div className="relative bg-background rounded-sm shadow-[var(--shadow-lift)] ring-1 ring-border overflow-hidden">
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/40 to-transparent" />
-              <div className="p-8 md:p-10">
-                <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-champagne mb-6">
-                  <span className="h-px w-5 bg-champagne" /> {tx("Catalogue", "Catalog")}
-                </div>
-                <ul className="divide-y divide-border/70">
-                  {[
-                    { icon: Award, title: "SAP FICO Consultant Program", meta: tx("Programme phare · 10 jours", "Flagship · 10 days") },
-                    { icon: Sparkles, title: tx("4 programmes IA & automation", "4 AI & automation programs"), meta: tx("Clôture · Relance · Trésorerie · Architecte", "Close · Dunning · Treasury · Architect") },
-                    { icon: Briefcase, title: tx("Spécialisation SAP RE-FX", "SAP RE-FX Specialization"), meta: tx("10 jours intensifs", "10 intensive days") },
-                  ].map((item) => (
-                    <li key={item.title} className="py-4 first:pt-0 last:pb-0 flex items-start gap-4">
-                      <div className="flex items-center justify-center h-9 w-9 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0">
-                        <item.icon className="h-[18px] w-[18px] text-champagne" strokeWidth={1.4} />
-                      </div>
-                      <div className="min-w-0">
-                        <div className="font-display text-[16px] leading-snug text-foreground">{item.title}</div>
-                        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mt-1.5">{item.meta}</div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="border-t border-border bg-secondary/60 px-8 md:px-10 py-4 flex items-center justify-between">
-                <span className="text-[10.5px] uppercase tracking-[0.2em] text-muted-foreground">{tx("Catalogue complet", "Full catalog")}</span>
-                <Link to="#programmes" className="text-[12px] font-medium text-champagne inline-flex items-center gap-1.5 hover:gap-2 transition-all">
-                  {tx("Explorer", "Explore")} <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <GlobalHeroSection
+        eyebrow={tx("FORMATIONS SAP FINANCE & IA", "SAP FINANCE & AI TRAINING")}
+        title={<>{tx("Formations SAP Finance & IA, conçues pour ", "SAP Finance & AI training, built to ")}<em className="not-italic text-champagne font-display">{tx("intervenir en mission", "deliver on engagements")}</em>.</>}
+        description={tx("Développez des compétences opérationnelles en SAP S/4HANA, automation, analytics et IA appliquée aux processus financiers.","Build operational skills in SAP S/4HANA, automation, analytics and AI applied to financial processes.")}
+        primaryCta={{ label: tx("Découvrir les formations", "Discover the programs"), to: "#programmes" }}
+        secondaryCta={{ label: tx("Parler à un expert", "Speak with an expert"), to: "?sujet=%C3%89change%20avec%20un%20expert#demande" }}
+        proofItems={[
+          <>{"6 "}{tx("programmes premium", "premium programs")}</>,
+          tx("SAP S/4HANA · IA · Analytics", "SAP S/4HANA · AI · Analytics"),
+          tx("Experts SAP en mission", "Active SAP experts"),
+        ]}
+        rightCard={{
+          eyebrow: tx("Catalogue", "Catalog"),
+          items: [
+            { icon: Award, title: "SAP FICO Consultant Program", meta: tx("Programme phare · 10 jours", "Flagship · 10 days") },
+            { icon: Sparkles, title: tx("4 programmes IA & automation", "4 AI & automation programs"), meta: tx("Clôture · Relance · Trésorerie · Architecte", "Close · Dunning · Treasury · Architect") },
+            { icon: Briefcase, title: tx("Spécialisation SAP RE-FX", "SAP RE-FX Specialization"), meta: tx("10 jours intensifs", "10 intensive days") },
+          ],
+          footer: { label: tx("Catalogue complet", "Full catalog"), ctaLabel: tx("Explorer", "Explore"), ctaTo: "#programmes" },
+        }}
+      />
 
       {/* AUDIENCE */}
       <section className="section-y">
