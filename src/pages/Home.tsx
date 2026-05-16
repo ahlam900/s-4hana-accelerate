@@ -94,30 +94,37 @@ const Home = () => {
             <div className="lg:col-span-7 relative z-10">
               <div className="inline-flex items-center gap-3 mb-8">
                 <span className="h-px w-8 bg-champagne" />
-                <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{t("home.eyebrow")}</span>
+                <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("SAP FINANCE & IA", "SAP FINANCE & AI")}</span>
               </div>
               <h1 className="display-xl text-foreground">
-                {t("home.title_a")}<em className="not-italic text-champagne font-display">{t("home.title_em")}</em>{t("home.title_b")}
+                {tx("Accélérez votre carrière avec ", "Accelerate your career with ")}
+                <em className="not-italic text-champagne font-display">{tx("SAP Finance & l'Intelligence Artificielle", "SAP Finance & Artificial Intelligence")}</em>.
               </h1>
-              <p className="lede mt-7 max-w-lg leading-relaxed">{t("home.lede")}</p>
+              <p className="lede mt-7 max-w-xl leading-relaxed">
+                {tx(
+                  "Des formations intensives pour maîtriser SAP S/4HANA, automatiser vos processus et exploiter l'IA dans vos missions.",
+                  "Intensive programs to master SAP S/4HANA, automate your processes and leverage AI in your missions.",
+                )}
+              </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Button asChild size="lg" variant="ink">
-                  <LLink to="/formations">{t("home.cta_trainings")} <ArrowRight /></LLink>
+                  <LLink to="/formations">{tx("Découvrir les formations", "Discover the programs")} <ArrowRight /></LLink>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <LLink to="/offres-entreprise">{t("home.cta_corporate")}</LLink>
+                  <LLink to="/contact">{tx("Parler à un expert", "Talk to an expert")}</LLink>
                 </Button>
               </div>
               <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center justify-between max-w-2xl divide-x divide-border/40">
-                <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                  {t("home.trust_1")}
-                </span>
-                <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                  {t("home.trust_2")}
-                </span>
-                <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                  {t("home.trust_3")}
-                </span>
+                {[
+                  tx("Automation", "Automation"),
+                  tx("Analytics avancés", "Advanced analytics"),
+                  tx("IA appliquée", "Applied AI"),
+                  tx("Finance S/4HANA", "Finance S/4HANA"),
+                ].map((label) => (
+                  <span key={label} className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
+                    {label}
+                  </span>
+                ))}
               </div>
             </div>
             <div className="lg:col-span-5 relative">
@@ -127,34 +134,31 @@ const Home = () => {
               </div>
               <div className="hidden md:block absolute bottom-8 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory p-4 rounded-sm max-w-[220px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
                 <div className="flex items-center gap-2 text-[9.5px] uppercase tracking-[0.28em] text-champagne mb-2">
-                  <span className="h-px w-4 bg-champagne" /> {t("home.flagship")}
+                  <span className="h-px w-4 bg-champagne" /> {tx("PROGRAMME PHARE", "FLAGSHIP")}
                 </div>
-                <div className="font-display text-[15px] leading-snug">{t("home.flagship_program")}</div>
-                <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">{t("home.flagship_meta")}</div>
+                <div className="font-display text-[15px] leading-snug">SAP FICO Consultant Program</div>
+                <div className="text-[10.5px] uppercase tracking-[0.18em] text-ivory/55 mt-2 pt-2 border-t border-ivory/10">{tx("Présentiel Paris · Distanciel", "On-site Paris · Remote")}</div>
               </div>
             </div>
           </div>
 
-          {/* Slide 2 — Locations */}
+          {/* Slide 2 — Entreprise */}
           <div
             className={`grid lg:grid-cols-12 gap-12 lg:gap-20 items-center transition-opacity duration-700 ${slide === 1 ? "opacity-100" : "opacity-0 pointer-events-none absolute inset-0"}`}
           >
             <div className="lg:col-span-7 relative z-10">
               <div className="inline-flex items-center gap-3 mb-8">
                 <span className="h-px w-8 bg-champagne" />
-                <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("PROGRAMME INTERNATIONAL", "INTERNATIONAL PROGRAM")}</span>
+                <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">{tx("OFFRES ENTREPRISE", "CORPORATE OFFERS")}</span>
               </div>
               <h1 className="display-xl text-foreground">
-                {tx("Key User SAP : disponible à ", "Key User SAP: available in ")}
-                <em className="not-italic text-champagne font-display">{tx("Paris", "Paris")}</em>
-                {tx(" et à ", " and ")}
-                <em className="not-italic text-champagne font-display">{tx("Dubaï", "Dubai")}</em>
-                .
+                {tx("Accélérez la performance de vos ", "Accelerate the performance of your ")}
+                <em className="not-italic text-champagne font-display">{tx("équipes Finance & SAP", "Finance & SAP teams")}</em>.
               </h1>
-              <p className="lede mt-7 max-w-lg leading-relaxed">
+              <p className="lede mt-7 max-w-xl leading-relaxed">
                 {tx(
-                  "Une formation immersive pensée pour accélérer l'adoption SAP. Proposée à Paris et à Dubaï pour accompagner vos équipes locales et internationales.",
-                  "An immersive program designed to accelerate SAP adoption. Offered in Paris and Dubai to support your local and international teams.",
+                  "Formations Key Users, séminaires dédiés et accompagnement sur mesure. Disponible à Paris et à Dubaï.",
+                  "Key User training, dedicated seminars and tailored support. Available in Paris and Dubai.",
                 )}
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
@@ -163,20 +167,21 @@ const Home = () => {
                 </Button>
               </div>
               <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center justify-between max-w-2xl divide-x divide-border/40">
-                <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                  {tx("Paris · France", "Paris · France")}
-                </span>
-                <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                  {tx("Dubaï · Émirats", "Dubai · UAE")}
-                </span>
-                <span className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
-                  {tx("Présentiel & sur-mesure", "On-site & tailored")}
-                </span>
+                {[
+                  tx("Key Users SAP", "SAP Key Users"),
+                  tx("Séminaires entreprise", "Corporate seminars"),
+                  tx("Sessions personnalisées", "Tailored sessions"),
+                  tx("Paris & Dubaï", "Paris & Dubai"),
+                ].map((label) => (
+                  <span key={label} className="flex-1 whitespace-nowrap text-center px-2 sm:px-3 text-[9px] sm:text-[10px] leading-[1.4] uppercase tracking-[0.15em] font-medium text-muted-foreground">
+                    {label}
+                  </span>
+                ))}
               </div>
             </div>
             <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/5] rounded-sm overflow-hidden shadow-[var(--shadow-lift)] ring-1 ring-ink/5">
-                <img src={heroLocationsVisual} alt={tx("Programme Key User SAP — Paris & Dubaï", "Key User SAP program — Paris & Dubai")} className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} loading="lazy" />
+                <img src={heroLocationsVisual} alt={tx("Offres entreprise — Paris & Dubaï", "Corporate offers — Paris & Dubai")} className="absolute inset-0 h-full w-full object-cover" width={1080} height={1350} loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent pointer-events-none" />
               </div>
               <div className="hidden md:block absolute bottom-8 -left-5 lg:-left-8 bg-ink/95 backdrop-blur-sm text-ivory p-4 rounded-sm max-w-[220px] shadow-[var(--shadow-lift)] ring-1 ring-champagne/20">
