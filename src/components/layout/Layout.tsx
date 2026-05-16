@@ -18,7 +18,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <main className={isHome ? "flex-1" : "flex-1 pt-20 md:pt-24"}>
+      <main className={isHome ? "flex-1" : "flex-1 pt-20 md:pt-24 xl:pt-28"}>
         {showNotice && <EnglishDraftNotice />}
         {children}
       </main>
