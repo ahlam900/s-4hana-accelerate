@@ -1,4 +1,4 @@
-import { ArrowRight, Compass, GraduationCap, Building2, ShieldCheck, Sparkles, Layers, Users, Briefcase, BookOpen, FileText, Mail, Award, Cpu, BarChart3, Network, Building, MapPin, Monitor, Users2 } from "lucide-react";
+import { ArrowRight, Compass, Building2, ShieldCheck, Sparkles, Layers, Users, Briefcase, BookOpen, FileText, Mail, Award, Cpu, BarChart3, Network, Building, MapPin, Monitor, Users2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,6 @@ import Seo from "@/components/Seo";
 import heroVisual from "@/assets/hero-visual.jpg";
 import heroLocationsVisual from "@/assets/hero-locations-visual.jpg";
 import productsVisual from "@/assets/products-visual.jpg";
-import corporateVisual from "@/assets/corporate-visual.jpg";
 import { useTx } from "@/i18n/tx";
 
 const Home = () => {
@@ -19,36 +18,6 @@ const Home = () => {
     const id = setInterval(() => setSlide((s) => (s + 1) % 2), 7000);
     return () => clearInterval(id);
   }, []);
-
-  const pillars = [
-    { icon: Compass, title: t("home.pillar_1_title"), text: t("home.pillar_1_text") },
-    { icon: Sparkles, title: t("home.pillar_2_title"), text: t("home.pillar_2_text") },
-    { icon: GraduationCap, title: t("home.pillar_3_title"), text: t("home.pillar_3_text") },
-  ];
-
-  const offers = [
-    { tag: t("home.offer_1_tag"), title: t("home.offer_1_title"), text: t("home.offer_1_text"), cta: { label: t("home.offer_1_cta"), to: "/formations" }, featured: true },
-    { tag: t("home.offer_2_tag"), title: t("home.offer_2_title"), text: t("home.offer_2_text"), cta: { label: t("home.offer_2_cta"), to: "/offres-entreprise" } },
-    { tag: t("home.offer_3_tag"), title: t("home.offer_3_title"), text: t("home.offer_3_text"), cta: { label: t("home.offer_3_cta"), to: "/offres-entreprise" } },
-  ];
-
-  const whyItems = [
-    { icon: Layers, title: t("home.why_1") },
-    { icon: Briefcase, title: t("home.why_2") },
-    { icon: Compass, title: t("home.why_3") },
-    { icon: Sparkles, title: t("home.why_4") },
-    { icon: Building2, title: t("home.why_5") },
-    { icon: ShieldCheck, title: t("home.why_6") },
-  ];
-
-  const audiences = [
-    { label: t("home.aud_1"), desc: t("home.aud_1_desc") },
-    { label: t("home.aud_2"), desc: t("home.aud_2_desc") },
-    { label: t("home.aud_3"), desc: t("home.aud_3_desc") },
-    { label: t("home.aud_4"), desc: t("home.aud_4_desc") },
-    { label: t("home.aud_5"), desc: t("home.aud_5_desc") },
-    { label: t("home.aud_6"), desc: t("home.aud_6_desc") },
-  ];
 
   const trust = [
     { k: t("home.trust_k_1"), v: t("home.trust_v_1") },
