@@ -27,6 +27,7 @@ const Formations = () => {
     {
       icon: Award,
       flagship: true,
+      to: "/formations/sap-fico-consultant-program",
       sujet: "Programme%20SAP%20FICO%20Consultant%20Program",
       title: "SAP FICO Consultant Program",
       duration: tx("10 jours intensifs · 70h", "10 intensive days · 70h"),
@@ -40,6 +41,7 @@ const Formations = () => {
     },
     {
       icon: Cpu,
+      to: "/formations/automatiser-cloture-sap",
       sujet: "Automatiser%20la%20cl%C3%B4ture%20financi%C3%A8re%20dans%20SAP",
       title: tx("Automatiser la clôture SAP", "Automating the SAP close"),
       duration: tx("3 jours · 21h", "3 days · 21h"),
@@ -53,6 +55,7 @@ const Formations = () => {
     },
     {
       icon: Sparkles,
+      to: "/formations/relance-client-intelligente-sap",
       sujet: "Syst%C3%A8me%20de%20relance%20client%20intelligent%20(SAP%20%2B%20IA)",
       title: tx("Système de relance intelligent SAP", "Intelligent SAP dunning system"),
       duration: tx("3 jours · 21h", "3 days · 21h"),
@@ -66,6 +69,7 @@ const Formations = () => {
     },
     {
       icon: LineChart,
+      to: "/formations/pilotage-tresorerie-temps-reel",
       sujet: "Pilotage%20tr%C3%A9sorerie%20temps%20r%C3%A9el%20SAP%20Analytics",
       title: tx("Pilotage trésorerie temps réel", "Real-time treasury steering"),
       duration: tx("4 jours · 28h", "4 days · 28h"),
@@ -79,6 +83,7 @@ const Formations = () => {
     },
     {
       icon: Building2,
+      to: "/formations/architecte-transformation-finance-sap",
       sujet: "Architecte%20de%20transformation%20Finance%20SAP",
       title: tx("Architecte transformation Finance SAP", "SAP Finance transformation architect"),
       duration: tx("5 jours · 35h", "5 days · 35h"),
@@ -92,6 +97,7 @@ const Formations = () => {
     },
     {
       icon: Briefcase,
+      to: "/formations/specialisation-sap-re-fx",
       sujet: "Sp%C3%A9cialisation%20SAP%20RE-FX",
       title: tx("Spécialisation SAP RE-FX", "SAP RE-FX Specialization"),
       duration: tx("10 jours intensifs · 70h", "10 intensive days · 70h"),
@@ -303,7 +309,7 @@ const Formations = () => {
 
                     <div className="mt-7">
                       <Button asChild size="sm" variant={p.flagship ? "champagne" : "ink"} className="w-full">
-                        <Link to={`?sujet=${p.sujet}#demande`}>
+                        <Link to={p.to}>
                           {tx("Découvrir la formation", "Discover the program")} <ArrowRight />
                         </Link>
                       </Button>
