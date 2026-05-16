@@ -217,13 +217,13 @@ const Home = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[
-              { label: tx("Consultants SAP Finance", "SAP Finance consultants"), desc: tx("Qui veulent intervenir sur des projets S/4HANA exigeants.", "Who want to operate on demanding S/4HANA projects.") },
-              { label: tx("Contrôleurs & équipes Finance", "Controllers & Finance teams"), desc: tx("Qui souhaitent automatiser et fiabiliser leurs processus.", "Who want to automate and reinforce their processes.") },
-              { label: tx("Key Users & responsables SAP", "Key Users & SAP leads"), desc: tx("Qui pilotent l'adoption SAP au sein de leurs équipes.", "Who drive SAP adoption within their teams.") },
-              { label: tx("Directions Finance & SI", "Finance & IT leadership"), desc: tx("Qui mènent la transformation SAP S/4HANA et IA.", "Who lead the SAP S/4HANA and AI transformation.") },
+              { label: tx("Consultants SAP Finance", "SAP Finance consultants"), desc: tx("Qui veulent intervenir sur des projets S/4HANA exigeants.", "Who want to operate on demanding S/4HANA projects."), to: "/formations/sap-fico-consultant-program" },
+              { label: tx("Contrôleurs & équipes Finance", "Controllers & Finance teams"), desc: tx("Qui souhaitent automatiser et fiabiliser leurs processus.", "Who want to automate and reinforce their processes."), to: "/formations" },
+              { label: tx("Key Users & responsables SAP", "Key Users & SAP leads"), desc: tx("Qui pilotent l'adoption SAP au sein de leurs équipes.", "Who drive SAP adoption within their teams."), to: "/offres-entreprise" },
+              { label: tx("Directions Finance & SI", "Finance & IT leadership"), desc: tx("Qui mènent la transformation SAP S/4HANA et IA.", "Who lead the SAP S/4HANA and AI transformation."), to: "/offres-entreprise" },
             ].map((a, i) => (
               <Reveal key={a.label} delay={i * 60}>
-                <div className="group relative border-t border-ivory/15 pt-7 pb-2 pr-4 transition-all duration-500 hover:pl-3">
+                <LLink to={a.to} className="group relative block border-t border-ivory/15 pt-7 pb-7 pr-4 transition-all duration-500 hover:pl-3 h-full">
                   <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-8" />
                   <div className="flex items-start gap-4">
                     <div className="flex items-center justify-center h-9 w-9 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0 transition-all duration-500 group-hover:bg-champagne/15 group-hover:ring-champagne/40">
@@ -232,9 +232,12 @@ const Home = () => {
                     <div className="min-w-0">
                       <div className="font-display text-lg md:text-[19px] leading-[1.35] tracking-tight text-ivory">{a.label}</div>
                       <div className="text-[13px] text-ivory/55 leading-[1.6] mt-2">{a.desc}</div>
+                      <div className="mt-5 inline-flex items-center gap-2 text-[11px] uppercase tracking-wide text-champagne font-medium group-hover:gap-3 transition-all">
+                        {tx("Voir le programme adapté", "See the matching program")} <ArrowRight className="h-3 w-3" />
+                      </div>
                     </div>
                   </div>
-                </div>
+                </LLink>
               </Reveal>
             ))}
           </div>
