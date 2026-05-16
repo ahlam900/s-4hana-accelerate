@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Clock,
-  Users,
   Target,
   Sparkles,
   GraduationCap,
@@ -10,9 +9,10 @@ import {
   Award,
   Cpu,
   LineChart,
-  Wallet,
   Building2,
-  CheckCircle2,
+  MapPin,
+  Monitor,
+  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
@@ -23,57 +23,84 @@ import { useTx } from "@/i18n/tx";
 const Formations = () => {
   const tx = useTx();
 
-  const newPrograms = [
+  const programs = [
+    {
+      icon: Award,
+      flagship: true,
+      sujet: "Programme%20SAP%20FICO%20Consultant%20Program",
+      title: "SAP FICO Consultant Program",
+      duration: tx("10 jours intensifs · 70h", "10 intensive days · 70h"),
+      priceConsultant: tx("6 900 € TTC consultant", "€6,900 incl. tax — consultant"),
+      priceCorporate: tx("14 900 € HT entreprise", "€14,900 excl. tax — corporate"),
+      points: [
+        tx("Financial Accounting & Controlling", "Financial Accounting & Controlling"),
+        tx("Architecture SAP S/4HANA Finance", "SAP S/4HANA Finance architecture"),
+        tx("Méthodologie projet & mise en mission", "Project methodology & engagement-ready"),
+      ],
+    },
     {
       icon: Cpu,
-      sujet: "Automatiser la cl%C3%B4ture financi%C3%A8re dans SAP",
-      title: tx("Automatiser la clôture financière dans SAP", "Automating the financial close in SAP"),
+      sujet: "Automatiser%20la%20cl%C3%B4ture%20financi%C3%A8re%20dans%20SAP",
+      title: tx("Automatiser la clôture SAP", "Automating the SAP close"),
       duration: tx("3 jours · 21h", "3 days · 21h"),
       priceConsultant: tx("1 990 € TTC consultant", "€1,990 incl. tax — consultant"),
       priceCorporate: tx("4 500 € HT entreprise", "€4,500 excl. tax — corporate"),
       points: [
-        tx("Closing Cockpit", "Closing Cockpit"),
-        tx("Tâches automatisables", "Automatable tasks"),
-        tx("Contrôles intelligents", "Intelligent controls"),
+        tx("Closing Cockpit & orchestration", "Closing Cockpit & orchestration"),
+        tx("Tâches automatisables (IA + RPA)", "Automatable tasks (AI + RPA)"),
+        tx("Contrôles intelligents de clôture", "Intelligent close controls"),
       ],
     },
     {
       icon: Sparkles,
-      sujet: "Syst%C3%A8me de relance client intelligent (SAP %2B IA)",
-      title: tx("Créer un système de relance client intelligent (SAP + IA)", "Build an intelligent dunning system (SAP + AI)"),
+      sujet: "Syst%C3%A8me%20de%20relance%20client%20intelligent%20(SAP%20%2B%20IA)",
+      title: tx("Système de relance intelligent SAP", "Intelligent SAP dunning system"),
       duration: tx("3 jours · 21h", "3 days · 21h"),
       priceConsultant: tx("2 490 € TTC consultant", "€2,490 incl. tax — consultant"),
       priceCorporate: tx("5 500 € HT entreprise", "€5,500 excl. tax — corporate"),
       points: [
-        tx("F150 avancé", "Advanced F150"),
-        tx("Scoring clients", "Customer scoring"),
-        tx("Automatisation des relances", "Dunning automation"),
+        tx("F150 avancé & stratégie de relance", "Advanced F150 & dunning strategy"),
+        tx("Scoring client par IA", "AI-driven customer scoring"),
+        tx("Automatisation des actions de recouvrement", "Collections automation"),
       ],
     },
     {
       icon: LineChart,
-      sujet: "Pilotage tr%C3%A9sorerie temps r%C3%A9el SAP Analytics",
-      title: tx("Piloter la trésorerie en temps réel avec SAP Analytics", "Real-time treasury steering with SAP Analytics"),
+      sujet: "Pilotage%20tr%C3%A9sorerie%20temps%20r%C3%A9el%20SAP%20Analytics",
+      title: tx("Pilotage trésorerie temps réel", "Real-time treasury steering"),
       duration: tx("4 jours · 28h", "4 days · 28h"),
       priceConsultant: tx("3 490 € TTC consultant", "€3,490 incl. tax — consultant"),
       priceCorporate: tx("6 900 € HT entreprise", "€6,900 excl. tax — corporate"),
       points: [
-        tx("Cash visibility", "Cash visibility"),
-        tx("Prévisions de trésorerie", "Treasury forecasting"),
-        tx("Alertes intelligentes", "Intelligent alerts"),
+        tx("Cash visibility & SAP Analytics", "Cash visibility & SAP Analytics"),
+        tx("Prévisions de trésorerie augmentées", "Augmented treasury forecasting"),
+        tx("Alertes intelligentes & dashboards", "Intelligent alerts & dashboards"),
       ],
     },
     {
       icon: Building2,
-      sujet: "Architecte de transformation Finance SAP",
-      title: tx("Devenir architecte de transformation Finance SAP", "Become a SAP Finance transformation architect"),
+      sujet: "Architecte%20de%20transformation%20Finance%20SAP",
+      title: tx("Architecte transformation Finance SAP", "SAP Finance transformation architect"),
       duration: tx("5 jours · 35h", "5 days · 35h"),
       priceConsultant: tx("4 990 € TTC consultant", "€4,990 incl. tax — consultant"),
       priceCorporate: tx("9 800 € HT entreprise", "€9,800 excl. tax — corporate"),
       points: [
-        tx("Architecture Finance SAP", "SAP Finance architecture"),
-        tx("Design des processus", "Process design"),
-        tx("Gouvernance et transformation", "Governance and transformation"),
+        tx("Architecture Finance SAP de bout en bout", "End-to-end SAP Finance architecture"),
+        tx("Design des processus & IA appliquée", "Process design & applied AI"),
+        tx("Gouvernance et conduite de transformation", "Governance & transformation leadership"),
+      ],
+    },
+    {
+      icon: Briefcase,
+      sujet: "Sp%C3%A9cialisation%20SAP%20RE-FX",
+      title: tx("Spécialisation SAP RE-FX", "SAP RE-FX Specialization"),
+      duration: tx("10 jours intensifs · 70h", "10 intensive days · 70h"),
+      priceConsultant: tx("5 900 € TTC consultant", "€5,900 incl. tax — consultant"),
+      priceCorporate: tx("12 500 € HT entreprise", "€12,500 excl. tax — corporate"),
+      points: [
+        tx("Module Real Estate avancé", "Advanced Real Estate module"),
+        tx("Processus immobiliers & patrimoniaux", "Real estate & asset processes"),
+        tx("Cas concrets sur environnements réels", "Hands-on cases on real environments"),
       ],
     },
   ];
@@ -90,37 +117,37 @@ const Formations = () => {
             <div className="inline-flex items-center gap-3 mb-8">
               <span className="h-px w-8 bg-champagne" />
               <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">
-                {tx("FORMATIONS FINANCE SAP", "SAP FINANCE TRAINING")}
+                {tx("FORMATIONS SAP FINANCE & IA", "SAP FINANCE & AI TRAINING")}
               </span>
             </div>
-            <h1 className="display-xl text-foreground max-w-[20ch] leading-[1.05]">
-              {tx("Devenez consultant SAP Finance ", "Become a next-generation ")}
-              <em className="not-italic text-champagne font-display">{tx("nouvelle génération", "SAP Finance consultant")}</em>.
+            <h1 className="display-xl text-foreground max-w-[22ch] leading-[1.05]">
+              {tx("Formations SAP Finance & IA, conçues pour ", "SAP Finance & AI training, built to ")}
+              <em className="not-italic text-champagne font-display">{tx("intervenir en mission", "deliver on engagements")}</em>.
             </h1>
             <p className="lede mt-7 max-w-xl leading-relaxed">
               {tx(
-                "Des formations conçues pour les consultants Finance souhaitant maîtriser SAP S/4HANA, l'automatisation, l'analytics et les nouveaux usages de l'IA appliqués à la finance.",
-                "Programs designed for finance consultants who want to master SAP S/4HANA, automation, analytics and emerging AI use cases applied to finance."
+                "Développez des compétences opérationnelles en SAP S/4HANA, automation, analytics et IA appliquée aux processus financiers.",
+                "Build operational skills in SAP S/4HANA, automation, analytics and AI applied to financial processes."
               )}
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="ink">
-                <Link to="?sujet=%C3%89change%20avec%20un%20expert#demande">
-                  {tx("Parler à un expert", "Speak with an expert")} <ArrowRight />
+                <Link to="#programmes">
+                  {tx("Découvrir les formations", "Discover the programs")} <ArrowRight />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="?sujet=T%C3%A9l%C3%A9chargement%20catalogue%20formations#demande">
-                  {tx("Télécharger le catalogue", "Download the catalog")}
+                <Link to="?sujet=%C3%89change%20avec%20un%20expert#demande">
+                  {tx("Parler à un expert", "Speak with an expert")}
                 </Link>
               </Button>
             </div>
             <div className="mt-12 pt-6 border-t border-border/70 flex flex-nowrap items-center gap-x-6 md:gap-x-8 text-[10.5px] md:text-[11px] uppercase tracking-[0.2em] text-muted-foreground whitespace-nowrap">
-              <span><span className="text-champagne font-semibold">100 %</span> {tx("Finance SAP", "SAP Finance")}</span>
+              <span><span className="text-champagne font-semibold">6</span> {tx("programmes premium", "premium programs")}</span>
               <span className="h-3 w-px bg-border shrink-0" />
-              <span>{tx("Programmes certifiants", "Certifying programs")}</span>
+              <span>{tx("SAP S/4HANA · IA · Analytics", "SAP S/4HANA · AI · Analytics")}</span>
               <span className="h-3 w-px bg-border shrink-0" />
-              <span>{tx("Experts SAP actifs", "Active SAP experts")}</span>
+              <span>{tx("Experts SAP en mission", "Active SAP experts")}</span>
             </div>
           </div>
 
@@ -129,13 +156,13 @@ const Formations = () => {
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/40 to-transparent" />
               <div className="p-8 md:p-10">
                 <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-champagne mb-6">
-                  <span className="h-px w-5 bg-champagne" /> {tx("Programmes phares", "Flagship programs")}
+                  <span className="h-px w-5 bg-champagne" /> {tx("Catalogue", "Catalog")}
                 </div>
                 <ul className="divide-y divide-border/70">
                   {[
-                    { icon: Award, title: "SAP FICO Consultant Program", meta: tx("10 jours intensifs · Cursus certifiant", "10 intensive days · Certifying curriculum") },
-                    { icon: Sparkles, title: tx("SAP Finance & Intelligent Transformation", "SAP Finance & Intelligent Transformation"), meta: tx("Automatisation · Analytics · IA", "Automation · Analytics · AI") },
-                    { icon: Briefcase, title: tx("Spécialisation SAP RE-FX", "SAP RE-FX Specialization"), meta: tx("10 jours intensifs · Confirmé / Expert", "10 intensive days · Advanced / Expert") },
+                    { icon: Award, title: "SAP FICO Consultant Program", meta: tx("Programme phare · 10 jours", "Flagship · 10 days") },
+                    { icon: Sparkles, title: tx("4 programmes IA & automation", "4 AI & automation programs"), meta: tx("Clôture · Relance · Trésorerie · Architecte", "Close · Dunning · Treasury · Architect") },
+                    { icon: Briefcase, title: tx("Spécialisation SAP RE-FX", "SAP RE-FX Specialization"), meta: tx("10 jours intensifs", "10 intensive days") },
                   ].map((item) => (
                     <li key={item.title} className="py-4 first:pt-0 last:pb-0 flex items-start gap-4">
                       <div className="flex items-center justify-center h-9 w-9 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25 shrink-0">
@@ -151,7 +178,7 @@ const Formations = () => {
               </div>
               <div className="border-t border-border bg-secondary/60 px-8 md:px-10 py-4 flex items-center justify-between">
                 <span className="text-[10.5px] uppercase tracking-[0.2em] text-muted-foreground">{tx("Catalogue complet", "Full catalog")}</span>
-                <Link to="#programme-fico" className="text-[12px] font-medium text-champagne inline-flex items-center gap-1.5 hover:gap-2 transition-all">
+                <Link to="#programmes" className="text-[12px] font-medium text-champagne inline-flex items-center gap-1.5 hover:gap-2 transition-all">
                   {tx("Explorer", "Explore")} <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
@@ -174,14 +201,15 @@ const Formations = () => {
             <div className="lg:col-span-5">
               <div className="eyebrow mb-6">{tx("À qui s'adressent nos formations", "Who our programs are built for")}</div>
               <h2 className="display-sm leading-[1.15] max-w-md">
-                {tx("Pensées pour ceux qui veulent intervenir, pas seulement ", "Built for those who want to deliver, not just ")}
-                <em className="not-italic text-champagne font-display">{tx("comprendre", "understand")}</em>.
+                {tx("Pensées pour ceux qui veulent ", "Built for those who want to ")}
+                <em className="not-italic text-champagne font-display">{tx("intervenir", "deliver")}</em>
+                {tx(", pas seulement comprendre", ", not just understand")}.
               </h2>
               <div className="mt-8 h-px w-12 bg-champagne/60" />
               <p className="mt-8 text-[15px] text-muted-foreground leading-relaxed max-w-md">
                 {tx(
-                  "Nos formations couvrent les besoins de montée en compétence sur les processus Finance et leur usage dans SAP, pour acquérir des repères solides, une lecture projet claire et une posture directement utile en mission.",
-                  "Our programs cover upskilling needs on finance processes and their use in SAP — building solid references, a clear project perspective and a stance that is directly useful on engagements."
+                  "Nos formations couvrent les besoins de montée en compétence sur les processus Finance, SAP S/4HANA et leurs usages augmentés par l'IA — pour acquérir une posture directement utile en mission.",
+                  "Our programs cover upskilling on finance processes, SAP S/4HANA and AI-augmented uses — building a stance that is directly useful on engagements."
                 )}
               </p>
             </div>
@@ -192,10 +220,10 @@ const Formations = () => {
               </div>
               <ul className="divide-y divide-border/70 border-y border-border/70">
                 {[
-                  { num: "01", title: tx("Consultants SAP", "SAP Consultants"), detail: tx("En activité ou en évolution vers de nouveaux domaines Finance.", "Active or evolving into new finance domains.") },
-                  { num: "02", title: tx("Professionnels Finance", "Finance Professionals"), detail: tx("Souhaitant renforcer leur maîtrise des processus et de leur traduction dans SAP.", "Seeking to strengthen mastery of processes and their translation into SAP.") },
-                  { num: "03", title: tx("Chefs de projet & responsables", "Project Managers & Leads"), detail: tx("Pilotant un domaine Finance ou une transformation impliquant SAP.", "Leading a finance domain or a SAP-related transformation.") },
-                  { num: "04", title: tx("Profils en reconversion", "Career-Changers"), detail: tx("Souhaitant construire une trajectoire vers les métiers Finance SAP.", "Building a trajectory toward SAP Finance roles.") },
+                  { num: "01", title: tx("Consultants SAP Finance", "SAP Finance consultants"), detail: tx("En activité ou en évolution vers de nouveaux domaines Finance.", "Active or evolving into new finance domains.") },
+                  { num: "02", title: tx("Professionnels Finance souhaitant maîtriser SAP", "Finance professionals seeking SAP mastery"), detail: tx("Pour renforcer la traduction des processus dans SAP.", "To strengthen the translation of processes into SAP.") },
+                  { num: "03", title: tx("Chefs de projet Finance / SI", "Finance / IT project managers"), detail: tx("Pilotant un domaine Finance ou une transformation SAP.", "Leading a finance domain or a SAP transformation.") },
+                  { num: "04", title: tx("Profils en reconversion", "Career-changers"), detail: tx("Construisant une trajectoire vers les métiers Finance SAP.", "Building a trajectory toward SAP Finance roles.") },
                 ].map((a) => (
                   <li key={a.num} className="group flex items-start gap-6 py-5 transition-colors hover:bg-secondary/40 -mx-4 px-4 rounded-sm">
                     <span className="font-display text-[13px] text-champagne tracking-[0.18em] mt-1 shrink-0">{a.num}</span>
@@ -212,122 +240,53 @@ const Formations = () => {
         </div>
       </section>
 
-      {/* MAIN PROGRAM — SAP FICO Consultant Program (single premium card) */}
-      <section id="programme-fico" className="section-y bg-ink text-ivory scroll-mt-24">
+      {/* PROGRAMS GRID */}
+      <section id="programmes" className="section-y bg-secondary scroll-mt-24">
         <div className="container-wide">
-          <div className="max-w-2xl mb-14">
-            <div className="eyebrow mb-6 text-ivory/60">{tx("Parcours principal", "Main program")}</div>
-            <h2 className="display-md text-ivory leading-[1.1]">
-              {tx("Un parcours unique, ", "A single program, ")}
-              <em className="not-italic text-champagne font-display">{tx("entièrement premium", "entirely premium")}</em>.
-            </h2>
-          </div>
-
-          <Reveal>
-            <div className="relative mx-auto max-w-5xl bg-ivory/[0.03] ring-1 ring-ivory/15 rounded-sm overflow-hidden shadow-[var(--shadow-lift)]">
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/60 to-transparent" />
-              <div className="absolute -top-3 left-10 bg-champagne text-ink text-[10px] uppercase tracking-[0.28em] px-3 py-1 rounded-sm font-medium">
-                {tx("Programme phare", "Flagship program")}
-              </div>
-
-              <div className="grid lg:grid-cols-12 gap-0">
-                <div className="lg:col-span-7 p-10 md:p-14">
-                  <h3 className="font-display text-[28px] md:text-[32px] leading-[1.15] text-ivory">
-                    SAP FICO Consultant Program
-                  </h3>
-                  <div className="mt-5 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-champagne/90">
-                    <Clock className="h-3.5 w-3.5" />
-                    {tx("10 jours intensifs", "10 intensive days")}
-                  </div>
-                  <p className="mt-7 text-[15.5px] text-ivory/75 leading-relaxed max-w-xl">
-                    {tx(
-                      "Développer une posture opérationnelle sur les projets SAP Finance et intervenir avec assurance dans des contextes de transformation S/4HANA.",
-                      "Build an operational stance on SAP Finance projects and engage with confidence in S/4HANA transformation contexts."
-                    )}
-                  </p>
-
-                  <div className="mt-9 flex flex-wrap gap-3">
-                    <Button asChild size="lg" variant="champagne">
-                      <Link to="?sujet=Programme%20SAP%20FICO%20Consultant%20Program#demande">
-                        {tx("Recevoir le programme", "Receive the program")} <ArrowRight />
-                      </Link>
-                    </Button>
-                    <Button asChild size="lg" variant="outlineLight">
-                      <Link to="?sujet=%C3%89change%20avec%20un%20expert#demande">
-                        {tx("Parler à un expert", "Speak with an expert")}
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-
-                <div className="lg:col-span-5 bg-ivory/[0.04] border-t lg:border-t-0 lg:border-l border-ivory/10 p-10 md:p-14">
-                  <div className="text-[10px] uppercase tracking-[0.28em] text-champagne mb-6 flex items-center gap-3">
-                    <span className="h-px w-5 bg-champagne" /> {tx("Résultats clés", "Key outcomes")}
-                  </div>
-                  <ul className="space-y-4">
-                    {[
-                      tx("Maîtriser Financial Accounting & Controlling", "Master Financial Accounting & Controlling"),
-                      tx("Comprendre l'architecture Finance SAP", "Understand SAP Finance architecture"),
-                      tx("Acquérir une méthodologie projet", "Acquire a project methodology"),
-                      tx("Savoir intervenir sur des projets SAP réels", "Be able to deliver on real SAP projects"),
-                    ].map((o) => (
-                      <li key={o} className="flex gap-3 text-[14px] text-ivory/85 leading-snug">
-                        <CheckCircle2 className="h-4 w-4 text-champagne mt-0.5 shrink-0" strokeWidth={1.6} />
-                        <span>{o}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-9 pt-6 border-t border-ivory/10 text-[11px] uppercase tracking-[0.2em] text-ivory/55">
-                    {tx("Certification incluse · Réseau SAP", "Certification included · SAP network")}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* SAP FINANCE & INTELLIGENT TRANSFORMATION */}
-      <section className="section-y">
-        <div className="container-wide">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-end mb-16">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-end mb-14">
             <div className="lg:col-span-7">
-              <div className="eyebrow mb-6">{tx("Programmes intensifs", "Intensive programs")}</div>
+              <div className="eyebrow mb-6">{tx("Nos programmes", "Our programs")}</div>
               <h2 className="display-md leading-[1.1] max-w-2xl">
-                SAP Finance &{" "}
-                <em className="not-italic text-champagne font-display">Intelligent Transformation</em>.
+                {tx("Nos programmes ", "Our ")}
+                <em className="not-italic text-champagne font-display">SAP Finance & IA</em>
+                {tx("", " programs")}.
               </h2>
             </div>
             <div className="lg:col-span-5">
               <p className="text-[15px] text-muted-foreground leading-relaxed max-w-md lg:ml-auto">
                 {tx(
-                  "Des programmes intensifs conçus pour automatiser, piloter et transformer les processus financiers avec SAP, l'analytics et l'intelligence artificielle.",
-                  "Intensive programs designed to automate, steer and transform financial processes with SAP, analytics and artificial intelligence."
+                  "Un parcours phare, quatre programmes intensifs IA & automation, et une spécialisation sectorielle — pour intervenir avec impact sur les transformations Finance SAP.",
+                  "A flagship program, four intensive AI & automation programs, and a sector specialization — to deliver impact on SAP Finance transformations."
                 )}
               </p>
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
-            {newPrograms.map((p, i) => (
-              <Reveal key={p.title} delay={i * 60}>
-                <div className="group relative h-full flex flex-col bg-background ring-1 ring-border rounded-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:ring-champagne/50 hover:shadow-[var(--shadow-lift)]">
-                  <div className="p-9 md:p-10 flex-1 flex flex-col">
-                    <div className="flex items-center justify-center h-11 w-11 rounded-sm bg-champagne/[0.08] ring-1 ring-champagne/30 mb-7">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+            {programs.map((p, i) => (
+              <Reveal key={p.title} delay={i * 50}>
+                <div className={`group relative h-full flex flex-col bg-background ring-1 rounded-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] ${p.flagship ? "ring-champagne/50 hover:ring-champagne" : "ring-border hover:ring-champagne/50"}`}>
+                  {p.flagship && (
+                    <div className="absolute -top-3 left-8 bg-champagne text-ink text-[10px] uppercase tracking-[0.28em] px-3 py-1 rounded-sm font-medium">
+                      {tx("Programme phare", "Flagship")}
+                    </div>
+                  )}
+                  <div className="p-8 md:p-9 flex-1 flex flex-col">
+                    <div className="flex items-center justify-center h-11 w-11 rounded-sm bg-champagne/[0.08] ring-1 ring-champagne/30 mb-6">
                       <p.icon className="h-5 w-5 text-champagne" strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-display text-[20px] md:text-[22px] leading-snug text-foreground">
+                    <h3 className="font-display text-[19px] md:text-[20px] leading-snug text-foreground min-h-[3em]">
                       {p.title}
                     </h3>
-                    <div className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                    <div className="mt-3 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                       <Clock className="h-3.5 w-3.5 text-champagne" /> {p.duration}
                     </div>
 
                     <div className="mt-6 pt-6 border-t border-border/70">
                       <div className="text-[10px] uppercase tracking-[0.24em] text-champagne mb-3">{tx("Tarifs", "Pricing")}</div>
                       <div className="space-y-1.5">
-                        <div className="font-display text-[15.5px] text-foreground">{p.priceConsultant}</div>
-                        <div className="text-[13.5px] text-muted-foreground">{p.priceCorporate}</div>
+                        <div className="font-display text-[15px] text-foreground">{p.priceConsultant}</div>
+                        <div className="text-[13px] text-muted-foreground">{p.priceCorporate}</div>
                       </div>
                     </div>
 
@@ -342,8 +301,8 @@ const Formations = () => {
                       </ul>
                     </div>
 
-                    <div className="mt-8">
-                      <Button asChild size="sm" variant="ink" className="w-full">
+                    <div className="mt-7">
+                      <Button asChild size="sm" variant={p.flagship ? "champagne" : "ink"} className="w-full">
                         <Link to={`?sujet=${p.sujet}#demande`}>
                           {tx("Découvrir la formation", "Discover the program")} <ArrowRight />
                         </Link>
@@ -354,104 +313,35 @@ const Formations = () => {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* SPECIALISATION RE-FX */}
-      <section id="specialisation-refx" className="section-y bg-secondary scroll-mt-24">
-        <div className="container-wide">
-          <div className="flex items-center gap-4 mb-10">
-            <span className="h-px w-10 bg-champagne/60" />
-            <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">
-              {tx("SPÉCIALISATION SECTORIELLE", "SECTOR SPECIALIZATION")}
-            </span>
+          <div className="mt-14 flex flex-wrap items-center justify-center gap-3">
+            <Button asChild size="lg" variant="ink">
+              <Link to="?sujet=T%C3%A9l%C3%A9chargement%20catalogue%20formations#demande">
+                {tx("Recevoir le catalogue complet", "Receive the full catalog")} <ArrowRight />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link to="?sujet=%C3%89change%20avec%20un%20expert#demande">
+                {tx("Parler à un expert", "Speak with an expert")}
+              </Link>
+            </Button>
           </div>
-
-          <Reveal>
-            <div className="group relative grid lg:grid-cols-12 gap-0 items-stretch bg-background rounded-sm ring-1 ring-border transition-all duration-500 ease-out hover:ring-champagne/40 hover:shadow-[var(--shadow-lift)] overflow-hidden">
-              <div className="lg:col-span-5 p-10 md:p-14 flex flex-col">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-sm bg-champagne/[0.08] ring-1 ring-champagne/30 mb-7">
-                  <Sparkles className="h-5 w-5 text-champagne" strokeWidth={1.5} />
-                </div>
-                <h3 className="display-sm leading-[1.15]">
-                  {tx("Spécialisation ", "")}
-                  <em className="not-italic text-champagne font-display">SAP RE-FX</em>
-                  {tx("", " Specialization")}
-                </h3>
-                <p className="mt-6 text-[15px] text-muted-foreground leading-relaxed max-w-md">
-                  {tx(
-                    "Une spécialisation avancée dédiée aux environnements SAP à forte composante immobilière et patrimoniale.",
-                    "An advanced specialization dedicated to SAP environments with a strong real estate and asset component."
-                  )}
-                </p>
-                <div className="mt-7 pt-6 border-t border-border/70 flex items-start gap-3">
-                  <Target className="h-4 w-4 text-champagne mt-0.5 shrink-0" strokeWidth={1.5} />
-                  <p className="text-[13px] text-foreground/80 leading-relaxed">
-                    {tx(
-                      "Intervention sur des cas concrets liés aux processus immobiliers dans SAP.",
-                      "Hands-on work on real cases tied to real estate processes in SAP."
-                    )}
-                  </p>
-                </div>
-              </div>
-
-              <div className="lg:col-span-7 bg-secondary/70 p-10 md:p-14 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-border">
-                <div>
-                  <div className="text-[10px] uppercase tracking-[0.28em] text-champagne mb-7 flex items-center gap-3">
-                    <span className="h-px w-5 bg-champagne" />
-                    {tx("Caractéristiques du module", "Module characteristics")}
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-x-12 gap-y-7">
-                    <div className="border-b border-border/70 pb-4">
-                      <div className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground mb-1.5">{tx("Format", "Format")}</div>
-                      <div className="font-display text-[16px] text-foreground">{tx("10 jours intensifs", "10 intensive days")}</div>
-                    </div>
-                    <div className="border-b border-border/70 pb-4">
-                      <div className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground mb-1.5">{tx("Niveau", "Level")}</div>
-                      <div className="font-display text-[16px] text-foreground">{tx("Confirmé / Expert", "Advanced / Expert")}</div>
-                    </div>
-                    <div className="border-b border-border/70 pb-4">
-                      <div className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground mb-1.5">{tx("Prérequis", "Prerequisites")}</div>
-                      <div className="font-display text-[16px] text-foreground">{tx("Bases solides en SAP Finance", "Solid SAP Finance foundation")}</div>
-                    </div>
-                    <div className="border-b border-border/70 pb-4">
-                      <div className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground mb-1.5">{tx("Modalité", "Format")}</div>
-                      <div className="font-display text-[16px] text-foreground">{tx("Distanciel encadré + sessions live", "Guided remote learning + live sessions")}</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-10 pt-6 border-t border-border/70 flex flex-wrap gap-3">
-                  <Button asChild size="lg" variant="ink">
-                    <Link to="?sujet=Sp%C3%A9cialisation%20SAP%20RE-FX#demande">
-                      {tx("Se spécialiser en RE-FX", "Specialize in RE-FX")} <ArrowRight />
-                    </Link>
-                  </Button>
-                  <Button asChild size="lg" variant="outline">
-                    <Link to="?sujet=%C3%89change%20avec%20un%20expert#demande">
-                      {tx("Échanger avec un expert", "Speak with an expert")}
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
 
-      {/* PREMIUM CLOSING BLOCK */}
+      {/* WHY CBS */}
       <section className="section-y bg-ink text-ivory">
         <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           <div className="lg:col-span-6">
-            <div className="eyebrow mb-6 text-ivory/60">{tx("Notre approche", "Our approach")}</div>
+            <div className="eyebrow mb-6 text-ivory/60">{tx("Pourquoi CBS", "Why CBS")}</div>
             <h2 className="display-md text-ivory leading-[1.1] max-w-xl">
               {tx("Une approche terrain orientée ", "A field-driven approach focused on ")}
               <em className="not-italic text-champagne font-display">{tx("transformation", "transformation")}</em>.
             </h2>
             <p className="lede mt-7 text-ivory/75 max-w-xl">
               {tx(
-                "CBS Finance Institute forme des consultants capables d'intervenir sur des projets SAP Finance réels, avec une approche centrée sur les processus, l'automatisation et la performance financière.",
-                "CBS Finance Institute trains consultants capable of delivering on real SAP Finance projects, with an approach centered on processes, automation and financial performance."
+                "CBS Finance Institute forme des consultants capables d'intervenir sur des projets SAP Finance réels — avec une approche centrée sur les processus, l'automatisation, l'analytics et l'IA appliquée.",
+                "CBS Finance Institute trains consultants able to deliver on real SAP Finance projects — centered on processes, automation, analytics and applied AI."
               )}
             </p>
             <div className="mt-9">
@@ -466,11 +356,11 @@ const Formations = () => {
           <div className="lg:col-span-6 grid sm:grid-cols-2 gap-5">
             {[
               { icon: Briefcase, label: tx("Cas réels", "Real cases") },
-              { icon: Target, label: tx("Approche projet", "Project approach") },
-              { icon: Award, label: tx("Expertise transformation", "Transformation expertise") },
-              { icon: GraduationCap, label: "SAP S/4HANA" },
+              { icon: Cpu, label: tx("Automatisation", "Automation") },
               { icon: LineChart, label: "Analytics" },
-              { icon: Cpu, label: tx("IA appliquée à la finance", "AI applied to finance") },
+              { icon: Sparkles, label: tx("IA appliquée", "Applied AI") },
+              { icon: Target, label: tx("Finance SAP", "SAP Finance") },
+              { icon: GraduationCap, label: "SAP S/4HANA" },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-4 p-6 rounded-sm bg-ivory/[0.03] ring-1 ring-ivory/10 transition-all hover:ring-champagne/40">
                 <div className="flex items-center justify-center h-10 w-10 rounded-sm bg-champagne/[0.08] ring-1 ring-champagne/30 shrink-0">
@@ -483,8 +373,57 @@ const Formations = () => {
         </div>
       </section>
 
+      {/* FORMATS DISPONIBLES */}
+      <section className="section-y">
+        <div className="container-wide">
+          <div className="max-w-2xl mb-14">
+            <div className="eyebrow mb-6">{tx("Formats disponibles", "Available formats")}</div>
+            <h2 className="display-md leading-[1.1]">
+              {tx("Choisissez le format ", "Choose the format ")}
+              <em className="not-italic text-champagne font-display">{tx("le plus adapté", "that fits best")}</em>.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-7">
+            {[
+              {
+                icon: MapPin,
+                title: tx("Présentiel Paris", "On-site in Paris"),
+                detail: tx("Sessions intensives en petit comité, animées par des experts SAP Finance en mission.", "Intensive small-group sessions led by active SAP Finance experts."),
+                cta: { label: tx("Réserver une session", "Book a session"), to: "?sujet=Formation%20pr%C3%A9sentiel%20Paris#demande" },
+              },
+              {
+                icon: Monitor,
+                title: tx("Distanciel encadré", "Guided remote learning"),
+                detail: tx("Live sessions, suivi individuel et cas pratiques sur environnements SAP réels.", "Live sessions, individual coaching and hands-on cases on real SAP environments."),
+                cta: { label: tx("Démarrer à distance", "Start remote"), to: "?sujet=Formation%20distanciel%20encadr%C3%A9#demande" },
+              },
+              {
+                icon: Users,
+                title: tx("Séminaires entreprise", "Corporate seminars"),
+                detail: tx("Programmes intra-entreprise sur-mesure pour vos équipes Finance et SI.", "Tailored on-site programs for your Finance and IT teams."),
+                cta: { label: tx("Voir les offres entreprise", "See corporate offers"), to: "/offres-entreprise" },
+              },
+            ].map((f) => (
+              <div key={f.title} className="group flex flex-col bg-background ring-1 ring-border rounded-sm p-8 md:p-9 transition-all duration-500 hover:ring-champagne/50 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]">
+                <div className="flex items-center justify-center h-11 w-11 rounded-sm bg-champagne/[0.08] ring-1 ring-champagne/30 mb-6">
+                  <f.icon className="h-5 w-5 text-champagne" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-display text-[20px] leading-snug text-foreground">{f.title}</h3>
+                <p className="mt-4 text-[14px] text-muted-foreground leading-relaxed flex-1">{f.detail}</p>
+                <div className="mt-7 pt-6 border-t border-border/70">
+                  <Link to={f.cta.to} className="text-[13px] font-medium text-champagne inline-flex items-center gap-1.5 hover:gap-2 transition-all">
+                    {f.cta.label} <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* INQUIRY FORM */}
-      <section id="demande" className="section-y">
+      <section id="demande" className="section-y bg-secondary scroll-mt-24">
         <div className="container-narrow grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <div className="eyebrow mb-6">{tx("Demande de formation", "Training inquiry")}</div>
@@ -494,8 +433,8 @@ const Formations = () => {
             </h2>
             <p className="lede mt-6">
               {tx(
-                "Indiquez votre profil et votre objectif. Nous vous adressons le programme complet ainsi qu'une recommandation de parcours adaptée à votre niveau et à votre besoin.",
-                "Share your profile and your goal. We'll send you the full program along with a pathway recommendation tailored to your level and need."
+                "Indiquez votre profil et votre objectif. Nous vous adressons le programme complet ainsi qu'une recommandation de parcours adaptée à votre besoin.",
+                "Share your profile and your goal. We'll send you the full program along with a pathway recommendation tailored to your need."
               )}
             </p>
             <ul className="mt-10 space-y-4 border-t border-border/70 pt-8">
