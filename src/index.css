@@ -165,13 +165,6 @@
   /* Hero rhythm — uniform height across all internal pages (Layout adds pt-20 md:pt-24 xl:pt-28) */
   .hero-y { @apply pt-6 md:pt-8 pb-14 sm:pb-16 md:pb-20; }
   .hero-uniform { @apply hero-y border-b border-border min-h-[460px] sm:min-h-[520px] md:min-h-[600px] lg:min-h-[660px]; }
-  .global-hero-section { @apply relative bg-secondary border-b border-border hero-uniform overflow-hidden; }
-  .global-hero-grid { @apply container-wide relative grid items-center gap-12 lg:grid-cols-12 lg:gap-20; }
-  .global-hero-copy { @apply relative z-10 lg:col-span-7; }
-  .global-hero-side { @apply relative lg:col-span-5; }
-  .global-hero-panel { @apply relative overflow-hidden rounded-sm ring-1 ring-border shadow-[var(--shadow-lift)]; }
-  .global-hero-actions { @apply cta-group mt-9; }
-  .global-hero-meta { @apply mt-12 flex flex-nowrap items-center gap-x-6 overflow-x-auto whitespace-nowrap border-t border-border/70 pt-6 text-[10.5px] uppercase tracking-[0.2em] text-muted-foreground md:gap-x-8 md:text-[11px]; }
 
   .eyebrow {
     @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground;
@@ -189,7 +182,7 @@
   .lede { @apply text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed; }
 
   .card-premium {
-    @apply bg-card border border-border rounded-sm transition-all duration-500 ease-out;
+    @apply bg-card border border-border rounded-lg transition-all duration-500 ease-out;
     box-shadow: var(--shadow-soft);
     will-change: transform, box-shadow;
   }

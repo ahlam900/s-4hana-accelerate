@@ -4,7 +4,7 @@ import { Mail, GraduationCap, Briefcase, HelpCircle, ArrowRight, Check, Clock } 
 import { Button } from "@/components/ui/button";
 import ContactForm from "@/components/forms/ContactForm";
 import Reveal from "@/components/Reveal";
-import GlobalHeroSection from "@/components/GlobalHeroSection";
+import StandardHero from "@/components/StandardHero";
 import { cn } from "@/lib/utils";
 import Seo from "@/components/Seo";
 import { useTx } from "@/i18n/tx";
@@ -54,7 +54,7 @@ const Contact = () => {
     <>
       <Seo titleKey="seo.contact_title" descriptionKey="seo.contact_desc" />
       {/* HERO */}
-      <GlobalHeroSection
+      <StandardHero
         eyebrow={tx("CONTACT", "CONTACT")}
         title={
           <>
