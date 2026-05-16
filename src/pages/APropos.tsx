@@ -15,27 +15,42 @@ const APropos = () => {
     <>
       <Seo titleKey="seo.about_title" descriptionKey="seo.about_desc" />
       {/* HERO */}
-      <section className="hero-uniform bg-secondary">
-        <div className="container-wide">
-          <div className="max-w-4xl">
-            <div className="eyebrow mb-6">CBS Finance Institute</div>
-            <h1 className="display-lg text-foreground">
+      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary border-b border-border">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
+          <div className="lg:col-span-7 relative z-10">
+            <div className="inline-flex items-center gap-3 mb-8">
+              <span className="h-px w-8 bg-champagne" />
+              <span className="text-[10px] uppercase tracking-[0.32em] text-champagne font-medium">CBS FINANCE INSTITUTE</span>
+            </div>
+            <h1 className="display-xl text-foreground max-w-[22ch] leading-[1.05]">
               {tx("L'institut spécialisé pour former, transformer et rendre la ", "The specialized institute to train, transform and make ")}<em className="not-italic text-champagne font-display">{tx("Finance SAP durable", "SAP Finance sustainable")}</em>.
             </h1>
-            <div className="mt-6 max-w-2xl space-y-5 text-muted-foreground">
-              <p className="lede">
-                {tx(
-                  "Nous formons les professionnels Finance SAP, accompagnons les directions Finance dans leurs transformations et préparons les équipes à sécuriser l'adoption des nouveaux processus.",
-                  "We train SAP Finance professionals, support finance leaders through their transformations and prepare teams to secure the adoption of new processes."
-                )}
-              </p>
-              <p className="text-[15px] leading-relaxed">
-                {tx(
-                  "Une seule discipline, traitée en profondeur : la Finance SAP — des processus à leur traduction dans SAP, et des équipes à leur autonomie.",
-                  "A single discipline, treated in depth: SAP Finance — from processes to their translation into SAP, and from teams to autonomy."
-                )}
-              </p>
+            <p className="lede mt-7 max-w-xl leading-relaxed">
+              {tx(
+                "Nous formons les professionnels Finance SAP, accompagnons les directions Finance dans leurs transformations et préparons les équipes à sécuriser l'adoption des nouveaux processus.",
+                "We train SAP Finance professionals, support finance leaders through their transformations and prepare teams to secure the adoption of new processes."
+              )}
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Button asChild size="lg" variant="ink">
+                <Link to={localize("/formations")}>{tx("Découvrir les formations", "Discover the programs")} <ArrowRight /></Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link to={localize("/contact")}>{tx("Parler à un expert", "Talk to an expert")}</Link>
+              </Button>
             </div>
+          </div>
+          <div className="lg:col-span-5 relative">
+            <HeroContextCard
+              label={tx("Notre périmètre", "Our scope")}
+              items={[
+                { icon: GraduationCap, title: tx("Finance SAP", "SAP Finance"), meta: tx("Discipline traitée en profondeur", "Discipline covered in depth") },
+                { icon: Layers, title: tx("Transformation", "Transformation"), meta: tx("Cadrage & exécution S/4HANA", "S/4HANA scoping & execution") },
+                { icon: Users, title: tx("Adoption", "Adoption"), meta: tx("Key Users & relais métier", "Key Users & business relays") },
+              ]}
+              footerLabel={tx("Paris · Dubaï", "Paris · Dubai")}
+            />
           </div>
         </div>
       </section>
