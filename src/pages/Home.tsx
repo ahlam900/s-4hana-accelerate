@@ -251,16 +251,86 @@ const Home = () => {
               {tx(" construite pour la performance.", " program portfolio built for performance.")}
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+          {/* Bloc 1 — Programme phare */}
+          <Reveal className="group relative bg-card border border-champagne/50 ring-1 ring-champagne/20 rounded-sm p-8 md:p-12 lg:p-14 mb-10 lg:mb-12 overflow-hidden">
+            <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-full" />
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="flex items-center justify-center h-11 w-11 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25">
+                    <Award className="h-[20px] w-[20px] text-champagne" strokeWidth={1.4} />
+                  </div>
+                  <span className="text-[10px] uppercase tracking-[0.24em] text-champagne font-medium">{tx("Programme phare", "Flagship program")}</span>
+                </div>
+                <h3 className="font-display text-[28px] md:text-[34px] lg:text-[38px] font-medium leading-[1.15] tracking-tight text-foreground">SAP FICO Consultant Program</h3>
+                <p className="mt-4 text-[14px] uppercase tracking-[0.18em] text-muted-foreground">{tx("10 jours intensifs — Programme opérationnel", "10 intensive days — Operational program")}</p>
+              </div>
+              <div className="lg:col-span-5 flex flex-col">
+                <ul className="space-y-3 text-[14.5px] text-muted-foreground leading-[1.7]">
+                  {[
+                    tx("Maîtrise complète des modules FI & CO sur S/4HANA", "Full mastery of FI & CO modules on S/4HANA"),
+                    tx("Méthodologie projet et cas concrets de mission", "Project methodology and real mission case studies"),
+                    tx("Préparation à l'intervention en mission consultant", "Ready to intervene on consulting missions"),
+                  ].map((b) => (
+                    <li key={b} className="flex gap-3"><span className="mt-[10px] h-px w-4 bg-champagne shrink-0" />{b}</li>
+                  ))}
+                </ul>
+                <Button asChild variant="ink" size="lg" className="mt-8 self-start">
+                  <LLink to="/formations/sap-fico-consultant-program">{tx("Découvrir la formation", "Discover the program")} <ArrowRight /></LLink>
+                </Button>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Bloc 2 — Programmes SAP + IA (2x2) */}
+          <div className="grid sm:grid-cols-2 gap-6 lg:gap-7">
             {[
-              { icon: Award, flagship: true, title: "SAP FICO Consultant Program", tag: tx("Programme phare", "Flagship"), to: "/formations/sap-fico-consultant-program", desc: tx("Devenir consultant SAP FICO opérationnel sur S/4HANA, de la conception au déploiement.", "Become an operational SAP FICO consultant on S/4HANA, from design to deployment.") },
-              { icon: Cpu, title: tx("Automatiser la clôture SAP", "Automating the SAP close"), tag: tx("IA & Automation", "AI & Automation"), to: "/formations", desc: tx("Réduire les délais de clôture grâce à l'automatisation et à l'IA.", "Cut close cycles through automation and AI.") },
-              { icon: Sparkles, title: tx("Relance intelligente SAP", "Smart SAP collections"), tag: tx("IA appliquée", "Applied AI"), to: "/formations", desc: tx("Activer une relance client intelligente pilotée par l'IA dans SAP.", "Activate AI-driven smart collections inside SAP.") },
-              { icon: BarChart3, title: tx("Trésorerie temps réel SAP Analytics", "Real-time treasury · SAP Analytics"), tag: tx("Analytics", "Analytics"), to: "/formations", desc: tx("Construire une trésorerie temps réel avec SAP Analytics Cloud.", "Build a real-time treasury practice with SAP Analytics Cloud.") },
-              { icon: Network, title: tx("Architecte transformation Finance SAP", "Finance SAP transformation architect"), tag: tx("Transformation", "Transformation"), to: "/formations", desc: tx("Concevoir et piloter une transformation Finance SAP de bout en bout.", "Design and lead an end-to-end SAP Finance transformation.") },
-              { icon: Building, title: tx("Spécialisation SAP RE-FX", "SAP RE-FX specialization"), tag: tx("Spécialisation", "Specialization"), to: "/formations", desc: tx("Maîtriser la gestion immobilière SAP RE-FX sur S/4HANA.", "Master SAP RE-FX real estate management on S/4HANA.") },
+              {
+                icon: Cpu,
+                title: tx("Automatiser la clôture financière dans SAP", "Automate the financial close in SAP"),
+                tag: tx("IA & Automation", "AI & Automation"),
+                duration: tx("5 jours", "5 days"),
+                points: [
+                  tx("Robotiser les écritures et rapprochements récurrents", "Automate recurring entries and reconciliations"),
+                  tx("Détection d'anomalies par IA sur le cycle de clôture", "AI-driven anomaly detection on the close cycle"),
+                  tx("Réduction mesurable des délais et risques", "Measurable reduction in lead times and risks"),
+                ],
+              },
+              {
+                icon: Sparkles,
+                title: tx("Système de relance intelligent SAP", "Smart SAP collections system"),
+                tag: tx("IA + Scoring", "AI + Scoring"),
+                duration: tx("4 jours", "4 days"),
+                points: [
+                  tx("Scoring client prédictif intégré à SAP", "Predictive customer scoring inside SAP"),
+                  tx("Workflows de relance multicanal automatisés", "Automated multi-channel dunning workflows"),
+                  tx("Amélioration directe du DSO", "Direct DSO improvement"),
+                ],
+              },
+              {
+                icon: BarChart3,
+                title: tx("Pilotage trésorerie temps réel avec SAP Analytics", "Real-time treasury with SAP Analytics"),
+                tag: tx("Analytics", "Analytics"),
+                duration: tx("4 jours", "4 days"),
+                points: [
+                  tx("Dashboards trésorerie sur SAP Analytics Cloud", "Treasury dashboards on SAP Analytics Cloud"),
+                  tx("Prévisions de cash pilotées par la donnée", "Data-driven cash forecasting"),
+                  tx("Connexion aux flux bancaires et ERP", "Bank flow and ERP integration"),
+                ],
+              },
+              {
+                icon: Network,
+                title: tx("Architecte transformation Finance SAP", "Finance SAP transformation architect"),
+                tag: tx("IA + Design", "AI + Design"),
+                duration: tx("6 jours", "6 days"),
+                points: [
+                  tx("Concevoir l'architecture cible Finance S/4HANA", "Design the target Finance S/4HANA architecture"),
+                  tx("Intégrer l'IA dans la roadmap de transformation", "Embed AI in the transformation roadmap"),
+                  tx("Piloter le programme de bout en bout", "Lead the program end-to-end"),
+                ],
+              },
             ].map((p, i) => (
-              <Reveal key={p.title} delay={i * 70} className={`group relative bg-card border rounded-sm p-8 md:p-9 flex flex-col transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] ${p.flagship ? "border-champagne/50 ring-1 ring-champagne/20" : "border-border hover:border-champagne/40"}`}>
+              <Reveal key={p.title} delay={i * 70} className="group relative bg-card border border-border hover:border-champagne/40 rounded-sm p-8 md:p-9 flex flex-col transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
                 <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-full" />
                 <div className="flex items-center justify-between mb-7">
                   <div className="flex items-center justify-center h-11 w-11 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25">
@@ -268,18 +338,57 @@ const Home = () => {
                   </div>
                   <span className="text-[10px] uppercase tracking-[0.24em] text-champagne font-medium">{p.tag}</span>
                 </div>
-                <h3 className="font-display text-[22px] md:text-[23px] font-medium leading-[1.25] tracking-tight text-foreground min-h-[3.2em]">{p.title}</h3>
+                <h3 className="font-display text-[22px] md:text-[23px] font-medium leading-[1.25] tracking-tight text-foreground min-h-[2.6em]">{p.title}</h3>
+                <p className="mt-3 text-[12px] uppercase tracking-[0.2em] text-muted-foreground">{p.duration}</p>
                 <div className="mt-5 h-px w-10 bg-border transition-all duration-500 group-hover:w-14 group-hover:bg-champagne/60" />
-                <p className="text-[14px] text-muted-foreground mt-5 leading-[1.7] flex-1">{p.desc}</p>
-                <Button asChild variant={p.flagship ? "ink" : "outline"} className="mt-8 self-start">
-                  <LLink to={p.to}>{tx("Découvrir", "Discover")} <ArrowRight /></LLink>
+                <ul className="mt-5 space-y-2.5 text-[13.5px] text-muted-foreground leading-[1.65] flex-1">
+                  {p.points.map((b) => (
+                    <li key={b} className="flex gap-2.5"><span className="mt-[9px] h-px w-3 bg-champagne/60 shrink-0" />{b}</li>
+                  ))}
+                </ul>
+                <Button asChild variant="outline" className="mt-8 self-start">
+                  <LLink to="/formations">{tx("Découvrir la formation", "Discover the program")} <ArrowRight /></LLink>
                 </Button>
               </Reveal>
             ))}
           </div>
+
+          {/* Bloc 3 — Spécialisation RE-FX */}
+          <Reveal className="group relative bg-card border border-border hover:border-champagne/40 rounded-sm p-8 md:p-10 mt-10 lg:mt-12 transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
+            <span className="absolute top-0 left-0 h-px w-0 bg-champagne transition-all duration-700 ease-out group-hover:w-full" />
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div className="lg:col-span-5">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="flex items-center justify-center h-11 w-11 rounded-sm bg-champagne/[0.07] ring-1 ring-champagne/25">
+                    <Building className="h-[20px] w-[20px] text-champagne" strokeWidth={1.4} />
+                  </div>
+                  <span className="text-[10px] uppercase tracking-[0.24em] text-champagne font-medium">{tx("Spécialisation avancée", "Advanced specialization")}</span>
+                </div>
+                <h3 className="font-display text-[24px] md:text-[28px] font-medium leading-[1.2] tracking-tight text-foreground">{tx("Spécialisation SAP RE-FX", "SAP RE-FX specialization")}</h3>
+                <p className="mt-3 text-[12px] uppercase tracking-[0.2em] text-muted-foreground">{tx("10 jours intensifs", "10 intensive days")}</p>
+              </div>
+              <div className="lg:col-span-5">
+                <ul className="space-y-3 text-[14px] text-muted-foreground leading-[1.7]">
+                  {[
+                    tx("Gestion immobilière complète sur SAP S/4HANA", "End-to-end real estate management on SAP S/4HANA"),
+                    tx("Contrats, baux, refacturations et reporting", "Contracts, leases, rebilling and reporting"),
+                    tx("Intégration native avec FI/CO", "Native integration with FI/CO"),
+                  ].map((b) => (
+                    <li key={b} className="flex gap-3"><span className="mt-[10px] h-px w-4 bg-champagne shrink-0" />{b}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="lg:col-span-2 flex lg:justify-end">
+                <Button asChild variant="ink" className="self-start">
+                  <LLink to="/formations">{tx("Se spécialiser en RE-FX", "Specialize in RE-FX")} <ArrowRight /></LLink>
+                </Button>
+              </div>
+            </div>
+          </Reveal>
+
           <div className="mt-14 flex justify-center">
             <Button asChild size="lg" variant="ink">
-              <LLink to="/formations">{tx("Découvrir toutes les formations", "Discover all programs")} <ArrowRight /></LLink>
+              <LLink to="/formations">{tx("Voir toutes les formations", "View all programs")} <ArrowRight /></LLink>
             </Button>
           </div>
         </div>
