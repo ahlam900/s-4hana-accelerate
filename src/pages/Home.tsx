@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import { LLink } from "@/i18n/LLink";
 import Seo from "@/components/Seo";
+import KeyMetrics from "@/components/KeyMetrics";
 import heroVisual from "@/assets/hero-visual.jpg";
 import heroLocationsVisual from "@/assets/hero-locations-visual.jpg";
 import productsVisual from "@/assets/products-visual.jpg";
