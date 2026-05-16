@@ -15,7 +15,7 @@ const Home = () => {
   const tx = useTx();
   const [slide, setSlide] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setSlide((s) => (s + 1) % 2), 7000);
+    const id = setInterval(() => setSlide((s) => (s + 1) % 2), 5000);
     return () => clearInterval(id);
   }, []);
 
