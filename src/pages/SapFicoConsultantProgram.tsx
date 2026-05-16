@@ -205,7 +205,7 @@ const SapFicoConsultantProgram = () => {
                 </Link>
               </div>
             </div>
-            <div className="hidden md:flex items-center gap-3 absolute -bottom-5 -left-4 lg:-left-6 bg-ink/90 backdrop-blur-md text-ivory pl-3 pr-5 py-2.5 rounded-sm shadow-[var(--shadow-lift)] ring-1 ring-champagne/15">
+            <div className="hidden md:flex items-center gap-3 absolute -top-4 -left-4 lg:-left-6 bg-ink/90 backdrop-blur-md text-ivory pl-3 pr-5 py-2.5 rounded-sm shadow-[var(--shadow-lift)] ring-1 ring-champagne/15 z-10">
               <Award className="h-4 w-4 text-champagne" strokeWidth={1.6} />
               <span className="h-6 w-px bg-champagne/40" />
               <span className="text-[11px] uppercase tracking-[0.22em]">Parcours certifiant</span>
