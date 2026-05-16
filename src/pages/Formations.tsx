@@ -27,6 +27,7 @@ const Formations = () => {
     {
       icon: Award,
       flagship: true,
+      to: "/formations/sap-fico-consultant-program",
       sujet: "Programme%20SAP%20FICO%20Consultant%20Program",
       title: "SAP FICO Consultant Program",
       duration: tx("10 jours intensifs · 70h", "10 intensive days · 70h"),

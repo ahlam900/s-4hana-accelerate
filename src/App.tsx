@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 // Lazy: rest of the pages
 const Formations = lazy(() => import("./pages/Formations"));
 const SapFicoConsultantProgram = lazy(() => import("./pages/SapFicoConsultantProgram"));
+const FormationDetail = lazy(() => import("./pages/FormationDetail"));
 const OffresEntreprise = lazy(() => import("./pages/OffresEntreprise"));
 const ProduitsDigitaux = lazy(() => import("./pages/ProduitsDigitaux"));
 const ProduitDetail = lazy(() => import("./pages/ProduitDetail"));
@@ -44,6 +45,7 @@ const AppRoutes = () => (
       <Route path="/" element={<Home />} />
       <Route path="/formations" element={<Formations />} />
       <Route path="/formations/sap-fico-consultant-program" element={<SapFicoConsultantProgram />} />
+      <Route path="/formations/:slug" element={<FormationDetail />} />
       <Route path="/offres-entreprise" element={<OffresEntreprise />} />
       <Route path="/produits-digitaux" element={<ProduitsDigitaux />} />
       <Route path="/produits-digitaux/panier" element={<Panier />} />
