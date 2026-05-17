@@ -58,7 +58,7 @@ const FormationDetail = () => {
       />
 
       {/* HERO */}
-      <section className="relative pt-24 md:pt-28 pb-20 md:pb-24 overflow-hidden bg-secondary border-b border-border">
+      <section className="relative pt-4 md:pt-0 pb-20 md:pb-24 overflow-hidden bg-secondary border-b border-border">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
         <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-start relative">
           <div className="lg:col-span-7 relative z-10">
