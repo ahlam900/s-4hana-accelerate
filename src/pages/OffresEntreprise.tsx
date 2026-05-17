@@ -12,7 +12,7 @@ const OffresEntreprise = () => {
   return (
     <>
       <Seo titleKey="seo.corporate_title" descriptionKey="seo.corporate_desc" />
-      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden bg-secondary border-b border-border">
+      <section className="relative pt-4 md:pt-0 pb-16 md:pb-20 overflow-hidden bg-secondary border-b border-border">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
         <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative">
           <div className="lg:col-span-7 relative z-10">
