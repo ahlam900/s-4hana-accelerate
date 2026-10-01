@@ -217,4 +217,49 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.cbs-institute.com/en/produits-digitaux/guide-gouvernance-projet-sap-finance"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cbs-institute.com/produits-digitaux/guide-gouvernance-projet-sap-finance"/>
   </url>
+  <url>
+    <loc>https://www.cbs-institute.com/formations/automatiser-cloture-sap</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cbs-institute.com/formations/automatiser-cloture-sap"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cbs-institute.com/en/formations/automatiser-cloture-sap"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cbs-institute.com/formations/automatiser-cloture-sap"/>
+  </url>
+  <url>
+    <loc>https://www.cbs-institute.com/formations/relance-client-intelligente-sap</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cbs-institute.com/formations/relance-client-intelligente-sap"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cbs-institute.com/en/formations/relance-client-intelligente-sap"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cbs-institute.com/formations/relance-client-intelligente-sap"/>
+  </url>
+  <url>
+    <loc>https://www.cbs-institute.com/formations/pilotage-tresorerie-temps-reel</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cbs-institute.com/formations/pilotage-tresorerie-temps-reel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cbs-institute.com/en/formations/pilotage-tresorerie-temps-reel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cbs-institute.com/formations/pilotage-tresorerie-temps-reel"/>
+  </url>
+  <url>
+    <loc>https://www.cbs-institute.com/formations/architecte-transformation-finance-sap</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cbs-institute.com/formations/architecte-transformation-finance-sap"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cbs-institute.com/en/formations/architecte-transformation-finance-sap"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cbs-institute.com/formations/architecte-transformation-finance-sap"/>
+  </url>
+  <url>
+    <loc>https://www.cbs-institute.com/formations/specialisation-sap-re-fx</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cbs-institute.com/formations/specialisation-sap-re-fx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cbs-institute.com/en/formations/specialisation-sap-re-fx"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cbs-institute.com/formations/specialisation-sap-re-fx"/>
+  </url>
 </urlset>
